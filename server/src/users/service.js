@@ -1,0 +1,89 @@
+const { Op, where } = require("sequelize");
+const { Users, UserActions, Cases, CasesProgress } = require("../models");
+const sms = require("../sms/service");
+
+module.exports.getData = async ({ userId }) => {
+  return await Users.findByPk(userId, {
+    attributes: ["id", "email", "language", "phoneNumber"],
+    include: [
+      {
+        model: Cases,
+        attributes: [
+          "id",
+          "zehutNumber",
+          "gender",
+          "age",
+          "avatar",
+          "createdAt",
+        ],
+      },
+      {
+        model: UserActions,
+        required: false,
+        attributes: ["type"],
+        where: { type: { [Op.like]: "%feedbacks" } },
+      },
+    ],
+  });
+};
+
+module.exports.update = async ({ id, data }) => {
+  await Users.update(data, { where: { id } });
+  console.log(`user: ${id} updated successfuly`);
+};
+
+const casesProgressActions = ["openSms", "generalInformationAnswered"];
+
+const updateCasesProgress = async ({ UserId, type }) => {
+  if (!casesProgressActions.includes(type)) return;
+  const caseProgress = await CasesProgress.findOne({
+    where: { [type]: { [Op.eq]: null } },
+    include: {
+      model: Cases,
+      required: true,
+      include: {
+        model: Users,
+        where: { id: UserId },
+      },
+    },
+  });
+  if (!caseProgress) return;
+  await caseProgress.update({ [type]: new Date() });
+};
+
+module.exports.userAction = async ({ UserId, type, data }) => {
+  await UserActions.create({ UserId, type, data });
+  await sms.action({ UserId, actionKey: type });
+  await updateCasesProgress({ UserId, type });
+};
+
+module.exports.userVideoAction = async ({ UserId, type, data }) => {
+  const [actionRecord] = await UserActions.findOrCreate({
+    where: { UserId, type },
+    defaults: { data: { percentage: 0, location: 0 } },
+  });
+
+  const oldPercentage = actionRecord.data.percentage;
+
+  actionRecord.data = {
+    percentage: Math.max(actionRecord.data.percentage, data.percentage),
+    location: Math.max(actionRecord.data.location, data.location),
+  };
+  actionRecord.save();
+
+  if (actionRecord.data.percentage >= 75 && oldPercentage < 75) {
+    await updateCasesProgress({ UserId, type });
+    await sms.action({ UserId, actionKey: type });
+  }
+};
+
+module.exports.getLastStep = async ({ UserId }) => {
+  const user = await Users.findByPk(UserId, { include: [UserActions, Cases] });
+  if (!user) return "NotFound";
+  if (user.Case.gender && user.Case.age) return "generalInformationAnswered";
+  const actionPerformed = await UserActions.findOne({
+    where: { UserId, type: "startButtonClick" },
+  });
+  if (actionPerformed) return "startButtonClick";
+  return "none";
+};
