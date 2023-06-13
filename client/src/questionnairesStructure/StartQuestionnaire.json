@@ -1,0 +1,32 @@
+{
+  "problemsInFamily": {
+    "options": ["yes", "no"]
+  },
+  "test2": {
+    "options": ["yes", "no"]
+  },
+  "test3": {
+    "options": ["yes", "no"]
+  },
+  "test4": {
+    "options": ["yes", "no"]
+  },
+  "test5": {
+    "options": ["yes", "no"]
+  },
+  "test6": {
+    "options": ["yes", "no"]
+  },
+  "test7": {
+    "options": ["yes", "no"]
+  },
+  "test8": {
+    "options": ["yes", "no"]
+  },
+  "test9": {
+    "options": ["yes", "no"]
+  },
+  "test10": {
+    "options": ["yes", "no"]
+  }
+}

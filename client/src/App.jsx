@@ -4,6 +4,8 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Login from "./screens/Login";
+import Questionnaire from "./screens/Questionnaire";
+import QuestionnaireValidation from "./screens/QuestionnaireValidation";
 // import Panel from "./screens/Panel";
 // import Gister from "./screens/Gister";
 // import Start from "./screens/Start";
@@ -22,6 +24,10 @@ const App = () => {
 const router = createBrowserRouter([
   { index: true, element: <Navigate to="/Panel" /> },
   { path: "Login", element: <Login /> },
+
+  { path: "Questionnaire", element: <Questionnaire /> },
+  { path: "QuestionnaireValidation", element: <QuestionnaireValidation /> },
+
   // { path: "Panel", element: <Panel /> },
   // { path: "Gister", element: <Gister /> },
   // {
