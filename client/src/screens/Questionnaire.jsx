@@ -3,14 +3,16 @@ import ProgressBar from "../components/ProgressBar";
 import Navigation from "../components/Navigation";
 import Carouselle from "../components/Carousell";
 import questions from "../questionnairesStructure/StartQuestionnaire.json";
-import questionImages from "../assets/questionsImages";
 import questionsAnimations from "../assets/questionsAnimations";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Translator } from "../components/Translation";
+import qustionnaireImages from "../assets/questionsImages";
+import { userContext } from "../providers/UserProvider";
 
 function Questionnaire() {
+  const { Case } = useContext(userContext);
   const navigate = useNavigate();
   const formRef = useRef(null);
   const [index, setIndex] = useState(0);
@@ -18,6 +20,8 @@ function Questionnaire() {
   const [answeresIndexes, setAnsweresIndexes] = useState(
     Array(questionsLength).fill(false)
   );
+  const { age, gender, race } = Case;
+  const avatar = `${gender}_${age}_${race}`;
 
   const handleAnswer = (questionKey, answerKey, index) => () => {
     //axios request to update the answer.
@@ -41,7 +45,10 @@ function Questionnaire() {
       <ImageWrapperWrapper>
         <ImageWrapper index={index + 1}>
           <ProgressBar answeresIndexes={answeresIndexes} />
-          <QuestionImage src={questionImages[index + 1]} alt="white_boy_01" />
+          <QuestionImage
+            src={qustionnaireImages[avatar][index]}
+            alt={`${avatar} ${index}`}
+          />
         </ImageWrapper>
       </ImageWrapperWrapper>
 
@@ -104,8 +111,8 @@ const Container = styled.form`
 `;
 
 const ImageWrapper = styled.div`
+  background: url(${({ index }) => questionsAnimations[index]});
   position: relative;
-  background: url(${questionsAnimations[3]});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -120,7 +127,7 @@ const ImageWrapperWrapper = styled.div`
     transparent 0%,
     #e1e9fe 30%,
     #e1e9fe 87%,
-    transparent 93%,
+    transparent 91%,
     transparent 100%
   );
   width: 100%;

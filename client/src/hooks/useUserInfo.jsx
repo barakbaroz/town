@@ -6,7 +6,9 @@ export default function useUserInfo(userId) {
   const { setLanguage } = useContext(LanguageContext);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState({
+    Case: { age: "0-3", gender: "male", race: "white" },
+  });
 
   const updateCase = (newData) => {
     setUserInfo((prev) => ({ ...prev, Case: { ...prev.Case, ...newData } }));

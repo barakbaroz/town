@@ -1,25 +1,33 @@
-import white_boy_01 from "./white_boy_01.svg";
-import white_boy_02 from "./white_boy_02.svg";
-import white_boy_03 from "./white_boy_03.svg";
-import white_boy_04 from "./white_boy_04.svg";
-import white_boy_05 from "./white_boy_05.svg";
-import white_boy_06 from "./white_boy_06.svg";
-import white_boy_07 from "./white_boy_07.svg";
-import white_boy_08 from "./white_boy_08.svg";
-import white_boy_09 from "./white_boy_09.svg";
-import white_boy_10 from "./white_boy_10.svg";
+import male_0_3_white from "./male_0-3_white";
+import female_0_3_white from "./female_0-3_white";
+import male_0_3_black from "./male_0-3_black";
+import female_0_3_black from "./female_0-3_black";
 
-const questionImages = {
-  1: white_boy_01,
-  2: white_boy_02,
-  3: white_boy_03,
-  4: white_boy_04,
-  5: white_boy_05,
-  6: white_boy_06,
-  7: white_boy_07,
-  8: white_boy_08,
-  9: white_boy_09,
-  10: white_boy_10,
+import male_3_8_white from "./male_3-8_white";
+import female_3_8_white from "./female_3-8_white";
+import male_3_8_black from "./male_3-8_black";
+import female_3_8_black from "./female_3-8_black";
+
+import male_9_18_white from "./male_9-18_white";
+import female_9_18_white from "./female_9-18_white";
+import male_9_18_black from "./male_9-18_black";
+import female_9_18_black from "./female_9-18_black";
+
+const images = {
+  "male_0-3_white": male_0_3_white,
+  "female_0-3_white": female_0_3_white,
+  "male_0-3_black": male_0_3_black,
+  "female_0-3_black": female_0_3_black,
+
+  "male_3-8_white": male_3_8_white,
+  "female_3-8_white": female_3_8_white,
+  "male_3-8_black": male_3_8_black,
+  "female_3-8_black": female_3_8_black,
+
+  "male_9-18_white": male_9_18_white,
+  "female_9-18_white": female_9_18_white,
+  "male_9-18_black": male_9_18_black,
+  "female_9-18_black": female_9_18_black,
 };
 
-export default questionImages;
+export default images;
