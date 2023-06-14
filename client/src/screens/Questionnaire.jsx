@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Header from "../components/Header";
 import ProgressBar from "../components/ProgressBar";
 import Navigation from "../components/Navigation";
 import Carouselle from "../components/Carousell";
@@ -7,27 +6,38 @@ import questions from "../questionnairesStructure/StartQuestionnaire.json";
 import questionImages from "../assets/questionsImages";
 import questionsAnimations from "../assets/questionsAnimations";
 import { useState } from "react";
+import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import { Translator } from "../components/Translation";
 
 function Questionnaire() {
+  const navigate = useNavigate();
+  const formRef = useRef(null);
   const [index, setIndex] = useState(0);
   const questionsLength = Object.keys(questions).length;
   const [answeresIndexes, setAnsweresIndexes] = useState(
     Array(questionsLength).fill(false)
   );
 
-  const handleAnswer = (questionKey, answerKey, index) => {
+  const handleAnswer = (questionKey, answerKey, index) => () => {
     //axios request to update the answer.
-    setIndex((prev) => Math.min(prev + 1, questionsLength - 1));
+    setIndex(Math.min(index + 1, questionsLength - 1));
     setAnsweresIndexes((prev) => {
       const copy = [...prev];
       copy[index] = true;
       return copy;
     });
+    if (index + 1 === questionsLength) submit();
+  };
+
+  const submit = () => {
+    const formdata = new FormData(formRef.current);
+    const data = Object.fromEntries(formdata.entries());
+    navigate("../QuestionnaireValidation", { state: data });
   };
 
   return (
-    <Container>
-      <Header />
+    <Container ref={formRef}>
       <ImageWrapperWrapper>
         <ImageWrapper index={index + 1}>
           <ProgressBar answeresIndexes={answeresIndexes} />
@@ -42,21 +52,28 @@ function Questionnaire() {
       />
       <Carouselle index={index} setIndex={setIndex}>
         {Object.entries(questions).map(
-          ([questionKey, questionProperties], questionsIndex) => {
+          ([questionKey, questionProperties], questionIndex) => {
             return (
-              <QuestionContainer>
+              <QuestionContainer key={questionKey}>
                 <QuestionText>
                   האם ילדכם סובל מסוכרת או ממחלה בבלוטת התריס?
                 </QuestionText>
                 <ButtonsContainer>
                   {questionProperties.options.map((answerKey) => (
-                    <Button
-                      onClick={() =>
-                        handleAnswer(questionKey, answerKey, questionsIndex)
-                      }
+                    <Label
+                      key={`${questionKey}-${answerKey}`}
+                      onClick={handleAnswer(
+                        questionKey,
+                        answerKey,
+                        questionIndex
+                      )}
                     >
-                      {"כן"}
-                    </Button>
+                      {/* <CostumeCheckbox answerKey={answer}>
+                        <Vcheck />
+                      </CostumeCheckbox> */}
+                      <Translator>{answerKey}</Translator>
+                      <Input name={questionKey} value={answerKey} />
+                    </Label>
                   ))}
                 </ButtonsContainer>
               </QuestionContainer>
@@ -70,7 +87,7 @@ function Questionnaire() {
 
 export default Questionnaire;
 
-const Container = styled.div`
+const Container = styled.form`
   --screen-padding-inline: 32px;
   /* padding-block: 1rem; */
   display: flex;
@@ -116,10 +133,11 @@ const QuestionImage = styled.img`
 
 const QuestionContainer = styled.div`
   text-align: center;
+  padding-inline: var(--screen-padding-inline);
 `;
 
 const QuestionText = styled.div`
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   margin-bottom: 2rem;
 `;
 
@@ -130,7 +148,13 @@ const ButtonsContainer = styled.div`
   gap: 1rem;
 `;
 
-const Button = styled.button`
+const Input = styled.input.attrs({
+  type: "radio",
+})`
+  display: none;
+`;
+
+const Label = styled.label`
   font-size: 1.2rem;
   cursor: pointer;
   padding-block: 0.5rem;
@@ -140,4 +164,7 @@ const Button = styled.button`
   border-radius: 50px;
   background-color: #f02a4c;
   color: white;
+  &:has(${Input}:checked) {
+    background-color: blue;
+  }
 `;

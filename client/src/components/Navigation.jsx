@@ -1,9 +1,10 @@
 import navigationArrow from "../assets/Icons/navigation_arrow.svg";
 import styled, { css } from "styled-components";
+import PropTypes from "prop-types";
 
 function Navigation({ setIndex, maxQuestionIndex, textIndicator }) {
-  const decreaseIndex = (e) => setIndex((prev) => Math.max(prev - 1, 0));
-  const increaseIndex = (e) =>
+  const decreaseIndex = () => setIndex((prev) => Math.max(prev - 1, 0));
+  const increaseIndex = () =>
     setIndex((prev) => Math.min(prev + 1, maxQuestionIndex));
   return (
     <Container>
@@ -13,7 +14,13 @@ function Navigation({ setIndex, maxQuestionIndex, textIndicator }) {
         onClick={decreaseIndex}
         flip={true}
       />
-      <h3 style={{ paddingInline: "20%", fontSize: "1.2rem" }}>
+      <h3
+        style={{
+          paddingInline: "20%",
+          fontSize: "1.2rem",
+          fontFamily: "Poppins",
+        }}
+      >
         {textIndicator}
       </h3>
       <ArrowIcon
@@ -25,6 +32,12 @@ function Navigation({ setIndex, maxQuestionIndex, textIndicator }) {
     </Container>
   );
 }
+
+Navigation.propTypes = {
+  setIndex: PropTypes.func,
+  maxQuestionIndex: PropTypes.number,
+  textIndicator: PropTypes.string,
+};
 
 export default Navigation;
 

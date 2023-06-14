@@ -1,14 +1,19 @@
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 function ProgressBar({ answeresIndexes }) {
   return (
     <Container>
-      {answeresIndexes.map((answereIndex) => (
-        <Block answered={answereIndex} />
+      {answeresIndexes.map((answerIndex, index) => (
+        <Block key={`${index}-${answerIndex}`} answered={answerIndex} />
       ))}
     </Container>
   );
 }
+
+ProgressBar.propTypes = {
+  answeresIndexes: PropTypes.array,
+};
 
 export default ProgressBar;
 

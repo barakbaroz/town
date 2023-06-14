@@ -1,12 +1,13 @@
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import lodash from "lodash";
+import PropTypes from "prop-types";
 
 function Carousell({ children, index, setIndex }) {
   const pagesHolderRef = useRef(null);
   const refArray = useRef([]);
 
-  const handleScroll = lodash.debounce((e) => {
+  const handleScroll = lodash.debounce(() => {
     const y = refArray.current[index];
     const newPage = Math.abs(
       Math.floor(pagesHolderRef.current.scrollLeft / y.clientWidth)
@@ -33,6 +34,13 @@ function Carousell({ children, index, setIndex }) {
     </Container>
   );
 }
+
+Carousell.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number,
+  setIndex: PropTypes.func,
+};
+
 export default Carousell;
 
 const Container = styled.div`
@@ -55,5 +63,4 @@ const CurrQuestionContainer = styled.div`
   scroll-snap-stop: always;
   width: 100%;
   height: 100%;
-  padding-inline: var(--screen-padding-inline);
 `;

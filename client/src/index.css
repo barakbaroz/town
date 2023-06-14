@@ -7,11 +7,16 @@
 }
 
 body {
-  --screen-padding-inline: 32px;
-  margin: 0;
+  --header-logo-height: 1.6875rem;
+  --header-block-padding: 1rem;
+  --header-inline-padding: 1rem;
 
-  /* Temporary until we will have translation manager */
-  direction: rtl;
+  --header-size: calc(
+    var(--header-logo-height) + (var(--header-block-padding) * 2)
+  );
+  margin: 0;
+  padding: 0;
+  position: relative;
 }
 
 #root {

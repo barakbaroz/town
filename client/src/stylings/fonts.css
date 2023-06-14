@@ -1,0 +1,24 @@
+@import url("https://fonts.googleapis.com/css?family=Assistant:200,300,regular,600,700,800&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,regular,500,600,700,800,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;600;700;900&family=Tajawal:wght@300;400;500;700;900&display=swap");
+
+@font-face {
+  font-family: "Abraham";
+  font-weight: 200;
+  src: url(https://firebasestorage.googleapis.com/v0/b/trom-hardama.appspot.com/o/fonts%2FAbraham-Light.ttf?alt=media&token=214bc06e-a078-41a6-802e-ff4f9be907f1);
+}
+@font-face {
+  font-family: "Abraham";
+  font-weight: 400;
+  src: url(https://firebasestorage.googleapis.com/v0/b/trom-hardama.appspot.com/o/fonts%2FAbraham-Regular.ttf?alt=media&token=bdb29476-265b-4399-abcc-b74e058bb1a5);
+}
+@font-face {
+  font-family: "Abraham";
+  font-weight: 500;
+  src: url(https://firebasestorage.googleapis.com/v0/b/trom-hardama.appspot.com/o/fonts%2FAbraham-Medium.ttf?alt=media&token=e2b074fc-5d0b-49e8-9151-381ce4f9191f);
+}
+@font-face {
+  font-family: "Abraham";
+  font-weight: bold;
+  src: url(https://firebasestorage.googleapis.com/v0/b/trom-hardama.appspot.com/o/fonts%2FAbraham-Bold.ttf?alt=media&token=d3be53a1-b6d7-4f1d-b077-e82fba0dd41c);
+}
