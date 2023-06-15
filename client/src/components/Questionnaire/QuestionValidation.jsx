@@ -15,7 +15,7 @@ function QuestionValidation({ questionKey, questionProperties, value }) {
         {questionProperties.options.map((answer) => {
           return (
             <Label key={`${questionKey}-${answer}`}>
-              {answer}
+              <Translator>{answer}</Translator>
               <CostumeCheckbox answerKey={answer}>
                 <Vcheck />
               </CostumeCheckbox>
