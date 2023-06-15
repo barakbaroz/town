@@ -50,7 +50,13 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #e8eefd;
+  /* background-color: #e8eefd; */
+  background-image: linear-gradient(
+    transparent 0%,
+    #e1e9fe 30%,
+    #e1e9fe 50%,
+    transparent 100%
+  );
   padding-inline: 1rem;
   box-sizing: border-box;
 `;
