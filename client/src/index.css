@@ -7,5 +7,20 @@
 }
 
 body {
+  --header-logo-height: 1.6875rem;
+  --header-block-padding: 1rem;
+  --header-inline-padding: 1rem;
+
+  --header-size: calc(
+    var(--header-logo-height) + (var(--header-block-padding) * 2)
+  );
   margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
 }
