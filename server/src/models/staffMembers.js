@@ -28,24 +28,19 @@ const associations = (sequelize) => {
   StaffMembers.hasMany(Comments, { foreignKey: "creatorId" });
 };
 
+const hashPassword = async (user) => {
+  if (user.password) {
+    const salt = await bcrypt.genSaltSync(10, "a");
+    user.password = bcrypt.hashSync(user.password, salt);
+  }
+  if (user.email) user.email = user.email.toLocaleLowerCase();
+};
+
 const hooks = (sequelize) => {
   const { StaffMembers } = sequelize.models;
 
-  StaffMembers.beforeCreate(async (user) => {
-    if (user.password) {
-      const salt = await bcrypt.genSaltSync(10, "a");
-      user.password = bcrypt.hashSync(user.password, salt);
-    }
-    if (user.email) user.email = user.email.toLocaleLowerCase();
-  });
-
-  StaffMembers.beforeUpdate(async (user) => {
-    if (user.password) {
-      const salt = await bcrypt.genSaltSync(10, "a");
-      user.password = bcrypt.hashSync(user.password, salt);
-    }
-    if (user.email) user.email = user.email.toLocaleLowerCase();
-  });
+  StaffMembers.beforeCreate(hashPassword);
+  StaffMembers.beforeUpdate(hashPassword);
 };
 
 module.exports = { init, associations, hooks };
