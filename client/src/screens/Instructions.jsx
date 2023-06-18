@@ -90,6 +90,7 @@ const ShareWrapper = styled.div`
 `;
 
 const Footer = styled.footer`
+  font-weight: 500;
   text-align: center;
   color: #444444;
   font-size: 1.5rem;

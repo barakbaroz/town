@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { Translator } from "../Translation";
 import gist_v from "../../assets/Icons/gist_v.svg";
+import dont_forget from "../../assets/Icons/dont_forget.svg";
+import instructions_download from "../../assets/Icons/download_instruction.svg";
 
 function DontForget() {
   const dontForgetItems = [
@@ -18,7 +20,7 @@ function DontForget() {
           <Translator>לא לשכוח להביא לפגישת טרום ניתוח</Translator>
         </Title>
 
-        <Icon />
+        <DontForgetIcon src={dont_forget} lt="dont forget" />
       </TopContent>
 
       <ListContainer>
@@ -30,7 +32,7 @@ function DontForget() {
       </ListContainer>
 
       <Instructions>
-        <InstructionsIcon>{/* image will be placed here */}</InstructionsIcon>
+        <InstructionsIcon src={instructions_download} />
         <InstructionsText>
           <Translator>instruction-download</Translator>
         </InstructionsText>
@@ -65,11 +67,9 @@ const Title = styled.h2`
   font-size: 1.375rem;
 `;
 
-const Icon = styled.div`
-  min-height: 60px;
-  min-width: 60px;
-  border-radius: 50%;
-  background-color: #f02a4c;
+const DontForgetIcon = styled.img`
+  min-width: 100px;
+  aspect-ratio: 1;
 `;
 
 const ListContainer = styled.ul`
@@ -79,6 +79,7 @@ const ListContainer = styled.ul`
 
 const ListItem = styled.li`
   list-style-image: url(${gist_v});
+  font-size: 1.125rem;
 `;
 
 const Instructions = styled.div`
@@ -87,10 +88,11 @@ const Instructions = styled.div`
   align-items: center;
   align-self: center;
 `;
-const InstructionsIcon = styled.div`
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: #f02a4c;
+const InstructionsIcon = styled.img`
+  width: 5rem;
+  height: 5rem;
 `;
-const InstructionsText = styled.div``;
+const InstructionsText = styled.div`
+  font-size: 1.0625rem;
+  font-weight: 500;
+`;

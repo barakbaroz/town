@@ -2,9 +2,8 @@ import styled from "styled-components";
 import { Translator } from "../Translation";
 import SurgeryInstructionItem from "./SurgeryInstructionItem";
 
+const surgeryInstructionsItems = ["fever", "medicalCondition", "feast"];
 function SurgeryInstructions() {
-  const surgeryInstructionsItems = ["fever", "medicalCondition", "fast"];
-
   return (
     <Container>
       <Title>
@@ -79,6 +78,7 @@ const Button = styled.button`
   padding-inline: 1rem;
   border-radius: 50px;
   align-self: center;
+  font-family: inherit;
 `;
 
 const Label = styled.label`

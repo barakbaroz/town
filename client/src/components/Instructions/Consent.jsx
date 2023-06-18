@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Translator } from "../Translation";
+import download_consent from "../../assets/Icons/download_ Informed_consent.svg";
 
 function Consent() {
   return (
@@ -12,7 +13,7 @@ function Consent() {
       </Text>
 
       <ClickableConsent>
-        <ConsentIcon>{/* image will be placed here */}</ConsentIcon>
+        <ConsentIcon src={download_consent} />
         <ConsentText>
           <Translator>consent-download</Translator>
         </ConsentText>
@@ -31,18 +32,22 @@ const Container = styled.div`
   padding-block: 2rem;
 `;
 const Title = styled.h2``;
-const Text = styled.div``;
+const Text = styled.div`
+  font-size: 1.125rem;
+`;
 
 const ClickableConsent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   align-self: center;
+  margin-block-start: 15px;
 `;
-const ConsentIcon = styled.div`
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: #f02a4c;
+const ConsentIcon = styled.img`
+  width: 5rem;
+  height: 5rem;
 `;
-const ConsentText = styled.div``;
+const ConsentText = styled.div`
+  font-size: 1.0625rem;
+  font-weight: 500;
+`;
