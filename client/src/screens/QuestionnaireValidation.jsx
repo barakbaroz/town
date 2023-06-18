@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import questions from "../questionnairesStructure/StartQuestionnaire.json";
 import QuestionValidation from "../components/Questionnaire/QuestionValidation";
+import wave_background from "../assets/Backgrounds/wave_background.svg";
 import { useLocation } from "react-router-dom";
 import { Fragment } from "react";
 import { Translator } from "../components/Translation";
@@ -26,18 +27,16 @@ function QuestionnaireValidation() {
         <Translator>questionnaireValidationTitle</Translator>
       </TextBox>
       <CheckboxesContainer onSubmit={handleSubmit}>
-        {Object.entries(questions).map(([questionKey, questionProperties]) => {
-          return (
-            <Fragment key={questionKey}>
-              <QuestionValidation
-                questionKey={questionKey}
-                questionProperties={questionProperties}
-                value={answers?.[questionKey]}
-              />
-              <Divider />
-            </Fragment>
-          );
-        })}
+        {Object.entries(questions).map(([questionKey, questionProperties]) => (
+          <Fragment key={questionKey}>
+            <QuestionValidation
+              questionKey={questionKey}
+              questionProperties={questionProperties}
+              value={answers?.[questionKey]}
+            />
+            <Divider />
+          </Fragment>
+        ))}
         <Button>
           <Translator>send</Translator>
         </Button>
@@ -54,13 +53,15 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: #e8eefd; */
-  background-image: linear-gradient(
+  background-image: url(${wave_background});
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-image: linear-gradient(
     transparent 0%,
     #e1e9fe 30%,
     #e1e9fe 50%,
     transparent 100%
-  );
+  ); */
   padding-inline: 1rem;
   box-sizing: border-box;
 `;

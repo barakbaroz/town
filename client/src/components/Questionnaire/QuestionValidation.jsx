@@ -11,17 +11,15 @@ function QuestionValidation({ questionKey, questionProperties, value }) {
       </Text>
 
       <AnswersButtons>
-        {questionProperties.options.map((answer) => {
-          return (
-            <Label key={`${questionKey}-${answer}`}>
-              <Translator>{answer}</Translator>
-              <CostumeCheckbox answerKey={answer}>
-                <Vcheck />
-              </CostumeCheckbox>
-              <Input name={questionKey} defaultChecked={answer === value} />
-            </Label>
-          );
-        })}
+        {questionProperties.options.map((answer) => (
+          <Label key={`${questionKey}-${answer}`}>
+            <Translator>{answer}</Translator>
+            <CostumeCheckbox answerKey={answer}>
+              <Vcheck />
+            </CostumeCheckbox>
+            <Input name={questionKey} defaultChecked={answer === value} />
+          </Label>
+        ))}
       </AnswersButtons>
     </Container>
   );
