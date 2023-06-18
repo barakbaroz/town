@@ -3,6 +3,7 @@ import questions from "../questionnairesStructure/StartQuestionnaire.json";
 import QuestionValidation from "../components/Questionnaire/QuestionValidation";
 import { useLocation } from "react-router-dom";
 import { Fragment } from "react";
+import { Translator } from "../components/Translation";
 
 function QuestionnaireValidation() {
   const location = useLocation();
@@ -21,8 +22,9 @@ function QuestionnaireValidation() {
 
   return (
     <Container>
-      {/* <Header /> */}
-      <TextBox>סיימתם לענות על השאלון, בדקו את תשובותיכם לפני שליחה</TextBox>
+      <TextBox>
+        <Translator>questionnaireValidationTitle</Translator>
+      </TextBox>
       <CheckboxesContainer onSubmit={handleSubmit}>
         {Object.entries(questions).map(([questionKey, questionProperties]) => {
           return (
@@ -36,7 +38,9 @@ function QuestionnaireValidation() {
             </Fragment>
           );
         })}
-        <Button>שליחה</Button>
+        <Button>
+          <Translator>send</Translator>
+        </Button>
       </CheckboxesContainer>
     </Container>
   );
@@ -76,10 +80,10 @@ const CheckboxesContainer = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
-  /* gap: 0.5rem; */
   padding-block: 2rem;
   padding-inline: 15px;
   align-items: center;
+  max-width: 45rem;
 `;
 
 const Button = styled.button`

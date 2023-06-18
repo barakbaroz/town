@@ -45,15 +45,3 @@ module.exports.userVideoAction = async (req, res) => {
     return res.status(500).send("Error");
   }
 };
-
-module.exports.getLastStep = async (req, res) => {
-  try {
-    const { userId: UserId } = req.body;
-    if (!isUUID(UserId)) return res.status(404).send("invalid ID");
-    const lastStep = await userServices.getLastStep({ UserId });
-    return res.status(200).send(lastStep);
-  } catch (error) {
-    console.error(error);
-    return res.status(500).send("Error");
-  }
-};

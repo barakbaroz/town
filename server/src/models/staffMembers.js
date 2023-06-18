@@ -18,34 +18,30 @@ const init = (sequelize) =>
       name: DataTypes.STRING,
       password: DataTypes.STRING,
       role: DataTypes.STRING,
+      department: DataTypes.STRING,
     },
     { underscored: true }
   );
 
 const associations = (sequelize) => {
-  const { Instructions, StaffMembers, Comments } = sequelize.models;
-  StaffMembers.hasMany(Instructions, { foreignKey: "creatorId" });
+  const { Cases, StaffMembers, Comments } = sequelize.models;
+  StaffMembers.hasMany(Cases, { foreignKey: "creatorId" });
   StaffMembers.hasMany(Comments, { foreignKey: "creatorId" });
+};
+
+const hashPassword = async (user) => {
+  if (user.password) {
+    const salt = bcrypt.genSaltSync(10, "a");
+    user.password = bcrypt.hashSync(user.password, salt);
+  }
+  if (user.email) user.email = user.email.toLocaleLowerCase();
 };
 
 const hooks = (sequelize) => {
   const { StaffMembers } = sequelize.models;
 
-  StaffMembers.beforeCreate(async (user) => {
-    if (user.password) {
-      const salt = await bcrypt.genSaltSync(10, "a");
-      user.password = bcrypt.hashSync(user.password, salt);
-    }
-    if (user.email) user.email = user.email.toLocaleLowerCase();
-  });
-
-  StaffMembers.beforeUpdate(async (user) => {
-    if (user.password) {
-      const salt = await bcrypt.genSaltSync(10, "a");
-      user.password = bcrypt.hashSync(user.password, salt);
-    }
-    if (user.email) user.email = user.email.toLocaleLowerCase();
-  });
+  StaffMembers.beforeCreate(hashPassword);
+  StaffMembers.beforeUpdate(hashPassword);
 };
 
 module.exports = { init, associations, hooks };

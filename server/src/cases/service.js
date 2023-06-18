@@ -4,7 +4,7 @@ const {
   Users,
   CasesProgress,
   SmsQueue,
-  Instructions,
+  StaffMembers,
 } = require("../models");
 const { Op } = require("sequelize");
 const sms = require("../sms/service");
@@ -51,7 +51,12 @@ const zehutFilter = ({ zehutNumber }) =>
 const myCasesFilter = ({ myCases }, creatorId) =>
   myCases ? { creatorId } : {};
 
-module.exports.getCases = async ({ creatorId, search }) => {
+const departmentFilter = ({ myCases }, role) => {
+  if (myCases && role === "Mega") return {};
+  if (myCases && role !== "Mega") return {};
+};
+
+module.exports.search = async ({ creatorId, search, role, department }) => {
   console.info("Get cases service");
   const cases = await Cases.findAll({
     include: [
@@ -74,6 +79,7 @@ module.exports.getCases = async ({ creatorId, search }) => {
     attributes: ["id", "zehutNumber", "gender", "age", "createdAt"],
     where: {
       ...zehutFilter(search),
+      ...myCasesFilter(search, creatorId),
     },
     order: [["createdAt", "DESC"]],
     offset: 0,
@@ -94,7 +100,6 @@ module.exports.postCase = async ({
   const newCase = await Cases.create({ zehutNumber, creatorId });
   const CaseId = newCase.dataValues.id;
   const user = await Users.create({ CaseId, phoneNumber });
-  await Instructions.create({ CaseId, phase, kit });
   const actionKey = "creation";
   await sms.action({ UserId: user.id, actionKey });
   await sms.sendImmediate({ CaseId, type: actionKey, phoneNumber });

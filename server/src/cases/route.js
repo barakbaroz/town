@@ -4,7 +4,7 @@ const {
   update,
   postCase,
   CommentCase,
-  getCases,
+  search,
   deleteCase,
 } = require("./controller");
 const { verifyToken } = require("../stuffMembers/authorization");
@@ -19,7 +19,7 @@ router.post("/create", postCase);
 router.post("/CommentCase", CommentCase);
 
 //GET
-router.post("/getList", getCases);
+router.post("/search", search);
 
 //DELETE
 router.delete("/deleteCase", deleteCase);
