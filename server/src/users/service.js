@@ -35,6 +35,7 @@ module.exports.update = async ({ id, data }) => {
 const typeToColumn = {
   "opened-sms": "openSms",
   "general-information-answered": "avatarSelection",
+  "signed-confirmation": "signedConfirmation",
   "watched-video": "watchedVideo",
 };
 
