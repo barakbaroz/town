@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const cors = require("cors");
-const routes = require("./api");
+const api = require("./api");
 const pages = require("./pages");
 
 console.info("Starting server...");
@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
-app.use("/api", routes);
+app.use("/api", api);
 app.use(pages);
 
 const PORT = process.env.NODE_PORT;
