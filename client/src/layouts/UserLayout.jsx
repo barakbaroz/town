@@ -1,7 +1,7 @@
 import { LanguageProvider } from "../components/Translation";
 import { Outlet, useParams } from "react-router-dom";
 import UserProvider from "../providers/UserProvider";
-import Header from "../components/GeneralComponents/Header";
+import Header from "../components/UserScreensComponents/Header";
 
 function UserLayout() {
   const { userId } = useParams();

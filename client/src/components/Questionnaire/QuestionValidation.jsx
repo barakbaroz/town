@@ -7,8 +7,7 @@ function QuestionValidation({ questionKey, questionProperties, value }) {
   return (
     <Container>
       <Text>
-        {/* <Translator>{questionKey}</Translator> */}
-        <Translator>problemsInFamily</Translator>
+        <Translator>{questionKey}</Translator>
       </Text>
 
       <AnswersButtons>
@@ -40,7 +39,7 @@ export default QuestionValidation;
 const Container = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   gap: 2rem;
 `;
 

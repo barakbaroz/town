@@ -1,1 +1,19 @@
-{}
+{
+  "yes": "yes",
+  "no": "no",
+
+  "send": "send",
+
+  "problemsInFamily": "Has your child, or anyone else in your family, experienced any problems with medical anesthesia in the past?",
+  "neurologicalProblem": "Has your child been diagnosed with a neurological illness?",
+  "coagulation": "Does your child have a suspected or diagnosed blood clotting disorder? ",
+  "thyroidOrDiabetes": "Has your child been diagnosed with diabetes or a thyroid disorder?",
+  "renalFunctionAndSpecialDiet": "Has your child been diagnosed with a kidney malfunction that requires medication or a special diet?",
+  "muscleSystem": "Does your child suffer from a syndrome that affects the muscular system?",
+  "lungDisease": "Does your child suffer from a lung disease that causes wheezing or shortness of breath?",
+  "heartProblems": "Does your child have any past or current heart problems?",
+  "diseasesNeedTreatment": "Has your child been diagnosed with any syndrome, metabolic disease, genetic disorder, malformation, or chronic condition that requires special treatment and supervision?",
+  "bornBeforeWeek36": "Was your child born earlier than 36 weeks gestation and hospitalized in a PICU?",
+
+  "questionnaireValidationTitle": "You've reached the end of the questionnaire. Please review your answers before submitting them"
+}
