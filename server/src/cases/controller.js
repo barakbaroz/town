@@ -12,11 +12,16 @@ module.exports.update = async (req, res) => {
   }
 };
 
-module.exports.getCases = async (req, res) => {
+module.exports.search = async (req, res) => {
   try {
-    const { id: creatorId } = req.staffMembers;
+    const { id: creatorId, role, department } = req.staffMembers;
     const { search } = req.body;
-    const cases = await casesServices.getCases({ creatorId, search });
+    const cases = await casesServices.search({
+      creatorId,
+      search,
+      role,
+      department,
+    });
     return res.status(200).json(cases);
   } catch (error) {
     console.error(error);
