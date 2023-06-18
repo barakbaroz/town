@@ -1,0 +1,30 @@
+{
+  "yes": "Sí",
+  "no": "No",
+
+  "send": "Enviar",
+
+  "problemsInFamily-male": " ¿Ha tenido su hijo o algún miembro de su familia problemas con la anestesia (una reacción a los medicamentos/hipertermia maligna, etc.)?",
+  "neurologicalProblem-male": "¿Le han diagnosticado a su hijo una enfermedad neurológica?",
+  "coagulation-male": "¿Se le ha diagnosticado o se sospecha que su hijo tiene un problema de coagulación?",
+  "thyroidOrDiabetes-male": "¿Le han diagnosticado a su hijo diabetes o una enfermedad de la tiroides? ",
+  "renalFunctionAndSpecialDiet-male": "¿Ha sido diagnosticado su hijo con una función renal reducida y requiere medicación o una dieta especial?",
+  "muscleSystem-male": "¿Su hijo sufre de un síndrome que daña el sistema muscular?",
+  "lungDisease-male": "¿Su hijo sufre de una enfermedad pulmonar caracterizada por sibilancias y falta de aire (asma, vías respiratorias reactivas) que requiere medicación (incluye un inhalador) de forma regular o ha sufrido de crisis respiratorias en los últimos tres meses?",
+  "heartProblems-male": "¿Su hijo sufre actualmente o ha sufrido en el pasado de problemas cardíacos? ",
+  "diseasesNeedTreatment-male": " ¿Se le ha diagnosticado a su hijo un síndrome, una enfermedad metabólica, un defecto genético, una malformación o una condición crónica que requiere tratamiento y seguimiento con un médico?",
+  "bornBeforeWeek36-male": "En caso de que su hijo tenga menos de un año de edad, ¿ha nacido antes de la semana 36 de embarazo y fue hospitalizado en neonatología (bebé prematuro)?",
+
+  "problemsInFamily-female": "¿Ha tenido su hija o algún miembro de su familia problemas con la anestesia (una reacción a los medicamentos/hipertermia maligna, etc.)?",
+  "neurologicalProblem-female": "Le han diagnosticado a su hija una enfermedad neurológica?",
+  "coagulation-female": "¿Se le ha diagnosticado o se sospecha que su hija tiene un problema de coagulación?",
+  "thyroidOrDiabetes-female": "¿Le han diagnosticado a su hija diabetes o una enfermedad de la tiroides?",
+  "renalFunctionAndSpecialDiet-female": "¿Ha sido diagnosticado su hija con una función renal reducida y requiere medicación o una dieta especial?",
+  "muscleSystem-female": "¿Su hija sufre de un síndrome que daña el sistema muscular?",
+  "lungDisease-female": "¿Su hija sufre de una enfermedad pulmonar caracterizada por sibilancias y falta de aire (asma, vías respiratorias reactivas) que requiere medicación (incluye un inhalador) de forma regular o ha sufrido de crisis respiratorias en los últimos tres meses?",
+  "heartProblems-female": "¿Su hija sufre actualmente o ha sufrido en el pasado de problemas cardíacos?",
+  "diseasesNeedTreatment-female": "¿Se le ha diagnosticado a su hija un síndrome, una enfermedad metabólica, un defecto genético, una malformación o una condición crónica que requiere tratamiento y seguimiento con un médico?",
+  "bornBeforeWeek36-female": "En caso de que su hija tenga menos de un año de edad, ¿ha nacido antes de la semana 36 de embarazo y fue hospitalizada en neonatología (bebé prematuro)?",
+
+  "questionnaireValidationTitle": "Han llegado al final del cuestionario. Por favor revisen sus respuestas antes de enviarlas."
+}
