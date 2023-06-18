@@ -53,16 +53,15 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-image: url(${wave_background});
+  background-image: url(${wave_background});
   background-repeat: no-repeat;
-  background-size: cover; */
-  /* background-color: #e8eefd; */
-  background-image: linear-gradient(
+  background-size: cover;
+  /* background-image: linear-gradient(
     transparent 0%,
     #e1e9fe 30%,
     #e1e9fe 50%,
     transparent 100%
-  );
+  ); */
   padding-inline: 1rem;
   box-sizing: border-box;
 `;
