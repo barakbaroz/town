@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import questions from "../questionnairesStructure/StartQuestionnaire.json";
 import QuestionValidation from "../components/Questionnaire/QuestionValidation";
+import wave_background from "../assets/Backgrounds/wave_background.svg";
 import { useLocation } from "react-router-dom";
 import { Fragment } from "react";
 import { Translator } from "../components/Translation";
@@ -54,6 +55,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* background-image: url(${wave_background});
+  background-repeat: no-repeat;
+  background-size: cover; */
   /* background-color: #e8eefd; */
   background-image: linear-gradient(
     transparent 0%,

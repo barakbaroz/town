@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import ProgressBar from "../components/ProgressBar";
-import Navigation from "../components/Navigation";
-import Carouselle from "../components/Carousell";
+import ProgressBar from "../components/Questionnaire/ProgressBar";
+import Navigation from "../components/Questionnaire/Navigation";
+import Carouselle from "../components/User/Carousell";
 import questions from "../questionnairesStructure/StartQuestionnaire.json";
 import questionsAnimations from "../assets/questionsAnimations";
 import { useContext, useState } from "react";
@@ -59,33 +59,31 @@ function Questionnaire() {
       />
       <Carouselle index={index} setIndex={setIndex}>
         {Object.entries(questions).map(
-          ([questionKey, questionProperties], questionIndex) => {
-            return (
-              <QuestionContainer key={questionKey}>
-                <QuestionText>
-                  <Translator>{questionKey}</Translator>
-                </QuestionText>
-                <ButtonsContainer>
-                  {questionProperties.options.map((answerKey) => (
-                    <Label
-                      key={`${questionKey}-${answerKey}`}
-                      onClick={handleAnswer(
-                        questionKey,
-                        answerKey,
-                        questionIndex
-                      )}
-                    >
-                      {/* <CostumeCheckbox answerKey={answer}>
+          ([questionKey, questionProperties], questionIndex) => (
+            <QuestionContainer key={questionKey}>
+              <QuestionText>
+                <Translator>{questionKey}</Translator>
+              </QuestionText>
+              <ButtonsContainer>
+                {questionProperties.options.map((answerKey) => (
+                  <Label
+                    key={`${questionKey}-${answerKey}`}
+                    onClick={handleAnswer(
+                      questionKey,
+                      answerKey,
+                      questionIndex
+                    )}
+                  >
+                    {/* <CostumeCheckbox answerKey={answer}>
                         <Vcheck />
                       </CostumeCheckbox> */}
-                      <Translator>{answerKey}</Translator>
-                      <Input name={questionKey} value={answerKey} />
-                    </Label>
-                  ))}
-                </ButtonsContainer>
-              </QuestionContainer>
-            );
-          }
+                    <Translator>{answerKey}</Translator>
+                    <Input name={questionKey} value={answerKey} />
+                  </Label>
+                ))}
+              </ButtonsContainer>
+            </QuestionContainer>
+          )
         )}
       </Carouselle>
     </Container>
