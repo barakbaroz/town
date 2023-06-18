@@ -98,8 +98,9 @@ const BlueWrapper = styled.div`
   background-color: #84a4fc;
   border-radius: 0 20px 0 20px;
   margin-block-start: 2rem;
-  padding-block: 1.6875rem;
+  padding-block-start: 1.6875rem;
   padding-inline: var(--screen-texts-padding);
+  padding-block-end: 1.9375rem;
   color: #ffffff;
 `;
 

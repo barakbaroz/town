@@ -11,14 +11,12 @@ function SurgeryInstructions() {
       </Title>
 
       <ListContainer>
-        {surgeryInstructionsItems.map((surgeryInstruction) => {
-          return (
-            <>
-              <SurgeryInstructionItem surgeryInstruction={surgeryInstruction} />
-              <Divider />
-            </>
-          );
-        })}
+        {surgeryInstructionsItems.map((surgeryInstruction) => (
+          <>
+            <SurgeryInstructionItem surgeryInstruction={surgeryInstruction} />
+            <Divider />
+          </>
+        ))}
       </ListContainer>
 
       <Button>
@@ -66,7 +64,7 @@ const Input = styled.input.attrs({
 
 const Button = styled.button`
   cursor: pointer;
-  width: clamp(1.6rem, 50%, 13rem);
+  width: 12rem;
   background-color: #f02a4c;
   border: none;
   padding-block: 0.6875rem;

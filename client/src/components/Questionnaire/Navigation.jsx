@@ -2,7 +2,7 @@ import navigationArrow from "../../assets/Icons/navigation_arrow.svg";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
-function Navigation({ setIndex, maxQuestionIndex, textIndicator }) {
+function Navigation({ setIndex, maxQuestionIndex, index, questionsSize }) {
   const decreaseIndex = () => setIndex((prev) => Math.max(prev - 1, 0));
   const increaseIndex = () =>
     setIndex((prev) => Math.min(prev + 1, maxQuestionIndex));
@@ -17,11 +17,13 @@ function Navigation({ setIndex, maxQuestionIndex, textIndicator }) {
       <h3
         style={{
           paddingInline: "20%",
-          fontSize: "1.2rem",
+          fontSize: "1.375rem",
           fontFamily: "Poppins",
         }}
       >
-        {textIndicator}
+        {index + 1}
+        <span style={{ marginInline: "0.4rem" }}>/</span>
+        {questionsSize}
       </h3>
       <ArrowIcon
         src={navigationArrow}

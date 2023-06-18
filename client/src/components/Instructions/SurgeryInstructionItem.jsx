@@ -33,8 +33,6 @@ const Text = styled.p`
 `;
 
 const InstructionIcon = styled.img`
-  min-width: 50px;
-  min-height: 50px;
-  background-color: white;
-  border-radius: 50%;
+  width: 47px;
+  height: 47px;
 `;

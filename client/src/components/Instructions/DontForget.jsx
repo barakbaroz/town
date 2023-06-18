@@ -45,7 +45,7 @@ export default DontForget;
 
 const Container = styled.div`
   padding-block: 1rem;
-  margin-block-start: 1.5rem;
+  margin-block-start: 3.75rem;
   display: flex;
   flex-direction: column;
   color: #444444;
@@ -87,8 +87,8 @@ const Instructions = styled.div`
   align-self: center;
 `;
 const InstructionsIcon = styled.img`
-  width: 5rem;
-  height: 5rem;
+  width: 4.5625rem;
+  height: 4.5625rem;
 `;
 const InstructionsText = styled.div`
   font-size: 1.0625rem;

@@ -51,6 +51,7 @@ const Label = styled.label`
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+  font-size: 1rem;
 `;
 
 const Input = styled.input.attrs({
@@ -64,6 +65,8 @@ const Vcheck = styled.img.attrs({
   alt: "V",
 })`
   display: none;
+  width: 0.9375rem;
+  height: 0.75rem;
 `;
 
 const colorByType = {
@@ -72,7 +75,7 @@ const colorByType = {
 };
 
 const CostumeCheckbox = styled.div`
-  --size: 1.6rem;
+  --size: 1.75rem;
   min-width: var(--size);
   min-height: var(--size);
   border-radius: 50%;
