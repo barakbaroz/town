@@ -1,4 +1,4 @@
-import navigationArrow from "../assets/Icons/navigation_arrow.svg";
+import navigationArrow from "../../assets/Icons/navigation_arrow.svg";
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
