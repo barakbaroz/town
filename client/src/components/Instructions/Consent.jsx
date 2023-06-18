@@ -29,9 +29,12 @@ const Container = styled.div`
 
   /* The same as the margin on the DontForget component container */
   padding-inline: 20px;
-  padding-block: 2rem;
+  padding-block: 2.625rem;
 `;
-const Title = styled.h2``;
+const Title = styled.h2`
+  margin-block-start: 0;
+  margin-block-end: 1.2rem;
+`;
 const Text = styled.div`
   font-size: 1.125rem;
 `;

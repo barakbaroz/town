@@ -39,15 +39,10 @@ export default SurgeryInstructions;
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-
-  background-color: #84a4fc;
-  border-radius: 0 20px 0 20px;
-  margin-block-start: 2rem;
-  padding: 1rem;
-  color: #ffffff;
 `;
 
 const Title = styled.h2`
+  margin: 0;
   font-size: 1.375rem;
 `;
 

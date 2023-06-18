@@ -16,7 +16,7 @@ function LanguageProvider({ children }) {
   const updateLanguage = ({ userId, language }) => {
     setLanguage(language);
     if (!userId) return;
-    axios.put(`/api/users/update`, { language, userId });
+    // axios.put(`/api/users/update`, { language, userId });
   };
 
   return (

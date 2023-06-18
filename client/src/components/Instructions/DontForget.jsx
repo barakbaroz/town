@@ -45,13 +45,11 @@ export default DontForget;
 
 const Container = styled.div`
   padding-block: 1rem;
-  margin-inline: 20px;
   margin-block-start: 1.5rem;
-
   display: flex;
   flex-direction: column;
   color: #444444;
-  padding-inline: 1rem;
+  padding-inline: 1.5rem;
   box-shadow: 0px 3px 6px #00000029;
   border-radius: 25px;
   background-color: white;
@@ -74,7 +72,7 @@ const DontForgetIcon = styled.img`
 
 const ListContainer = styled.ul`
   margin-inline: 0;
-  padding-inline: 1rem;
+  padding-inline-start: 1.5rem;
 `;
 
 const ListItem = styled.li`

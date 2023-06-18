@@ -25,7 +25,6 @@ export default SurgeryInstructionItem;
 const Container = styled.div`
   display: flex;
   align-items: center;
-  padding-inline: 30px;
   gap: 1rem;
 `;
 

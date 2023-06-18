@@ -8,6 +8,7 @@ import Feedback from "../components/Instructions/Feedback";
 import SurgeryInstructions from "../components/Instructions/SurgeryInstructions";
 import DontForget from "../components/Instructions/DontForget";
 import Consent from "../components/Instructions/Consent";
+import LanguageBar from "../components/User/LanguageBar";
 
 function Instructions() {
   const userInfo = useContext(userContext);
@@ -17,6 +18,7 @@ function Instructions() {
 
   return (
     <Container>
+      <LanguageBar />
       <VideoPreviewTexts>
         <Title>
           <Translator>הסרטון הבא הותאם במיוחד עבור ילדכם</Translator>
@@ -44,8 +46,11 @@ function Instructions() {
         <Feedback type="post" show={showFeedback} />
       </VideoWrapper>
 
-      <SurgeryInstructions />
-      <DontForget />
+      <BlueWrapper>
+        <SurgeryInstructions />
+        <DontForget />
+      </BlueWrapper>
+
       <Consent />
       <Footer>
         <Translator>Footer</Translator>
@@ -87,6 +92,15 @@ const ShareWrapper = styled.div`
   margin: 1rem 0 0 0;
   gap: 1.2rem;
   margin-inline: var(--screen-texts-padding);
+`;
+
+const BlueWrapper = styled.div`
+  background-color: #84a4fc;
+  border-radius: 0 20px 0 20px;
+  margin-block-start: 2rem;
+  padding-block: 1.6875rem;
+  padding-inline: var(--screen-texts-padding);
+  color: #ffffff;
 `;
 
 const Footer = styled.footer`

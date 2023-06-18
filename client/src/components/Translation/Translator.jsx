@@ -18,6 +18,7 @@ export function Translate(key) {
 }
 
 export const languages = [
+  { name: "Español", value: "sp" },
   { name: "عربيه", value: "ar" },
   { name: "English", value: "en" },
   { name: "Pусский", value: "ru" },
