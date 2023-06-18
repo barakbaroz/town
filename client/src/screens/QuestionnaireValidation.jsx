@@ -27,18 +27,16 @@ function QuestionnaireValidation() {
         <Translator>questionnaireValidationTitle</Translator>
       </TextBox>
       <CheckboxesContainer onSubmit={handleSubmit}>
-        {Object.entries(questions).map(([questionKey, questionProperties]) => {
-          return (
-            <Fragment key={questionKey}>
-              <QuestionValidation
-                questionKey={questionKey}
-                questionProperties={questionProperties}
-                value={answers?.[questionKey]}
-              />
-              <Divider />
-            </Fragment>
-          );
-        })}
+        {Object.entries(questions).map(([questionKey, questionProperties]) => (
+          <Fragment key={questionKey}>
+            <QuestionValidation
+              questionKey={questionKey}
+              questionProperties={questionProperties}
+              value={answers?.[questionKey]}
+            />
+            <Divider />
+          </Fragment>
+        ))}
         <Button>
           <Translator>send</Translator>
         </Button>
