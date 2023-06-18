@@ -2,31 +2,31 @@
   "problemsInFamily": {
     "options": ["yes", "no"]
   },
-  "test2": {
+  "neurologicalProblem": {
     "options": ["yes", "no"]
   },
-  "test3": {
+  "coagulation": {
     "options": ["yes", "no"]
   },
-  "test4": {
+  "thyroidOrDiabetes": {
     "options": ["yes", "no"]
   },
-  "test5": {
+  "renalFunctionAndSpecialDiet": {
     "options": ["yes", "no"]
   },
-  "test6": {
+  "muscleSystem": {
     "options": ["yes", "no"]
   },
-  "test7": {
+  "lungDisease": {
     "options": ["yes", "no"]
   },
-  "test8": {
+  "heartProblems": {
     "options": ["yes", "no"]
   },
-  "test9": {
+  "diseasesNeedTreatment": {
     "options": ["yes", "no"]
   },
-  "test10": {
+  "bornBeforeWeek36": {
     "options": ["yes", "no"]
   }
 }

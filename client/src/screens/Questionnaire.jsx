@@ -63,7 +63,7 @@ function Questionnaire() {
             return (
               <QuestionContainer key={questionKey}>
                 <QuestionText>
-                  האם ילדכם סובל מסוכרת או ממחלה בבלוטת התריס?
+                  <Translator>{questionKey}</Translator>
                 </QuestionText>
                 <ButtonsContainer>
                   {questionProperties.options.map((answerKey) => (
