@@ -1,4 +1,4 @@
-const { Op, where } = require("sequelize");
+const { Op } = require("sequelize");
 const { Users, UserActions, Cases, CasesProgress } = require("../models");
 const sms = require("../sms/service");
 
@@ -32,12 +32,17 @@ module.exports.update = async ({ id, data }) => {
   console.log(`user: ${id} updated successfuly`);
 };
 
-const casesProgressActions = ["openSms", "generalInformationAnswered"];
+const typeToColumn = {
+  "opened-sms": "openSms",
+  "general-information-answered": "avatarSelection",
+  "watched-video": "watchedVideo",
+};
 
 const updateCasesProgress = async ({ UserId, type }) => {
-  if (!casesProgressActions.includes(type)) return;
+  const column = typeToColumn[type];
+  if (!column) return;
   const caseProgress = await CasesProgress.findOne({
-    where: { [type]: { [Op.eq]: null } },
+    where: { [column]: { [Op.eq]: null } },
     include: {
       model: Cases,
       required: true,
@@ -48,7 +53,7 @@ const updateCasesProgress = async ({ UserId, type }) => {
     },
   });
   if (!caseProgress) return;
-  await caseProgress.update({ [type]: new Date() });
+  await caseProgress.update({ [column]: new Date() });
 };
 
 module.exports.userAction = async ({ UserId, type, data }) => {
@@ -75,15 +80,4 @@ module.exports.userVideoAction = async ({ UserId, type, data }) => {
     await updateCasesProgress({ UserId, type });
     await sms.action({ UserId, actionKey: type });
   }
-};
-
-module.exports.getLastStep = async ({ UserId }) => {
-  const user = await Users.findByPk(UserId, { include: [UserActions, Cases] });
-  if (!user) return "NotFound";
-  if (user.Case.gender && user.Case.age) return "generalInformationAnswered";
-  const actionPerformed = await UserActions.findOne({
-    where: { UserId, type: "startButtonClick" },
-  });
-  if (actionPerformed) return "startButtonClick";
-  return "none";
 };
