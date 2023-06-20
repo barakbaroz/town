@@ -18,7 +18,9 @@ function Instructions() {
 
   return (
     <Container>
-      <LanguageBar />
+      <StyledLanguageBar>
+        <LanguageBar />
+      </StyledLanguageBar>
       <VideoPreviewTexts>
         <Title>
           <Translator>הסרטון הבא הותאם במיוחד עבור ילדכם</Translator>
@@ -41,9 +43,9 @@ function Instructions() {
           setShowFeedback={setShowFeedback}
         />
         <ShareWrapper>
-          <VideoButtons type="test" />
+          <VideoButtons />
         </ShareWrapper>
-        <Feedback type="post" show={showFeedback} />
+        <Feedback show={showFeedback} />
       </VideoWrapper>
 
       <BlueWrapper>
@@ -64,6 +66,10 @@ export default Instructions;
 const Container = styled.div`
   --screen-texts-padding: 27px;
   padding-block: 20px;
+`;
+
+const StyledLanguageBar = styled.div`
+  padding-inline: var(--screen-texts-padding);
 `;
 
 const VideoPreviewTexts = styled.div`

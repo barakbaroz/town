@@ -5,14 +5,6 @@ import dont_forget from "../../assets/Icons/dont_forget.svg";
 import instructions_download from "../../assets/Icons/download_instruction.svg";
 
 function DontForget() {
-  const dontForgetItems = [
-    "SummaryDocuments",
-    "medicineList",
-    "bloodTest",
-    "results",
-    "tofes17",
-  ];
-
   return (
     <Container>
       <TopContent>
@@ -40,6 +32,14 @@ function DontForget() {
     </Container>
   );
 }
+
+const dontForgetItems = [
+  "SummaryDocuments",
+  "medicineList",
+  "bloodTest",
+  "results",
+  "tofes17",
+];
 
 export default DontForget;
 

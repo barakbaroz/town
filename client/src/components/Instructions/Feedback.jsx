@@ -1,11 +1,11 @@
-import axios from "axios";
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 import { Translator } from "../Translation";
 import { userContext } from "../../providers/UserProvider";
+import postAnalytics from "../../utilities/postAnalytics";
 
-const Feedback = ({ type, show }) => {
+const Feedback = ({ show }) => {
   const { userId } = useParams();
   const userInfo = useContext(userContext);
 
@@ -19,12 +19,11 @@ const Feedback = ({ type, show }) => {
     );
 
   const handleFeedback = (answer) => (e) => {
-    axios.post("/api/users/userAction", {
-      userId,
-      type: `${type}-${answer}`,
-    });
+    postAnalytics({ userId, type: answer });
     setAnswered(true);
   };
+
+  //TODO: Get the response from backend and render the correct thing.
 
   // if (userInfo.UserActions.find((action) => action.type.includes(type)))
   //   return <div style={{ height: "1.5rem" }}></div>;
