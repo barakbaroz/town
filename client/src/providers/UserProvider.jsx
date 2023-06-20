@@ -1,6 +1,6 @@
 import { createContext } from "react";
 import useUserInfo from "../hooks/useUserInfo";
-import Loader from "../components/Responsive/Loader";
+import Loader from "../components/Loader";
 import PropTypes from "prop-types";
 
 export const userContext = createContext();

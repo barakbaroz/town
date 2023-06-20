@@ -9,9 +9,9 @@ const init = (sequelize) =>
         type: DataTypes.UUID,
       },
       openSms: DataTypes.DATE,
-      generalInformationAnswered: DataTypes.DATE,
-      watchedVideoPreSurgery: DataTypes.DATE,
-      watchedVideoPostSurgery: DataTypes.DATE,
+      avatarSelection: DataTypes.DATE,
+      signedConfirmation: DataTypes.DATE,
+      watchedVideo: DataTypes.DATE,
     },
     { underscored: true }
   );

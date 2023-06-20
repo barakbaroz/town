@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import questions from "../questionnairesStructure/StartQuestionnaire.json";
 import QuestionValidation from "../components/Questionnaire/QuestionValidation";
+import wave_background from "../assets/Backgrounds/wave_background.svg";
 import { useLocation } from "react-router-dom";
 import { Fragment } from "react";
 import { Translator } from "../components/Translation";
@@ -26,18 +27,16 @@ function QuestionnaireValidation() {
         <Translator>questionnaireValidationTitle</Translator>
       </TextBox>
       <CheckboxesContainer onSubmit={handleSubmit}>
-        {Object.entries(questions).map(([questionKey, questionProperties]) => {
-          return (
-            <Fragment key={questionKey}>
-              <QuestionValidation
-                questionKey={questionKey}
-                questionProperties={questionProperties}
-                value={answers?.[questionKey]}
-              />
-              <Divider />
-            </Fragment>
-          );
-        })}
+        {Object.entries(questions).map(([questionKey, questionProperties]) => (
+          <Fragment key={questionKey}>
+            <Divider />
+            <QuestionValidation
+              questionKey={questionKey}
+              questionProperties={questionProperties}
+              value={answers?.[questionKey]}
+            />
+          </Fragment>
+        ))}
         <Button>
           <Translator>send</Translator>
         </Button>
@@ -54,25 +53,24 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* background-color: #e8eefd; */
-  background-image: linear-gradient(
+  background-image: url(${wave_background});
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-image: linear-gradient(
     transparent 0%,
     #e1e9fe 30%,
     #e1e9fe 50%,
     transparent 100%
-  );
-  padding-inline: 1rem;
+  ); */
+  padding: 1rem;
   box-sizing: border-box;
 `;
 
 const TextBox = styled.div`
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   text-align: start;
-  padding-block: 1.125rem;
-  padding-inline: 24px;
   background-color: white;
-  box-shadow: 0px 3px 6px #00000029;
   border-radius: 20px;
 `;
 
@@ -88,23 +86,21 @@ const CheckboxesContainer = styled.form`
 
 const Button = styled.button`
   margin-block-start: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   cursor: pointer;
-  padding-block: 0.5rem;
-  width: clamp(2rem, 50%, 13rem);
+  padding-block: 0.75rem;
+  min-width: 52%;
   border: none;
-  padding-inline: 1rem;
+  padding-inline: 0.75rem;
   border-radius: 50px;
   background-color: #f02a4c;
   color: white;
 `;
 
 const Divider = styled.div`
+  width: 100%;
   height: 1px;
   border-radius: 2px;
   background-color: #e5e5e5;
   margin-block: 1rem;
-  &:last-of-type {
-    display: none;
-  }
 `;
