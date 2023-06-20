@@ -7,6 +7,8 @@ import "./stylings/fonts.css";
 import Login from "./screens/Login";
 import Questionnaire from "./screens/Questionnaire";
 import QuestionnaireValidation from "./screens/QuestionnaireValidation";
+import Instructions from "./screens/Instructions";
+
 // import Panel from "./screens/Panel";
 // import Gister from "./screens/Gister";
 // import Start from "./screens/Start";
@@ -37,7 +39,7 @@ const router = createBrowserRouter([
     children: [
       { path: "Questionnaire", element: <Questionnaire /> },
       { path: "QuestionnaireValidation", element: <QuestionnaireValidation /> },
-      // { path: "Start", element: <Start /> },
+      { path: "Instructions", element: <Instructions /> },
       // { path: "CharacterSelection", element: <CharacterSelection /> },
       // { path: "Legal", element: <Legal /> },
       // { path: "Privacy", element: <Privacy /> },

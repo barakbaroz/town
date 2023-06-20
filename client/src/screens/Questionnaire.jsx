@@ -53,9 +53,10 @@ function Questionnaire() {
       </ImageWrapperWrapper>
 
       <Navigation
-        textIndicator={`${index + 1}/${questionsLength}`}
         setIndex={setIndex}
         maxQuestionIndex={9}
+        index={index}
+        questionsSize={questionsLength}
       />
       <Carouselle index={index} setIndex={setIndex}>
         {Object.entries(questions).map(
@@ -160,7 +161,7 @@ const Input = styled.input.attrs({
 `;
 
 const Label = styled.label`
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   cursor: pointer;
   padding-block: 0.5rem;
   width: clamp(2rem, 50%, 13rem);

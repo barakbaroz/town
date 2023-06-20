@@ -1,0 +1,13 @@
+<svg id="Group_17274" data-name="Group 17274" xmlns="http://www.w3.org/2000/svg" width="47" height="47" viewBox="0 0 47 47">
+  <g id="Group_15928" data-name="Group 15928">
+    <circle id="Ellipse_228" data-name="Ellipse 228" cx="23.5" cy="23.5" r="23.5" fill="#fff"/>
+  </g>
+  <path id="Path_19541" data-name="Path 19541" d="M168.291,85.523l-1.137.956a1.113,1.113,0,0,1-1.569-.135l-.061-.073a1.113,1.113,0,0,1,.135-1.569l3.844-3.235a24.155,24.155,0,0,0,4.823-6.274,7.667,7.667,0,0,1,1.865-2.293l12.381-10.419a3.141,3.141,0,0,1,4.427.381l.505.6a3.141,3.141,0,0,1-.381,4.427L180.916,78.162a4.214,4.214,0,0,1-1.292.742c-1.566.56-5.382,1.848-6.913,2.883C171.62,82.525,168.291,85.523,168.291,85.523Z" transform="translate(-154.995 -50.53)" fill="#6c8ec9" opacity="0.35"/>
+  <path id="Path_19542" data-name="Path 19542" d="M181.957,68.878l1.73,2.062L181.7,72.708a.77.77,0,0,1-1.081-.057l-.8-.88a.771.771,0,0,1,.066-1.1Z" transform="translate(-154.995 -50.53)" fill="#dc0030"/>
+  <g id="Group_16869" data-name="Group 16869" transform="translate(9.449 10.184)">
+    <path id="Path_19543" data-name="Path 19543" d="M167.472,84.5l-1.136.956a1.114,1.114,0,0,1-1.569-.135l-.062-.073a1.114,1.114,0,0,1,.135-1.569l3.845-3.235a24.163,24.163,0,0,0,4.822-6.274,7.714,7.714,0,0,1,1.865-2.294l12.381-10.419a3.143,3.143,0,0,1,4.427.381l.506.6a3.143,3.143,0,0,1-.381,4.427L180.1,77.134a4.209,4.209,0,0,1-1.291.742c-1.567.559-5.383,1.848-6.914,2.883C170.8,81.5,167.472,84.5,167.472,84.5Z" transform="translate(-164.444 -60.714)" fill="none" stroke="#161615" stroke-miterlimit="10" stroke-width="0.75"/>
+    <line id="Line_543" data-name="Line 543" x2="1.54" y2="1.83" transform="translate(1.812 21.769)" fill="none" stroke="#161615" stroke-miterlimit="10" stroke-width="0.75"/>
+    <rect id="Rectangle_2281" data-name="Rectangle 2281" width="9.307" height="2.692" rx="0.78" transform="matrix(0.765, -0.644, 0.644, 0.765, 14.817, 10.433)" fill="none" stroke="#161615" stroke-miterlimit="10" stroke-width="0.75"/>
+    <line id="Line_544" data-name="Line 544" x2="1.733" y2="2.06" transform="translate(23.247 3.339)" fill="none" stroke="#161615" stroke-miterlimit="10" stroke-width="0.75"/>
+  </g>
+</svg>
