@@ -8,7 +8,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import DuplicatePopUp from "../components/Popups/DuplicatePopUp";
 import DifferentStoma from "../components/Popups/DifferentStoma";
-import { Calendar } from "@gistmed/gist-ui/dist/components/DatePicker/Calendar";
+import DateSelector from "../components/Gister/DateSelector";
 
 function Gister() {
   const navigate = useNavigate();
@@ -17,6 +17,15 @@ function Gister() {
   const [isError, setIsError] = useState(false);
   const [showDifferentPopup, setShowDifferentPopup] = useState(false);
   const [showDuplicatePopup, setShowDuplicatePopup] = useState(false);
+
+  const [tromDate, setTromDate] = useState({
+    type: "trom",
+    date: "",
+  });
+  const [operationDate, setOperationDate] = useState({
+    type: "operation",
+    date: "",
+  });
 
   const checkMissingFields = (data) => {
     let missing = false;
@@ -80,7 +89,7 @@ function Gister() {
             stepNumber="02"
             title="הזנת תאריכי טרום ניתוח  (*תאריך ניתוח אופציונלי)"
           >
-            <Calendar />
+            <DateSelector />
           </GisterStep>
         </Flex>
         <div>
@@ -100,8 +109,6 @@ const validator = {
   zehutNumber: (data) => data.zehutNumber?.length === 4,
   phoneNumber: (data) => Boolean(data.phoneNumber),
   type: (data) => Boolean(data.type),
-  phase: (data) => Boolean(data.phase),
-  kit: (data) => data.phase !== "post" || Boolean(data.kit),
 };
 
 const GisterContainer = styled.div`

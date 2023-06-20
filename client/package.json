@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@gistmed/gist-ui": "^0.1.24",
+    "@gistmed/gist-ui": "^0.1.27",
     "axios": "^1.4.0",
     "phone": "^3.1.37",
     "react": "^18.2.0",
