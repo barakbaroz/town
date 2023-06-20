@@ -12,8 +12,11 @@ const init = (sequelize) =>
       zehutNumber: DataTypes.STRING(4),
       gender: DataTypes.ENUM("male", "female"),
       age: DataTypes.ENUM("0-3", "4-9", "9-18"),
+      ethnicity: DataTypes.ENUM("white", "black"),
       creatorId: DataTypes.UUID,
-      score: DataTypes.NUMBER,
+      score: DataTypes.INTEGER,
+      preSurgeryDate: DataTypes.DATEONLY,
+      surgeryDate: DataTypes.DATEONLY,
     },
     { underscored: true, paranoid: true }
   );
