@@ -13,17 +13,16 @@ const init = (sequelize) =>
       gender: DataTypes.ENUM("male", "female"),
       age: DataTypes.ENUM("0-3", "4-9", "9-18"),
       creatorId: DataTypes.UUID,
+      score: DataTypes.NUMBER,
     },
     { underscored: true, paranoid: true }
   );
 
 const associations = (sequelize) => {
-  const { Cases, Users, Comments, CasesProgress, Instructions } =
-    sequelize.models;
-  Cases.hasOne(Users, { onDelete: "CASCADE" });
+  const { Cases, Users, Comments, CasesProgress } = sequelize.models;
+  Cases.hasMany(Users, { onDelete: "CASCADE" });
   Cases.hasOne(Comments, { onDelete: "CASCADE" });
   Cases.hasOne(CasesProgress, { onDelete: "CASCADE" });
-  Cases.hasOne(Instructions, { onDelete: "CASCADE" });
 };
 
 const hooks = (sequelize) => {
