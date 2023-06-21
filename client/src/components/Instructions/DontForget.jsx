@@ -1,10 +1,18 @@
 import styled from "styled-components";
-import { Translator } from "../Translation";
+import { LanguageContext, Translator } from "../Translation";
 import gist_v from "../../assets/Icons/gist_v.svg";
 import dont_forget from "../../assets/Icons/dont_forget.svg";
 import instructions_download from "../../assets/Icons/download_instruction.svg";
+import { useContext } from "react";
+import { userContext } from "../../providers/UserProvider";
+import instructions from "../../assets/Instructions";
 
 function DontForget() {
+  const { language } = useContext(LanguageContext);
+  const userInfo = useContext(userContext);
+  const { age, gender } = userInfo.Case;
+  const test = `${gender}_${age}_${language}`;
+
   return (
     <Container>
       <TopContent>
@@ -23,7 +31,7 @@ function DontForget() {
         ))}
       </ListContainer>
 
-      <Instructions>
+      <Instructions href={instructions[test]} target="_blank">
         <InstructionsIcon src={instructions_download} />
         <InstructionsText>
           <Translator>instruction-download</Translator>
@@ -45,7 +53,7 @@ export default DontForget;
 
 const Container = styled.div`
   padding-block: 1rem;
-  margin-block-start: 3.75rem;
+  margin-block-start: 3.4375rem;
   display: flex;
   flex-direction: column;
   color: #444444;
@@ -77,10 +85,12 @@ const ListContainer = styled.ul`
 
 const ListItem = styled.li`
   list-style-image: url(${gist_v});
-  font-size: 1.125rem;
+  font-size: 1.1875rem;
 `;
 
-const Instructions = styled.div`
+const Instructions = styled.a`
+  text-decoration: none;
+  color: #444444;
   display: flex;
   flex-direction: column;
   align-items: center;
