@@ -1,4 +1,3 @@
-import axios from "axios";
 import PropTypes from "prop-types";
 import { useState, createContext, useCallback } from "react";
 export const LanguageContext = createContext();
