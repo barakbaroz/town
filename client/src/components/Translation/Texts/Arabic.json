@@ -4,6 +4,16 @@
   "send": "إرسال",
   "share": "مشاركة",
 
+  "Character-Selection-Title": "בחירת הדמות שלך",
+  "Character-Selection-Gender": "מה המין שלך?",
+  "Character-Selection-female": "אישה",
+  "Character-Selection-male": "גבר",
+  "Character-Selection-other": "אחר",
+  "Character-Selection-Age": "מה הגיל שלך?",
+  "Character-Selection-Avatar": "מהי הדמות המועדפת עליך?",
+  "Character-Selection-Next": "הבא",
+  "Character-Selection-Error": "עליך למלא תחילה שדות קודמים",
+
   "Satisfaction-Question": "האם הסרטון עזר לך?",
   "Satisfaction-Answer-Yes": "כן",
   "Satisfaction-Answer-No": "לא",
