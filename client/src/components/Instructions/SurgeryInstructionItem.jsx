@@ -3,6 +3,7 @@ import { Translator } from "../Translation";
 import fever from "../../assets/Icons/fever.svg";
 import medicalCondition from "../../assets/Icons/medicalCondition.svg";
 import feast from "../../assets/Icons/feast.svg";
+import PropTypes from "prop-types";
 
 const Icons = { fever, medicalCondition, feast };
 
@@ -22,14 +23,19 @@ function SurgeryInstructionItem({ surgeryInstruction }) {
 
 export default SurgeryInstructionItem;
 
+SurgeryInstructionItem.propTypes = {
+  surgeryInstruction: PropTypes.string,
+};
+
 const Container = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
 `;
 
 const Text = styled.p`
-  font-size: 1.125rem;
+  font-size: 1.1875rem;
+  margin: 0;
 `;
 
 const InstructionIcon = styled.img`

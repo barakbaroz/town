@@ -44,13 +44,15 @@ const Title = styled.h2`
   font-size: 1.375rem;
 `;
 
-const ListContainer = styled.div``;
+const ListContainer = styled.div`
+  margin-block: 2rem;
+`;
 
 const Divider = styled.div`
   height: 1px;
   border-radius: 2px;
   background-color: #aabdf1;
-  margin-block: 1rem;
+  margin-block: 1.5rem;
   &:last-of-type {
     display: none;
   }
