@@ -11,7 +11,7 @@ import Instructions from "./screens/Instructions";
 
 // import Panel from "./screens/Panel";
 // import Gister from "./screens/Gister";
-// import Start from "./screens/Start";
+import Start from "./screens/Start";
 // import Legal from "./components/Form/Legal";
 // import CharacterSelection from "./screens/CharacterSelection";
 // import VideoPage from "./screens/VideoPage";
@@ -37,6 +37,7 @@ const router = createBrowserRouter([
     element: <UserLayout />,
     errorElement: <ErrorElement />,
     children: [
+      { path: "Start", element: <Start /> },
       { path: "Questionnaire", element: <Questionnaire /> },
       { path: "QuestionnaireValidation", element: <QuestionnaireValidation /> },
       { path: "Instructions", element: <Instructions /> },
