@@ -12,11 +12,11 @@ import Instructions from "./screens/Instructions";
 // import Panel from "./screens/Panel";
 // import Gister from "./screens/Gister";
 import Start from "./screens/Start";
-// import Legal from "./components/Form/Legal";
+import Legal from "./components/Form/Legal";
 // import CharacterSelection from "./screens/CharacterSelection";
 // import VideoPage from "./screens/VideoPage";
 // import NotFound from "./screens/NotFound";
-// import Privacy from "./components/Form/Privacy";
+import Privacy from "./components/Form/Privacy";
 import UserLayout from "./layouts/UserLayout";
 import ErrorElement from "./screens/Error";
 import NotFound from "./screens/NotFound";
@@ -42,8 +42,8 @@ const router = createBrowserRouter([
       { path: "QuestionnaireValidation", element: <QuestionnaireValidation /> },
       { path: "Instructions", element: <Instructions /> },
       // { path: "CharacterSelection", element: <CharacterSelection /> },
-      // { path: "Legal", element: <Legal /> },
-      // { path: "Privacy", element: <Privacy /> },
+      { path: "Legal", element: <Legal /> },
+      { path: "Privacy", element: <Privacy /> },
       // { path: "VideoPage", element: <VideoPage /> },
     ],
   },

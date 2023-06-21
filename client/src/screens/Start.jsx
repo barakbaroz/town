@@ -44,7 +44,7 @@ const Start = () => {
           &nbsp;
           <LegalLink
             id="LegalLink"
-            to="../../Legal"
+            to="../Legal"
             onClick={handleLegalLinkClick}
           >
             <Translator>Start-Legal-Link</Translator>
