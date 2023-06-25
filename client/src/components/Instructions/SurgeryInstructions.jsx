@@ -5,7 +5,7 @@ import SurgeryInstructionItem from "./SurgeryInstructionItem";
 const surgeryInstructionsItems = ["fever", "medicalCondition", "feast"];
 function SurgeryInstructions() {
   return (
-    <Container>
+    <Container id="SurgeryInstructions">
       <Title>
         <Translator>instructions-title</Translator>
       </Title>

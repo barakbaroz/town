@@ -22,6 +22,7 @@ function Instructions() {
         <LanguageBar />
       </StyledLanguageBar>
       <VideoPreviewTexts>
+        <a href="#SurgeryInstructions">test</a>
         <Title>
           <Translator>הסרטון הבא הותאם במיוחד עבור ילדכם</Translator>
         </Title>

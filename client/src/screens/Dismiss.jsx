@@ -6,15 +6,10 @@ import reWatch from "../assets/Icons/reWatch.svg";
 import dismissBackground from "../assets/Backgrounds/dismissBackground.svg";
 import { LanguageContext, Translator } from "../components/Translation";
 import consents from "../assets/Consents";
-import instructions from "../assets/Instructions";
 import { useContext } from "react";
-import { userContext } from "../providers/UserProvider";
 
 const Dismiss = () => {
   const { language } = useContext(LanguageContext);
-  const userInfo = useContext(userContext);
-  const { age, gender } = userInfo.Case;
-  const test = `${gender}_${age}_${language}`;
   return (
     <>
       <Container id="Container">
@@ -44,7 +39,7 @@ const Dismiss = () => {
             </ButtonText>
           </ButtonContainer>
           <ButtonContainer>
-            <RoundButton href={instructions[test]} target="_blank">
+            <RoundButton href="Instructions#SurgeryInstructions">
               <img src={downloadInformedConsent} />
             </RoundButton>
             <ButtonText>
