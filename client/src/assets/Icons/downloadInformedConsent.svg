@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="84" height="84" viewBox="0 0 84 84">
+  <defs>
+    <filter id="Ellipse_361" x="0" y="0" width="84" height="84" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="consensual_form" data-name="consensual form" transform="translate(-269 -486)">
+    <g transform="matrix(1, 0, 0, 1, 269, 486)" filter="url(#Ellipse_361)">
+      <circle id="Ellipse_361-2" data-name="Ellipse 361" cx="33" cy="33" r="33" transform="translate(9 6)" fill="#f02a4c"/>
+    </g>
+    <g id="Group_9761" data-name="Group 9761" transform="translate(298 509.474)">
+      <path id="Path_1463" data-name="Path 1463" d="M104,74.051V101.4a2.054,2.054,0,0,0,2.051,2.051h21.88a2.054,2.054,0,0,0,2.051-2.051V79.521a.682.682,0,0,0-.183-.465h0s0,0,0,0h0l-.015-.016L122.944,72.2a.681.681,0,0,0-.483-.2h-16.41A2.053,2.053,0,0,0,104,74.051Zm17.777-.684h.4l6.437,6.437v.4h-6.837ZM120.41,76.1H108.786a.684.684,0,0,0-.684.684v4.1a.684.684,0,0,0,1.367,0V77.47h10.94v3.419a.684.684,0,0,0,.684.684h7.521V101.4a.684.684,0,0,1-.684.684h-21.88a.685.685,0,0,1-.684-.684V74.051a.685.685,0,0,1,.684-.684h14.359V76.1Z" transform="translate(-104 -72)" fill="#fff"/>
+      <path id="Path_1464" data-name="Path 1464" d="M204.3,214.842a.683.683,0,0,0,.438.2h.046a.68.68,0,0,0,.083,0h0a.687.687,0,0,0,.364-.163l.038-.036,4.1-4.1a.684.684,0,0,0-.967-.967l-2.935,2.935V200.684a.684.684,0,1,0-1.367,0v12.024l-2.935-2.935a.684.684,0,1,0-.967.967Z" transform="translate(-191.795 -189.06)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

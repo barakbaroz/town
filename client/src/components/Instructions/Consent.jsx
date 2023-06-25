@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { LanguageContext, Translator } from "../Translation";
-import download_consent from "../../assets/Icons/download_ Informed_consent.svg";
+import download_consent from "../../assets/Icons/downloadInformedConsent.svg";
 import { useContext } from "react";
 import consents from "../../assets/Consents";
 

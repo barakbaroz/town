@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { LanguageContext, Translator } from "../Translation";
 import gist_v from "../../assets/Icons/gist_v.svg";
 import dont_forget from "../../assets/Icons/dont_forget.svg";
-import instructions_download from "../../assets/Icons/download_instruction.svg";
+import instructions_download from "../../assets/Icons/downloadInstructions.svg";
 import { useContext } from "react";
 import { userContext } from "../../providers/UserProvider";
 import instructions from "../../assets/Instructions";
