@@ -41,7 +41,6 @@ function Player({ setShowFeedback }) {
         src={videoUrl}
         autoFullScreen={false}
         audioStartDelay={3}
-        // thumbnail={thumbnail}
         onLocationUpdate={onLocationUpdate}
         onPlayerPlaying={onPlayerPlaying}
       />
