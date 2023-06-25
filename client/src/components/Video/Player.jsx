@@ -2,24 +2,33 @@ import { useCallback } from "react";
 import axios from "axios";
 import { Player as GistPlayer } from "@gistmed/gist-ui";
 import styled from "styled-components";
+import { useContext } from "react";
+import { userContext } from "../../providers/UserProvider";
+import { LanguageContext } from "../Translation";
+import { useMemo } from "react";
+import useVideoUrl from "../../hooks/useVideoUrl";
+import PropTypes from "prop-types";
 
-function Player({
-  videoUrl,
-  userInfo,
-  analytic,
-  thumbnail,
-  setTime,
-  setShowFeedback,
-}) {
+function Player({ setShowFeedback }) {
+  const userInfo = useContext(userContext);
+  const { language } = useContext(LanguageContext);
+
+  const params = useMemo(() => {
+    const { age, gender } = userInfo.Case;
+    return { gender, age, language };
+  }, [language, userInfo.Case]);
+
+  const { videoUrl } = useVideoUrl(params, "trom-hardama-kids");
+
   const onLocationUpdate = useCallback(
     (percentage, location) => {
       axios.post("/api/users/userVideoAction", {
         UserId: userInfo.id,
-        type: analytic,
+        type: "watched-video",
         data: { percentage, location },
       });
     },
-    [analytic, userInfo.id]
+    [userInfo.id]
   );
 
   const onPlayerPlaying = useCallback(() => {
@@ -32,7 +41,7 @@ function Player({
         src={videoUrl}
         autoFullScreen={false}
         audioStartDelay={3}
-        thumbnail={thumbnail}
+        // thumbnail={thumbnail}
         onLocationUpdate={onLocationUpdate}
         onPlayerPlaying={onPlayerPlaying}
       />
@@ -41,6 +50,10 @@ function Player({
 }
 
 export default Player;
+
+Player.propTypes = {
+  setShowFeedback: PropTypes.func,
+};
 
 const VideoContainer = styled.div`
   margin-inline: 20px;
