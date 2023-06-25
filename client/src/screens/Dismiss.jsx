@@ -4,9 +4,17 @@ import downloadInformedConsent from "../assets/Icons/downloadInformedConsent.svg
 import downloadInstructions from "../assets/Icons/downloadInstructions.svg";
 import reWatch from "../assets/Icons/reWatch.svg";
 import dismissBackground from "../assets/Backgrounds/dismissBackground.svg";
-import { Translator } from "../components/Translation";
+import { LanguageContext, Translator } from "../components/Translation";
+import consents from "../assets/Consents";
+import instructions from "../assets/Instructions";
+import { useContext } from "react";
+import { userContext } from "../providers/UserProvider";
 
 const Dismiss = () => {
+  const { language } = useContext(LanguageContext);
+  const userInfo = useContext(userContext);
+  const { age, gender } = userInfo.Case;
+  const test = `${gender}_${age}_${language}`;
   return (
     <>
       <Container id="Container">
@@ -15,9 +23,7 @@ const Dismiss = () => {
             <Translator>Dismiss-Header</Translator>
           </HeaderText>
           <Content id="Content">
-            <InnerContent id="InnerContent">
-              <Translator>Dismiss-Paragraph</Translator>
-            </InnerContent>
+            <Translator>Dismiss-Paragraph</Translator>
           </Content>
           <Doctor src={dismissDoctor} />
         </Inner>
@@ -26,7 +32,11 @@ const Dismiss = () => {
         </AttentionText>
         <Actions id="Actions">
           <ButtonContainer id="ButtonContainer">
-            <RoundButton id="RoundButton">
+            <RoundButton
+              id="RoundButton"
+              href={consents[language]}
+              target="_blank"
+            >
               <img src={downloadInstructions} />
             </RoundButton>
             <ButtonText>
@@ -34,7 +44,7 @@ const Dismiss = () => {
             </ButtonText>
           </ButtonContainer>
           <ButtonContainer>
-            <RoundButton>
+            <RoundButton href={instructions[test]} target="_blank">
               <img src={downloadInformedConsent} />
             </RoundButton>
             <ButtonText>
@@ -42,7 +52,7 @@ const Dismiss = () => {
             </ButtonText>
           </ButtonContainer>
           <ButtonContainer>
-            <RoundButton>
+            <RoundButton href="Instructions">
               <img src={reWatch} />
             </RoundButton>
             <ButtonText>
@@ -71,14 +81,12 @@ const Inner = styled.div`
   min-height: 21.25rem;
 `;
 const Content = styled.div`
-  width: 12.313rem;
-  height: 8.75rem;
+  width: 10.625rem;
+  height: 6.625rem;
   border-radius: 15px;
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
   background: rgba(255, 255, 255, 0.5);
   margin-block-start: 2.063rem;
-`;
-const InnerContent = styled.div`
   padding-inline: 1.25rem;
   padding-block: 0.625rem;
   color: black;
@@ -99,7 +107,7 @@ const Actions = styled.div`
   margin-block-start: 1.25rem;
   white-space: pre-wrap;
 `;
-const RoundButton = styled.div`
+const RoundButton = styled.a`
   background-color: #f02a4c;
   border-radius: 50%;
   width: 4.125rem;
@@ -109,6 +117,8 @@ const RoundButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  text-decoration: none;
+  color: black;
 `;
 const ButtonContainer = styled.div`
   display: flex;
