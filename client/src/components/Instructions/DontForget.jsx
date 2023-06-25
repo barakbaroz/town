@@ -11,7 +11,7 @@ function DontForget() {
   const { language } = useContext(LanguageContext);
   const userInfo = useContext(userContext);
   const { age, gender } = userInfo.Case;
-  const test = `${gender}_${age}_${language}`;
+  const userStringDetails = `${gender}_${age}_${language}`;
 
   return (
     <Container>
@@ -31,7 +31,7 @@ function DontForget() {
         ))}
       </ListContainer>
 
-      <Instructions href={instructions[test]} target="_blank">
+      <Instructions href={instructions[userStringDetails]} target="_blank">
         <InstructionsIcon src={instructions_download} />
         <InstructionsText>
           <Translator>instruction-download</Translator>
