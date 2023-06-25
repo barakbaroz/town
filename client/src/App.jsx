@@ -18,6 +18,7 @@ import UserLayout from "./layouts/UserLayout";
 import ErrorElement from "./screens/Error";
 import NotFound from "./screens/NotFound";
 import CharacterSelection from "./screens/CharacterSelection";
+import Dismiss from "./screens/Dismiss";
 // import ErrorElement from "./screens/Error";
 
 const App = () => {
@@ -39,6 +40,7 @@ const router = createBrowserRouter([
       { path: "QuestionnaireValidation", element: <QuestionnaireValidation /> },
       { path: "Instructions", element: <Instructions /> },
       { path: "CharacterSelection", element: <CharacterSelection /> },
+      { path: "Dismiss", element: <Dismiss /> },
       // { path: "Legal", element: <Legal /> },
       // { path: "Privacy", element: <Privacy /> },
       // { path: "VideoPage", element: <VideoPage /> },
