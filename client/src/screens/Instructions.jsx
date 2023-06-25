@@ -83,7 +83,7 @@ const Title = styled.h1`
 
 const Text = styled.h3`
   font-weight: 400;
-  font-size: 1.125rem;
+  font-size: 1.1875rem;
 `;
 
 const VideoWrapper = styled.div`

@@ -1,8 +1,12 @@
 import styled from "styled-components";
-import { Translator } from "../Translation";
+import { LanguageContext, Translator } from "../Translation";
 import download_consent from "../../assets/Icons/download_ Informed_consent.svg";
+import { useContext } from "react";
+import consents from "../../assets/Consents";
 
 function Consent() {
+  const { language } = useContext(LanguageContext);
+
   return (
     <Container>
       <Title>
@@ -12,7 +16,7 @@ function Consent() {
         <Translator>consent-text</Translator>
       </Text>
 
-      <ClickableConsent>
+      <ClickableConsent href={consents[language]} target="_blank">
         <ConsentIcon src={download_consent} />
         <ConsentText>
           <Translator>consent-download</Translator>
@@ -36,10 +40,12 @@ const Title = styled.h2`
   margin-block-end: 1.2rem;
 `;
 const Text = styled.div`
-  font-size: 1.125rem;
+  font-size: 1.1875rem;
 `;
 
-const ClickableConsent = styled.div`
+const ClickableConsent = styled.a`
+  text-decoration: none;
+  color: #444444;
   display: flex;
   flex-direction: column;
   align-items: center;
