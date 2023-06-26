@@ -77,13 +77,14 @@ to { opacity: 1;}
 
 const ThanksTitle = styled.h3`
   text-align: start;
-  font-weight: 400;
+  font-weight: 500;
   animation: ${fadeIn} 3s;
   padding-inline: var(--screen-texts-padding);
+  margin-block-end: 1rem;
 `;
 
 const ExtraQuestionsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.625rem;
 `;

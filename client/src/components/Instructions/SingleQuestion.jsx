@@ -77,9 +77,9 @@ const Answer = styled.button`
   color: #84a4fc;
   background-color: transparent;
   font-family: inherit;
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 400;
-  padding: 0.2rem 2.125rem;
+  padding: 0.25rem 1.75rem;
   ${({ checked }) =>
     checked &&
     css`
