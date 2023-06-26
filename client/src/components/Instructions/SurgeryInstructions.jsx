@@ -3,6 +3,7 @@ import { Translator } from "../Translation";
 import SurgeryInstructionItem from "./SurgeryInstructionItem";
 import { userContext } from "../../providers/UserProvider";
 import { useContext } from "react";
+import white_v from "../../assets/Icons/white_v.svg";
 
 const surgeryInstructionsItems = ["fever", "medicalCondition", "feast"];
 function SurgeryInstructions() {
@@ -30,10 +31,12 @@ function SurgeryInstructions() {
 
       <Button>
         <Label>
-          {/* <CostumeCheckbox answerKey={answer}>
-                        <Vcheck />
-                      </CostumeCheckbox> */}
-          <Translator>אישור הנחיות</Translator>
+          <CostumeCheckbox>
+            <Vcheck />
+          </CostumeCheckbox>
+          <CheckBoxText>
+            <Translator>אישור הנחיות</Translator>
+          </CheckBoxText>
           <Input />
         </Label>
       </Button>
@@ -67,12 +70,6 @@ const Divider = styled.div`
   }
 `;
 
-const Input = styled.input.attrs({
-  type: "radio",
-})`
-  display: none;
-`;
-
 const Button = styled.button`
   cursor: pointer;
   width: 12rem;
@@ -85,10 +82,51 @@ const Button = styled.button`
   font-family: inherit;
 `;
 
+const Input = styled.input.attrs({
+  type: "radio",
+})`
+  display: none;
+`;
+
+const CheckBoxText = styled.div`
+  &:has(~ ${Input}:checked) {
+    display: none;
+  }
+`;
+
 const Label = styled.label`
-  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding-block: 0.5rem;
+  border: none;
+  padding-inline: 1rem;
+  border-radius: 50px;
+  background-color: #f02a4c;
   color: white;
-  &:has(${Input}:checked) {
-    background-color: blue;
+`;
+
+const Vcheck = styled.img.attrs({
+  src: white_v,
+  alt: "V",
+})`
+  &:has(~ ${Input}:checked) {
+    display: block;
+  }
+`;
+
+const CostumeCheckbox = styled.div`
+  --size: 1.625rem;
+  min-width: var(--size);
+  min-height: var(--size);
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  &:has(~ ${Input}:checked) {
+    display: flex;
   }
 `;
