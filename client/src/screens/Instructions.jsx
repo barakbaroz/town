@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Translator } from "../components/Translation";
 import Player from "../components/Video/Player";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { userContext } from "../providers/UserProvider";
 import VideoButtons from "../components/Instructions/VideoButtons";
 import Feedback from "../components/Instructions/Feedback";
@@ -12,6 +12,17 @@ import LanguageBar from "../components/User/LanguageBar";
 
 function Instructions() {
   const userInfo = useContext(userContext);
+  const handleScrolling = () => {
+    const urlString = window.location.href;
+    if (urlString.includes("#SurgeryInstructions")) {
+      const el = document.getElementById("scrollToInstructions");
+      el?.click();
+    }
+  };
+  useEffect(() => {
+    handleScrolling();
+  }, []);
+
   const videoUrl = "";
   // To change the state to false.
   const [showFeedback, setShowFeedback] = useState(true);
@@ -22,7 +33,6 @@ function Instructions() {
         <LanguageBar />
       </StyledLanguageBar>
       <VideoPreviewTexts>
-        <a href="#SurgeryInstructions">test</a>
         <Title>
           <Translator>הסרטון הבא הותאם במיוחד עבור ילדכם</Translator>
         </Title>
@@ -57,6 +67,9 @@ function Instructions() {
       <Consent />
       <Footer>
         <Translator>Footer</Translator>
+        <ScrollingTag href="#SurgeryInstructions" id="scrollToInstructions">
+          scrollingTest
+        </ScrollingTag>
       </Footer>
     </Container>
   );
@@ -117,4 +130,7 @@ const Footer = styled.footer`
   color: #444444;
   font-size: 1.5rem;
   padding-inline: 1.2rem;
+`;
+const ScrollingTag = styled.a`
+  display: none;
 `;

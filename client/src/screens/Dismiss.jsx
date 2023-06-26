@@ -13,43 +13,41 @@ const Dismiss = () => {
   return (
     <>
       <Container id="Container">
-        <Inner id="Inner">
+        <TopContent id="TopContent">
           <HeaderText id="HeaderText">
             <Translator>Dismiss-Header</Translator>
           </HeaderText>
-          <Content id="Content">
-            <Translator>Dismiss-Paragraph</Translator>
-          </Content>
-          <Doctor src={dismissDoctor} />
-        </Inner>
+          <Wrapper id="Wrapper">
+            <Test id="Test">
+              <Content id="Content">
+                <Translator>Dismiss-Paragraph</Translator>
+              </Content>
+              <Doctor src={dismissDoctor} id="Doctor" />
+            </Test>
+          </Wrapper>
+        </TopContent>
         <AttentionText>
           <Translator>Dismiss-PayAttention</Translator>
         </AttentionText>
         <Actions id="Actions">
-          <ButtonContainer id="ButtonContainer">
-            <RoundButton
-              id="RoundButton"
-              href={consents[language]}
-              target="_blank"
-            >
-              <img src={downloadInstructions} />
-            </RoundButton>
+          <ButtonContainer
+            id="ButtonContainer"
+            href={consents[language]}
+            target="_blank"
+          >
+            <ImageIcon src={downloadInstructions} />
             <ButtonText>
               <Translator>Dismiss-Button-Consent</Translator>
             </ButtonText>
           </ButtonContainer>
-          <ButtonContainer>
-            <RoundButton href="Instructions#SurgeryInstructions">
-              <img src={downloadInformedConsent} />
-            </RoundButton>
+          <ButtonContainer href="Instructions#SurgeryInstructions">
+            <ImageIcon src={downloadInformedConsent} />
             <ButtonText>
               <Translator>Dismiss-Button-Instructions</Translator>
             </ButtonText>
           </ButtonContainer>
-          <ButtonContainer>
-            <RoundButton href="Instructions">
-              <img src={reWatch} />
-            </RoundButton>
+          <ButtonContainer href="Instructions">
+            <ImageIcon src={reWatch} />
             <ButtonText>
               <Translator>Dismiss-Button-WatchVideo</Translator>
             </ButtonText>
@@ -66,7 +64,7 @@ const Container = styled.div`
   direction: rtl !important;
   font-family: "Assistant";
 `;
-const Inner = styled.div`
+const TopContent = styled.div`
   padding-inline: 2.5rem;
   padding-block: 1.875rem;
   position: relative;
@@ -74,7 +72,10 @@ const Inner = styled.div`
   background-image: url(${dismissBackground});
   background-size: cover;
   min-height: 21.25rem;
+  width: 100%;
+  height: 24.125rem;
 `;
+// const BottomContent = styled.div``;
 const Content = styled.div`
   width: 10.625rem;
   height: 6.625rem;
@@ -90,37 +91,38 @@ const Content = styled.div`
 `;
 const Doctor = styled.img`
   position: absolute;
-  bottom: 0;
+  top: 1.125rem;
   margin-inline-start: 10rem;
 `;
 const Actions = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-block: 1.875rem;
-  padding-inline: 2.5rem;
-  margin-block-start: 1.25rem;
+  padding-block-end: 1.875rem;
+  padding-inline: 1.875rem;
   white-space: pre-wrap;
 `;
-const RoundButton = styled.a`
-  background-color: #f02a4c;
-  border-radius: 50%;
-  width: 4.125rem;
-  height: 4.125rem;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-  margin-block-end: 0.625rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  color: black;
-`;
-const ButtonContainer = styled.div`
+// const RoundButton = styled.a`
+//   background-color: #f02a4c;
+//   border-radius: 50%;
+//   width: 4.125rem;
+//   height: 4.125rem;
+//   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+//   margin-block-end: 0.625rem;
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   text-decoration: none;
+//   color: black;
+// `;
+const ButtonContainer = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 0.875rem;
   font-weight: 600;
+  text-decoration: none;
+  color: black;
 `;
 const ButtonText = styled.div`
   display: flex;
@@ -128,6 +130,8 @@ const ButtonText = styled.div`
   text-align: center;
 `;
 const AttentionText = styled.p`
+  margin-block-start: 0.5rem;
+  margin-block-end: 1.5rem;
   padding-inline-start: 2.375rem;
   font-family: "Abraham";
 `;
@@ -136,4 +140,14 @@ const HeaderText = styled.p`
   padding-block: 1.875rem;
   font-weight: 600;
   white-space: "pre-line";
+`;
+const ImageIcon = styled.img`
+  width: 4.125rem;
+  height: 4.125rem;
+`;
+const Wrapper = styled.div`
+  align-items: flex-start;
+`;
+const Test = styled.div`
+  position: relative;
 `;
