@@ -17,12 +17,12 @@ const Dismiss = () => {
           <Translator>Dismiss-Header</Translator>
         </HeaderText>
         <Wrapper id="Wrapper">
-          <Test id="Test">
+          <InnerWrapper id="InnerWrapper">
             <Content id="Content">
               <Translator>Dismiss-Paragraph</Translator>
             </Content>
             <Doctor src={dismissDoctor} id="Doctor" />
-          </Test>
+          </InnerWrapper>
         </Wrapper>
       </TopContent>
       <AttentionText>
@@ -85,12 +85,19 @@ const Doctor = styled.img`
   top: 1.125rem;
   margin-inline-start: 10rem;
 `;
+const AttentionText = styled.p`
+  margin-block-start: 0.5rem;
+  margin-block-end: 1.5rem;
+  padding-inline-start: 2.375rem;
+  font-family: "Abraham";
+`;
 const Actions = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   padding-block-end: 3.375rem;
   white-space: pre-wrap;
+  padding-inline: 1.875rem;
 `;
 const ButtonContainer = styled.a`
   display: flex;
@@ -101,13 +108,7 @@ const ButtonContainer = styled.a`
   text-decoration: none;
   color: black;
   text-align: center;
-  margin-inline: 1.875rem;
-`;
-const AttentionText = styled.p`
-  margin-block-start: 0.5rem;
-  margin-block-end: 1.5rem;
-  padding-inline-start: 2.375rem;
-  font-family: "Abraham";
+  /* margin-inline: 1.875rem; */
 `;
 const HeaderText = styled.p`
   padding-inline-end: 5rem;
@@ -121,6 +122,6 @@ const ImageIcon = styled.img`
 const Wrapper = styled.div`
   align-items: flex-start;
 `;
-const Test = styled.div`
+const InnerWrapper = styled.div`
   position: relative;
 `;
