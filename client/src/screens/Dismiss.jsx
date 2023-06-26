@@ -16,15 +16,12 @@ const Dismiss = () => {
         <HeaderText id="HeaderText">
           <Translator>Dismiss-Header</Translator>
         </HeaderText>
-        <Wrapper id="Wrapper">
-          <InnerWrapper id="InnerWrapper">
-            <Content id="Content">
-              <Translator>Dismiss-Paragraph</Translator>
-            </Content>
-            <Doctor src={dismissDoctor} id="Doctor" />
-          </InnerWrapper>
-        </Wrapper>
+        <Content id="Content">
+          <Translator>Dismiss-Paragraph</Translator>
+        </Content>
+        <Doctor src={dismissDoctor} id="Doctor" />
       </TopContent>
+      <Divider id="Divider" />
       <AttentionText>
         <Translator>Dismiss-PayAttention</Translator>
       </AttentionText>
@@ -57,32 +54,25 @@ const Container = styled.div`
   font-family: "Assistant";
 `;
 const TopContent = styled.div`
-  padding-inline: 2.5rem;
+  background-image: url(${dismissBackground});
+  padding-inline: 1.875rem;
   padding-block: 1.875rem;
   position: relative;
-  border-radius: 0 0 1.875rem 0;
-  background-image: url(${dismissBackground});
   background-size: cover;
   min-height: 21.25rem;
   width: 100%;
-  height: 24.125rem;
+  height: 23.75rem;
+`;
+const HeaderText = styled.p`
+  padding-inline-end: 5rem;
+  padding-block-end: 2.875rem;
+  font-weight: 600;
 `;
 const Content = styled.div`
-  width: 10.625rem;
-  height: 6.625rem;
-  border-radius: 15px;
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
-  background: rgba(255, 255, 255, 0.5);
-  margin-block-start: 2.063rem;
-  padding-inline: 1.25rem;
-  padding-block: 0.625rem;
-  color: black;
-  white-space: pre-line;
+  padding-inline-end: 5rem;
   font-weight: 620;
 `;
 const Doctor = styled.img`
-  position: absolute;
-  top: 1.125rem;
   margin-inline-start: 10rem;
 `;
 const AttentionText = styled.p`
@@ -108,20 +98,13 @@ const ButtonContainer = styled.a`
   text-decoration: none;
   color: black;
   text-align: center;
-  /* margin-inline: 1.875rem; */
-`;
-const HeaderText = styled.p`
-  padding-inline-end: 5rem;
-  padding-block: 1.875rem;
-  font-weight: 600;
 `;
 const ImageIcon = styled.img`
   width: 4.125rem;
   height: 4.125rem;
 `;
-const Wrapper = styled.div`
-  align-items: flex-start;
-`;
-const InnerWrapper = styled.div`
-  position: relative;
+const Divider = styled.div`
+  height: 1px;
+  border-radius: 2px;
+  background-color: #707070;
 `;
