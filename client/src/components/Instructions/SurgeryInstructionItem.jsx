@@ -1,17 +1,13 @@
 import styled from "styled-components";
 import { Translator } from "../Translation";
-import fever from "../../assets/Icons/fever.svg";
-import medicalCondition from "../../assets/Icons/medicalCondition.svg";
-import feast from "../../assets/Icons/feast.svg";
+import instructionsIcons from "../../assets/Icons/PersonalInstructions";
 import PropTypes from "prop-types";
-
-const Icons = { fever, medicalCondition, feast };
 
 function SurgeryInstructionItem({ surgeryInstruction }) {
   return (
     <Container>
       <InstructionIcon
-        src={Icons[surgeryInstruction]}
+        src={instructionsIcons[surgeryInstruction]}
         alt={surgeryInstruction}
       />
       <Text>
@@ -34,6 +30,7 @@ const Container = styled.div`
 `;
 
 const Text = styled.p`
+  white-space: break-spaces;
   font-size: 1.1875rem;
   margin: 0;
 `;

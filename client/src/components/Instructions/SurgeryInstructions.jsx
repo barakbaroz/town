@@ -1,9 +1,18 @@
 import styled from "styled-components";
 import { Translator } from "../Translation";
 import SurgeryInstructionItem from "./SurgeryInstructionItem";
+import { userContext } from "../../providers/UserProvider";
+import { useContext } from "react";
 
 const surgeryInstructionsItems = ["fever", "medicalCondition", "feast"];
 function SurgeryInstructions() {
+  const userInfo = useContext(userContext);
+  const { age } = userInfo.Case;
+  const surgeryInstructionsByAge = [...surgeryInstructionsItems];
+  surgeryInstructionsByAge[2] = `${surgeryInstructionsByAge[2]}_${
+    age === "0-2" ? "0-2" : "3-18"
+  }`;
+
   return (
     <Container>
       <Title>
@@ -11,7 +20,7 @@ function SurgeryInstructions() {
       </Title>
 
       <ListContainer>
-        {surgeryInstructionsItems.map((surgeryInstruction) => (
+        {surgeryInstructionsByAge.map((surgeryInstruction) => (
           <>
             <SurgeryInstructionItem surgeryInstruction={surgeryInstruction} />
             <Divider />
