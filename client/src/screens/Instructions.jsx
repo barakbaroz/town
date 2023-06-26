@@ -45,6 +45,9 @@ function Instructions() {
       </BlueWrapper>
 
       <Consent />
+
+      <Divider />
+
       <Footer>
         <Translator>Footer</Translator>
       </Footer>
@@ -107,4 +110,12 @@ const Footer = styled.footer`
   color: #444444;
   font-size: 1.5rem;
   padding-inline: 1.2rem;
+`;
+
+const Divider = styled.div`
+  height: 1px;
+  border-radius: 2px;
+  background-color: #d6d6d6;
+  margin-block: 34px;
+  margin-inline: var(--screen-texts-padding);
 `;
