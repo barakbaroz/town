@@ -11,7 +11,7 @@ const init = (sequelize) =>
       },
       zehutNumber: DataTypes.STRING(4),
       gender: DataTypes.ENUM("male", "female"),
-      age: DataTypes.ENUM("0-3", "4-9", "9-18"),
+      age: DataTypes.ENUM("0-2", "4-9", "9-18"),
       ethnicity: DataTypes.ENUM("white", "black"),
       creatorId: DataTypes.UUID,
       score: DataTypes.INTEGER,
