@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Translator } from "../components/Translation";
+import { Translate, Translator } from "../components/Translation";
 import Player from "../components/Video/Player";
 import { useState } from "react";
 import VideoButtons from "../components/Instructions/VideoButtons";
@@ -8,10 +8,31 @@ import SurgeryInstructions from "../components/Instructions/SurgeryInstructions"
 import DontForget from "../components/Instructions/DontForget";
 import Consent from "../components/Instructions/Consent";
 import LanguageBar from "../components/User/LanguageBar";
+import { useContext } from "react";
+import { userContext } from "../providers/UserProvider";
 
 function Instructions() {
-  // To change the state to false.
   const [showFeedback, setShowFeedback] = useState(false);
+  const userInfo = useContext(userContext);
+
+  const getTitle = () => {
+    const { watchedVideo, signedConfirmation, points } = userInfo.Token;
+    const titleType =
+      points === 0 && watchedVideo && !signedConfirmation ? "sign" : "default";
+    return `video-page-${titleType}-title`;
+  };
+
+  const getSubtitle = () => {
+    const { watchedVideo, signedConfirmation, points } = userInfo.Token;
+    if (points > 0) return "video-page-AnsweredOneYes";
+    const watchedVideoString = watchedVideo
+      ? "watchedVideo"
+      : "notWatchedVideo";
+    const SignedString = signedConfirmation
+      ? "signedConfirmation"
+      : "notSignedConfirmation";
+    return `video-page-subtitle-answeredAllNo-${watchedVideoString}-${SignedString}`;
+  };
 
   return (
     <Container>
@@ -20,12 +41,10 @@ function Instructions() {
       </StyledLanguageBar>
       <VideoPreviewTexts>
         <Title>
-          <Translator>video-page-title</Translator>
+          <Translator>{getTitle()}</Translator>
         </Title>
 
-        <Text>
-          <Translator>video-page-subtitle</Translator>
-        </Text>
+        <Subtitle>{Translate(getSubtitle())}</Subtitle>
       </VideoPreviewTexts>
 
       <VideoWrapper id="VideoWrapper">
@@ -72,7 +91,13 @@ const Title = styled.h1`
   font-weight: 500;
 `;
 
-const Text = styled.h3`
+const Subtitle = styled.h3.attrs(({ children }) => {
+  if (
+    children ===
+    "video-page-subtitle-answeredAllNo-watchedVideo-signedConfirmation"
+  )
+    return { style: { display: "none" } };
+})`
   font-weight: 400;
   font-size: 1.1875rem;
 `;
