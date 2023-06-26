@@ -8,6 +8,7 @@ import { useRef } from "react";
 
 const SatisfactionQuestions = ({ videoStarted }) => {
   const userInfo = useContext(userContext);
+  // Ref to object that represent the question keys possible in order to check if everything answered.
   const answersRef = useRef({
     "reduce-worries": false,
     "recommend-other-parents": false,
@@ -15,12 +16,18 @@ const SatisfactionQuestions = ({ videoStarted }) => {
 
   const [state, setState] = useState("none");
 
+  // Specific checking if the second questions pop all answered.
   const onSecondaryAnswer = (questionKey) => () => {
+    // Update the current place in the ref object to indicate
+    // wheter the question has been answered or not.
     answersRef.current[questionKey] = true;
     if (Object.values(answersRef.current).every(Boolean))
+      // If every question in the object ref is true it means that every question in the ref
+      // has been answered so we move on to the next stage.
       setState("allAnswered");
   };
 
+  // First stage when someone clicked the video so the first questions is popping.
   if (state === "none")
     return (
       <SingleQuestion
@@ -30,6 +37,7 @@ const SatisfactionQuestions = ({ videoStarted }) => {
       />
     );
 
+  // Second stage when the first question is answered and the other 2 questions need to pop.
   if (state === "firstAnswered")
     return (
       <>
@@ -52,6 +60,7 @@ const SatisfactionQuestions = ({ videoStarted }) => {
       </>
     );
 
+  // First stage when all the answers have been answered so we put the thank you for the feedback resposne.
   if (state === "allAnswered")
     return (
       <ThanksTitle id="ThanksTitle">
@@ -59,7 +68,7 @@ const SatisfactionQuestions = ({ videoStarted }) => {
       </ThanksTitle>
     );
 
-  //TODO: Get the response from backend and render the correct thing.
+  // TODO: Get the response from backend and render the correct thing.
   // if (userInfo.UserActions.find((action) => action.type.includes(type)))
   //   return <div style={{ height: "1.5rem" }}></div>;
 };
