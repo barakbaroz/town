@@ -3,7 +3,6 @@ import dismissDoctor from "../assets/Avatars/dismissDoctor.svg";
 import downloadInformedConsent from "../assets/Icons/downloadInformedConsent.svg";
 import downloadInstructions from "../assets/Icons/downloadInstructions.svg";
 import reWatch from "../assets/Icons/reWatch.svg";
-import dismissBackground from "../assets/Backgrounds/dismissBackground.svg";
 import { LanguageContext, Translator } from "../components/Translation";
 import consents from "../assets/Consents";
 import { useContext } from "react";
@@ -16,10 +15,12 @@ const Dismiss = () => {
         <HeaderText id="HeaderText">
           <Translator>Dismiss-Header</Translator>
         </HeaderText>
-        <Content id="Content">
-          <Translator>Dismiss-Paragraph</Translator>
-        </Content>
-        <Doctor src={dismissDoctor} id="Doctor" />
+        <Wrapper>
+          <Content id="Content">
+            <Translator>Dismiss-Paragraph</Translator>
+          </Content>
+          <Doctor src={dismissDoctor} id="Doctor" />
+        </Wrapper>
       </TopContent>
       <Divider id="Divider" />
       <AttentionText>
@@ -48,37 +49,32 @@ const Dismiss = () => {
 };
 export default Dismiss;
 const Container = styled.div`
-  height: 100%;
-  color: #444444;
-  direction: rtl !important;
-  font-family: "Assistant";
+  padding-inline: 30px;
+  background: transparent
+    linear-gradient(
+      180deg,
+      #ffffffc4 0%,
+      #e3e8f6c4 50%,
+      #f5f7fcc4 85%,
+      #ffffffc4 100%
+    )
+    0% 0% no-repeat padding-box;
 `;
 const TopContent = styled.div`
-  background-image: url(${dismissBackground});
-  padding-inline: 1.875rem;
-  padding-block: 1.875rem;
-  position: relative;
   background-size: cover;
-  min-height: 21.25rem;
-  width: 100%;
-  height: 23.75rem;
 `;
-const HeaderText = styled.p`
-  padding-inline-end: 5rem;
-  padding-block-end: 2.875rem;
-  font-weight: 600;
-`;
+
 const Content = styled.div`
-  padding-inline-end: 5rem;
-  font-weight: 620;
+  font-weight: 500;
+  font-size: 1.188rem;
 `;
 const Doctor = styled.img`
-  margin-inline-start: 10rem;
+  max-width: 45%;
+  align-self: flex-end;
 `;
 const AttentionText = styled.p`
   margin-block-start: 0.5rem;
   margin-block-end: 1.5rem;
-  padding-inline-start: 2.375rem;
   font-family: "Abraham";
 `;
 const Actions = styled.div`
@@ -87,14 +83,12 @@ const Actions = styled.div`
   align-items: baseline;
   padding-block-end: 3.375rem;
   white-space: pre-wrap;
-  padding-inline: 1.875rem;
 `;
 const ButtonContainer = styled.a`
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 0.875rem;
-  font-weight: 600;
   text-decoration: none;
   color: black;
   text-align: center;
@@ -107,4 +101,11 @@ const Divider = styled.div`
   height: 1px;
   border-radius: 2px;
   background-color: #707070;
+`;
+const HeaderText = styled.p`
+  font-size: 1.188rem;
+`;
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
 `;
