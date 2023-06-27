@@ -81,9 +81,9 @@ function Gister() {
 export default Gister;
 
 const validator = {
-  zehutNumber: (data) => data.zehutNumber?.length === 4,
-  phoneNumber: (data) => /^\d{10}$/.test(data),
-  preSurgery: (data) => Boolean(data),
+  zehutNumber: ({ zehutNumber }) => zehutNumber?.length === 4,
+  phoneNumber: ({ phoneNumber }) => /^\d{10}$/.test(phoneNumber),
+  preSurgery: ({ preSurgery }) => Boolean(preSurgery),
 };
 
 const GisterContainer = styled.div`
