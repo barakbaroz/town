@@ -13,7 +13,7 @@ function Gister() {
   const casesDataRef = useRef({});
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [showDuplicatePopup, setShowDuplicatePopup] = useState(true);
+  const [showDuplicatePopup, setShowDuplicatePopup] = useState(false);
 
   const checkMissingFields = (data) => {
     let missing = false;
