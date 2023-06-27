@@ -64,3 +64,14 @@ module.exports.CommentCase = async (req, res) => {
     return res.status(500).send("Error in Post Comments");
   }
 };
+
+module.exports.duplicate = async (req, res) => {
+  try {
+    const { body } = req;
+    const duplicateStatus = await casesServices.duplicate(body);
+    return res.status(200).send(duplicateStatus);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("Error in duplicate");
+  }
+};
