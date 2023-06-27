@@ -6,12 +6,14 @@ import PatientInformation from "../components/Gister/PatientInformation";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import DateSelector from "../components/Gister/DateSelector";
+import DuplicatePopUp from "../components/Gister/DuplicatePopUp";
 
 function Gister() {
   const navigate = useNavigate();
   const casesDataRef = useRef({});
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [showDuplicatePopup, setShowDuplicatePopup] = useState(true);
 
   const checkMissingFields = (data) => {
     let missing = false;
@@ -34,7 +36,7 @@ function Gister() {
 
   const duplicate = ({ data }) => {
     if (data === "none") return createCase();
-    if (data === "duplicate") return console.log("duplicate");
+    if (data === "duplicate") return setShowDuplicatePopup(true);
   };
 
   const handleSubmit = () => {
@@ -54,6 +56,12 @@ function Gister() {
 
   return (
     <GisterContainer>
+      <DuplicatePopUp
+        onConfirm={createCase}
+        onCancel={() => setShowDuplicatePopup(false)}
+        open={showDuplicatePopup}
+        loading={loading}
+      />
       <GisterHeader text="מערכת ליווי והדרכת מטופלים לטרום ניתוח" />
       <Container>
         <Flex>

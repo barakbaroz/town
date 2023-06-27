@@ -91,7 +91,6 @@ const SwitchText = styled.div`
 const InputGroup = styled.div`
   width: auto;
   display: inline-flex;
-  position: relative;
   cursor: pointer;
   color: #fff;
 `;

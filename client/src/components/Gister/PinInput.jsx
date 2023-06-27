@@ -72,14 +72,12 @@ const Pin = styled.input`
   border-radius: 10px;
   caret-color: #81a0f6;
   font-size: 1.5rem;
+  text-align: center;
   padding-block: 15px;
   padding-inline: 21px;
   width: 1rem;
   outline: none;
-  appearance: none;
   font-family: "Poppins";
-  -webkit-appearance: none;
-  -moz-appearance: none;
 `;
 
 const PinInputContainer = styled.div`
