@@ -1,13 +1,10 @@
-/* eslint-disable no-unused-vars */
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import styled from "styled-components";
 import CoordinatorHeader from "../components/CoordinatorHeader";
 import GisterStep from "../components/Gister/GisterStep";
 import PatientInformation from "../components/Gister/PatientInformation";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import DuplicatePopUp from "../components/Popups/DuplicatePopUp";
-import DifferentStoma from "../components/Popups/DifferentStoma";
 import DateSelector from "../components/Gister/DateSelector";
 
 function Gister() {
@@ -15,17 +12,6 @@ function Gister() {
   const casesDataRef = useRef({});
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [showDifferentPopup, setShowDifferentPopup] = useState(false);
-  const [showDuplicatePopup, setShowDuplicatePopup] = useState(false);
-
-  const [tromDate, setTromDate] = useState({
-    type: "trom",
-    date: "",
-  });
-  const [operationDate, setOperationDate] = useState({
-    type: "operation",
-    date: "",
-  });
 
   const checkMissingFields = (data) => {
     let missing = false;
@@ -48,11 +34,10 @@ function Gister() {
 
   const duplicate = ({ data }) => {
     if (data === "none") return createCase();
-    if (data === "duplicate") return setShowDuplicatePopup(true);
-    if (data === "differentType") return setShowDifferentPopup(true);
+    if (data === "duplicate") return console.log("duplicate");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = () => {
     const data = casesDataRef.current;
     const missingFields = checkMissingFields(data);
     if (missingFields) return setIsError(true);
@@ -64,21 +49,11 @@ function Gister() {
       .finally(() => setLoading(false));
   };
 
+  const handleDateSelect = (operationType, date) =>
+    (casesDataRef.current[operationType] = date.toDate());
+
   return (
     <GisterContainer>
-      <DuplicatePopUp
-        onConfirm={createCase}
-        onCancel={() => setShowDuplicatePopup(false)}
-        show={showDuplicatePopup}
-        loading={loading}
-      />
-      <DifferentStoma
-        onConfirm={createCase}
-        onCancel={() => setShowDifferentPopup(false)}
-        show={showDifferentPopup}
-        loading={loading}
-      />
-
       <CoordinatorHeader text="מערכת ליווי והדרכת מטופלים לטרום ניתוח" />
       <Container>
         <Flex>
@@ -89,7 +64,7 @@ function Gister() {
             stepNumber="02"
             title="הזנת תאריכי טרום ניתוח  (*תאריך ניתוח אופציונלי)"
           >
-            <DateSelector />
+            <DateSelector onChange={handleDateSelect} label="label" />
           </GisterStep>
         </Flex>
         <div>
@@ -107,8 +82,8 @@ export default Gister;
 
 const validator = {
   zehutNumber: (data) => data.zehutNumber?.length === 4,
-  phoneNumber: (data) => Boolean(data.phoneNumber),
-  type: (data) => Boolean(data.type),
+  phoneNumber: (data) => /^\d{10}$/.test(data),
+  preSurgery: (data) => Boolean(data),
 };
 
 const GisterContainer = styled.div`
@@ -116,6 +91,7 @@ const GisterContainer = styled.div`
   width: 100vw;
   height: 100vh;
   direction: rtl;
+  font-family: "Abraham";
 `;
 
 const Container = styled.div`

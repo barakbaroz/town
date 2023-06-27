@@ -31,6 +31,7 @@ const InformationContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: start;
+  margin-bottom: 56px;
 `;
 
 const StepNumber = styled.div`

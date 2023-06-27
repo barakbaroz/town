@@ -16,16 +16,14 @@ function PhoneInput({ phoneInputRef, onChange }) {
 
   return (
     <Utility>
-      <Container>
-        <Input
-          type="tel"
-          id="phoneNumber"
-          name="phoneNumber"
-          value={number}
-          ref={phoneInputRef}
-          onChange={handleNumberChange}
-        />
-      </Container>
+      <Input
+        type="tel"
+        id="phoneNumber"
+        name="phoneNumber"
+        value={number}
+        ref={phoneInputRef}
+        onChange={handleNumberChange}
+      />
     </Utility>
   );
 }
@@ -37,24 +35,20 @@ PhoneInput.propTypes = {
 
 export default PhoneInput;
 
-const Container = styled.div`
-  display: flex;
-  gap: 1rem;
-  direction: ltr;
-`;
-
 const Input = styled.input`
   border: 1px solid transparent;
   transition: all 250ms ease-in;
   background-color: #f5f6f8;
-  height: 1rem;
-  font-size: 1.3rem;
-  padding: 1rem;
-  border-radius: 5px;
-  width: 12rem;
-  outline: none;
+  border-radius: 10px;
   caret-color: #81a0f6;
-  font-family: inherit;
+  font-size: 1.5rem;
+  padding-block: 16px;
+  padding-inline: 27px;
+  line-height: 33px;
+  width: 12.5rem;
+  outline: none;
+  font-family: "Poppins";
+  direction: ltr;
 `;
 
 const Utility = styled.div`

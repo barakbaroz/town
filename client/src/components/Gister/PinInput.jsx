@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { useRef } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
@@ -17,7 +16,7 @@ function PinInput({ ZehutInputRef, nextInput, onChange }) {
     onChange(refs.current.map(({ value }) => value).join(""));
   };
 
-  const handleFocus = (index) => (event) => {
+  const handleFocus = (index) => () => {
     const prevPin = refs?.current[index - 1];
     if (!prevPin) return;
     const val = prevPin?.value;
@@ -68,25 +67,19 @@ export default PinInput;
 
 const Pin = styled.input`
   border: 1px solid transparent;
-  transition: border 250ms ease-in;
-  font-family: inherit;
-  border-radius: 5px;
-  width: 1rem;
-  height: 1rem;
-  padding: 1rem;
-  font-size: 1.3rem;
+  transition: all 250ms ease-in;
   background-color: #f5f6f8;
-  text-align: center;
+  border-radius: 10px;
   caret-color: #81a0f6;
+  font-size: 1.5rem;
+  padding-block: 15px;
+  padding-inline: 21px;
+  width: 1rem;
   outline: none;
   appearance: none;
+  font-family: "Poppins";
   -webkit-appearance: none;
   -moz-appearance: none;
-  ::-webkit-outer-spin-button,
-  ::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
 `;
 
 const PinInputContainer = styled.div`
@@ -95,7 +88,7 @@ const PinInputContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 0.5rem;
+  gap: 6px;
 `;
 
 const Utility = styled.div`

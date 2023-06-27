@@ -1,41 +1,75 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Calendar } from "@gistmed/gist-ui/dist/components/DatePicker/Calendar";
 import OperationsDates from "./OperationsDates";
 import styled from "styled-components";
 import { useDatePickerState } from "react-stately";
 import { useDatePicker } from "react-aria";
+import PropTypes from "prop-types";
 
 function DateSelector(props) {
-  let datePickerState = useDatePickerState({
+  const [operationType, setOperationType] = useState("preSurgery");
+
+  const dateFieldRef = useRef();
+  const datePickerStatePreSurgery = useDatePickerState({
     ...props,
+    onChange: (data) => props.onChange(operationType, data),
     shouldCloseOnSelect: false,
   });
-  let dateFieldRef = useRef();
-  let { groupProps, fieldProps, calendarProps } = useDatePicker(
+  const preSurgeryProps = useDatePicker(
     props,
-    datePickerState,
+    datePickerStatePreSurgery,
     dateFieldRef
   );
+
+  const datePickerStateSurgery = useDatePickerState({
+    ...props,
+    onChange: (data) => props.onChange(operationType, data),
+    shouldCloseOnSelect: false,
+  });
+  const surgeryProps = useDatePicker(
+    props,
+    datePickerStateSurgery,
+    dateFieldRef
+  );
+
+  const calendarPropsMaper = {
+    preSurgery: preSurgeryProps,
+    surgery: surgeryProps,
+  };
+
   return (
-    <Wrapper>
-      <Calendar {...calendarProps} />
+    <Wrapper id="DateSelector">
+      <CalendarWrapper>
+        <Calendar {...calendarPropsMaper[operationType].calendarProps} />
+      </CalendarWrapper>
       <OperationsDates
-        groupProps={groupProps}
+        operationType={operationType}
+        setOperationType={setOperationType}
         dateFieldRef={dateFieldRef}
-        fieldProps={fieldProps}
+        preSurgeryProps={preSurgeryProps}
+        surgeryProps={surgeryProps}
       />
     </Wrapper>
   );
 }
 
 export default DateSelector;
+
+DateSelector.propTypes = {
+  onChange: PropTypes.func,
+};
+
 const Wrapper = styled.div`
+  --padding-block: 38px;
+  --padding-inline: 45px;
   display: flex;
-  flex-direction: row;
-  align-items: center;
   border-radius: 15px;
-  width: 54.313rem;
-  height: 23.688rem;
-  margin: 30px;
-  padding-bottom: 10px;
+  box-shadow: 0px 15px 10px #0000001a;
+  overflow: hidden;
+  font-family: "Assistant";
+`;
+
+const CalendarWrapper = styled.div`
+  padding-block: var(--padding-block);
+  padding-inline: var(--padding-inline);
 `;
