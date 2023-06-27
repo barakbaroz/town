@@ -4,10 +4,15 @@ import fever from "../../assets/Icons/fever.svg";
 import medicalCondition from "../../assets/Icons/medicalCondition.svg";
 import feast from "../../assets/Icons/feast.svg";
 import PropTypes from "prop-types";
+import { useContext } from "react";
+import { userContext } from "../../providers/UserProvider";
 
 const Icons = { fever, medicalCondition, feast };
 
 function SurgeryInstructionItem({ surgeryInstruction }) {
+  const userInfo = useContext(userContext);
+  const { age } = userInfo.Case;
+  const babyFeast = surgeryInstruction === "feast" && age === "0-3";
   return (
     <Container>
       <InstructionIcon
@@ -15,7 +20,9 @@ function SurgeryInstructionItem({ surgeryInstruction }) {
         alt={surgeryInstruction}
       />
       <Text>
-        <Translator>{surgeryInstruction}</Translator>
+        <Translator>
+          {babyFeast ? `${surgeryInstruction}Baby` : surgeryInstruction}
+        </Translator>
       </Text>
     </Container>
   );

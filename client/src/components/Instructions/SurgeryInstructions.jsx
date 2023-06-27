@@ -7,7 +7,7 @@ function SurgeryInstructions() {
   return (
     <Container>
       <Title>
-        <Translator>instructions-title</Translator>
+        <Translator>SurgeryInstructions-title</Translator>
       </Title>
 
       <ListContainer>
@@ -24,7 +24,7 @@ function SurgeryInstructions() {
           {/* <CostumeCheckbox answerKey={answer}>
                         <Vcheck />
                       </CostumeCheckbox> */}
-          <Translator>אישור הנחיות</Translator>
+          <Translator>SurgeryInstructions-approveButton</Translator>
           <Input />
         </Label>
       </Button>

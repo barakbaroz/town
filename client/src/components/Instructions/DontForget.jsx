@@ -17,7 +17,7 @@ function DontForget() {
     <Container>
       <TopContent>
         <Title>
-          <Translator>לא לשכוח להביא לפגישת טרום ניתוח</Translator>
+          <Translator>DontForget-Title</Translator>
         </Title>
 
         <DontForgetIcon src={dont_forget} lt="dont forget" />
@@ -34,7 +34,7 @@ function DontForget() {
       <Instructions href={instructions[userStringDetails]} target="_blank">
         <InstructionsIcon src={instructions_download} />
         <InstructionsText>
-          <Translator>instruction-download</Translator>
+          <Translator>DontForget-DownloadInstructions</Translator>
         </InstructionsText>
       </Instructions>
     </Container>

@@ -20,14 +20,11 @@ function Instructions() {
       </StyledLanguageBar>
       <VideoPreviewTexts>
         <Title>
-          <Translator>הסרטון הבא הותאם במיוחד עבור ילדכם</Translator>
+          <Translator>Instructions-Title</Translator>
         </Title>
 
         <Text>
-          <Translator>
-            לאחר הצפיה בסרטון, יש לקרוא ולאשר את ההנחיות לקראת הניתוח המצורפות
-            בהמשך המסך
-          </Translator>
+          <Translator>Instructions-Description</Translator>
         </Text>
       </VideoPreviewTexts>
 
