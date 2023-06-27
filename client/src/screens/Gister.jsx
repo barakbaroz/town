@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import styled from "styled-components";
-import CoordinatorHeader from "../components/CoordinatorHeader";
+import GisterHeader from "../components/Gister/GisterHeader";
 import GisterStep from "../components/Gister/GisterStep";
 import PatientInformation from "../components/Gister/PatientInformation";
 import axios from "axios";
@@ -54,7 +54,7 @@ function Gister() {
 
   return (
     <GisterContainer>
-      <CoordinatorHeader text="מערכת ליווי והדרכת מטופלים לטרום ניתוח" />
+      <GisterHeader text="מערכת ליווי והדרכת מטופלים לטרום ניתוח" />
       <Container>
         <Flex>
           <GisterStep stepNumber="01" title="פרטי מטופל ויצירת קשר">
