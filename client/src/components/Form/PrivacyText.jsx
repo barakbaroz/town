@@ -1,20 +1,13 @@
 import { Link } from "react-router-dom";
-import styled from "styled-components";
-import backPageIcon from "../../assets/Icons/backPageIcon.svg";
+import BackButton from "../Common/BackButton";
 
 function PrivacyText() {
-  const backClick = (e) => {
-    // axios.post("/api/users/userAction", { userId, type: `TOS-Back` });
-  };
+  // const backClick = (e) => {
+  //   // axios.post("/api/users/userAction", { userId, type: `TOS-Back` });
+  // };
   return (
     <>
-      <StyledPrivacyWrapper dir="rtl">
-        <Link to={-1}>
-          <img src={backPageIcon} alt="return" onClick={backClick} />
-        </Link>
-        <StyledPrivacyTitle>מדיניות פרטיות &ndash;GISTMD</StyledPrivacyTitle>
-      </StyledPrivacyWrapper>
-
+      <BackButton text={"מדיניות פרטיות GISTMD"} />
       <p dir="rtl">עודכן לאחרונה:21/06/2023</p>
       <p dir="rtl">
         אנו,&nbsp;המרכז הרפואי ת&quot;א&nbsp;(ביחד, &quot;המוסד הרפואי&quot; או
@@ -705,15 +698,3 @@ function PrivacyText() {
 }
 
 export default PrivacyText;
-
-const StyledPrivacyWrapper = styled.div`
-  display: flex;
-  justify-content: start;
-  gap: 4%;
-  align-items: center;
-`;
-const StyledPrivacyTitle = styled.p`
-  font-size: 1.5rem;
-  font-family: abraham, regular;
-  font-weight: bold;
-`;

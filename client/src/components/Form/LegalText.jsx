@@ -1,7 +1,6 @@
 import axios from "axios";
 import { Link, useParams } from "react-router-dom";
-import backPageIcon from "../../assets/Icons/backPageIcon.svg";
-import styled from "styled-components";
+import BackButton from "../Common/BackButton";
 
 function LegalText() {
   const { userId } = useParams();
@@ -12,18 +11,13 @@ function LegalText() {
       type: `TOS-support-request`,
     });
   };
-  const backClick = (e) => {
-    // axios.post("/api/users/userAction", { userId, type: `TOS-Back` });
-  };
+  // const backClick = (e) => {
+  //   // axios.post("/api/users/userAction", { userId, type: `TOS-Back` });
+  // };
 
   return (
     <>
-      <StyledTosWrapper dir="rtl">
-        <Link to={-1}>
-          <img src={backPageIcon} alt="return" onClick={backClick} />
-        </Link>
-        <StyledTosTitle>תנאי שימוש</StyledTosTitle>
-      </StyledTosWrapper>
+      <BackButton text={"תנאי שימוש"} />
       <p dir="rtl">עודכן לאחרונה:21/06/2023</p>
       <p dir="rtl">
         המרכז הרפואי ת&quot;א (להלן, ביחד: &quot;המוסד הרפואי&quot; או
@@ -630,15 +624,3 @@ function LegalText() {
 }
 
 export default LegalText;
-
-const StyledTosWrapper = styled.div`
-  display: flex;
-  justify-content: start;
-  gap: 4%;
-  align-items: center;
-`;
-const StyledTosTitle = styled.p`
-  font-size: 1.5rem;
-  font-family: abraham, regular;
-  font-weight: bold;
-`;
