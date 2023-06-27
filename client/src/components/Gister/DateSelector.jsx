@@ -12,7 +12,7 @@ function DateSelector(props) {
   const dateFieldRef = useRef();
   const datePickerStatePreSurgery = useDatePickerState({
     ...props,
-    onChange: (data) => props.onChange(operationType, data),
+    onChange: (data) => props.onChange("preSurgery", data),
     shouldCloseOnSelect: false,
   });
   const preSurgeryProps = useDatePicker(
@@ -23,7 +23,7 @@ function DateSelector(props) {
 
   const datePickerStateSurgery = useDatePickerState({
     ...props,
-    onChange: (data) => props.onChange(operationType, data),
+    onChange: (data) => props.onChange("surgery", data),
     shouldCloseOnSelect: false,
   });
   const surgeryProps = useDatePicker(
