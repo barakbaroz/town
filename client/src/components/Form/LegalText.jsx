@@ -4,6 +4,9 @@ import BackButton from "../Common/BackButton";
 
 function LegalText() {
   const { userId } = useParams();
+  const backClick = (e) => {
+    axios.post("/api/users/userAction", { userId, type: `TOS-Back` });
+  };
 
   const supportClick = (e) => {
     axios.post("/api/users/userAction", {
@@ -14,7 +17,7 @@ function LegalText() {
 
   return (
     <>
-      <BackButton text={"תנאי שימוש"} />
+      <BackButton text={"תנאי שימוש"} onClick={backClick} />
       <p dir="rtl">עודכן לאחרונה:21/06/2023</p>
       <p dir="rtl">
         המרכז הרפואי ת&quot;א (להלן, ביחד: &quot;המוסד הרפואי&quot; או

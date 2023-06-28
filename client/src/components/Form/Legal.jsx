@@ -1,10 +1,14 @@
 import styled from "styled-components";
 import LegalText from "./LegalText";
 import background from "../../assets/Backgrounds/legalBackground.svg";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 
 const Legal = () => {
-  const BackClick = (e) => {};
+  const { userId } = useParams();
+  const BackClick = (e) => {
+    axios.post("/api/users/userAction", { userId, type: `TOS-Back` });
+  };
 
   return (
     <Container>

@@ -1,11 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import BackButton from "../Common/BackButton";
+import axios from "axios";
 
 function PrivacyText() {
+  const { userId } = useParams();
   const backClick = (e) => {
+    axios.post("/api/users/userAction", { userId, type: `privacy-Back` });
+  };
   return (
     <>
-      <BackButton text={"מדיניות פרטיות GISTMD"} />
+      <BackButton text={"מדיניות פרטיות GISTMD"} onClick={backClick} />
       <p dir="rtl">עודכן לאחרונה:21/06/2023</p>
       <p dir="rtl">
         אנו,&nbsp;המרכז הרפואי ת&quot;א&nbsp;(ביחד, &quot;המוסד הרפואי&quot; או

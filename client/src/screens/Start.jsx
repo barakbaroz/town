@@ -1,16 +1,25 @@
 import { useEffect } from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import LanguageBar from "../components/User/LanguageBar";
 import MatotLandingPage from "../assets/Avatars/Matot_LandingPage.svg";
 import { Translator } from "../components/Translation";
+import postAnalytrics from "../functions/postAnalytics";
 
 const Start = () => {
-  useEffect(() => {}, []);
+  const { userId } = useParams();
 
-  const handleLegalLinkClick = () => {};
+  const handleLegalLinkClick = () => {
+    postAnalytrics({ userId, type: `opened-tos` });
+  };
 
-  const handleStartClick = () => {};
+  const handleStartClick = () => {
+    postAnalytrics({ userId, type: `start-button-clicked` });
+  };
+
+  useEffect(() => {
+    postAnalytrics({ userId, type: `opened-sms` });
+  }, [userId]);
 
   return (
     <StartContainer id="StartContainer">
