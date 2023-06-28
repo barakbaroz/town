@@ -3,8 +3,7 @@ import fever from "./fever.svg";
 import medicalCondition from "./medical_condition.svg";
 
 const instructionsIcons = {
-  "feast_0-2": feast,
-  "feast_3-18": feast,
+  feast,
   fever,
   medicalCondition,
 };

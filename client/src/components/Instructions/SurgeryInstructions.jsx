@@ -4,15 +4,37 @@ import SurgeryInstructionItem from "./SurgeryInstructionItem";
 import { userContext } from "../../providers/UserProvider";
 import { useContext } from "react";
 import white_v from "../../assets/Icons/white_v.svg";
+import instructionsIcons from "../../assets/Icons/PersonalInstructions";
 
-const surgeryInstructionsItems = ["fever", "medicalCondition", "feast"];
+const surgeryInstructionsItems = {
+  fever: {
+    icon: instructionsIcons.fever,
+    paragraphs: ["Surgery-Instruction-Fever"],
+  },
+  medicalCondition: {
+    icon: instructionsIcons.medicalCondition,
+    paragraphs: ["Surgery-Instruction-Medical-Condition"],
+  },
+  feast: {
+    icon: instructionsIcons.feast,
+    paragraphs: [
+      "Surgery-Instruction-Feast-6-Hours",
+      "Surgery-Instruction-Feast-4-Hours",
+      "Surgery-Instruction-Feast-1-Hours-Max",
+      "Surgery-Instruction-Feast-1-Hours",
+    ],
+  },
+};
+
 function SurgeryInstructions() {
   const userInfo = useContext(userContext);
   const { age } = userInfo.Case;
-  const surgeryInstructionsByAge = [...surgeryInstructionsItems];
-  surgeryInstructionsByAge[2] = `${surgeryInstructionsByAge[2]}_${
-    age === "0-2" ? "0-2" : "3-18"
-  }`;
+  if (age === "0-2")
+    surgeryInstructionsItems.feast.paragraphs.splice(
+      2,
+      0,
+      "Surgery-Instruction-Feast-3-Hours"
+    );
 
   return (
     <Container>
@@ -21,9 +43,9 @@ function SurgeryInstructions() {
       </Title>
 
       <ListContainer>
-        {surgeryInstructionsByAge.map((surgeryInstruction) => (
+        {Object.values(surgeryInstructionsItems).map((surgeryInstruction) => (
           <>
-            <SurgeryInstructionItem surgeryInstruction={surgeryInstruction} />
+            <SurgeryInstructionItem {...surgeryInstruction} />
             <Divider />
           </>
         ))}

@@ -1,18 +1,18 @@
 import styled from "styled-components";
 import { Translator } from "../Translation";
-import instructionsIcons from "../../assets/Icons/PersonalInstructions";
 import PropTypes from "prop-types";
 
-function SurgeryInstructionItem({ surgeryInstruction }) {
+function SurgeryInstructionItem({ icon, paragraphs }) {
   return (
     <Container>
-      <InstructionIcon
-        src={instructionsIcons[surgeryInstruction]}
-        alt={surgeryInstruction}
-      />
-      <Text>
-        <Translator>{surgeryInstruction}</Translator>
-      </Text>
+      <InstructionIcon src={icon} />
+      <ParagraphsContainer>
+        {paragraphs.map((paragraph) => (
+          <Text key={paragraph}>
+            <Translator>{paragraph}</Translator>
+          </Text>
+        ))}
+      </ParagraphsContainer>
     </Container>
   );
 }
@@ -20,7 +20,8 @@ function SurgeryInstructionItem({ surgeryInstruction }) {
 export default SurgeryInstructionItem;
 
 SurgeryInstructionItem.propTypes = {
-  surgeryInstruction: PropTypes.string,
+  icon: PropTypes.string,
+  paragraphs: PropTypes.arrayOf(String),
 };
 
 const Container = styled.div`
@@ -38,4 +39,12 @@ const Text = styled.p`
 const InstructionIcon = styled.img`
   width: 47px;
   height: 47px;
+`;
+
+const ParagraphsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
 `;
