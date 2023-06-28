@@ -113,6 +113,7 @@ const Vcheck = styled.img.attrs({
   src: white_v,
   alt: "V",
 })`
+  width: 1.2rem;
   &:has(~ ${Input}:checked) {
     display: block;
   }
