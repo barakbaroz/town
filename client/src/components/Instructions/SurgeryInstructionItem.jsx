@@ -26,7 +26,7 @@ SurgeryInstructionItem.propTypes = {
 const Container = styled.div`
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
+  gap: 25px;
 `;
 
 const Text = styled.p`
