@@ -48,5 +48,12 @@
   "diseasesNeedTreatment": "Has your child been diagnosed with any syndrome, metabolic disease, genetic disorder, malformation, or chronic condition that requires special treatment and supervision?",
   "bornBeforeWeek36": "Was your child born earlier than 36 weeks gestation and hospitalized in a PICU?",
 
-  "questionnaireValidationTitle": "You've reached the end of the questionnaire. Please review your answers before submitting them"
+  "questionnaireValidationTitle": "You've reached the end of the questionnaire. Please review your answers before submitting them",
+
+  "Dismiss-Header":"Based on your answers to the medical questionnaire, we've exempted you from meeting an anesthesiologist during your pre-surgery visit.",
+  "Dismiss-Paragraph":"When you arrive for the pre-surgery visit, please present this exemption note at the pediatric nursing reception desk",
+  "Dismiss-PayAttention":"The exemption is valid for three months from the day it was issued",
+  "Dismiss-Button-Consent":"Informed consent form",
+  "Dismiss-Button-Instructions":"Pre-surgery instructions",
+  "Dismiss-Button-WatchVideo":"Watch the video"
 }
