@@ -1,4 +1,4 @@
-import { useState, Fragment, useContext, useEffect } from "react";
+import { useState, Fragment, useContext } from "react";
 import styled from "styled-components";
 import background from "../assets/Backgrounds/wave_background.svg";
 import data from "../components/CharacterSelection/CharacterSelectionData.json";
@@ -17,7 +17,7 @@ function CharacterSelection() {
   const [tag, setTag] = useState({});
   const [showError, setShowError] = useState(false);
 
-  const answerQuestion = (questionKey, answerKey) => (e) => {
+  const answerQuestion = (questionKey, answerKey) => () => {
     postAnalytics({ userId, type: `answer-${questionKey}-${answerKey}` });
     setAvatar("");
     setAnswers((prev) => ({
@@ -46,11 +46,6 @@ function CharacterSelection() {
     userInfo.updateCase(tag);
     navigate(`../Video`);
   };
-
-  // useEffect(() => {
-  //   const { age, gender } = userInfo.Case;
-  //   if (age && gender) navigate(`../Video`);
-  // });
 
   return (
     <CharacterSelectionContainer id="CharacterSelectionContainer">
