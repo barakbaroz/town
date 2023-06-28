@@ -8,22 +8,21 @@ import SurgeryInstructions from "../components/Instructions/SurgeryInstructions"
 import DontForget from "../components/Instructions/DontForget";
 import Consent from "../components/Instructions/Consent";
 import LanguageBar from "../components/User/LanguageBar";
-import { useContext } from "react";
-import { userContext } from "../providers/UserProvider";
 
 function Instructions() {
   const [showFeedback, setShowFeedback] = useState(false);
-  const userInfo = useContext(userContext);
+
+  const watchedVideo = "24/06/2023";
+  const signedConfirmation = "24/06/2023";
+  const points = 0;
 
   const getTitle = () => {
-    const { watchedVideo, signedConfirmation, points } = userInfo.Token;
     const titleType =
       points === 0 && watchedVideo && !signedConfirmation ? "sign" : "default";
     return `video-page-${titleType}-title`;
   };
 
   const getSubtitle = () => {
-    const { watchedVideo, signedConfirmation, points } = userInfo.Token;
     if (points > 0) return "video-page-AnsweredOneYes";
     const watchedVideoString = watchedVideo
       ? "watchedVideo"
