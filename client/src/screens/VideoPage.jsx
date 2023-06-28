@@ -72,7 +72,8 @@ export default VideoPage;
 
 const Container = styled.div`
   --screen-texts-padding: 26px;
-  padding-block: 20px;
+  padding-block-start: 20px;
+  padding-block-end: 65px;
 `;
 
 const StyledLanguageBar = styled.div`
