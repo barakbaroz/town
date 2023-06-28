@@ -1,12 +1,12 @@
 import styled from "styled-components";
 import gistLogo from "../../assets/Logos/gistLogo.svg";
-import Ichilov_Logo_PatientScreen from "../../assets/Logos/Ichilov_Logo_PatientScreen.svg";
+import hospitalLogo from "../../assets/Logos/hospital_logo.svg";
 import PropTypes from "prop-types";
 
 function GisterHeader({ text }) {
   return (
     <Container id="coordinator-header">
-      <Logo src={Ichilov_Logo_PatientScreen} />
+      <Logo src={hospitalLogo} />
       <Text>{text}</Text>
       <Logo src={gistLogo} />
     </Container>
