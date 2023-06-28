@@ -1,13 +1,11 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { Translator } from "../Translation";
-import { userContext } from "../../providers/UserProvider";
 import SingleQuestion from "./SingleQuestion";
 import PropTypes from "prop-types";
 import { useRef } from "react";
 
 const SatisfactionQuestions = ({ videoStarted }) => {
-  const userInfo = useContext(userContext);
   // Ref to object that represent the question keys possible in order to check if everything answered.
   const answersRef = useRef({
     "reduce-worries": false,

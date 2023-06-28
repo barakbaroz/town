@@ -59,6 +59,7 @@ const FeedBackWrapper = styled.div`
   height: ${({ show }) => (show ? 1 : 0)};
   transition: opacity 200ms linear;
   padding-inline: var(--screen-texts-padding);
+  overflow: hidden;
 `;
 
 const FeedbackTitle = styled.div`
