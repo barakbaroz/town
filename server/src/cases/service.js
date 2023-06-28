@@ -93,11 +93,16 @@ module.exports.postCase = async ({
   creatorId,
   phoneNumber,
   zehutNumber,
-  phase,
-  kit,
+  preSurgery,
+  surgery,
 }) => {
   console.info(`Post case by staff member: ${creatorId}`);
-  const newCase = await Cases.create({ zehutNumber, creatorId });
+  const newCase = await Cases.create({
+    creatorId,
+    zehutNumber,
+    preSurgery,
+    surgery,
+  });
   const CaseId = newCase.dataValues.id;
   const user = await Users.create({ CaseId, phoneNumber });
   const actionKey = "creation";
@@ -118,4 +123,14 @@ module.exports.deleteCase = async ({ CaseId, staffMembersId }) => {
 module.exports.CommentCase = async ({ CaseId, comment, creatorId }) => {
   console.info(`Post comment  case:${CaseId}  comment:${comment}`);
   await Comments.create({ CaseId, creatorId, message: comment });
+};
+
+module.exports.duplicate = async (data) => {
+  const { phoneNumber, zehutNumber } = data;
+  const caseExists = await Cases.findOne({
+    where: { zehutNumber },
+    include: { model: Users, where: { phoneNumber } },
+  });
+  if (caseExists) return "duplicate";
+  return "none";
 };

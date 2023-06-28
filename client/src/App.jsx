@@ -5,7 +5,7 @@ import {
 } from "react-router-dom";
 import "./stylings/fonts.css";
 // import Panel from "./screens/Panel";
-// import Gister from "./screens/Gister";
+import Gister from "./screens/Gister";
 // import Start from "./screens/Start";
 // import Legal from "./components/Form/Legal";
 // import Privacy from "./components/Form/Privacy";
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
   { path: "Login", element: <Login /> },
 
   // { path: "Panel", element: <Panel /> },
-  // { path: "Gister", element: <Gister /> },
+  { path: "Gister", element: <Gister /> },
   {
     path: "user/:userId",
     element: <UserLayout />,
