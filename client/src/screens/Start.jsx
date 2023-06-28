@@ -4,20 +4,13 @@ import { Link } from "react-router-dom";
 import LanguageBar from "../components/User/LanguageBar";
 import MatotLandingPage from "../assets/Avatars/Matot_LandingPage.svg";
 import { Translator } from "../components/Translation";
-// import postAnalytrics from "../functions/postAnalytics";
 
 const Start = () => {
-  //   const { userId } = useParams();
-
-  useEffect(() => {
-    // postAnalytrics({ userId, type: `opened-sms` });
-  }, []);
+  useEffect(() => {}, []);
 
   const handleLegalLinkClick = () => {};
-  // postAnalytrics({ userId, type: `opened-tos` });
 
   const handleStartClick = () => {};
-  // postAnalytrics({ userId, type: `start-button-clicked` });
 
   return (
     <StartContainer id="StartContainer">

@@ -11,9 +11,6 @@ function LegalText() {
       type: `TOS-support-request`,
     });
   };
-  // const backClick = (e) => {
-  //   // axios.post("/api/users/userAction", { userId, type: `TOS-Back` });
-  // };
 
   return (
     <>

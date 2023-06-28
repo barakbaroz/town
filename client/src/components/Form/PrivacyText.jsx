@@ -2,9 +2,7 @@ import { Link } from "react-router-dom";
 import BackButton from "../Common/BackButton";
 
 function PrivacyText() {
-  // const backClick = (e) => {
-  //   // axios.post("/api/users/userAction", { userId, type: `TOS-Back` });
-  // };
+  const backClick = (e) => {
   return (
     <>
       <BackButton text={"מדיניות פרטיות GISTMD"} />
