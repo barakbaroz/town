@@ -117,12 +117,12 @@ export default CharacterSelection;
 
 const avatars = [
   {
-    name: "male_0-3_white",
+    name: "male_0-2_white",
     fields: ["male", "0-2", "other"],
     tags: { gender: "male", age: "0-2" },
   },
   {
-    name: "male_0-3_black",
+    name: "male_0-2_black",
     fields: ["male", "0-2", "other"],
     tags: { gender: "male", age: "0-2" },
   },
@@ -150,12 +150,12 @@ const avatars = [
   },
 
   {
-    name: "female_0-3_white",
+    name: "female_0-2_white",
     fields: ["female", "0-2", "other"],
     tags: { gender: "female", age: "0-2" },
   },
   {
-    name: "female_0-3_black",
+    name: "female_0-2_black",
     fields: ["female", "0-2", "other"],
     tags: { gender: "female", age: "0-2" },
   },
