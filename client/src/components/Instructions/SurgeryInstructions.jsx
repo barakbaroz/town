@@ -31,15 +31,17 @@ function SurgeryInstructions() {
 
       <Button>
         <Label>
-          <CostumeCheckbox>
-            <Vcheck />
-          </CostumeCheckbox>
+          <Vcheck />
           <CheckBoxText>
             <Translator>אישור הנחיות</Translator>
           </CheckBoxText>
           <Input />
         </Label>
       </Button>
+
+      <SignedText>
+        <Translator>תודה! אישור התקבל בהצלחה</Translator>
+      </SignedText>
     </Container>
   );
 }
@@ -70,7 +72,32 @@ const Divider = styled.div`
   }
 `;
 
+const SignedText = styled.p`
+  transition: opacity 200ms linear;
+  align-self: center;
+  margin-block-start: 0.6875rem;
+  margin-block-end: 1.25rem;
+  margin-inline: 0;
+  font-weight: 500;
+  font-size: 1.125rem;
+  opacity: 0;
+`;
+
+const Label = styled.label`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Input = styled.input.attrs({
+  type: "radio",
+  name: "signedConfirmation",
+})`
+  display: none;
+`;
+
 const Button = styled.button`
+  --content-height: 1.625rem;
   cursor: pointer;
   width: 12rem;
   background-color: #f02a4c;
@@ -80,54 +107,28 @@ const Button = styled.button`
   border-radius: 50px;
   align-self: center;
   font-family: inherit;
-`;
-
-const Input = styled.input.attrs({
-  type: "radio",
-})`
-  display: none;
-`;
-
-const CheckBoxText = styled.div`
-  &:has(~ ${Input}:checked) {
-    display: none;
+  &:has(> ${Label} > ${Input}:checked) + ${SignedText} {
+    opacity: 1;
   }
 `;
 
-const Label = styled.label`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
+const CheckBoxText = styled.div`
+  color: #fff;
   font-size: 1.25rem;
-  cursor: pointer;
-  padding-block: 0.5rem;
-  border: none;
-  padding-inline: 1rem;
-  border-radius: 50px;
-  background-color: #f02a4c;
-  color: white;
+  line-height: var(--content-height);
+  &:has(~ ${Input}:checked) {
+    display: none;
+  }
 `;
 
 const Vcheck = styled.img.attrs({
   src: white_v,
   alt: "V",
 })`
-  width: 1.2rem;
-  &:has(~ ${Input}:checked) {
-    display: block;
-  }
-`;
-
-const CostumeCheckbox = styled.div`
-  --size: 1.625rem;
-  min-width: var(--size);
-  min-height: var(--size);
-  border-radius: 5px;
-  align-items: center;
-  justify-content: center;
+  width: 1.25rem;
+  height: var(--content-height);
   display: none;
   &:has(~ ${Input}:checked) {
-    display: flex;
+    display: block;
   }
 `;
