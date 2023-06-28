@@ -4,16 +4,14 @@ import Navigation from "../components/Questionnaire/Navigation";
 import Carouselle from "../components/User/Carousell";
 import questions from "../questionnairesStructure/StartQuestionnaire.json";
 import questionsAnimations from "../assets/questionsAnimations";
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Translator } from "../components/Translation";
 import qustionnaireImages from "../assets/questionsImages";
-import { userContext } from "../providers/UserProvider";
 import white_v from "../assets/Icons/white_v.svg";
 
 function Questionnaire() {
-  const { Case } = useContext(userContext);
   const navigate = useNavigate();
   const formRef = useRef(null);
   const [index, setIndex] = useState(0);
