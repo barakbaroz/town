@@ -12,8 +12,8 @@ import LanguageBar from "../components/User/LanguageBar";
 function Instructions() {
   const [showFeedback, setShowFeedback] = useState(false);
 
-  const watchedVideo = "24/06/2023";
-  const signedConfirmation = "24/06/2023";
+  const watchedVideo = null;
+  const signedConfirmation = null;
   const points = 0;
 
   const getTitle = () => {
@@ -46,13 +46,11 @@ function Instructions() {
         <Subtitle>{Translate(getSubtitle())}</Subtitle>
       </VideoPreviewTexts>
 
-      <VideoWrapper id="VideoWrapper">
-        <Player setShowFeedback={setShowFeedback} />
-        <ShareWrapper>
-          <VideoButtons />
-        </ShareWrapper>
-        <SatisfactionQuestions videoStarted={showFeedback} />
-      </VideoWrapper>
+      <Player setShowFeedback={setShowFeedback} />
+      <ShareWrapper>
+        <VideoButtons />
+      </ShareWrapper>
+      <SatisfactionQuestions videoStarted={showFeedback} />
 
       <BlueWrapper>
         <SurgeryInstructions />
@@ -73,7 +71,7 @@ function Instructions() {
 export default Instructions;
 
 const Container = styled.div`
-  --screen-texts-padding: 27px;
+  --screen-texts-padding: 26px;
   padding-block: 20px;
 `;
 
@@ -99,29 +97,24 @@ const Subtitle = styled.h3.attrs(({ children }) => {
 })`
   font-weight: 400;
   font-size: 1.1875rem;
-`;
-
-const VideoWrapper = styled.div`
-  /* margin: 1.5rem 0 4rem 0;
-  padding-block-end: 1rem; */
+  margin-inline-start: 0.9375rem;
+  margin-inline-end: 1.3125rem;
 `;
 
 const ShareWrapper = styled.div`
   text-align: start;
   display: flex;
   justify-content: flex-end;
-  margin: 1rem 0 0 0;
-  gap: 1.2rem;
+  gap: 0.25rem;
+  margin-block-start: 0.6875rem;
   margin-inline: var(--screen-texts-padding);
 `;
 
 const BlueWrapper = styled.div`
   background-color: #84a4fc;
   border-radius: 0 20px 0 20px;
-  margin-block-start: 2rem;
-  padding-block-start: 1.6875rem;
-  padding-inline: var(--screen-texts-padding);
-  padding-block-end: 1.9375rem;
+  margin-block-start: 2.375rem;
+  padding: var(--screen-texts-padding);
   color: #ffffff;
 `;
 
