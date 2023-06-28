@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Translator } from "../Translation";
 import fever from "../../assets/Icons/fever.svg";
-import medicalCondition from "../../assets/Icons/medicalCondition.svg";
+import medicalCondition from "../../assets/Icons/medical_condition.svg";
 import feast from "../../assets/Icons/feast.svg";
 import PropTypes from "prop-types";
 
