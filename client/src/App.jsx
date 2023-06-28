@@ -13,11 +13,11 @@ import Gister from "./screens/Gister";
 import Login from "./screens/Login";
 import Questionnaire from "./screens/Questionnaire";
 import QuestionnaireValidation from "./screens/QuestionnaireValidation";
-import Instructions from "./screens/Instructions";
 import UserLayout from "./layouts/UserLayout";
 import ErrorElement from "./screens/Error";
 import NotFound from "./screens/NotFound";
 import CharacterSelection from "./screens/CharacterSelection";
+import VideoPage from "./screens/VideoPage";
 // import ErrorElement from "./screens/Error";
 
 const App = () => {
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
     children: [
       { path: "Questionnaire", element: <Questionnaire /> },
       { path: "QuestionnaireValidation", element: <QuestionnaireValidation /> },
-      { path: "Instructions", element: <Instructions /> },
+      { path: "Video", element: <VideoPage /> },
       { path: "CharacterSelection", element: <CharacterSelection /> },
       // { path: "Legal", element: <Legal /> },
       // { path: "Privacy", element: <Privacy /> },

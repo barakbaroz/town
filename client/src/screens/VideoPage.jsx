@@ -9,7 +9,7 @@ import DontForget from "../components/Instructions/DontForget";
 import Consent from "../components/Instructions/Consent";
 import LanguageBar from "../components/User/LanguageBar";
 
-function Instructions() {
+function VideoPage() {
   const [showFeedback, setShowFeedback] = useState(false);
 
   const watchedVideo = null;
@@ -68,7 +68,7 @@ function Instructions() {
   );
 }
 
-export default Instructions;
+export default VideoPage;
 
 const Container = styled.div`
   --screen-texts-padding: 26px;
