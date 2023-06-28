@@ -19,6 +19,7 @@ const init = (sequelize) =>
 
 const associations = (sequelize) => {
   const { Questionnaire, Users } = sequelize.models;
+  Questionnaire.belongsTo(Users);
 };
 
-module.exports = { init, associations, hooks };
+module.exports = { init, associations };

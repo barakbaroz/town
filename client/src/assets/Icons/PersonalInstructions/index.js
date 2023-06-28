@@ -1,6 +1,6 @@
 import feast from "./feast.svg";
 import fever from "./fever.svg";
-import medicalCondition from "./medicalCondition.svg";
+import medicalCondition from "./medical_condition.svg";
 
 const instructionsIcons = {
   "feast_0-2": feast,
