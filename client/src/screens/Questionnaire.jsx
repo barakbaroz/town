@@ -21,8 +21,9 @@ function Questionnaire() {
   const [answeresIndexes, setAnsweresIndexes] = useState(
     Array(questionsLength).fill(false)
   );
-  const { age, gender, ethnicity } = Case;
-  const avatar = `${gender}_${age}_${ethnicity}`;
+  // const { age, gender, ethnicity } = Case;
+  // const avatar = `${gender}_${age}_${ethnicity}`;
+  const avatar = "male_0-2_white";
 
   const handleAnswer = (questionKey, answerKey, index) => () => {
     //axios request to update the answer.
