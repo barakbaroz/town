@@ -4,12 +4,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./stylings/fonts.css";
-// import Panel from "./screens/Panel";
+import Start from "./screens/Start";
+import Legal from "./components/TOS/Legal";
+import Privacy from "./components/TOS/Privacy";
 import Gister from "./screens/Gister";
-// import Start from "./screens/Start";
-// import Legal from "./components/Form/Legal";
-// import Privacy from "./components/Form/Privacy";
-
 import Login from "./screens/Login";
 import Questionnaire from "./screens/Questionnaire";
 import QuestionnaireValidation from "./screens/QuestionnaireValidation";
@@ -35,12 +33,13 @@ const router = createBrowserRouter([
     element: <UserLayout />,
     errorElement: <ErrorElement />,
     children: [
+      { path: "Start", element: <Start /> },
       { path: "Questionnaire", element: <Questionnaire /> },
       { path: "QuestionnaireValidation", element: <QuestionnaireValidation /> },
       { path: "Instructions", element: <Instructions /> },
+      { path: "Legal", element: <Legal /> },
+      { path: "Privacy", element: <Privacy /> },
       { path: "CharacterSelection", element: <CharacterSelection /> },
-      // { path: "Legal", element: <Legal /> },
-      // { path: "Privacy", element: <Privacy /> },
       // { path: "VideoPage", element: <VideoPage /> },
     ],
   },
