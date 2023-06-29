@@ -15,8 +15,8 @@ const init = (sequelize) =>
       ethnicity: DataTypes.ENUM("white", "black"),
       creatorId: DataTypes.UUID,
       score: DataTypes.INTEGER,
-      preSurgeryDate: DataTypes.DATEONLY,
-      surgeryDate: DataTypes.DATEONLY,
+      preSurgery: DataTypes.DATEONLY,
+      surgery: DataTypes.DATEONLY,
     },
     { underscored: true, paranoid: true }
   );

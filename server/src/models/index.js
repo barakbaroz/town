@@ -7,6 +7,7 @@ const smsQueue = require("./smsQueue");
 const staffMembers = require("./staffMembers");
 const comments = require("./comments");
 const casesProgress = require("./casesProgress");
+const questionnaire = require("./questionnaire");
 
 const sequelize = new Sequelize(
   process.env.DB_DATABASE,
@@ -27,6 +28,7 @@ smsQueue.init(sequelize);
 staffMembers.init(sequelize);
 comments.init(sequelize);
 casesProgress.init(sequelize);
+questionnaire.init(sequelize);
 
 //Associations
 cases.associations(sequelize);
@@ -37,6 +39,7 @@ smsQueue.associations(sequelize);
 staffMembers.associations(sequelize);
 comments.associations(sequelize);
 casesProgress.associations(sequelize);
+questionnaire.associations(sequelize);
 
 //Add Hooks
 staffMembers.hooks(sequelize);

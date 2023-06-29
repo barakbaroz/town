@@ -20,7 +20,11 @@
   "Character-Selection-Next": "הבא",
   "Character-Selection-Error": "עליך למלא תחילה שדות קודמים",
 
-  "Satisfaction-Question": "האם הסרטון עזר לך?",
+  "Satisfaction-Response": "תודה! תשובתך חשובה לנו, נשמח לדעת עוד:",
+  "Satisfaction-question-video-helpful": "האם הסרטון עזר לך?",
+  "Satisfaction-question-reduce-worries": "האם הסרטון עזר לך להפיג חששות לקראת הניתוח?",
+  "Satisfaction-question-recommend-other-parents": "האם תמליצו להורים אחרים לצפות בסרטון לקראת ניתוח צפוי של ילדים?",
+  "Satisfaction-question-all-answered": "תודה על שיתוף הפעולה, רפואה שלמה.",
   "Satisfaction-Answer-Yes": "כן",
   "Satisfaction-Answer-No": "לא",
 
