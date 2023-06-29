@@ -1,14 +1,14 @@
 {
-  "yes": "Yes",
-  "no": "No",
+  "Yes": "Yes",
+  "No": "No",
   "send": "send",
   "share": "Share",
 
   "Start-Title": "Hi!",
-  "Start-Paragraph":"Please answer the following 10 yes/no questions before your child's surgery. Your answers will help us prepare for the anesthesia process in the best and safest way possible. We'll also use them to create a personalized video that will help you come better prepared and to decide whether we can save your time by exempting you from an additional meeting at the hospital before the surgery.",
+  "Start-Paragraph": "Please answer the following 10 yes/no questions before your child's surgery. Your answers will help us prepare for the anesthesia process in the best and safest way possible. We'll also use them to create a personalized video that will help you come better prepared and to decide whether we can save your time by exempting you from an additional meeting at the hospital before the surgery.",
   "Start-Button": "Start",
-  "Start-Legal-Explain":"Click here to accept our",
-  "Start-Legal-Link":"Terms of Use.",
+  "Start-Legal-Explain": "Click here to accept our",
+  "Start-Legal-Link": "Terms of Use.",
 
   "Character-Selection-Title": "בחירת הדמות שלך",
   "Character-Selection-Gender": "Choose sex",

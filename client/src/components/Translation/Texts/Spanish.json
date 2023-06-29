@@ -1,14 +1,14 @@
 {
-  "yes": "Sí",
-  "no": "No",
+  "Yes": "Sí",
+  "No": "No",
   "send": "Enviar",
   "share": "Compartir",
 
   "Start-Title": "Hola!",
-  "Start-Paragraph":"En preparación para la cirugía programada para ustedes, por favor Respondan las siguientes 10 preguntas de sí/no. Sus respuestas nos ayudarán a prepararnos para el procedimiento de anestesia de la manera más segura. Dependiendo de sus respuestas, recibirán un video instructivo personalizado que les facilitará la preparación para el día de preparación para la cirugía y puede ahorrarles tiempo de espera y citas adicionales.",
+  "Start-Paragraph": "En preparación para la cirugía programada para ustedes, por favor Respondan las siguientes 10 preguntas de sí/no. Sus respuestas nos ayudarán a prepararnos para el procedimiento de anestesia de la manera más segura. Dependiendo de sus respuestas, recibirán un video instructivo personalizado que les facilitará la preparación para el día de preparación para la cirugía y puede ahorrarles tiempo de espera y citas adicionales.",
   "Start-Button": "Comenzar",
-  "Start-Legal-Explain":"El hacer clic aqui confirma los",
-  "Start-Legal-Link":"términos de uso",
+  "Start-Legal-Explain": "El hacer clic aqui confirma los",
+  "Start-Legal-Link": "términos de uso",
 
   "Character-Selection-Title": "בחירת הדמות שלך",
   "Character-Selection-Gender": "מה המין שלך?",
