@@ -11,12 +11,11 @@ import Gister from "./screens/Gister";
 import Login from "./screens/Login";
 import Questionnaire from "./screens/Questionnaire";
 import QuestionnaireValidation from "./screens/QuestionnaireValidation";
-import Instructions from "./screens/Instructions";
 import UserLayout from "./layouts/UserLayout";
 import ErrorElement from "./screens/Error";
 import NotFound from "./screens/NotFound";
 import CharacterSelection from "./screens/CharacterSelection";
-// import ErrorElement from "./screens/Error";
+import VideoPage from "./screens/VideoPage";
 
 const App = () => {
   return <RouterProvider router={router} />;
@@ -36,11 +35,10 @@ const router = createBrowserRouter([
       { path: "Start", element: <Start /> },
       { path: "Questionnaire", element: <Questionnaire /> },
       { path: "QuestionnaireValidation", element: <QuestionnaireValidation /> },
-      { path: "Instructions", element: <Instructions /> },
+      { path: "Video", element: <VideoPage /> },
       { path: "Legal", element: <Legal /> },
       { path: "Privacy", element: <Privacy /> },
       { path: "CharacterSelection", element: <CharacterSelection /> },
-      // { path: "VideoPage", element: <VideoPage /> },
     ],
   },
   { path: "*", element: <NotFound /> },
