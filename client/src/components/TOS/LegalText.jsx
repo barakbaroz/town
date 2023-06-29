@@ -1,23 +1,18 @@
-import axios from "axios";
 import { Link, useParams } from "react-router-dom";
-import BackButton from "../Common/BackButton";
+import postAnalytics from "../../utilities/postAnalytics";
 
 function LegalText() {
   const { userId } = useParams();
-  const backClick = (e) => {
-    axios.post("/api/users/userAction", { userId, type: `TOS-Back` });
-  };
 
-  const supportClick = (e) => {
-    axios.post("/api/users/userAction", {
-      userId,
-      type: `TOS-support-request`,
-    });
+  const supportClick = () => {
+    postAnalytics({ userId, type: `TOS-support-request` });
   };
 
   return (
     <>
-      <BackButton text={"תנאי שימוש"} onClick={backClick} />
+      <p style={{ fontSize: "1.5rem", fontWeight: "500" }} dir="rtl">
+        תנאי שימוש
+      </p>
       <p dir="rtl">עודכן לאחרונה:21/06/2023</p>
       <p dir="rtl">
         המרכז הרפואי ת&quot;א (להלן, ביחד: &quot;המוסד הרפואי&quot; או
@@ -149,7 +144,7 @@ function LegalText() {
         כל השירותים המוצעים באמצעות הפלטפורמה יכונו בתנאים אלה ביחד
         &quot;השירותים&quot;.
       </p>
-      <div align="left" dir="rtl">
+      <div dir="rtl">
         <table>
           <tbody>
             <tr>

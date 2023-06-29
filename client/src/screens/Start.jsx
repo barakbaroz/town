@@ -10,15 +10,15 @@ const Start = () => {
   const { userId } = useParams();
 
   const handleLegalLinkClick = () => {
-    postAnalytrics({ userId, type: `opened-tos` });
+    postAnalytrics({ userId, type: "opened-tos" });
   };
 
   const handleStartClick = () => {
-    postAnalytrics({ userId, type: `start-button-clicked` });
+    postAnalytrics({ userId, type: "start-button-clicked" });
   };
 
   useEffect(() => {
-    postAnalytrics({ userId, type: `opened-sms` });
+    postAnalytrics({ userId, type: "opened-sms" });
   }, [userId]);
 
   return (

@@ -5,8 +5,8 @@ import {
 } from "react-router-dom";
 import "./stylings/fonts.css";
 import Start from "./screens/Start";
-import Legal from "./components/Form/Legal";
-import Privacy from "./components/Form/Privacy";
+import Legal from "./components/TOS/Legal";
+import Privacy from "./components/TOS/Privacy";
 import Gister from "./screens/Gister";
 import Login from "./screens/Login";
 import Questionnaire from "./screens/Questionnaire";

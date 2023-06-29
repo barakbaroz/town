@@ -1,15 +1,9 @@
-import { Link, useParams } from "react-router-dom";
-import BackButton from "../Common/BackButton";
-import axios from "axios";
+import { Link } from "react-router-dom";
 
 function PrivacyText() {
-  const { userId } = useParams();
-  const backClick = (e) => {
-    axios.post("/api/users/userAction", { userId, type: `privacy-Back` });
-  };
   return (
     <>
-      <BackButton text={"מדיניות פרטיות GISTMD"} onClick={backClick} />
+      <p dir="rtl">מדיניות פרטיות &ndash;GISTMD</p>
       <p dir="rtl">עודכן לאחרונה:21/06/2023</p>
       <p dir="rtl">
         אנו,&nbsp;המרכז הרפואי ת&quot;א&nbsp;(ביחד, &quot;המוסד הרפואי&quot; או
@@ -28,7 +22,7 @@ function PrivacyText() {
         זו. מדיניות הפרטיות מנוסחת בלשון זכר לצרכי נוחות בלבד, והיא מתייחסת,
         כמובן, גם לנשים.
       </p>
-      <div align="left" dir="rtl">
+      <div dir="rtl">
         <table>
           <tbody>
             <tr>
