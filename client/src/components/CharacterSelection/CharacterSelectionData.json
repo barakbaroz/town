@@ -1,0 +1,14 @@
+{
+  "gender": {
+    "title": "Character-Selection-Gender",
+    "answers": {
+      "female": "Character-Selection-female",
+      "male": "Character-Selection-male",
+      "other": "Character-Selection-other"
+    }
+  },
+  "age": {
+    "title": "Character-Selection-Age",
+    "answers": { "0-2": "0-2", "3-8": "3-8", "9-18": "9-18" }
+  }
+}

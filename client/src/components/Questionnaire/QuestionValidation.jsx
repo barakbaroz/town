@@ -70,8 +70,8 @@ const Vcheck = styled.img.attrs({
 `;
 
 const colorByType = {
-  yes: "#84A4FC",
-  no: "#F02A4C",
+  Yes: "#84A4FC",
+  No: "#F02A4C",
 };
 
 const CostumeCheckbox = styled.div`
