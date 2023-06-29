@@ -46,7 +46,7 @@ function QuestionnaireValidation() {
         </Button>
       </CheckboxesContainer>
       <JumpingPopup open={open} setOpen={setOpen}>
-        <MissingAnswers setOpen={setOpen} />
+        <MissingAnswers setOpen={setOpen} open={open} />
       </JumpingPopup>
     </Container>
   );

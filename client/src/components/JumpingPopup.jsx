@@ -12,10 +12,7 @@ function JumpingPopup({ children, open, setOpen }) {
   }, [open]);
   return (
     <ScreenWrapper open={open}>
-      <Container open={open}>
-        <ButtonTest onClick={() => setOpen(false)}>X</ButtonTest>
-        {children}
-      </Container>
+      <Container open={open}>{children}</Container>
     </ScreenWrapper>
   );
 }
@@ -43,7 +40,7 @@ const Container = styled.div`
   width: 100%;
   box-sizing: border-box;
   padding-inline: 2.875rem;
-  padding-block: 4rem;
+  padding-block: 68px;
   border-radius: 20px 20px 0 0;
   background-color: white;
   position: fixed;

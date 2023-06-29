@@ -1,12 +1,18 @@
 import styled from "styled-components";
-import dont_forget from "../../assets/Icons/dont_forget.svg";
 import { Translator } from "../Translation";
 import PropTypes from "prop-types";
+import Lottie from "lottie-react";
+import notificationCopy from "../../assets/Lotties/notificationCopy.json";
 
-function MissingAnswers({ setOpen }) {
+function MissingAnswers({ open, setOpen }) {
   return (
     <Container>
-      <Image src={dont_forget} alt="Popup icon" />
+      <NotificationCopyLottie
+        animationData={notificationCopy}
+        loop={false}
+        play={open}
+        autoplay={!open}
+      />
       <TextsContainer>
         <Title>
           <Translator>זיהינו שחסרות תשובות</Translator>
@@ -39,17 +45,26 @@ const Container = styled.div`
   text-align: center;
 `;
 
-const Image = styled.img``;
+const NotificationCopyLottie = styled(Lottie)`
+  width: 200px;
+`;
 
-const TextsContainer = styled.div``;
+const TextsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+`;
 const Title = styled.h2`
   font-size: 1.5rem;
   font-weight: 500;
-  margin-block-end: 1rem;
+  margin: 0;
+  padding: 0;
 `;
 const Text = styled.h4`
   font-size: 1.25rem;
   font-weight: 400;
+  margin-block-end: 75px;
   margin-block-start: 0;
 `;
 const Button = styled.button`

@@ -181,10 +181,6 @@ const Label = styled.label`
   color: white;
   width: 55%;
   max-width: 10rem;
-
-  &:has(${Input}:checked) {
-    background-color: blue;
-  }
 `;
 
 const Vcheck = styled.img.attrs({
