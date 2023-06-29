@@ -25,14 +25,14 @@ const Start = () => {
     <StartContainer id="StartContainer">
       <LanguageBar />
       <Nurse id="MatotLandingPage" src={MatotLandingPage} />
-      <TextsContainer id="TextsContainer">
+      <dev id="TextsContainer">
         <Title id="HelloTitle">
           <Translator>Start-Title</Translator>
         </Title>
         <Paragraph id="StartParagraph">
           <Translator>Start-Paragraph</Translator>
         </Paragraph>
-      </TextsContainer>
+      </dev>
       <BottomContentContainer>
         <StartButton
           id="StartButton"
@@ -65,9 +65,11 @@ const StartContainer = styled.div`
   min-height: calc(100dvh - var(--header-size));
   width: 100vw;
   background: linear-gradient(#ffffff, #f1f4fb, #e3e8f6, #f5f7fc, #ffffff);
-  padding: 1.2rem;
+  padding-inline: 22px;
+  padding-block-end: 1.2rem;
+  padding-block-start: 4px;
   box-sizing: border-box;
-  justify-content: space-evenly;
+  justify-content: space-between;
 `;
 
 const Nurse = styled.img`
@@ -79,6 +81,7 @@ const Nurse = styled.img`
 const Title = styled.h1`
   font-size: 1.625rem;
   margin: 0;
+  text-align: center;
 `;
 
 const BottomContentContainer = styled.div`
@@ -89,16 +92,9 @@ const BottomContentContainer = styled.div`
   gap: 1rem;
 `;
 
-const TextsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  align-items: center;
-`;
-
 const Paragraph = styled.p`
   font-size: 1.1875rem;
-  padding-block-start: 0.813rem;
+  margin-block-start: 0.5rem;
   text-align: center;
 `;
 
