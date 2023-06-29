@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import styled from "styled-components";
 import { Link, useParams } from "react-router-dom";
 import LanguageBar from "../components/User/LanguageBar";
-import MatotLandingPage from "../assets/Avatars/Matot_LandingPage.svg";
+import MatotLandingPage from "../assets/Start/Matot_LandingPage.svg";
 import { Translator } from "../components/Translation";
 import postAnalytrics from "../functions/postAnalytics";
 
