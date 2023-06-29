@@ -95,14 +95,11 @@ export default Questionnaire;
 
 const Container = styled.form`
   --screen-padding-inline: 32px;
-  /* padding-block: 1rem; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: space-between; */
   width: 100%;
   min-height: 100%;
-  /* padding-inline-end: 1rem; */
   * {
     box-sizing: border-box;
   }
@@ -164,13 +161,11 @@ const Label = styled.label`
   font-size: 1.25rem;
   cursor: pointer;
   padding-block: 0.5rem;
-  /* width: clamp(2rem, 50%, 13rem); */
   border: none;
   padding-inline: 1rem;
   border-radius: 50px;
   background-color: #f02a4c;
   color: white;
-
   width: 55%;
   max-width: 10rem;
 
