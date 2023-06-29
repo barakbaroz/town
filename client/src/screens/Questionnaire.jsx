@@ -4,24 +4,25 @@ import Navigation from "../components/Questionnaire/Navigation";
 import Carouselle from "../components/User/Carousell";
 import questions from "../questionnairesStructure/StartQuestionnaire.json";
 import questionsAnimations from "../assets/questionsAnimations";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Translator } from "../components/Translation";
 import qustionnaireImages from "../assets/questionsImages";
 import white_v from "../assets/Icons/white_v.svg";
+import { userContext } from "../providers/UserProvider";
 
 function Questionnaire() {
   const navigate = useNavigate();
+  const { Case } = useContext(userContext);
   const formRef = useRef(null);
   const [index, setIndex] = useState(0);
   const questionsLength = Object.keys(questions).length;
   const [answeresIndexes, setAnsweresIndexes] = useState(
     Array(questionsLength).fill(false)
   );
-  // const { age, gender, ethnicity } = Case;
-  // const avatar = `${gender}_${age}_${ethnicity}`;
-  const avatar = "male_0-2_white";
+  const { age, gender, ethnicity } = Case;
+  const avatar = `${gender}_${age}_${ethnicity}`;
 
   const handleAnswer = (questionKey, answerKey, index) => () => {
     //axios request to update the answer.
