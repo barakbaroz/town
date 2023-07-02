@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react";
 import styled from "styled-components";
 import { Translator } from "../Translation";
 import PropTypes from "prop-types";
@@ -5,13 +6,17 @@ import Lottie from "lottie-react";
 import notificationCopy from "../../assets/Lotties/notificationCopy.json";
 
 function MissingAnswers({ open, setOpen }) {
+  const lottieRef = useRef(null);
+  useEffect(() => {
+    if (open) lottieRef.current.play();
+    else lottieRef.current.stop();
+  }, [open]);
   return (
     <Container>
       <NotificationCopyLottie
         animationData={notificationCopy}
+        lottieRef={lottieRef}
         loop={false}
-        play={open}
-        autoplay={!open}
       />
       <TextsContainer>
         <Title>
@@ -34,13 +39,15 @@ function MissingAnswers({ open, setOpen }) {
 export default MissingAnswers;
 
 MissingAnswers.propTypes = {
+  open: PropTypes.bool,
   setOpen: PropTypes.func,
 };
 
 const Container = styled.div`
+  height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  justify-content: space-between;
   align-items: center;
   text-align: center;
 `;
@@ -64,7 +71,7 @@ const Title = styled.h2`
 const Text = styled.h4`
   font-size: 1.25rem;
   font-weight: 400;
-  margin-block-end: 75px;
+  margin-block-end: 20%;
   margin-block-start: 0;
 `;
 const Button = styled.button`
