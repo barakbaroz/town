@@ -26,17 +26,17 @@ function SingleQuestion({ questionKey, onAnswer, show }) {
       <Answers id="Answers">
         <Answer
           id="AnswerYes"
-          onClick={handleFeedback("yes")}
-          checked={answer === "yes"}
+          onClick={handleFeedback("Yes")}
+          checked={answer === "Yes"}
         >
-          <Translator>Satisfaction-Answer-Yes</Translator>
+          <Translator>Yes</Translator>
         </Answer>
         <Answer
           id="AnswerNo"
-          onClick={handleFeedback("no")}
-          checked={answer === "no"}
+          onClick={handleFeedback("No")}
+          checked={answer === "No"}
         >
-          <Translator>Satisfaction-Answer-No</Translator>
+          <Translator>No</Translator>
         </Answer>
       </Answers>
     </FeedBackWrapper>
@@ -59,6 +59,7 @@ const FeedBackWrapper = styled.div`
   height: ${({ show }) => (show ? 1 : 0)};
   transition: opacity 200ms linear;
   padding-inline: var(--screen-texts-padding);
+  overflow: hidden;
 `;
 
 const FeedbackTitle = styled.div`

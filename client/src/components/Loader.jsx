@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 const Loader = () => {
   return (
     <Load>
@@ -6,7 +7,9 @@ const Loader = () => {
     </Load>
   );
 };
+
 export default Loader;
+
 const Spinner = styled.div`
   border: 16px solid #f3f3f3;
   border-radius: 50%;
@@ -14,7 +17,6 @@ const Spinner = styled.div`
   width: 100px;
   min-height: 100px;
   margin: 0 auto;
-  -webkit-animation: spin 2s linear infinite; /* Safari */
   animation: spin 2s linear infinite;
   @keyframes spin {
     0% {
@@ -25,17 +27,8 @@ const Spinner = styled.div`
     }
   }
 `;
+
 const Load = styled.div`
-  /* margin: auto;
-  position: absolute;
-  z-index: 999;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
   height: 100vh;
   width: 100vw;
   display: flex;

@@ -4,6 +4,7 @@ const {
   update,
   postCase,
   CommentCase,
+  duplicate,
   search,
   deleteCase,
 } = require("./controller");
@@ -17,6 +18,7 @@ router.use(verifyToken);
 //POST
 router.post("/create", postCase);
 router.post("/CommentCase", CommentCase);
+router.post("/duplicate", duplicate);
 
 //GET
 router.post("/search", search);

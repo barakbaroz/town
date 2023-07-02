@@ -1,12 +1,19 @@
 {
-  "yes": "yes",
-  "no": "no",
+  "Yes": "Yes",
+  "No": "No",
   "send": "send",
   "share": "Share",
 
   "Character-Selection-Title": "Personalize  video",
   "Character-Selection-Gender": "Choose sex",
   "Character-Selection-female": "Female ",
+  "Start-Title": "Hi!",
+  "Start-Paragraph": "Please answer the following 10 yes/no questions before your child's surgery. Your answers will help us prepare for the anesthesia process in the best and safest way possible. We'll also use them to create a personalized video that will help you come better prepared and to decide whether we can save your time by exempting you from an additional meeting at the hospital before the surgery.",
+  "Start-Button": "Start",
+  "Start-Legal-Explain": "Click here to accept our",
+  "Start-Legal-Link": "Terms of Use.",
+
+
   "Character-Selection-male": "Male",
   "Character-Selection-other": "Other",
   "Character-Selection-Age": "Choose age group",
@@ -14,7 +21,7 @@
   "Character-Selection-Next": "Next",
   "Character-Selection-Error": "Please enter your age and sex before continuing",
 
-  "Instructions-Title":"This video was personalized especially for your child",
+  "video-page-default-title":"This video was personalized especially for your child",
   "Instructions-Description":"Please watch the entire video. Once you do, you’ll be exempted from meeting an anesthesiologist during your pre-surgery visit",
 
   "Satisfaction-Response": "Thank you! We value your feedback. We’d like to hear more.",
@@ -25,8 +32,13 @@
   "Satisfaction-Answer-Yes": "Yes",
   "Satisfaction-Answer-No": "No",
 
-  "SurgeryInstructions-title": "Ahead of your child’s surgery, please follow these important instructions precisely",
+  "instructions-title": "Ahead of your child’s surgery, please follow these important instructions precisely",
   "SurgeryInstructions-approveButton":"Affirm Instructions",
+
+  "video-page-subtitle-answeredAllNo-notWatchedVideo-signedConfirmation":"",
+  "video-page-subtitle-answeredAllNo-watchedVideo-notSignedConfirmation-male":"",
+  "video-page-subtitle-answeredAllNo-watchedVideo-notSignedConfirmation-female":"",
+  "video-page-subtitle-answeredAllNo-notWatchedVideo-notSignedConfirmation":"",
 
   "DontForget-Title":"Don’t forget to bring the following to the pre-surgery meeting.",
 
@@ -43,6 +55,19 @@
   "results": "Results and summaries of relevant medical tests.",
   "tofes17": "Form 17",
   "DontForget-DownloadInstructions": "Download Preparatory Instructions",
+  "video-page-sign-title": "יש לקרוא ולאשר את ההנחיות לקראת הניתוח",
+  
+  
+  "Surgery-Instruction-Fever": "If your child will suffer from fever during the two weeks preceding the surgery (over 38.5o), will experience phlegm-based cough, complain about not feeling well during that time or get infected with Covid-19, make sure to inform the hospital staff and wait for them to decide whether to proceed with the surgery or to postpone it.",
+  "Surgery-Instruction-Medical-Condition": "If your child’s medical condition deteriorates, or a new problem is discovered before the surgery, please inform the surgery ward at the hospital.",
+  "Surgery-Instruction-Feast-6-Hours": "Six hours before surgery - Your child needs to stop consuming solid food. ",
+  "Surgery-Instruction-Feast-4-Hours": " Four hours before surgery - Your child needs to stop consuming unclear liquids (such as juice with pulp, milk and baby formula)",
+  "Surgery-Instruction-Feast-3-Hours": "Three hours before your child’s surgery - You need to stop breastfeeding or stop feeding your child breast-milk from a bottle.",
+  "Surgery-Instruction-Feast-1-Hours-Max": "Up to one hour before surgery -drinking clear liquids -- such as water, juice without pulp and tea – is allowed and recommended.",
+  "Surgery-Instruction-Feast-1-Hours": "An hour before surgery - Your child needs to stop drinking ALL liquids.",
+  
+  "instruction-download": "Download Preparatory Instructions",
+
 
   "consent-title": "Informed Consent Form",
   "consent-text": "Before your upcoming surgery, the medical team will ask you to sign an informed consent form in their presence. We recommend that you read the form beforehand to make sure everything is clear.",

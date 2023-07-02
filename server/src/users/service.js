@@ -4,7 +4,7 @@ const sms = require("../sms/service");
 
 module.exports.getData = async ({ userId }) => {
   return await Users.findByPk(userId, {
-    attributes: ["id", "email", "language", "phoneNumber"],
+    attributes: ["id", "language", "phoneNumber"],
     include: [
       {
         model: Cases,
@@ -13,7 +13,7 @@ module.exports.getData = async ({ userId }) => {
           "zehutNumber",
           "gender",
           "age",
-          "avatar",
+          "ethnicity",
           "createdAt",
         ],
       },

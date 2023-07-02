@@ -1,7 +1,7 @@
-import male_0_3_white from "./male_0-3_white";
-import female_0_3_white from "./female_0-3_white";
-import male_0_3_black from "./male_0-3_black";
-import female_0_3_black from "./female_0-3_black";
+import male_0_2_white from "./male_0-2_white";
+import female_0_2_white from "./female_0-2_white";
+import male_0_2_black from "./male_0-2_black";
+import female_0_2_black from "./female_0-2_black";
 
 import male_3_8_white from "./male_3-8_white";
 import female_3_8_white from "./female_3-8_white";
@@ -14,10 +14,10 @@ import male_9_18_black from "./male_9-18_black";
 import female_9_18_black from "./female_9-18_black";
 
 const images = {
-  "male_0-3_white": male_0_3_white,
-  "female_0-3_white": female_0_3_white,
-  "male_0-3_black": male_0_3_black,
-  "female_0-3_black": female_0_3_black,
+  "male_0-2_white": male_0_2_white,
+  "female_0-2_white": female_0_2_white,
+  "male_0-2_black": male_0_2_black,
+  "female_0-2_black": female_0_2_black,
 
   "male_3-8_white": male_3_8_white,
   "female_3-8_white": female_3_8_white,
