@@ -11,13 +11,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@gistmed/gist-ui": "^0.1.20",
+    "@gistmed/gist-ui": "^0.1.32",
     "axios": "^1.4.0",
+    "lottie-react": "^2.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.2",
     "react-web-share": "^2.0.2",
-    "styled-components": "^5.3.11"
+    "styled-components": "^5.3.11",
+    "vite-plugin-svgr": "^3.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.37",

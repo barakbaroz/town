@@ -11,7 +11,7 @@ function DontForget() {
   const { language } = useContext(LanguageContext);
   const userInfo = useContext(userContext);
   const { age, gender } = userInfo.Case;
-  const test = `${gender}_${age}_${language}`;
+  const userStringDetails = `${gender}_${age}_${language}`;
 
   return (
     <Container>
@@ -31,7 +31,7 @@ function DontForget() {
         ))}
       </ListContainer>
 
-      <Instructions href={instructions[test]} target="_blank">
+      <Instructions href={instructions[userStringDetails]} target="_blank">
         <InstructionsIcon src={instructions_download} />
         <InstructionsText>
           <Translator>instruction-download</Translator>
@@ -53,11 +53,10 @@ export default DontForget;
 
 const Container = styled.div`
   padding-block: 1rem;
-  margin-block-start: 3.4375rem;
   display: flex;
   flex-direction: column;
   color: #444444;
-  padding-inline: 1.5rem;
+  padding-inline: 1.5625rem;
   box-shadow: 0px 3px 6px #00000029;
   border-radius: 25px;
   background-color: white;

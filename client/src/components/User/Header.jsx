@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import gistLogo from "../../assets/Logos/gistLogo.svg";
-import Ichilov_Logo_PatientScreen from "../../assets/Logos/Ichilov_Logo_PatientScreen.svg";
+import hospitalLogo from "../../assets/Logos/hospital_logo.svg";
 
 const Header = () => {
   return (
     <Container id="HeaderContainer">
-      <Ichilov id="IchilovImg" src={Ichilov_Logo_PatientScreen} />
+      <Ichilov id="IchilovImg" src={hospitalLogo} />
       <GistLogo id="GistLogo" src={gistLogo} />
     </Container>
   );

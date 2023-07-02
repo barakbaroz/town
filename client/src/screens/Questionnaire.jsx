@@ -9,19 +9,20 @@ import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Translator } from "../components/Translation";
 import qustionnaireImages from "../assets/questionsImages";
+import white_v from "../assets/Icons/white_v.svg";
 import { userContext } from "../providers/UserProvider";
 
 function Questionnaire() {
-  const { Case } = useContext(userContext);
   const navigate = useNavigate();
+  const { Case } = useContext(userContext);
   const formRef = useRef(null);
   const [index, setIndex] = useState(0);
   const questionsLength = Object.keys(questions).length;
   const [answeresIndexes, setAnsweresIndexes] = useState(
     Array(questionsLength).fill(false)
   );
-  const { age, gender, race } = Case;
-  const avatar = `${gender}_${age}_${race}`;
+  const { age, gender, ethnicity } = Case;
+  const avatar = `${gender}_${age}_${ethnicity}`;
 
   const handleAnswer = (questionKey, answerKey, index) => () => {
     //axios request to update the answer.
@@ -75,10 +76,12 @@ function Questionnaire() {
                       questionIndex
                     )}
                   >
-                    {/* <CostumeCheckbox answerKey={answer}>
-                        <Vcheck />
-                      </CostumeCheckbox> */}
-                    <Translator>{answerKey}</Translator>
+                    <CostumeCheckbox>
+                      <Vcheck />
+                    </CostumeCheckbox>
+                    <CheckBoxText>
+                      <Translator>{answerKey}</Translator>
+                    </CheckBoxText>
                     <Input name={questionKey} value={answerKey} />
                   </Label>
                 ))}
@@ -95,14 +98,11 @@ export default Questionnaire;
 
 const Container = styled.form`
   --screen-padding-inline: 32px;
-  /* padding-block: 1rem; */
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: space-between; */
   width: 100%;
   min-height: 100%;
-  /* padding-inline-end: 1rem; */
   * {
     box-sizing: border-box;
   }
@@ -160,7 +160,17 @@ const Input = styled.input.attrs({
   display: none;
 `;
 
+const CheckBoxText = styled.div`
+  &:has(~ ${Input}:checked) {
+    display: none;
+  }
+`;
+
 const Label = styled.label`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   font-size: 1.25rem;
   cursor: pointer;
   padding-block: 0.5rem;
@@ -170,7 +180,27 @@ const Label = styled.label`
   border-radius: 50px;
   background-color: #f02a4c;
   color: white;
-  &:has(${Input}:checked) {
-    background-color: blue;
+`;
+
+const Vcheck = styled.img.attrs({
+  src: white_v,
+  alt: "V",
+})`
+  width: 1.2rem;
+  &:has(~ ${Input}:checked) {
+    display: block;
+  }
+`;
+
+const CostumeCheckbox = styled.div`
+  --size: 1.625rem;
+  min-width: var(--size);
+  min-height: var(--size);
+  border-radius: 5px;
+  align-items: center;
+  justify-content: center;
+  display: none;
+  &:has(~ ${Input}:checked) {
+    display: flex;
   }
 `;

@@ -1,4 +1,4 @@
-import { useState, Fragment, useContext, useEffect } from "react";
+import { useState, Fragment, useContext } from "react";
 import styled from "styled-components";
 import background from "../assets/Backgrounds/wave_background.svg";
 import data from "../components/CharacterSelection/CharacterSelectionData.json";
@@ -17,7 +17,7 @@ function CharacterSelection() {
   const [tag, setTag] = useState({});
   const [showError, setShowError] = useState(false);
 
-  const answerQuestion = (questionKey, answerKey) => (e) => {
+  const answerQuestion = (questionKey, answerKey) => () => {
     postAnalytics({ userId, type: `answer-${questionKey}-${answerKey}` });
     setAvatar("");
     setAnswers((prev) => ({
@@ -44,13 +44,8 @@ function CharacterSelection() {
     if (!avatar) return;
     postAnalytics({ userId, type: "general-information-answered" });
     userInfo.updateCase(tag);
-    navigate(`../Video`);
+    navigate("../Questionnaire");
   };
-
-  // useEffect(() => {
-  //   const { age, gender } = userInfo.Case;
-  //   if (age && gender) navigate(`../Video`);
-  // });
 
   return (
     <CharacterSelectionContainer id="CharacterSelectionContainer">
@@ -106,9 +101,9 @@ function CharacterSelection() {
           </ErrorContainer>
         </CharacterQuestion>
       </PickerContainer>
-      <BlueButton id="BlueButton" onClick={handelNext} disable={avatar}>
+      <ConfirmationButton id="Button" onClick={handelNext} disable={avatar}>
         <Translator>Character-Selection-Next</Translator>
-      </BlueButton>
+      </ConfirmationButton>
     </CharacterSelectionContainer>
   );
 }
@@ -117,69 +112,69 @@ export default CharacterSelection;
 
 const avatars = [
   {
-    name: "male_0-3_white",
-    fields: ["male", "0-3", "other"],
-    tags: { gender: "male", age: "0-3" },
+    name: "male_0-2_white",
+    fields: ["male", "0-2", "other"],
+    tags: { gender: "male", age: "0-2", ethnicity: "white" },
   },
   {
-    name: "male_0-3_black",
-    fields: ["male", "0-3", "other"],
-    tags: { gender: "male", age: "0-3" },
+    name: "male_0-2_black",
+    fields: ["male", "0-2", "other"],
+    tags: { gender: "male", age: "0-2", ethnicity: "black" },
   },
 
   {
     name: "male_3-8_white",
     fields: ["male", "3-8", "other"],
-    tags: { gender: "male", age: "3-8" },
+    tags: { gender: "male", age: "3-8", ethnicity: "white" },
   },
   {
     name: "male_3-8_black",
     fields: ["male", "3-8", "other"],
-    tags: { gender: "male", age: "3-8" },
+    tags: { gender: "male", age: "3-8", ethnicity: "black" },
   },
 
   {
     name: "male_9-18_white",
     fields: ["male", "9-18", "other"],
-    tags: { gender: "male", age: "9-18" },
+    tags: { gender: "male", age: "9-18", ethnicity: "white" },
   },
   {
     name: "male_9-18_black",
     fields: ["male", "9-18", "other"],
-    tags: { gender: "male", age: "9-18" },
+    tags: { gender: "male", age: "9-18", ethnicity: "black" },
   },
 
   {
-    name: "female_0-3_white",
-    fields: ["female", "0-3", "other"],
-    tags: { gender: "female", age: "0-3" },
+    name: "female_0-2_white",
+    fields: ["female", "0-2", "other"],
+    tags: { gender: "female", age: "0-2", ethnicity: "white" },
   },
   {
-    name: "female_0-3_black",
-    fields: ["female", "0-3", "other"],
-    tags: { gender: "female", age: "0-3" },
+    name: "female_0-2_black",
+    fields: ["female", "0-2", "other"],
+    tags: { gender: "female", age: "0-2", ethnicity: "black" },
   },
 
   {
     name: "female_3-8_white",
     fields: ["female", "3-8", "other"],
-    tags: { gender: "female", age: "3-8" },
+    tags: { gender: "female", age: "3-8", ethnicity: "white" },
   },
   {
     name: "female_3-8_black",
     fields: ["female", "3-8", "other"],
-    tags: { gender: "female", age: "3-8" },
+    tags: { gender: "female", age: "3-8", ethnicity: "black" },
   },
 
   {
     name: "female_9-18_white",
     fields: ["female", "9-18", "other"],
-    tags: { gender: "female", age: "9-18" },
+    tags: { gender: "female", age: "9-18", ethnicity: "white" },
   },
   {
     name: "female_9-18_black",
     fields: ["female", "9-18", "other"],
-    tags: { gender: "female", age: "9-18" },
+    tags: { gender: "female", age: "9-18", ethnicity: "black" },
   },
 ];
 
@@ -199,7 +194,8 @@ const Title = styled.p`
   font-size: 1.5rem;
   font-weight: 500;
   padding-inline: var(--inner-padding-inline);
-  padding-block: 1em;
+  padding-block: 1.438em;
+  margin: 0;
 `;
 
 const PickerContainer = styled.div`
@@ -260,23 +256,25 @@ const Line = styled.div`
   background: #eaeaea;
 `;
 
-const BlueButton = styled.button`
+const ConfirmationButton = styled.button`
   text-decoration: none;
   padding: 0.5rem 3rem;
-  background-color: #84a4fc;
-  border-radius: 99999px;
+  background-color: #f02a4c;
+  border-radius: 200px;
   border: none;
   color: #ffffff;
   font-size: 1.063rem;
   font-family: inherit;
   opacity: ${({ disable }) => !disable && "60%"};
   margin-top: 2.125rem;
+  display: block;
+  margin-inline: auto;
 `;
 
 const Avatar = styled.img`
   margin: 0.5rem;
   border-radius: 50%;
-  border: 2px solid ${({ selected }) => (selected ? ` #84a4fc` : `transparent`)};
+  border: 2px solid ${({ selected }) => (selected ? "#84a4fc" : "transparent")};
 `;
 
 const CharacterQuestion = styled.div`

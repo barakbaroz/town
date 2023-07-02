@@ -1,32 +1,32 @@
 {
   "problemsInFamily": {
-    "options": ["yes", "no"]
+    "options": ["Yes", "No"]
   },
   "neurologicalProblem": {
-    "options": ["yes", "no"]
+    "options": ["Yes", "No"]
   },
   "coagulation": {
-    "options": ["yes", "no"]
+    "options": ["Yes", "No"]
   },
   "thyroidOrDiabetes": {
-    "options": ["yes", "no"]
+    "options": ["Yes", "No"]
   },
   "renalFunctionAndSpecialDiet": {
-    "options": ["yes", "no"]
+    "options": ["Yes", "No"]
   },
   "muscleSystem": {
-    "options": ["yes", "no"]
+    "options": ["Yes", "No"]
   },
   "lungDisease": {
-    "options": ["yes", "no"]
+    "options": ["Yes", "No"]
   },
   "heartProblems": {
-    "options": ["yes", "no"]
+    "options": ["Yes", "No"]
   },
   "diseasesNeedTreatment": {
-    "options": ["yes", "no"]
+    "options": ["Yes", "No"]
   },
   "bornBeforeWeek36": {
-    "options": ["yes", "no"]
+    "options": ["Yes", "No"]
   }
 }
