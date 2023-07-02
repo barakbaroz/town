@@ -39,7 +39,7 @@ function SurgeryInstructions() {
   return (
     <Container>
       <Title>
-        <Translator>SurgeryInstructions-title</Translator>
+        <Translator>instructions-title</Translator>
       </Title>
 
       <ListContainer>

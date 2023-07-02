@@ -34,10 +34,10 @@
   "instructions-title": "Указания по предстоящей операции",
   "SurgeryInstructions-approveButton":"Подтвердить инструкции",
 
-  "video-page-subtitle-answeredAllNo-notWatchedVideo-signedConfirmation":"",
-  "video-page-subtitle-answeredAllNo-watchedVideo-notSignedConfirmation-male":"",
-  "video-page-subtitle-answeredAllNo-watchedVideo-notSignedConfirmation-female":"",
-  "video-page-subtitle-answeredAllNo-notWatchedVideo-notSignedConfirmation":"",
+  "video-page-default-title":"Данный видеоролик адаптирован специально для вашего ребенка",
+  "video-page-subtitle-answeredAllNo-notWatchedVideo-signedConfirmation":"Для получения освобождения от встречи с анестезиологом в день подготовки к операции посмотрите видеоролик полностью",
+  "video-page-subtitle-answeredAllNo-watchedVideo-notSignedConfirmation":"Для вашего удобства видеоролик, специально адаптированный для вашего ребенка, прилагается для повторного просмотра",
+  "video-page-subtitle-answeredAllNo-notWatchedVideo-notSignedConfirmation":"Для получения освобождения от встречи с анестезиологом в день подготовки к операции, посмотрите видеоролик и нажмите кнопку «Подтвердить инструкции» в нижней части экрана",
   "video-page-sign-title": "Прочитайте связанные с предстоящей операцией указания и подтвердите прочтение",
 
 

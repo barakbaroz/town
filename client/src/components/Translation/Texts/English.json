@@ -35,10 +35,9 @@
   "instructions-title": "Ahead of your child’s surgery, please follow these important instructions precisely",
   "SurgeryInstructions-approveButton":"Affirm Instructions",
 
-  "video-page-subtitle-answeredAllNo-notWatchedVideo-signedConfirmation":"",
-  "video-page-subtitle-answeredAllNo-watchedVideo-notSignedConfirmation-male":"",
-  "video-page-subtitle-answeredAllNo-watchedVideo-notSignedConfirmation-female":"",
-  "video-page-subtitle-answeredAllNo-notWatchedVideo-notSignedConfirmation":"",
+  "video-page-subtitle-answeredAllNo-notWatchedVideo-signedConfirmation":"Please watch the entire video. Once you do, you’ll be exempted from meeting an anesthesiologist during your pre-surgery visit",
+  "video-page-subtitle-answeredAllNo-watchedVideo-notSignedConfirmation":"For your convenience, we've also posted your child’s personalized video so you can watch it again",
+  "video-page-subtitle-answeredAllNo-notWatchedVideo-notSignedConfirmation":"After you watch this personalized video and pressed the ‘Affirm Instructions’ button below, you’ll be exempted from meeting an anesthesiologist during your pre-surgery visit",
 
   "DontForget-Title":"Don’t forget to bring the following to the pre-surgery meeting.",
 
