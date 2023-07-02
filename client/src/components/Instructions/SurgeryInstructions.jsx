@@ -55,7 +55,7 @@ function SurgeryInstructions() {
         <Label>
           <Vcheck />
           <CheckBoxText>
-            <Translator>אישור הנחיות</Translator>
+            <Translator>SurgeryInstructions-approveButton</Translator>
           </CheckBoxText>
           <Input />
         </Label>
