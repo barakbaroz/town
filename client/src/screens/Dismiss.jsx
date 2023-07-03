@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import dismissDoctor from "../assets/Avatars/dismissDoctor.svg";
-import downloadInformedConsent from "../assets/Icons/downloadInformedConsent.svg";
-import downloadInstructions from "../assets/Icons/downloadInstructions.svg";
+import downloadInformedConsent from "../assets/Icons/download_Informed_consent.svg";
+import downloadInstructions from "../assets/Icons/download_instruction.svg";
 import reWatch from "../assets/Icons/reWatch.svg";
 import { LanguageContext, Translator } from "../components/Translation";
 import consents from "../assets/Consents";
