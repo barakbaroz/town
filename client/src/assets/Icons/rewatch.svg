@@ -8,7 +8,7 @@
       <feComposite in="SourceGraphic"/>
     </filter>
   </defs>
-  <g id="Rewatch" transform="translate(-25 -486)">
+  <g id="Group_117070" data-name="Group 117070" transform="translate(-25 -486)">
     <g transform="matrix(1, 0, 0, 1, 25, 486)" filter="url(#Ellipse_362)">
       <circle id="Ellipse_362-2" data-name="Ellipse 362" cx="33" cy="33" r="33" transform="translate(9 6)" fill="#f02a4c"/>
     </g>
