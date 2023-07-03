@@ -29,6 +29,14 @@ module.exports.getData = async ({ userId }) => {
         attributes: ["type"],
         where: { type: { [Op.like]: "%feedbacks" } },
       },
+      {
+        model: Questionnaire,
+        required: false,
+        where: {
+          questionKey: ["thyroidOrDiabetes", "lungDisease"],
+          answerKey: "Yes",
+        },
+      },
     ],
   });
 };
