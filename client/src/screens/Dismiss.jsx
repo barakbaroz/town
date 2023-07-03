@@ -32,16 +32,22 @@ const Dismiss = () => {
           href={consents[language]}
           target="_blank"
         >
-          <ImageIcon src={downloadInstructions} id="ImageIcon" />
-          <Translator>Dismiss-Button-Consent</Translator>
+          <ImageIcon src={downloadInformedConsent} id="ImageIcon" />
+          <ButtonText>
+            <Translator>Dismiss-Button-Consent</Translator>
+          </ButtonText>
         </ButtonContainer>
         <ButtonContainer href="Instructions#SurgeryInstructions">
-          <ImageIcon src={downloadInformedConsent} />
-          <Translator>Dismiss-Button-Instructions</Translator>
+          <ImageIcon src={downloadInstructions} />
+          <ButtonText>
+            <Translator>Dismiss-Button-Instructions</Translator>
+          </ButtonText>
         </ButtonContainer>
         <ButtonContainer href="Instructions">
           <ImageIcon src={reWatch} />
-          <Translator>Dismiss-Button-WatchVideo</Translator>
+          <ButtonText>
+            <Translator>Dismiss-Button-WatchVideo</Translator>
+          </ButtonText>
         </ButtonContainer>
       </Actions>
     </Container>
@@ -73,8 +79,8 @@ const Doctor = styled.img`
   align-self: flex-end;
 `;
 const AttentionText = styled.p`
-  margin-block-start: 0.5rem;
-  margin-block-end: 1.5rem;
+  margin-block-start: 0.688rem;
+  margin-block-end: 1.563rem;
   font-family: "Abraham";
 `;
 const Actions = styled.div`
@@ -83,6 +89,7 @@ const Actions = styled.div`
   align-items: baseline;
   padding-block-end: 3.375rem;
   white-space: pre-wrap;
+  gap: 43px;
 `;
 const ButtonContainer = styled.a`
   display: flex;
@@ -104,8 +111,14 @@ const Divider = styled.div`
 `;
 const HeaderText = styled.p`
   font-size: 1.188rem;
+  width: 80%;
+  margin-block-start: 0;
+  margin-block-end: 1.375rem;
 `;
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
+`;
+const ButtonText = styled.div`
+  font-size: 1rem;
 `;
