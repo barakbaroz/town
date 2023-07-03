@@ -3,9 +3,18 @@ import { LanguageContext, Translator } from "../Translation";
 import download_consent from "../../assets/Icons/download_ Informed_consent.svg";
 import { useContext } from "react";
 import consents from "../../assets/Consents";
+import postAnalytics from "../../utilities/postAnalytics";
+import { useParams } from "react-router-dom";
 
 function Consent() {
   const { language } = useContext(LanguageContext);
+  const { userId } = useParams();
+  const handleConsentClick = () => {
+    postAnalytics({
+      userId,
+      type: `instructions-consent-clicked`,
+    });
+  };
 
   return (
     <Container>
@@ -17,8 +26,8 @@ function Consent() {
       </Text>
 
       <ClickableConsent href={consents[language]} target="_blank">
-        <ConsentIcon src={download_consent} />
-        <ConsentText>
+        <ConsentIcon src={download_consent} onClick={handleConsentClick} />
+        <ConsentText onClick={handleConsentClick}>
           <Translator>consent-download</Translator>
         </ConsentText>
       </ClickableConsent>

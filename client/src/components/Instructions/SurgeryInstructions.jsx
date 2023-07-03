@@ -3,8 +3,10 @@ import { Translator } from "../Translation";
 import SurgeryInstructionItem from "./SurgeryInstructionItem";
 import { userContext } from "../../providers/UserProvider";
 import { useContext } from "react";
+import { useParams } from "react-router-dom";
 import white_v from "../../assets/Icons/white_v.svg";
 import instructionsIcons from "../../assets/Icons/PersonalInstructions";
+import postAnalytics from "../../utilities/postAnalytics";
 
 const surgeryInstructionsItems = {
   fever: {
@@ -28,6 +30,7 @@ const surgeryInstructionsItems = {
 
 function SurgeryInstructions() {
   const userInfo = useContext(userContext);
+  const { userId } = useParams();
   const { age } = userInfo.Case;
   if (age === "0-2")
     surgeryInstructionsItems.feast.paragraphs.splice(
@@ -35,6 +38,12 @@ function SurgeryInstructions() {
       0,
       "Surgery-Instruction-Feast-3-Hours"
     );
+  const handleApproveClick = () => {
+    postAnalytics({
+      userId,
+      type: `Instructions-signedConfirmation`,
+    });
+  };
 
   return (
     <Container>
@@ -51,7 +60,7 @@ function SurgeryInstructions() {
         ))}
       </ListContainer>
 
-      <Button>
+      <Button onClick={handleApproveClick}>
         <Label>
           <Vcheck />
           <CheckBoxText>
