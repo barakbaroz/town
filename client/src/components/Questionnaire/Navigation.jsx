@@ -39,6 +39,8 @@ Navigation.propTypes = {
   setIndex: PropTypes.func,
   maxQuestionIndex: PropTypes.number,
   textIndicator: PropTypes.string,
+  index: PropTypes.number,
+  questionsSize: PropTypes.number,
 };
 
 export default Navigation;

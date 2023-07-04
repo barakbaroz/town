@@ -1,5 +1,11 @@
 const { Op } = require("sequelize");
-const { Users, UserActions, Cases, CasesProgress } = require("../models");
+const {
+  Users,
+  UserActions,
+  Cases,
+  CasesProgress,
+  Questionnaire,
+} = require("../models");
 const sms = require("../sms/service");
 
 module.exports.getData = async ({ userId }) => {
@@ -22,6 +28,14 @@ module.exports.getData = async ({ userId }) => {
         required: false,
         attributes: ["type"],
         where: { type: { [Op.like]: "%feedbacks" } },
+      },
+      {
+        model: Questionnaire,
+        required: false,
+        where: {
+          questionKey: ["thyroidOrDiabetes", "lungDisease"],
+          answerKey: "Yes",
+        },
       },
     ],
   });
@@ -81,4 +95,15 @@ module.exports.userVideoAction = async ({ UserId, type, data }) => {
     await updateCasesProgress({ UserId, type });
     await sms.action({ UserId, actionKey: type });
   }
+};
+
+module.exports.updateQuestionnaire = async ({ UserId, data }) => {
+  const rowsToInsert = Object.entries(data).map(([questionKey, answerKey]) => ({
+    UserId,
+    questionKey,
+    answerKey,
+  }));
+  await Questionnaire.bulkCreate(rowsToInsert, {
+    updateOnDuplicate: ["answerKey"],
+  });
 };
