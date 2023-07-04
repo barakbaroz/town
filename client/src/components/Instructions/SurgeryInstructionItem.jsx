@@ -44,7 +44,7 @@ const InstructionIcon = styled.img`
 const ParagraphsContainer = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   gap: 1.1rem;
 `;
