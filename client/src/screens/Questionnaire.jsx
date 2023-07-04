@@ -139,7 +139,7 @@ const QuestionImage = styled.img`
 
 const QuestionContainer = styled.div`
   text-align: center;
-  padding-inline: var(--screen-padding-inline);
+  padding-inline: 37px;
 `;
 
 const QuestionText = styled.div`
@@ -151,7 +151,7 @@ const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.75rem;
 `;
 
 const Input = styled.input.attrs({
@@ -174,12 +174,13 @@ const Label = styled.label`
   font-size: 1.25rem;
   cursor: pointer;
   padding-block: 0.5rem;
-  width: clamp(2rem, 50%, 13rem);
   border: none;
   padding-inline: 1rem;
   border-radius: 50px;
   background-color: #f02a4c;
   color: white;
+  width: 55%;
+  max-width: 10rem;
 `;
 
 const Vcheck = styled.img.attrs({

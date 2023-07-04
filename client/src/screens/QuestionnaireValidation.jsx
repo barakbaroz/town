@@ -2,11 +2,20 @@ import styled from "styled-components";
 import questions from "../questionnairesStructure/StartQuestionnaire.json";
 import QuestionValidation from "../components/Questionnaire/QuestionValidation";
 import wave_background from "../assets/Backgrounds/wave_background.svg";
-import { useLocation } from "react-router-dom";
-import { Fragment } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { Fragment, useState } from "react";
 import { Translator } from "../components/Translation";
+import JumpingPopup from "../components/JumpingPopup";
+import MissingAnswers from "../components/Popups/MissingAnswers";
+import axios from "axios";
+import { useContext } from "react";
+import { userContext } from "../providers/UserProvider";
 
 function QuestionnaireValidation() {
+  const [open, setOpen] = useState(false);
+  const { id: userId } = useContext(userContext);
+  const navigate = useNavigate();
+
   const location = useLocation();
   const answers = location.state;
 
@@ -17,8 +26,12 @@ function QuestionnaireValidation() {
     const notComplete = Object.keys(questions).find(
       (questionKey) => !(questionKey in data)
     );
-    if (notComplete) return;
-    // Send axios reuest.
+    if (notComplete) return setOpen(true);
+    // Send axios reuest
+    axios
+      .post("/api/users/updateQuestionnaire", { UserId: userId, data })
+      .then(() => navigate("../Video"))
+      .catch((error) => console.log(error));
   };
 
   return (
@@ -41,6 +54,9 @@ function QuestionnaireValidation() {
           <Translator>send</Translator>
         </Button>
       </CheckboxesContainer>
+      <JumpingPopup open={open} setOpen={setOpen}>
+        <MissingAnswers setOpen={setOpen} open={open} />
+      </JumpingPopup>
     </Container>
   );
 }
@@ -85,6 +101,7 @@ const CheckboxesContainer = styled.form`
 `;
 
 const Button = styled.button`
+  font-family: inherit;
   margin-block-start: 1rem;
   font-size: 1.25rem;
   cursor: pointer;
