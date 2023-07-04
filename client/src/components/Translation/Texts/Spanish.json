@@ -90,10 +90,10 @@
 
   "questionnaireValidationTitle": "Han llegado al final del cuestionario. Por favor revisen sus respuestas antes de enviarlas.",
 
-  "Dismiss-Header":"Llenando el cuestionario médico le ahorrará mucho tiempo de espera, y solo se reunirá con el anestesiólogo el día de la cirugía.",
+  "Dismiss-Header":"Según sus respuestas al cuestionario médico, los hemos eximido de reunirse con un anestesiólogo durante su visita previa a la cirugía",
   "Dismiss-Paragraph":"Deben presentar este certificado en la recepción de enfermería de las clínicas pediátricas, cuando lleguen para la visita previa a la cirugía",
   "Dismiss-PayAttention":"Este certificado tiene una validez de tres meses a partir de la fecha de recepción.",
-  "Dismiss-Button-Consent":"טופס הסכמה מדעת",
-  "Dismiss-Button-Instructions":"Imprimir nota de exención",
-  "Dismiss-Button-WatchVideo":"Formulario de Consentimiento Informado"
+  "Dismiss-Button-Consent":"Formulario de Consentimiento Informado",
+  "Dismiss-Button-Instructions":"Instrucciones previos a la cirugía",
+  "Dismiss-Button-WatchVideo":"Ver el vídeo"
 }
