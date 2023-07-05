@@ -17,7 +17,11 @@ function QuestionValidation({ questionKey, questionProperties, value }) {
             <CostumeCheckbox answerKey={answer}>
               <Vcheck />
             </CostumeCheckbox>
-            <Input name={questionKey} defaultChecked={answer === value} />
+            <Input
+              name={questionKey}
+              value={answer}
+              defaultChecked={answer === value}
+            />
           </Label>
         ))}
       </AnswersButtons>
@@ -84,6 +88,7 @@ const CostumeCheckbox = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 1px solid transparent;
   &:has(~ ${Input}:checked) {
     background-color: ${({ answerKey }) => colorByType[answerKey]};
     & > ${Vcheck} {

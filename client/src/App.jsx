@@ -16,6 +16,7 @@ import ErrorElement from "./screens/Error";
 import NotFound from "./screens/NotFound";
 import CharacterSelection from "./screens/CharacterSelection";
 import VideoPage from "./screens/VideoPage";
+import Dismiss from "./screens/Dismiss";
 
 const App = () => {
   return <RouterProvider router={router} />;
@@ -39,6 +40,7 @@ const router = createBrowserRouter([
       { path: "Legal", element: <Legal /> },
       { path: "Privacy", element: <Privacy /> },
       { path: "CharacterSelection", element: <CharacterSelection /> },
+      { path: "Dismiss", element: <Dismiss /> },
     ],
   },
   { path: "*", element: <NotFound /> },

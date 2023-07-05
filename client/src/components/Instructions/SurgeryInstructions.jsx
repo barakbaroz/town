@@ -2,62 +2,60 @@ import styled from "styled-components";
 import { Translator } from "../Translation";
 import SurgeryInstructionItem from "./SurgeryInstructionItem";
 import { userContext } from "../../providers/UserProvider";
-import { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useContext, Fragment } from "react";
 import white_v from "../../assets/Icons/white_v.svg";
 import instructionsIcons from "../../assets/Icons/PersonalInstructions";
 import postAnalytics from "../../utilities/postAnalytics";
-
-const surgeryInstructionsItems = {
-  fever: {
-    icon: instructionsIcons.fever,
-    paragraphs: ["Surgery-Instruction-Fever"],
-  },
-  medicalCondition: {
-    icon: instructionsIcons.medicalCondition,
-    paragraphs: ["Surgery-Instruction-Medical-Condition"],
-  },
-  feast: {
-    icon: instructionsIcons.feast,
-    paragraphs: [
-      "Surgery-Instruction-Feast-6-Hours",
-      "Surgery-Instruction-Feast-4-Hours",
-      "Surgery-Instruction-Feast-1-Hours-Max",
-      "Surgery-Instruction-Feast-1-Hours",
-    ],
-  },
-};
+import { useParams } from "react-router-dom";
 
 function SurgeryInstructions() {
   const userInfo = useContext(userContext);
   const { userId } = useParams();
+
   const { age } = userInfo.Case;
-  if (age === "0-2")
-    surgeryInstructionsItems.feast.paragraphs.splice(
-      2,
-      0,
-      "Surgery-Instruction-Feast-3-Hours"
-    );
+
+  const surgeryInstructionsItems = {
+    fever: {
+      icon: instructionsIcons.fever,
+      paragraphs: ["Surgery-Instruction-Fever"],
+    },
+    medicalCondition: {
+      icon: instructionsIcons.medicalCondition,
+      paragraphs: ["Surgery-Instruction-Medical-Condition"],
+    },
+    feast: {
+      icon: instructionsIcons.feast,
+      paragraphs: [
+        "Surgery-Instruction-Feast-6-Hours",
+        "Surgery-Instruction-Feast-4-Hours",
+        ...(age === "0-2" ? ["Surgery-Instruction-Feast-3-Hours"] : []),
+        "Surgery-Instruction-Feast-1-Hours-Max",
+        "Surgery-Instruction-Feast-1-Hours",
+      ],
+    },
+  };
   const handleApproveClick = () => {
     postAnalytics({
       userId,
-      type: `Instructions-signedConfirmation`,
+      type: "Instructions-approveInstruction-clicked",
     });
   };
 
   return (
-    <Container>
+    <Container id="SurgeryInstructions">
       <Title>
         <Translator>instructions-title</Translator>
       </Title>
 
       <ListContainer>
-        {Object.values(surgeryInstructionsItems).map((surgeryInstruction) => (
-          <>
-            <SurgeryInstructionItem {...surgeryInstruction} />
-            <Divider />
-          </>
-        ))}
+        {Object.values(surgeryInstructionsItems).map(
+          (surgeryInstruction, index) => (
+            <Fragment key={index}>
+              <SurgeryInstructionItem {...surgeryInstruction} />
+              <Divider />
+            </Fragment>
+          )
+        )}
       </ListContainer>
 
       <Button onClick={handleApproveClick}>

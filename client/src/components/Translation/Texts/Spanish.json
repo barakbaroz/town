@@ -103,5 +103,12 @@
   "diseasesNeedTreatment-female": "¿Se le ha diagnosticado a su hija un síndrome, una enfermedad metabólica, un defecto genético, una malformación o una condición crónica que requiere tratamiento y seguimiento con un médico?",
   "bornBeforeWeek36-female": "En caso de que su hija tenga menos de un año de edad, ¿ha nacido antes de la semana 36 de embarazo y fue hospitalizada en neonatología (bebé prematuro)?",
 
-  "questionnaireValidationTitle": "Han llegado al final del cuestionario. Por favor revisen sus respuestas antes de enviarlas."
+  "questionnaireValidationTitle": "Han llegado al final del cuestionario. Por favor revisen sus respuestas antes de enviarlas.",
+
+  "Dismiss-Header":"Según sus respuestas al cuestionario médico, los hemos eximido de reunirse con un anestesiólogo durante su visita previa a la cirugía",
+  "Dismiss-Paragraph":"Deben presentar este certificado en la recepción de enfermería de las clínicas pediátricas, cuando lleguen para la visita previa a la cirugía",
+  "Dismiss-PayAttention":"Este certificado tiene una validez de tres meses a partir de la fecha de recepción.",
+  "Dismiss-Button-Consent":"Formulario de Consentimiento Informado",
+  "Dismiss-Button-Instructions":"Instrucciones previos a la cirugía",
+  "Dismiss-Button-WatchVideo":"Ver el vídeo"
 }

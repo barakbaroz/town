@@ -14,11 +14,21 @@ function Player({ setShowFeedback }) {
   const { language } = useContext(LanguageContext);
 
   const params = useMemo(() => {
-    const { age, gender } = userInfo.Case;
-    return { gender, age, language };
-  }, [language, userInfo.Case]);
+    const { age, gender, ethnicity } = userInfo.Case;
+    const backgroundDisease = userInfo.Questionnaires.map(
+      ({ questionKey }) => questionKey
+    );
+    return {
+      gender,
+      age,
+      language,
+      ethnicity,
+      hospital: "ichilov",
+      backgroundDisease,
+    };
+  }, [language, userInfo]);
 
-  const { videoUrl } = useVideoUrl(params, "trom-hardama-kids");
+  const { videoUrl } = useVideoUrl(params, "pediatric-pre-anesthesia");
 
   const onLocationUpdate = useCallback(
     (percentage, location) => {
