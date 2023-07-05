@@ -24,7 +24,7 @@ function Questionnaire() {
   const { age, gender, ethnicity } = Case;
   const avatar = `${gender}_${age}_${ethnicity}`;
 
-  const handleAnswer = (questionKey, answerKey, index) => () => {
+  const handleAnswer = (index) => () => {
     //axios request to update the answer.
     setIndex(Math.min(index + 1, questionsLength - 1));
     setAnsweresIndexes((prev) => {
@@ -70,11 +70,7 @@ function Questionnaire() {
                 {questionProperties.options.map((answerKey) => (
                   <Label
                     key={`${questionKey}-${answerKey}`}
-                    onClick={handleAnswer(
-                      questionKey,
-                      answerKey,
-                      questionIndex
-                    )}
+                    onClick={handleAnswer(questionIndex)}
                   >
                     <CostumeCheckbox>
                       <Vcheck />
