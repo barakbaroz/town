@@ -8,7 +8,7 @@ function Privacy() {
   const { id: userId } = useContext(userContext);
 
   const BackClick = () => {
-    postAnalytics({ userId, type: "Privacy-Back" });
+    postAnalytics({ userId, type: "Privacy-Back-clicked" });
   };
 
   return (

@@ -4,21 +4,21 @@ import { Link, useParams } from "react-router-dom";
 import LanguageBar from "../components/User/LanguageBar";
 import MatotLandingPage from "../assets/Start/Matot_LandingPage.svg";
 import { Translator } from "../components/Translation";
-import postAnalytrics from "../functions/postAnalytics";
+import postAnalytics from "../utilities/postAnalytics";
 
 const Start = () => {
   const { userId } = useParams();
 
   const handleLegalLinkClick = () => {
-    postAnalytrics({ userId, type: "opened-tos" });
+    postAnalytics({ userId, type: "opened-tos" });
   };
 
   const handleStartClick = () => {
-    postAnalytrics({ userId, type: "start-button-clicked" });
+    postAnalytics({ userId, type: "start-button-clicked" });
   };
 
   useEffect(() => {
-    postAnalytrics({ userId, type: "opened-sms" });
+    postAnalytics({ userId, type: "opened-sms" });
   }, [userId]);
 
   return (
