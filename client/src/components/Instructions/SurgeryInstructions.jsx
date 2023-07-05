@@ -7,7 +7,6 @@ import { useContext, Fragment } from "react";
 import white_v from "../../assets/Icons/white_v.svg";
 import instructionsIcons from "../../assets/Icons/PersonalInstructions";
 import postAnalytics from "../../utilities/postAnalytics";
-import { useParams } from "react-router-dom";
 
 function SurgeryInstructions() {
   const userInfo = useContext(userContext);
