@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Translator } from "../Translation";
 import SurgeryInstructionItem from "./SurgeryInstructionItem";
 import { userContext } from "../../providers/UserProvider";
+import { useParams } from "react-router-dom";
 import { useContext, Fragment } from "react";
 import white_v from "../../assets/Icons/white_v.svg";
 import instructionsIcons from "../../assets/Icons/PersonalInstructions";
