@@ -1,11 +1,10 @@
+import { useContext, useState, useRef } from "react";
 import styled from "styled-components";
 import ProgressBar from "../components/Questionnaire/ProgressBar";
 import Navigation from "../components/Questionnaire/Navigation";
 import Carouselle from "../components/User/Carousell";
 import questions from "../questionnairesStructure/StartQuestionnaire.json";
 import questionsAnimations from "../assets/questionsAnimations";
-import { useContext, useState } from "react";
-import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Translator } from "../components/Translation";
 import qustionnaireImages from "../assets/questionsImages";
@@ -24,7 +23,7 @@ function Questionnaire() {
   const { age, gender, ethnicity } = Case;
   const avatar = `${gender}_${age}_${ethnicity}`;
 
-  const handleAnswer = (questionKey, answerKey, index) => () => {
+  const handleAnswer = (index) => () => {
     //axios request to update the answer.
     setIndex(Math.min(index + 1, questionsLength - 1));
     setAnsweresIndexes((prev) => {
@@ -70,11 +69,7 @@ function Questionnaire() {
                 {questionProperties.options.map((answerKey) => (
                   <Label
                     key={`${questionKey}-${answerKey}`}
-                    onClick={handleAnswer(
-                      questionKey,
-                      answerKey,
-                      questionIndex
-                    )}
+                    onClick={handleAnswer(questionIndex)}
                   >
                     <CostumeCheckbox>
                       <Vcheck />
@@ -139,7 +134,7 @@ const QuestionImage = styled.img`
 
 const QuestionContainer = styled.div`
   text-align: center;
-  padding-inline: var(--screen-padding-inline);
+  padding-inline: 37px;
 `;
 
 const QuestionText = styled.div`
@@ -151,7 +146,7 @@ const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.75rem;
 `;
 
 const Input = styled.input.attrs({
@@ -174,12 +169,13 @@ const Label = styled.label`
   font-size: 1.25rem;
   cursor: pointer;
   padding-block: 0.5rem;
-  width: clamp(2rem, 50%, 13rem);
   border: none;
   padding-inline: 1rem;
   border-radius: 50px;
   background-color: #f02a4c;
   color: white;
+  width: 55%;
+  max-width: 10rem;
 `;
 
 const Vcheck = styled.img.attrs({

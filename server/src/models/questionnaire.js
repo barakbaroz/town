@@ -4,15 +4,15 @@ const init = (sequelize) =>
   sequelize.define(
     "Questionnaire",
     {
-      UsersId: {
+      UserId: {
         primaryKey: true,
         type: DataTypes.UUID,
       },
       questionKey: {
         primaryKey: true,
-        type: DataTypes.UUID,
+        type: DataTypes.STRING,
       },
-      answer: DataTypes.STRING,
+      answerKey: DataTypes.STRING,
     },
     { underscored: true, paranoid: true }
   );

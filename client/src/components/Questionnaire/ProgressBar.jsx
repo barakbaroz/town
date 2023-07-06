@@ -24,7 +24,7 @@ const Container = styled.div`
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 5px;
-  padding-block: 32px;
+  padding-block: 25px;
   padding-inline: var(--screen-padding-inline);
 `;
 
