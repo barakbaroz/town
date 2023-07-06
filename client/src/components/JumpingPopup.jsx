@@ -44,7 +44,7 @@ const Container = styled.div`
   border-radius: 20px 20px 0 0;
   background-color: white;
   position: fixed;
-  transition: transform 600ms linear;
+  transition: transform 250ms linear;
   bottom: 0;
   transform: translateY(${({ open }) => (open ? 0 : "100%")});
 `;
