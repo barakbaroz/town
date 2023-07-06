@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 function SurgeryInstructionItem({ icon, paragraphs }) {
   return (
-    <Container>
+    <Container id="Container">
       <InstructionIcon src={icon} />
       <ParagraphsContainer>
         {paragraphs.map((paragraph) => (
@@ -37,7 +37,7 @@ const Text = styled.p`
 `;
 
 const InstructionIcon = styled.img`
-  width: 47px;
+  width: 46px;
   height: 47px;
 `;
 

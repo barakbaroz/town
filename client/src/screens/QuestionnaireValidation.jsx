@@ -78,7 +78,7 @@ const Container = styled.div`
     #e1e9fe 50%,
     transparent 100%
   ); */
-  padding: 1rem;
+  padding: 1.375rem;
   box-sizing: border-box;
 `;
 
@@ -88,6 +88,7 @@ const TextBox = styled.div`
   text-align: start;
   background-color: white;
   border-radius: 20px;
+  color: var(--validation-text-color);
 `;
 
 const CheckboxesContainer = styled.form`
@@ -95,14 +96,15 @@ const CheckboxesContainer = styled.form`
   display: flex;
   flex-direction: column;
   padding-block: 2rem;
-  padding-inline: 15px;
+  padding-inline: 22px;
   align-items: center;
   max-width: 45rem;
 `;
 
 const Button = styled.button`
   font-family: inherit;
-  margin-block-start: 1rem;
+  margin-block-start: 3.5rem;
+  margin-block-end: 1.5rem;
   font-size: 1.25rem;
   cursor: pointer;
   padding-block: 0.75rem;

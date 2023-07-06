@@ -38,7 +38,7 @@ function Consent() {
 export default Consent;
 
 const Container = styled.div`
-  color: #444444;
+  color: var(--common-black-text);
 
   /* The same as the margin on the DontForget component container */
   padding-inline: 20px;
@@ -60,6 +60,7 @@ const ClickableConsent = styled.a`
   align-items: center;
   align-self: center;
   margin-block-start: 15px;
+  gap: 0.625rem;
 `;
 const ConsentIcon = styled.img`
   width: 5rem;

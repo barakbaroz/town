@@ -19,6 +19,7 @@ function Navigation({ setIndex, maxQuestionIndex, index, questionsSize }) {
           paddingInline: "20%",
           fontSize: "1.375rem",
           fontFamily: "Poppins",
+          color: "#1A1A1A",
         }}
       >
         {index + 1}

@@ -81,7 +81,8 @@ const StyledLanguageBar = styled.div`
 `;
 
 const VideoPreviewTexts = styled.div`
-  margin-inline: var(--screen-texts-padding);
+  margin-inline: 23px;
+  color: var(--common-black-text);
 `;
 
 const Title = styled.h1`
@@ -98,7 +99,6 @@ const Subtitle = styled.h3.attrs(({ children }) => {
 })`
   font-weight: 400;
   font-size: 1.1875rem;
-  margin-inline-start: 0.9375rem;
   margin-inline-end: 1.3125rem;
 `;
 
@@ -122,7 +122,7 @@ const BlueWrapper = styled.div`
 const Footer = styled.footer`
   font-weight: 500;
   text-align: center;
-  color: #444444;
+  color: var(--common-black-text);
   font-size: 1.5rem;
   padding-inline: 1.2rem;
 `;

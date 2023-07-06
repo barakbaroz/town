@@ -39,7 +39,11 @@ function DontForget() {
         ))}
       </ListContainer>
 
-      <Instructions href={instructions[userStringDetails]} target="_blank">
+      <Instructions
+        href={instructions[userStringDetails]}
+        target="_blank"
+        id="Instructions"
+      >
         <InstructionsIcon
           src={instructions_download}
           onClick={handleDownloadInstructionsClick}
@@ -66,7 +70,7 @@ const Container = styled.div`
   padding-block: 1rem;
   display: flex;
   flex-direction: column;
-  color: #444444;
+  color: var(--common-black-text);
   padding-inline: 1.5625rem;
   box-shadow: 0px 3px 6px #00000029;
   border-radius: 25px;
@@ -105,6 +109,7 @@ const Instructions = styled.a`
   flex-direction: column;
   align-items: center;
   align-self: center;
+  gap: 0.625rem;
 `;
 const InstructionsIcon = styled.img`
   width: 4.5625rem;

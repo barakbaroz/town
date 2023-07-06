@@ -65,6 +65,7 @@ const Container = styled.div`
       #ffffffc4 100%
     )
     0% 0% no-repeat padding-box;
+  color: var(--common-black-text);
 `;
 const TopContent = styled.div`
   background-size: cover;
@@ -92,6 +93,7 @@ const Actions = styled.div`
   gap: 43px;
 `;
 const ButtonContainer = styled.a`
+  gap: 0.875rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -108,7 +110,7 @@ const Divider = styled.div`
 const HeaderText = styled.p`
   font-size: 1.188rem;
   width: 80%;
-  margin-block-start: 0;
+  margin-block-start: 0.938rem;
   margin-block-end: 1.375rem;
 `;
 const Wrapper = styled.div`
