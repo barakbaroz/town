@@ -32,9 +32,9 @@ module.exports.search = async (req, res) => {
 module.exports.postCase = async (req, res) => {
   console.info("Post Case");
   try {
-    const { id: creatorId } = req.staffMembers;
+    const { id: creatorId, department } = req.staffMembers;
     const { body } = req;
-    await casesServices.postCase({ creatorId, ...body });
+    await casesServices.postCase({ creatorId, department, ...body });
     return res.status(200).send("Case Created");
   } catch (error) {
     console.error(error);
