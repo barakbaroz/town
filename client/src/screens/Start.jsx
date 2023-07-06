@@ -41,17 +41,11 @@ const Start = () => {
         >
           <Translator>Start-Button</Translator>
         </StartButton>
-        <LegalTextWrapper>
-          <Translator>Start-Legal-Explain</Translator>
-          &nbsp;
-          <LegalLink
-            id="LegalLink"
-            to="../Legal"
-            onClick={handleLegalLinkClick}
-          >
-            <Translator>Start-Legal-Link</Translator>
-          </LegalLink>
-        </LegalTextWrapper>
+        <Translator>Start-Legal-Explain</Translator>
+        &nbsp;
+        <LegalLink id="LegalLink" to="../Legal" onClick={handleLegalLinkClick}>
+          <Translator>Start-Legal-Link</Translator>
+        </LegalLink>
       </BottomContentContainer>
     </StartContainer>
   );
@@ -82,7 +76,6 @@ const Title = styled.h1`
   font-size: 1.625rem;
   margin: 0;
   text-align: center;
-  color: var(--common-black-text);
 `;
 
 const BottomContentContainer = styled.div`
@@ -98,7 +91,6 @@ const Paragraph = styled.p`
   margin-block-start: 0.5rem;
   text-align: center;
   margin-inline: 1.563rem;
-  color: var(--common-black-text);
 `;
 
 const StartButton = styled(Link)`
@@ -115,7 +107,4 @@ const StartButton = styled(Link)`
 const LegalLink = styled(Link)`
   color: #84a4fb;
   cursor: pointer;
-`;
-const LegalTextWrapper = styled.div`
-  color: var(--validation-text-color);
 `;

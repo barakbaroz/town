@@ -65,7 +65,6 @@ const Container = styled.div`
       #ffffffc4 100%
     )
     0% 0% no-repeat padding-box;
-  color: var(--common-black-text);
 `;
 const TopContent = styled.div`
   background-size: cover;

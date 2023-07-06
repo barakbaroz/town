@@ -61,7 +61,6 @@ const TextsContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  color: var(--common-black-text);
 `;
 const Title = styled.h2`
   font-size: 1.5rem;

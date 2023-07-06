@@ -88,7 +88,6 @@ const TextBox = styled.div`
   text-align: start;
   background-color: white;
   border-radius: 20px;
-  color: var(--validation-text-color);
 `;
 
 const CheckboxesContainer = styled.form`

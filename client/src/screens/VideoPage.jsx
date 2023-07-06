@@ -82,7 +82,6 @@ const StyledLanguageBar = styled.div`
 
 const VideoPreviewTexts = styled.div`
   margin-inline: 23px;
-  color: var(--common-black-text);
 `;
 
 const Title = styled.h1`
@@ -122,7 +121,6 @@ const BlueWrapper = styled.div`
 const Footer = styled.footer`
   font-weight: 500;
   text-align: center;
-  color: var(--common-black-text);
   font-size: 1.5rem;
   padding-inline: 1.2rem;
 `;

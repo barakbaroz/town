@@ -145,7 +145,6 @@ const QuestionContainer = styled.div`
 const QuestionText = styled.div`
   font-size: 1.25rem;
   margin-bottom: 2rem;
-  color: var(--common-black-text);
 `;
 
 const ButtonsContainer = styled.div`

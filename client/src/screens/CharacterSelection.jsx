@@ -212,7 +212,6 @@ const Question = styled.p`
   font-size: 1.1875rem;
   text-align: start;
   margin: 0rem;
-  color: var(--common-black-text);
 `;
 
 const QuestionPicker = styled.div`

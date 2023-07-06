@@ -48,7 +48,6 @@ const Container = styled.div`
 const Text = styled.div`
   font-size: 1rem;
   align-self: flex-start;
-  color: var(--questionnare-text-color);
 `;
 
 const Label = styled.label`
@@ -57,7 +56,6 @@ const Label = styled.label`
   align-items: center;
   gap: 0.5rem;
   font-size: 1rem;
-  color: var(--questionnare-text-color);
 `;
 
 const Input = styled.input.attrs({

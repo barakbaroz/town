@@ -38,8 +38,6 @@ function Consent() {
 export default Consent;
 
 const Container = styled.div`
-  color: var(--common-black-text);
-
   /* The same as the margin on the DontForget component container */
   padding-inline: 20px;
   padding-block-start: 2.375rem;

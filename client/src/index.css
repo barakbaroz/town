@@ -11,20 +11,13 @@ body {
   --header-logo-height: 1.6875rem;
   --header-block-padding: 16px;
   --header-inline-padding: 22px;
-  /* text colors */
-  --common-black-text: #1A1A1A;
-  --questionnare-text-color: #444444;
-  --validation-text-color: #2A2A2A;
-  --avatar-selection-title-text:#222222;
-
-
-
   --header-size: calc(
     var(--header-logo-height) + (var(--header-block-padding) * 2)
   );
   margin: 0;
   padding: 0;
   position: relative;
+  color:#1A1A1A;
 }
 
 #root {
