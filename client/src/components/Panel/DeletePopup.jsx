@@ -32,11 +32,12 @@ export default DeletePopup;
 
 const Backdrop = styled.div`
   position: fixed;
+  z-index: 2;
   inset: 0;
   background-color: #000000b3;
   align-items: center;
   justify-content: center;
-  display: ${({ open }) => (open ? "flex" : "none")};
+  display: ${({ show }) => (show ? "flex" : "none")};
 `;
 
 const Container = styled.div`
@@ -45,6 +46,9 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 2.5rem;
+  background: #fff;
+  padding: 100px;
+  border-radius: 20px;
 `;
 
 const Text = styled.div`

@@ -53,7 +53,6 @@ const Container = styled.div`
   height: 60%;
   aspect-ratio: 1;
   padding-left: 1rem;
-  position: relative;
 `;
 
 const Icons = styled.img`

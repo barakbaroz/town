@@ -38,7 +38,7 @@ function CaseItem({ item, deleteCase }) {
           <SubHeadin>{getLengAndAge(item)}</SubHeadin>
         </Unit>
         <Unit>
-          <Heading>Department</Heading>
+          <Heading>{departments[item.department]}</Heading>
           <SubHeadin>
             {new Date(item.preSurgery).toLocaleDateString("en-US", dateOptions)}
           </SubHeadin>
@@ -95,6 +95,17 @@ const getLengAndAge = ({ gender, age, Users }) => {
     gender && age ? `${genders[gender]} ${age}` : "גיל",
     languages[user1.language],
   ].join(", ");
+};
+
+const departments = {
+  urology: "אורולוגיה",
+  otolaryngology: "אף אוזן גרון",
+  surgery: "כירורגיה",
+  neurosurgery: "נירוכירורגיה",
+  orthopedic: "orthopedic",
+  "orthopedic oncology": "אורתופגיה אונקולוגית",
+  plastics: "פלסטיקה",
+  eyes: "עיניים",
 };
 
 export default CaseItem;

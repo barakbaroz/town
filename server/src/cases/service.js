@@ -91,6 +91,7 @@ module.exports.search = async ({ creatorId, search, role, department }) => {
       "ethnicity",
       "preSurgery",
       "surgery",
+      "department",
       "createdAt",
     ],
     where: {
