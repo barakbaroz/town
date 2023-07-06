@@ -1,11 +1,10 @@
+import { useContext, useState, useRef } from "react";
 import styled from "styled-components";
 import ProgressBar from "../components/Questionnaire/ProgressBar";
 import Navigation from "../components/Questionnaire/Navigation";
 import Carouselle from "../components/User/Carousell";
 import questions from "../questionnairesStructure/StartQuestionnaire.json";
 import questionsAnimations from "../assets/questionsAnimations";
-import { useContext, useState } from "react";
-import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Translator } from "../components/Translation";
 import qustionnaireImages from "../assets/questionsImages";
