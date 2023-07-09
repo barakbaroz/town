@@ -18,15 +18,15 @@ const SideBar = ({ stuffData }) => {
           <Name>{stuffData.name}</Name>
           <SubName>{roles[stuffData.role]}</SubName>
           <CasesCounters>
-            <CounterWrapper>
+            <div>
               <Number>{stuffData.totalCases}</Number>
               <Title>הדרכות סה&quot;כ</Title>
-            </CounterWrapper>
+            </div>
             <Divider />
-            <CounterWrapper>
+            <div>
               <Number>{stuffData.todayCases}</Number>
               <Title>הדרכות מהיום</Title>
-            </CounterWrapper>
+            </div>
           </CasesCounters>
           <AddButton to="/gister">
             <img src={Plus} alt="img" />
@@ -103,8 +103,6 @@ const CasesCounters = styled.div`
   align-items: center;
   margin-block: 37px;
 `;
-
-const CounterWrapper = styled.div``;
 
 const Number = styled.p`
   color: #84a4fb;
