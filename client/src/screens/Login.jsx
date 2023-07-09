@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import login from "../assets/Backgrounds/login.jpg";
+import login from "../assets/Backgrounds/login.svg";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -29,7 +29,7 @@ const Login = () => {
         <Titles>
           <Title>ברוכים הבאים</Title>
           <SubTitle>
-            למערכת ליווי והדרכת <br /> מטופלים עם סוכרת
+            מערכת ליווי והדרכת <br /> מטופלים לטרום ניתוח
           </SubTitle>
         </Titles>
         <Field>
@@ -56,9 +56,9 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  font-family: inherit, sans-serif;
   justify-content: center;
   direction: rtl;
+  font-family: "Abraham";
 `;
 
 const Form = styled.form`
@@ -111,6 +111,7 @@ const Input = styled.input`
   border: none;
   outline: none;
   font-family: inherit;
+  width: 100%;
 `;
 
 const Title = styled.h1`

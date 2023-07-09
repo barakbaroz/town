@@ -23,24 +23,31 @@ const casesProgressFilter = {
   openSms: {
     where: {
       openSms: { [Op.ne]: null },
-      generalInformationAnswered: { [Op.eq]: null },
+      avatarSelection: { [Op.eq]: null },
     },
   },
-  generalInformationAnswered: {
+  avatarSelection: {
     where: {
-      generalInformationAnswered: { [Op.ne]: null },
-      [Op.and]: {
-        watchedVideoSugarTest: { [Op.eq]: null },
-        watchedVideoInsulin: { [Op.eq]: null },
-      },
+      avatarSelection: { [Op.ne]: null },
+      signedConfirmation: { [Op.eq]: null },
+    },
+  },
+  signedConfirmation: {
+    where: {
+      signedConfirmation: { [Op.ne]: null },
+      watchedVideo: { [Op.eq]: null },
     },
   },
   watchedVideo: {
     where: {
-      [Op.or]: {
-        watchedVideoSugarTest: { [Op.ne]: null },
-        watchedVideoInsulin: { [Op.ne]: null },
-      },
+      watchedVideo: { [Op.ne]: null },
+      signedConfirmation: { [Op.eq]: null },
+    },
+  },
+  complete: {
+    where: {
+      watchedVideo: { [Op.ne]: null },
+      signedConfirmation: { [Op.ne]: null },
     },
   },
 };
@@ -69,14 +76,24 @@ module.exports.search = async ({ creatorId, search, role, department }) => {
         model: CasesProgress,
         attributes: [
           "openSms",
-          "generalInformationAnswered",
-          "watchedVideoPreSurgery",
-          "watchedVideoPostSurgery",
+          "avatarSelection",
+          "signedConfirmation",
+          "watchedVideo",
         ],
         ...casesProgressFilter[search.patientStatus],
       },
     ],
-    attributes: ["id", "zehutNumber", "gender", "age", "createdAt"],
+    attributes: [
+      "id",
+      "zehutNumber",
+      "gender",
+      "age",
+      "ethnicity",
+      "preSurgery",
+      "surgery",
+      "department",
+      "createdAt",
+    ],
     where: {
       ...zehutFilter(search),
       ...myCasesFilter(search, creatorId),

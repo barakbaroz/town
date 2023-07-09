@@ -7,6 +7,7 @@ import "./stylings/fonts.css";
 import Start from "./screens/Start";
 import Legal from "./components/TOS/Legal";
 import Privacy from "./components/TOS/Privacy";
+import Panel from "./screens/Panel";
 import Gister from "./screens/Gister";
 import Login from "./screens/Login";
 import Questionnaire from "./screens/Questionnaire";
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
   { index: true, element: <Navigate to="/Panel" /> },
   { path: "Login", element: <Login /> },
 
-  // { path: "Panel", element: <Panel /> },
+  { path: "Panel", element: <Panel /> },
   { path: "Gister", element: <Gister /> },
   {
     path: "user/:userId",
