@@ -1,6 +1,6 @@
 import { useState, Fragment, useContext } from "react";
 import styled from "styled-components";
-import characterSelectionBackground from "../assets/Backgrounds/wave_background.svg";
+import background from "../assets/Backgrounds/wave_background.svg";
 import data from "../components/CharacterSelection/CharacterSelectionData.json";
 import { useNavigate, useParams } from "react-router-dom";
 import Avatars from "../assets/Characters";
@@ -181,7 +181,7 @@ const avatars = [
 const CharacterSelectionContainer = styled.div`
   height: calc(100dvh - var(--header-size));
   width: 100vw;
-  background-image: url(${characterSelectionBackground});
+  background-image: url(${background});
   background-repeat: no-repeat;
   background-size: cover;
   padding-inline: 17px;
