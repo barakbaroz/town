@@ -4,39 +4,59 @@
   "send": "send",
   "share": "Share",
 
+  "Character-Selection-Title": "Personalize  video",
+  "Character-Selection-Gender": "Choose sex",
+  "Character-Selection-female": "Female ",
   "Start-Title": "Hi!",
   "Start-Paragraph": "Please answer the following 10 yes/no questions before your child's surgery. Your answers will help us prepare for the anesthesia process in the best and safest way possible. We'll also use them to create a personalized video that will help you come better prepared and to decide whether we can save your time by exempting you from an additional meeting at the hospital before the surgery.",
   "Start-Button": "Start",
   "Start-Legal-Explain": "Click here to accept our",
   "Start-Legal-Link": "Terms of Use.",
 
-  "Character-Selection-Title": "בחירת הדמות שלך",
-  "Character-Selection-Gender": "Choose sex",
-  "Character-Selection-female": "Female",
+
   "Character-Selection-male": "Male",
   "Character-Selection-other": "Other",
   "Character-Selection-Age": "Choose age group",
   "Character-Selection-Avatar": "Choose avatar",
   "Character-Selection-Next": "Next",
-  "Character-Selection-Error": "עליך למלא תחילה שדות קודמים",
+  "Character-Selection-Error": "Please enter your age and sex before continuing",
 
-  "video-page-default-title-male": "הסרטון הבא הותאם במיוחד עבור ילדכם",
-  "video-page-default-title-female": "הסרטון הבא הותאם במיוחד עבור ילדתכם",
-  "video-page-sign-title": "יש לקרוא ולאשר את ההנחיות לקראת הניתוח",
-
-  "video-page-subtitle-answeredAllNo-notWatchedVideo-signedConfirmation": "יש לצפות בסרטון במלואו לקבלת פטור מפגישה עם רופא/ה מרדים/ה ביום ההכנה לניתוח",
-  "video-page-subtitle-answeredAllNo-watchedVideo-notSignedConfirmation-male": "לנוחיותכם מצורף סרטון ההדרכה שהותאם עבור ילדכם לצפייה חוזרת",
-  "video-page-subtitle-answeredAllNo-watchedVideo-notSignedConfirmation-female": "לנוחיותכם מצורף סרטון ההדרכה שהותאם עבור ילדתכם לצפייה חוזרת",
-  "video-page-subtitle-answeredAllNo-notWatchedVideo-notSignedConfirmation": "לצורך קבלת פטור מפגישה עם רופא/ה מרדים/ה ביום ההכנה לניתוח עליכם לצפות בסרטון וללחוץ על כפתור 'אישור הנחיות', בהמשך המסך.",
-
-  "instructions-title": "Ahead of your child’s surgery, please follow these important instructions precisely",
+  "video-page-default-title":"This video was personalized especially for your child",
+  "Instructions-Description":"Please watch the entire video. Once you do, you’ll be exempted from meeting an anesthesiologist during your pre-surgery visit",
 
   "Satisfaction-Response": "Thank you! We value your feedback. We’d like to hear more.",
   "Satisfaction-question-video-helpful": "Was the video helpful?",
   "Satisfaction-question-reduce-worries": "Did the video help alleviate your concerns ahead of the surgery?",
   "Satisfaction-question-recommend-other-parents": "Would you recommend to other parents that they watch the video ahead of their child’s surgery?",
   "Satisfaction-question-all-answered": "Thank you for your help. We wish your child good health.",
+  "Satisfaction-Answer-Yes": "Yes",
+  "Satisfaction-Answer-No": "No",
 
+  "instructions-title": "Ahead of your child’s surgery, please follow these important instructions precisely",
+  "SurgeryInstructions-approveButton":"Affirm Instructions",
+
+  "video-page-subtitle-answeredAllNo-notWatchedVideo-signedConfirmation":"Please watch the entire video. Once you do, you’ll be exempted from meeting an anesthesiologist during your pre-surgery visit",
+  "video-page-subtitle-answeredAllNo-watchedVideo-notSignedConfirmation":"For your convenience, we've also posted your child’s personalized video so you can watch it again",
+  "video-page-subtitle-answeredAllNo-notWatchedVideo-notSignedConfirmation":"After you watch this personalized video and pressed the ‘Affirm Instructions’ button below, you’ll be exempted from meeting an anesthesiologist during your pre-surgery visit",
+
+  "DontForget-Title":"Don’t forget to bring the following to the pre-surgery meeting.",
+
+
+  "fever":"If your child will suffer from fever during the two weeks preceding the surgery (over 38.5o), will experience phlegm-based cough, complain about not feeling well during that time or get infected with Covid-19, make sure to inform the hospital staff and wait for them to decide whether to proceed with the surgery or to postpone it.",
+  "medicalCondition":"If your child’s medical condition deteriorates, or a new problem is discovered before the surgery, please inform the surgery ward at the hospital.",
+  "feast":"Six hours before surgery - Your child needs to stop consuming solid food. Four hours before surgery - Your child needs to stop consuming unclear liquids (such as juice with pulp, milk and baby formula). Up to one hour before surgery -drinking clear liquids -- such as water, juice without pulp and tea – is allowed and recommended. An hour before surgery - Your child needs to stop drinking ALL liquids.",
+  "feastBaby":"Six hours before surgery - Your child needs to stop consuming solid food. Four hours before surgery - Your child needs to stop consuming unclear liquids (such as juice with pulp, milk and baby formula). Three hours before your child’s surgery - You need to stop breastfeeding or stop feeding your child breast-milk from a bottle. Up to one hour before surgery -drinking clear liquids -- such as water, juice without pulp and tea – is allowed and recommended. An hour before surgery - Your child needs to stop drinking ALL liquids.",
+  
+
+  "SummaryDocuments":"An up-to-date summary letter from your pediatrician or the specialist treating your child.",
+  "medicineList":"A list of your child’s medications, or packs of the medication your child requires.",
+  "bloodTest": "Up-to-date blood test results.)",
+  "results": "Results and summaries of relevant medical tests.",
+  "tofes17": "Form 17",
+  "DontForget-DownloadInstructions": "Download Preparatory Instructions",
+  "video-page-sign-title": "יש לקרוא ולאשר את ההנחיות לקראת הניתוח",
+  
+  
   "Surgery-Instruction-Fever": "If your child will suffer from fever during the two weeks preceding the surgery (over 38.5o), will experience phlegm-based cough, complain about not feeling well during that time or get infected with Covid-19, make sure to inform the hospital staff and wait for them to decide whether to proceed with the surgery or to postpone it.",
   "Surgery-Instruction-Medical-Condition": "If your child’s medical condition deteriorates, or a new problem is discovered before the surgery, please inform the surgery ward at the hospital.",
   "Surgery-Instruction-Feast-6-Hours": "Six hours before surgery - Your child needs to stop consuming solid food. ",
@@ -44,14 +64,9 @@
   "Surgery-Instruction-Feast-3-Hours": "Three hours before your child’s surgery - You need to stop breastfeeding or stop feeding your child breast-milk from a bottle.",
   "Surgery-Instruction-Feast-1-Hours-Max": "Up to one hour before surgery -drinking clear liquids -- such as water, juice without pulp and tea – is allowed and recommended.",
   "Surgery-Instruction-Feast-1-Hours": "An hour before surgery - Your child needs to stop drinking ALL liquids.",
-
-  "SummaryDocuments": "An up-to-date summary letter from your pediatrician or the specialist treating your child.",
-  "medicineList": "A list of your child’s medications, or packs of the medication your child requires.",
-  "bloodTest": "Up-to-date blood test results.",
-  "results": "Results and summaries of relevant medical tests",
-  "tofes17": "Form 17",
-
+  
   "instruction-download": "Download Preparatory Instructions",
+
 
   "consent-title": "Informed Consent Form",
   "consent-text": "Before your upcoming surgery, the medical team will ask you to sign an informed consent form in their presence. We recommend that you read the form beforehand to make sure everything is clear.",

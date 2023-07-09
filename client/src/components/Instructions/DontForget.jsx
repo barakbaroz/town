@@ -6,18 +6,26 @@ import instructions_download from "../../assets/Icons/download_instruction.svg";
 import { useContext } from "react";
 import { userContext } from "../../providers/UserProvider";
 import instructions from "../../assets/Instructions";
+import postAnalytics from "../../utilities/postAnalytics";
+import { useParams } from "react-router-dom";
 
 function DontForget() {
   const { language } = useContext(LanguageContext);
   const userInfo = useContext(userContext);
+  const { userId } = useParams();
   const { age, gender } = userInfo.Case;
   const userStringDetails = `${gender}_${age}_${language}`;
-
+  const handleDownloadInstructionsClick = () => {
+    postAnalytics({
+      userId,
+      type: `download-instructions-clicked`,
+    });
+  };
   return (
     <Container>
       <TopContent>
         <Title>
-          <Translator>לא לשכוח להביא לפגישת טרום ניתוח</Translator>
+          <Translator>DontForget-Title</Translator>
         </Title>
 
         <DontForgetIcon src={dont_forget} lt="dont forget" />
@@ -32,9 +40,12 @@ function DontForget() {
       </ListContainer>
 
       <Instructions href={instructions[userStringDetails]} target="_blank">
-        <InstructionsIcon src={instructions_download} />
-        <InstructionsText>
-          <Translator>instruction-download</Translator>
+        <InstructionsIcon
+          src={instructions_download}
+          onClick={handleDownloadInstructionsClick}
+        />
+        <InstructionsText onClick={handleDownloadInstructionsClick}>
+          <Translator>DontForget-DownloadInstructions</Translator>
         </InstructionsText>
       </Instructions>
     </Container>

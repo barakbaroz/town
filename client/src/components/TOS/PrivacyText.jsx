@@ -1,6 +1,11 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import postAnalytics from "../../utilities/postAnalytics";
 
 function PrivacyText() {
+  const { userId } = useParams();
+  const handlePrivacyClick = () => {
+    postAnalytics({ userId, type: "Privacy-legal-link-clicked" });
+  };
   return (
     <>
       <p dir="rtl">מדיניות פרטיות &ndash;GISTMD</p>
@@ -17,7 +22,10 @@ function PrivacyText() {
       <p dir="rtl">
         מדיניות פרטיות זו (להלן: &quot;מדיניות הפרטיות&quot;) הינה חלק בלתי נפרד
         מהשירותים ומתנאי השימוש, ולמונחים המופיעים במדיניות הפרטיות תהא המשמעות
-        הנודעת להם בתנאי השימוש, הזמינים בקישורית: <Link to={-1}>כאן</Link>{" "}
+        הנודעת להם בתנאי השימוש, הזמינים בקישורית:{" "}
+        <Link to={-1} onClick={handlePrivacyClick}>
+          כאן
+        </Link>{" "}
         (להלן: &quot;תנאי השימוש&quot;), אלא אם נאמר במפורש אחרת במדיניות פרטיות
         זו. מדיניות הפרטיות מנוסחת בלשון זכר לצרכי נוחות בלבד, והיא מתייחסת,
         כמובן, גם לנשים.

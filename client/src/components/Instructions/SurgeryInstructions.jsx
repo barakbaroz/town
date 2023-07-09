@@ -2,12 +2,16 @@ import styled from "styled-components";
 import { Translator } from "../Translation";
 import SurgeryInstructionItem from "./SurgeryInstructionItem";
 import { userContext } from "../../providers/UserProvider";
+import { useParams } from "react-router-dom";
 import { useContext, Fragment } from "react";
 import white_v from "../../assets/Icons/white_v.svg";
 import instructionsIcons from "../../assets/Icons/PersonalInstructions";
+import postAnalytics from "../../utilities/postAnalytics";
 
 function SurgeryInstructions() {
   const userInfo = useContext(userContext);
+  const { userId } = useParams();
+
   const { age } = userInfo.Case;
 
   const surgeryInstructionsItems = {
@@ -30,6 +34,13 @@ function SurgeryInstructions() {
       ],
     },
   };
+  const handleApproveClick = () => {
+    postAnalytics({
+      userId,
+      type: "Instructions-approveInstruction-clicked",
+    });
+  };
+
   return (
     <Container id="SurgeryInstructions">
       <Title>
@@ -47,11 +58,11 @@ function SurgeryInstructions() {
         )}
       </ListContainer>
 
-      <Button>
+      <Button onClick={handleApproveClick}>
         <Label>
           <Vcheck />
           <CheckBoxText>
-            <Translator>אישור הנחיות</Translator>
+            <Translator>SurgeryInstructions-approveButton</Translator>
           </CheckBoxText>
           <Input />
         </Label>

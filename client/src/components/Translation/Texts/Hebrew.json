@@ -10,15 +10,19 @@
   "send": "שליחה",
   "share": "שיתוף",
 
-  "Character-Selection-Title": "בחירת הדמות שלך",
-  "Character-Selection-Gender": "מה המין שלך?",
-  "Character-Selection-female": "אישה",
-  "Character-Selection-male": "גבר",
+  "Character-Selection-Title": "יצירת הדמות שלך",
+  "Character-Selection-Gender": "בחירת המין",
+  "Character-Selection-female": "ילדה",
+  "Character-Selection-male": "ילד",
   "Character-Selection-other": "אחר",
-  "Character-Selection-Age": "מה הגיל שלך?",
-  "Character-Selection-Avatar": "מהי הדמות המועדפת עליך?",
+  "Character-Selection-Age": "בחירת הגיל",
+  "Character-Selection-Avatar": "בחירת דמות מועדפת",
   "Character-Selection-Next": "הבא",
   "Character-Selection-Error": "עליך למלא תחילה שדות קודמים",
+  
+  "Instructions-Title-male":"הסרטון הבא הותאם במיוחד עבור ילדכם",
+  "Instructions-Title-female":"הסרטון הבא הותאם במיוחד עבור ילדתכם",
+  "Instructions-Description":"לאחר הצפיה בסרטון, יש לקרוא ולאשר את ההנחיות לקראת הניתוח המצורפות בהמשך המסך.",
 
   "video-page-default-title-male": "הסרטון הבא הותאם במיוחד עבור ילדכם",
   "video-page-default-title-female": "הסרטון הבא הותאם במיוחד עבור ילדתכם",
@@ -39,6 +43,13 @@
   "Satisfaction-Answer-Yes": "כן",
   "Satisfaction-Answer-No": "לא",
 
+  "SurgeryInstructions-title": "הנחיות לקראת הניתוח",
+  "SurgeryInstructions-approveButton":"אישור הנחיות",
+
+  "DontForget-Title":"לא לשכוח להביא לפגישת טרום ניתוח",
+  "DontForget-Letters-male":"מכתבי סיכום עדכניים מרופא ילדים או מרופא מומחה מטפל בילדכם",
+  "DontForget-Letters-female":"מכתבי סיכום עדכניים מרופא ילדים או מרופא מומחה מטפל בילדתכם",
+
   "Surgery-Instruction-Fever-male": "אם במהלך השבועיים הקודמים לניתוח ילדכם יעלה חום (מעל 38.5 מעלות) / יסבול משיעול עם ליחה / יתנהג כחולה / יחלה בקורונה - עליכם ליידע את המחלקה ולהמתין להחלטה בדבר קיום הניתוח או דחייתו למועד אחר.",
   "Surgery-Instruction-Fever-female": "אם במהלך השבועיים הקודמים לניתוח ילדכם יעלה חום (מעל 38.5 מעלות) / יסבול משיעול עם ליחה / יתנהג כחולה / יחלה בקורונה - עליכם ליידע את המחלקה ולהמתין להחלטה בדבר קיום הניתוח או דחייתו למועד אחר.",
   "Surgery-Instruction-Medical-Condition-male": "אם מצבו הבריאותי של הילד החמיר או התגלתה בעיה חדשה טרם מועד הניתוח, יש ליידע את המחלקה.",
@@ -51,15 +62,18 @@
   "Surgery-Instruction-Feast-1-Hours-Max": "עד שעה לפני הניתוח - מותר ואף מומלץ לשתות נוזלים צלולים כמו מיץ ממותק ללא רכיבי פרי, מים ותה.",
   "Surgery-Instruction-Feast-1-Hours": "שעה לפני הניתוח - יש להיות בצום מלא, ללא שתייה.",
 
-  "SummaryDocuments": "מכתבי סיכום עדכניים מרופא ילדים או מרופא מומחה המטפל בילדכם",
-  "medicineList": "רשימת תרופות או את מארזי התרופות של ילדכם",
+  "SummaryDocuments-male": "מכתבי סיכום עדכניים מרופא ילדים או מרופא מומחה מטפל בילדכם",
+  "SummaryDocuments-female": "מכתבי סיכום עדכניים מרופא ילדים או מרופא מומחה מטפל בילדתכם",
+  "medicineList-male": "רשימת תרופות או את מארזי התרופות של ילדכם",
+  "medicineList-female": "רשימת תרופות או את מארזי התרופות של ילדתכם",
+
   "bloodTest": "בדיקת דם עדכנית (רק אם נדרשתם)",
   "results": "תוצאות סיכומי בדיקות רלוונטיות",
   "tofes17": "טופס 17",
-  "instruction-download": "הנחיות לקראת ניתוח להורדה",
+  "DontForget-DownloadInstructions": "הנחיות לקראת הניתוח להורדה",
 
   "consent-title": "טופס הסכמה מדעת",
-  "consent-text": "לקראת הניתוח הקרוב, הצוות הרפואי יבקש ממך לחתום בנוכחותו על טופס הסכמה מדעת. אנו ממליצים לכם לקרוא מראש ובעיון את הטופס",
+  "consent-text": "לקראת הניתוח הקרוב, הצוות הרפואי יבקש מכם לחתום בנוכחותו על טופס הסכמה מדעת. אנו ממליצים לכם לקרוא מראש ובעיון את הטופס.",
   "consent-download": "טופס הסכמה מדעת להורדה",
 
   "Footer": "מטופל מעורב הוא מטופל שמחלים טוב יותר",

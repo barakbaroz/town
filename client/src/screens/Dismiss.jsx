@@ -32,19 +32,19 @@ const Dismiss = () => {
           href={consents[language]}
           target="_blank"
         >
-          <ImageIcon src={downloadInformedConsent} id="ImageIcon" />
+          <Image src={downloadInformedConsent} id="ImageIcon" />
           <ButtonText>
             <Translator>Dismiss-Button-Consent</Translator>
           </ButtonText>
         </ButtonContainer>
         <ButtonContainer href="Instructions#SurgeryInstructions">
-          <ImageIcon src={downloadInstructions} />
+          <Image src={downloadInstructions} />
           <ButtonText>
             <Translator>Dismiss-Button-Instructions</Translator>
           </ButtonText>
         </ButtonContainer>
         <ButtonContainer href="Instructions">
-          <ImageIcon src={reWatch} />
+          <Image src={reWatch} />
           <ButtonText>
             <Translator>Dismiss-Button-WatchVideo</Translator>
           </ButtonText>
@@ -100,10 +100,6 @@ const ButtonContainer = styled.a`
   color: black;
   text-align: center;
 `;
-const ImageIcon = styled.img`
-  width: 4.125rem;
-  height: 4.125rem;
-`;
 const Divider = styled.div`
   height: 1px;
   border-radius: 2px;
@@ -121,4 +117,8 @@ const Wrapper = styled.div`
 `;
 const ButtonText = styled.div`
   font-size: 1rem;
+`;
+const Image = styled.img`
+  width: 4.125rem;
+  height: 4.125rem;
 `;

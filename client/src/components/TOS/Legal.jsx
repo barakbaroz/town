@@ -8,7 +8,7 @@ function Legal() {
   const { id: userId } = useContext(userContext);
 
   const BackClick = () => {
-    postAnalytics({ userId, type: "Legal-Back" });
+    postAnalytics({ userId, type: "Legal-Back-clicked" });
   };
 
   return (
