@@ -91,6 +91,7 @@ module.exports.search = async ({ creatorId, search, role, department }) => {
 
 module.exports.postCase = async ({
   creatorId,
+  department,
   phoneNumber,
   zehutNumber,
   preSurgery,
@@ -99,6 +100,7 @@ module.exports.postCase = async ({
   console.info(`Post case by staff member: ${creatorId}`);
   const newCase = await Cases.create({
     creatorId,
+    department,
     zehutNumber,
     preSurgery,
     surgery,

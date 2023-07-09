@@ -1,11 +1,10 @@
+import { useContext, useState, useRef } from "react";
 import styled from "styled-components";
 import ProgressBar from "../components/Questionnaire/ProgressBar";
 import Navigation from "../components/Questionnaire/Navigation";
 import Carouselle from "../components/User/Carousell";
 import questions from "../questionnairesStructure/StartQuestionnaire.json";
 import questionsAnimations from "../assets/questionsAnimations";
-import { useContext, useState } from "react";
-import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { Translator } from "../components/Translation";
 import qustionnaireImages from "../assets/questionsImages";
@@ -24,7 +23,7 @@ function Questionnaire() {
   const { age, gender, ethnicity } = Case;
   const avatar = `${gender}_${age}_${ethnicity}`;
 
-  const handleAnswer = (questionKey, answerKey, index) => () => {
+  const handleAnswer = (index) => () => {
     //axios request to update the answer.
     setIndex(Math.min(index + 1, questionsLength - 1));
     setAnsweresIndexes((prev) => {
@@ -70,11 +69,7 @@ function Questionnaire() {
                 {questionProperties.options.map((answerKey) => (
                   <Label
                     key={`${questionKey}-${answerKey}`}
-                    onClick={handleAnswer(
-                      questionKey,
-                      answerKey,
-                      questionIndex
-                    )}
+                    onClick={handleAnswer(questionIndex)}
                   >
                     <CostumeCheckbox>
                       <Vcheck />
