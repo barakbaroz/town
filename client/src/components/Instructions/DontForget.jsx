@@ -70,7 +70,7 @@ const Container = styled.div`
   padding-block: 1rem;
   display: flex;
   flex-direction: column;
-  color: #1a1a1a;
+  color: var(--text-color);
   padding-inline: 1.5625rem;
   box-shadow: 0px 3px 6px #00000029;
   border-radius: 25px;

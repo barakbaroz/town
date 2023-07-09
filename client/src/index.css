@@ -14,10 +14,11 @@ body {
   --header-size: calc(
     var(--header-logo-height) + (var(--header-block-padding) * 2)
   );
+  --text-color: #1a1a1a;
   margin: 0;
   padding: 0;
   position: relative;
-  color:#1A1A1A;
+  color: var(--text-color);
 }
 
 #root {
