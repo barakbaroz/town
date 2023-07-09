@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 
 function SurgeryInstructionItem({ icon, paragraphs }) {
   return (
-    <Container id="Container">
+    <Container>
       <InstructionIcon src={icon} />
       <ParagraphsContainer>
         {paragraphs.map((paragraph) => (

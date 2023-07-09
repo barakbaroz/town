@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import questions from "../questionnairesStructure/StartQuestionnaire.json";
 import QuestionValidation from "../components/Questionnaire/QuestionValidation";
-import wave_background from "../assets/Backgrounds/wave_background.svg";
+import character_selection_background from "../assets/Backgrounds/character_selection_background.svg";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Fragment, useState } from "react";
 import { Translator } from "../components/Translation";
@@ -69,7 +69,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url(${wave_background});
+  background-image: url(${character_selection_background});
   background-repeat: no-repeat;
   background-size: cover;
   /* background-image: linear-gradient(
@@ -78,7 +78,7 @@ const Container = styled.div`
     #e1e9fe 50%,
     transparent 100%
   ); */
-  padding: 1.375rem;
+  padding: 22px;
   box-sizing: border-box;
 `;
 
