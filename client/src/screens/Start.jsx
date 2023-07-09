@@ -90,7 +90,7 @@ const Paragraph = styled.p`
   font-size: 1.1875rem;
   margin-block-start: 0.5rem;
   text-align: center;
-  margin-inline: 1.563rem;
+  margin-inline: 25px;
 `;
 
 const StartButton = styled(Link)`

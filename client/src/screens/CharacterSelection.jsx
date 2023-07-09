@@ -1,6 +1,6 @@
 import { useState, Fragment, useContext } from "react";
 import styled from "styled-components";
-import characterSelectionBackground from "../assets/Backgrounds/character_selection_background.svg";
+import characterSelectionBackground from "../assets/Backgrounds/wave_background.svg";
 import data from "../components/CharacterSelection/CharacterSelectionData.json";
 import { useNavigate, useParams } from "react-router-dom";
 import Avatars from "../assets/Characters";
