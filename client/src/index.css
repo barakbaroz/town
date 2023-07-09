@@ -11,13 +11,14 @@ body {
   --header-logo-height: 1.6875rem;
   --header-block-padding: 16px;
   --header-inline-padding: 22px;
-
   --header-size: calc(
     var(--header-logo-height) + (var(--header-block-padding) * 2)
   );
+  --text-color: #1a1a1a;
   margin: 0;
   padding: 0;
   position: relative;
+  color: var(--text-color);
 }
 
 #root {

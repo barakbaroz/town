@@ -8,7 +8,7 @@
   "Character-Selection-Gender": "Choose sex",
   "Character-Selection-female": "Female ",
   "Start-Title": "Hi!",
-  "Start-Paragraph": "Please answer the following 10 yes/no questions before your child's surgery. Your answers will help us prepare for the anesthesia process in the best and safest way possible. We'll also use them to create a personalized video that will help you come better prepared and to decide whether we can save your time by exempting you from an additional meeting at the hospital before the surgery.",
+  "Start-Paragraph": "Ahead of your child's surgery, Please answer the following 10 questions, to prepare for the anesthesia process in the best and safest way. Based on your answers, we'll create a personalized video that will help you come better prepared and may save you additional meetings.",
   "Start-Button": "Start",
   "Start-Legal-Explain": "Click here to accept our",
   "Start-Legal-Link": "Terms of Use.",
@@ -44,8 +44,6 @@
 
   "fever":"If your child will suffer from fever during the two weeks preceding the surgery (over 38.5o), will experience phlegm-based cough, complain about not feeling well during that time or get infected with Covid-19, make sure to inform the hospital staff and wait for them to decide whether to proceed with the surgery or to postpone it.",
   "medicalCondition":"If your child’s medical condition deteriorates, or a new problem is discovered before the surgery, please inform the surgery ward at the hospital.",
-  "feast":"Six hours before surgery - Your child needs to stop consuming solid food. Four hours before surgery - Your child needs to stop consuming unclear liquids (such as juice with pulp, milk and baby formula). Up to one hour before surgery -drinking clear liquids -- such as water, juice without pulp and tea – is allowed and recommended. An hour before surgery - Your child needs to stop drinking ALL liquids.",
-  "feastBaby":"Six hours before surgery - Your child needs to stop consuming solid food. Four hours before surgery - Your child needs to stop consuming unclear liquids (such as juice with pulp, milk and baby formula). Three hours before your child’s surgery - You need to stop breastfeeding or stop feeding your child breast-milk from a bottle. Up to one hour before surgery -drinking clear liquids -- such as water, juice without pulp and tea – is allowed and recommended. An hour before surgery - Your child needs to stop drinking ALL liquids.",
   
 
   "SummaryDocuments":"An up-to-date summary letter from your pediatrician or the specialist treating your child.",

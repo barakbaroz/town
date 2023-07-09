@@ -54,6 +54,7 @@ const Dismiss = () => {
   );
 };
 export default Dismiss;
+
 const Container = styled.div`
   padding-inline: 30px;
   background: transparent
@@ -65,7 +66,9 @@ const Container = styled.div`
       #ffffffc4 100%
     )
     0% 0% no-repeat padding-box;
+  padding-block-end: 100px;
 `;
+
 const TopContent = styled.div`
   background-size: cover;
 `;
@@ -74,24 +77,28 @@ const Content = styled.div`
   font-weight: 500;
   font-size: 1.188rem;
 `;
+
 const Doctor = styled.img`
   max-width: 45%;
   align-self: flex-end;
 `;
+
 const AttentionText = styled.p`
   margin-block-start: 0.688rem;
   margin-block-end: 1.563rem;
   font-family: "Abraham";
 `;
+
 const Actions = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  padding-block-end: 3.375rem;
   white-space: pre-wrap;
   gap: 43px;
 `;
+
 const ButtonContainer = styled.a`
+  gap: 0.875rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -100,24 +107,29 @@ const ButtonContainer = styled.a`
   color: black;
   text-align: center;
 `;
+
 const Divider = styled.div`
   height: 1px;
   border-radius: 2px;
   background-color: #707070;
 `;
+
 const HeaderText = styled.p`
   font-size: 1.188rem;
   width: 80%;
-  margin-block-start: 0;
+  margin-block-start: 0.938rem;
   margin-block-end: 1.375rem;
 `;
+
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
 `;
+
 const ButtonText = styled.div`
   font-size: 1rem;
 `;
+
 const Image = styled.img`
   width: 4.125rem;
   height: 4.125rem;

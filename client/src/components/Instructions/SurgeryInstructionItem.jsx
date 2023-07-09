@@ -37,7 +37,7 @@ const Text = styled.p`
 `;
 
 const InstructionIcon = styled.img`
-  width: 47px;
+  width: 46px;
   height: 47px;
 `;
 

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import questions from "../questionnairesStructure/StartQuestionnaire.json";
 import QuestionValidation from "../components/Questionnaire/QuestionValidation";
-import wave_background from "../assets/Backgrounds/wave_background.svg";
+import background from "../assets/Backgrounds/wave_background.svg";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Fragment, useState } from "react";
 import { Translator } from "../components/Translation";
@@ -69,17 +69,12 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url(${wave_background});
+  background-image: url(${background});
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-image: linear-gradient(
-    transparent 0%,
-    #e1e9fe 30%,
-    #e1e9fe 50%,
-    transparent 100%
-  ); */
-  padding: 1rem;
+  padding-inline: 37px;
   box-sizing: border-box;
+  padding-block-end: 123px;
 `;
 
 const TextBox = styled.div`
@@ -88,21 +83,21 @@ const TextBox = styled.div`
   text-align: start;
   background-color: white;
   border-radius: 20px;
+  margin-block-start: 1.375rem;
+  margin-block-end: 0.688rem;
 `;
 
 const CheckboxesContainer = styled.form`
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding-block: 2rem;
-  padding-inline: 15px;
   align-items: center;
   max-width: 45rem;
 `;
 
 const Button = styled.button`
   font-family: inherit;
-  margin-block-start: 1rem;
+  margin-block-start: 4.188rem;
   font-size: 1.25rem;
   cursor: pointer;
   padding-block: 0.75rem;
@@ -117,7 +112,6 @@ const Button = styled.button`
 const Divider = styled.div`
   width: 100%;
   height: 1px;
-  border-radius: 2px;
   background-color: #e5e5e5;
-  margin-block: 1rem;
+  margin-block: 20px;
 `;
