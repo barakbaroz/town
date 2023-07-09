@@ -42,10 +42,12 @@ const Container = styled.div`
   padding-inline: 20px;
   padding-block-start: 2.375rem;
 `;
+
 const Title = styled.h2`
   margin-block-start: 0;
   margin-block-end: 0.9375rem;
 `;
+
 const Text = styled.div`
   font-size: 1.1875rem;
 `;
@@ -60,10 +62,12 @@ const ClickableConsent = styled.a`
   margin-block-start: 15px;
   gap: 0.625rem;
 `;
+
 const ConsentIcon = styled.img`
-  width: 5rem;
-  height: 5rem;
+  width: 4.563rem;
+  height: 4.563rem;
 `;
+
 const ConsentText = styled.div`
   font-size: 1.0625rem;
   font-weight: 500;

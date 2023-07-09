@@ -112,8 +112,8 @@ const Instructions = styled.a`
   gap: 0.625rem;
 `;
 const InstructionsIcon = styled.img`
-  width: 4.5625rem;
-  height: 4.5625rem;
+  width: 4.563rem;
+  height: 4.563rem;
 `;
 const InstructionsText = styled.div`
   font-size: 1.0625rem;
