@@ -16,12 +16,10 @@ const init = (sequelize) =>
   );
 
 const associations = (sequelize) => {
-  const { Users, SmsTracking, Cases, UserActions, Questionnaire } =
-    sequelize.models;
+  const { Users, SmsTracking, Cases, UserActions } = sequelize.models;
   Users.belongsTo(Cases);
   Users.hasMany(UserActions);
   Users.hasMany(SmsTracking, { onDelete: "CASCADE" });
-  Users.hasMany(Questionnaire);
 };
 
 module.exports = { init, associations };
