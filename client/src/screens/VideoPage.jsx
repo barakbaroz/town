@@ -4,9 +4,6 @@ import Player from "../components/Video/Player";
 import { useState } from "react";
 import VideoButtons from "../components/Instructions/VideoButtons";
 import SatisfactionQuestions from "../components/Instructions/SatisfactionQuestions";
-import SurgeryInstructions from "../components/Instructions/SurgeryInstructions";
-import DontForget from "../components/Instructions/DontForget";
-import Consent from "../components/Instructions/Consent";
 import LanguageBar from "../components/User/LanguageBar";
 
 function VideoPage() {
@@ -51,13 +48,6 @@ function VideoPage() {
         <VideoButtons />
       </ShareWrapper>
       <SatisfactionQuestions videoStarted={showFeedback} />
-
-      <BlueWrapper>
-        <SurgeryInstructions />
-        <DontForget />
-      </BlueWrapper>
-
-      <Consent />
 
       <Divider />
 
@@ -108,14 +98,6 @@ const ShareWrapper = styled.div`
   gap: 0.25rem;
   margin-block-start: 0.6875rem;
   margin-inline: var(--screen-texts-padding);
-`;
-
-const BlueWrapper = styled.div`
-  background-color: #84a4fc;
-  border-radius: 0 20px 0 20px;
-  margin-block-start: 2.375rem;
-  padding: var(--screen-texts-padding);
-  color: #ffffff;
 `;
 
 const Footer = styled.footer`

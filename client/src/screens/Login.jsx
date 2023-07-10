@@ -29,7 +29,8 @@ const Login = () => {
         <Titles>
           <Title>ברוכים הבאים</Title>
           <SubTitle>
-            מערכת ליווי והדרכת <br /> מטופלים לטרום ניתוח
+            למערכת ליווי והדרכת
+            <br /> מטופלים עם אי ספיקת לב
           </SubTitle>
         </Titles>
         <Field>
@@ -69,9 +70,9 @@ const Form = styled.form`
   align-items: center;
   direction: ltr;
   border-radius: 50px;
-  background-color: rgba(255, 255, 255, 0.5);
   padding: 4rem;
   margin: 8rem;
+  backdrop-filter: blur(30px);
 `;
 
 const Field = styled.div`

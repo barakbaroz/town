@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import gistLogo from "../../assets/Logos/gistLogo.svg";
+import gistLogo from "../../assets/Logos/gist_logo.svg";
 import hospitalLogo from "../../assets/Logos/hospital_logo.svg";
 
 const Header = () => {

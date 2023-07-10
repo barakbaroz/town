@@ -112,69 +112,69 @@ export default CharacterSelection;
 
 const avatars = [
   {
-    name: "male_0-2_white",
-    fields: ["male", "0-2", "other"],
-    tags: { gender: "male", age: "0-2", ethnicity: "white" },
+    name: "male_20-50_white",
+    fields: ["male", "20-50", "other"],
+    tags: { gender: "male", age: "20-50", ethnicity: "white" },
   },
   {
-    name: "male_0-2_black",
-    fields: ["male", "0-2", "other"],
-    tags: { gender: "male", age: "0-2", ethnicity: "black" },
-  },
-
-  {
-    name: "male_3-8_white",
-    fields: ["male", "3-8", "other"],
-    tags: { gender: "male", age: "3-8", ethnicity: "white" },
-  },
-  {
-    name: "male_3-8_black",
-    fields: ["male", "3-8", "other"],
-    tags: { gender: "male", age: "3-8", ethnicity: "black" },
+    name: "male_20-50_black",
+    fields: ["male", "20-50", "other"],
+    tags: { gender: "male", age: "20-50", ethnicity: "black" },
   },
 
   {
-    name: "male_9-18_white",
-    fields: ["male", "9-18", "other"],
-    tags: { gender: "male", age: "9-18", ethnicity: "white" },
+    name: "male_50-70_white",
+    fields: ["male", "50-70", "other"],
+    tags: { gender: "male", age: "50-70", ethnicity: "white" },
   },
   {
-    name: "male_9-18_black",
-    fields: ["male", "9-18", "other"],
-    tags: { gender: "male", age: "9-18", ethnicity: "black" },
-  },
-
-  {
-    name: "female_0-2_white",
-    fields: ["female", "0-2", "other"],
-    tags: { gender: "female", age: "0-2", ethnicity: "white" },
-  },
-  {
-    name: "female_0-2_black",
-    fields: ["female", "0-2", "other"],
-    tags: { gender: "female", age: "0-2", ethnicity: "black" },
+    name: "male_50-70_black",
+    fields: ["male", "50-70", "other"],
+    tags: { gender: "male", age: "50-70", ethnicity: "black" },
   },
 
   {
-    name: "female_3-8_white",
-    fields: ["female", "3-8", "other"],
-    tags: { gender: "female", age: "3-8", ethnicity: "white" },
+    name: "male_70+_white",
+    fields: ["male", "70+", "other"],
+    tags: { gender: "male", age: "70+", ethnicity: "white" },
   },
   {
-    name: "female_3-8_black",
-    fields: ["female", "3-8", "other"],
-    tags: { gender: "female", age: "3-8", ethnicity: "black" },
+    name: "male_70+_black",
+    fields: ["male", "70+", "other"],
+    tags: { gender: "male", age: "70+", ethnicity: "black" },
   },
 
   {
-    name: "female_9-18_white",
-    fields: ["female", "9-18", "other"],
-    tags: { gender: "female", age: "9-18", ethnicity: "white" },
+    name: "female_20-50_white",
+    fields: ["female", "20-50", "other"],
+    tags: { gender: "female", age: "20-50", ethnicity: "white" },
   },
   {
-    name: "female_9-18_black",
-    fields: ["female", "9-18", "other"],
-    tags: { gender: "female", age: "9-18", ethnicity: "black" },
+    name: "female_20-50_black",
+    fields: ["female", "20-50", "other"],
+    tags: { gender: "female", age: "20-50", ethnicity: "black" },
+  },
+
+  {
+    name: "female_50-70_white",
+    fields: ["female", "50-70", "other"],
+    tags: { gender: "female", age: "50-70", ethnicity: "white" },
+  },
+  {
+    name: "female_50-70_black",
+    fields: ["female", "50-70", "other"],
+    tags: { gender: "female", age: "50-70", ethnicity: "black" },
+  },
+
+  {
+    name: "female_70+_white",
+    fields: ["female", "70+", "other"],
+    tags: { gender: "female", age: "70+", ethnicity: "white" },
+  },
+  {
+    name: "female_70+_black",
+    fields: ["female", "70+", "other"],
+    tags: { gender: "female", age: "70+", ethnicity: "black" },
   },
 ];
 

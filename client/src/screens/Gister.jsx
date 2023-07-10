@@ -62,7 +62,7 @@ function Gister() {
         open={showDuplicatePopup}
         loading={loading}
       />
-      <GisterHeader text="מערכת ליווי והדרכת מטופלים לטרום ניתוח" />
+      <GisterHeader text="מערכת ליווי והדרכת מטופלים עם אי ספיקת לב" />
       <Container>
         <Flex>
           <GisterStep stepNumber="01" title="פרטי מטופל ויצירת קשר">
@@ -70,7 +70,8 @@ function Gister() {
           </GisterStep>
           <GisterStep
             stepNumber="02"
-            title="הזנת תאריכי טרום ניתוח  (*תאריך ניתוח אופציונלי)"
+            title="הזנת תאריכי טרום ניתוח"
+            subTitle="(ניתן לבחור יותר מתשובה אחת בכל השאלות)"
           >
             <DateSelector onChange={handleDateSelect} label="label" />
           </GisterStep>
