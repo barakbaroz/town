@@ -3,7 +3,7 @@ import styled from "styled-components";
 import DropDown from "./DropDown";
 import Black_X from "../../assets/Icons/black_X.svg";
 import searchLogo from "../../assets/Icons/search.svg";
-import gistLogo from "../../assets/Logos/gistLogo.svg";
+import gistLogo from "../../assets/Logos/gist_logo.svg";
 import hospitalLogo from "../../assets/Logos/hospital_logo.svg";
 import { ReactComponent as ExitIcon } from "../../assets/Icons/exit.svg";
 import { ReactComponent as Reload } from "../../assets/Icons/reload.svg";
