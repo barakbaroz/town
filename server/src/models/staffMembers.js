@@ -1,6 +1,5 @@
 const { DataTypes } = require("sequelize");
 const bcrypt = require("bcrypt");
-const { departments } = require("./commonEnums");
 
 const init = (sequelize) =>
   sequelize.define(
@@ -19,7 +18,6 @@ const init = (sequelize) =>
       name: DataTypes.STRING,
       password: DataTypes.STRING,
       role: DataTypes.STRING,
-      department: DataTypes.ENUM(...departments),
     },
     { underscored: true }
   );

@@ -6,6 +6,5 @@ router.post("/getData", controller.getData);
 router.put("/update", controller.update);
 router.post("/userAction", controller.userAction);
 router.post("/userVideoAction", controller.userVideoAction);
-router.post("/updateQuestionnaire", controller.updateQuestionnaire);
 
 module.exports = router;

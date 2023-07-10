@@ -1,5 +1,4 @@
 const { DataTypes } = require("sequelize");
-const { departments } = require("./commonEnums");
 
 const init = (sequelize) =>
   sequelize.define(
@@ -12,13 +11,9 @@ const init = (sequelize) =>
       },
       zehutNumber: DataTypes.STRING(4),
       gender: DataTypes.ENUM("male", "female"),
-      age: DataTypes.ENUM("0-2", "3-8", "9-18"),
+      age: DataTypes.ENUM("20-50", "50-70", "70+"),
       ethnicity: DataTypes.ENUM("white", "black"),
-      department: DataTypes.ENUM(...departments),
       creatorId: DataTypes.UUID,
-      score: DataTypes.INTEGER,
-      preSurgery: DataTypes.DATEONLY,
-      surgery: DataTypes.DATEONLY,
     },
     { underscored: true, paranoid: true }
   );
