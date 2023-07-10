@@ -58,11 +58,6 @@ const zehutFilter = ({ zehutNumber }) =>
 const myCasesFilter = ({ myCases }, creatorId) =>
   myCases ? { creatorId } : {};
 
-const departmentFilter = ({ myCases }, role) => {
-  if (myCases && role === "Mega") return {};
-  if (myCases && role !== "Mega") return {};
-};
-
 module.exports.search = async ({ creatorId, search, role, department }) => {
   console.info("Get cases service");
   const cases = await Cases.findAll({
@@ -89,9 +84,6 @@ module.exports.search = async ({ creatorId, search, role, department }) => {
       "gender",
       "age",
       "ethnicity",
-      "preSurgery",
-      "surgery",
-      "department",
       "createdAt",
     ],
     where: {
@@ -111,16 +103,12 @@ module.exports.postCase = async ({
   department,
   phoneNumber,
   zehutNumber,
-  preSurgery,
-  surgery,
 }) => {
   console.info(`Post case by staff member: ${creatorId}`);
   const newCase = await Cases.create({
     creatorId,
     department,
     zehutNumber,
-    preSurgery,
-    surgery,
   });
   const CaseId = newCase.dataValues.id;
   const user = await Users.create({ CaseId, phoneNumber });
