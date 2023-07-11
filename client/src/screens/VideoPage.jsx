@@ -1,116 +1,128 @@
 import styled from "styled-components";
-import { Translate, Translator } from "../components/Translation";
 import Player from "../components/Video/Player";
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import VideoButtons from "../components/Instructions/VideoButtons";
 import SatisfactionQuestions from "../components/Instructions/SatisfactionQuestions";
 import LanguageBar from "../components/User/LanguageBar";
+import medicationsIcon from "../assets/Icons/drugs.png";
+import dietIcon from "../assets/Icons/diet.png";
+import activityIcon from "../assets/Icons/activity.png";
+import background from "../assets/Backgrounds/wave_background.svg";
 
 function VideoPage() {
   const [showFeedback, setShowFeedback] = useState(false);
 
-  const watchedVideo = null;
-  const signedConfirmation = null;
-  const points = 0;
-
-  const getTitle = () => {
-    const titleType =
-      points === 0 && watchedVideo && !signedConfirmation ? "sign" : "default";
-    return `video-page-${titleType}-title`;
-  };
-
-  const getSubtitle = () => {
-    if (points > 0) return "video-page-AnsweredOneYes";
-    const watchedVideoString = watchedVideo
-      ? "watchedVideo"
-      : "notWatchedVideo";
-    const SignedString = signedConfirmation
-      ? "signedConfirmation"
-      : "notSignedConfirmation";
-    return `video-page-subtitle-answeredAllNo-${watchedVideoString}-${SignedString}`;
-  };
-
   return (
     <Container>
-      <StyledLanguageBar>
+      <ContentWrapper>
         <LanguageBar />
-      </StyledLanguageBar>
-      <VideoPreviewTexts>
         <Title>
-          <Translator>{getTitle()}</Translator>
+          אי ספיקת לב הינה מחלה המחייבת מעקב, היענות לטיפול וניהול אורח חיים
+          נכון. צפה בסרטון כדי לדעת עוד
         </Title>
-
-        <Subtitle>{Translate(getSubtitle())}</Subtitle>
-      </VideoPreviewTexts>
-
+      </ContentWrapper>
       <Player setShowFeedback={setShowFeedback} />
-      <ShareWrapper>
-        <VideoButtons />
-      </ShareWrapper>
-      <SatisfactionQuestions videoStarted={showFeedback} />
-
-      <Divider />
-
-      <Footer>
-        <Translator>Footer</Translator>
-      </Footer>
+      <ContentWrapper>
+        <ShareWrapper>
+          <VideoButtons />
+        </ShareWrapper>
+        <SatisfactionQuestions videoStarted={showFeedback} />
+        <InstructionsTitle>
+          חשוב לזכור לנהל שגרת חיים נכונה כחלק מהטיפול שלך
+        </InstructionsTitle>
+        {Object.values(routinesInstructions).map(
+          ({ icon, paragraph }, index) => (
+            <Fragment key={index}>
+              <RoutineWrapper>
+                <img src={icon} alt={icon} />
+                <RoutineText>{paragraph}</RoutineText>
+              </RoutineWrapper>
+              <Divider />
+            </Fragment>
+          )
+        )}
+      </ContentWrapper>
+      <Footer>מטופל מעורב הוא מטופל שמחלים טוב יותר</Footer>
     </Container>
   );
 }
 
 export default VideoPage;
 
+const routinesInstructions = {
+  medications: {
+    icon: medicationsIcon,
+    paragraph:
+      "ליטול את התרופות שניתנו לך בדיוק לפי המרשם, ולקחת אותן בזמן - במרווחים קבועים",
+  },
+  diet: {
+    icon: dietIcon,
+    paragraph:
+      "תזונה בריאה דלת מלח הכוללת דגנים מלאים, פירות, ירקות ומאכלים דלי שומן, חיונית לאורח חיים מאוזן והאטת התקדמות המחלה",
+  },
+  activity: {
+    icon: activityIcon,
+    paragraph:
+      "מומלץ לשלב בשגרת היומיום שלך פעילות גופנית כמו הליכה, שתשפר גם את הכושר הגופני וגם את ההרגשה הכללית ובעיקר - תחזק את שרירי הלב.",
+  },
+};
+
 const Container = styled.div`
-  --screen-texts-padding: 26px;
-  padding-block-start: 20px;
-  padding-block-end: 65px;
+  background-image: url(${background});
+  background-size: cover;
+  padding-block-end: 57px;
 `;
 
-const StyledLanguageBar = styled.div`
-  padding-inline: var(--screen-texts-padding);
+const ContentWrapper = styled.div`
+  padding-inline: 25px;
 `;
 
-const VideoPreviewTexts = styled.div`
-  margin-inline: 23px;
-`;
-
-const Title = styled.h1`
-  font-size: 1.625rem;
+const Title = styled.p`
+  text-align: start;
+  font-size: 1.375rem;
   font-weight: 500;
-`;
-
-const Subtitle = styled.h3.attrs(({ children }) => {
-  if (
-    children ===
-    "video-page-subtitle-answeredAllNo-watchedVideo-signedConfirmation"
-  )
-    return { style: { display: "none" } };
-})`
-  font-weight: 400;
-  font-size: 1.1875rem;
-  margin-inline-end: 1.3125rem;
+  margin-block-start: 2.125rem;
+  margin-block-end: 1.813rem;
 `;
 
 const ShareWrapper = styled.div`
+  justify-content: end;
+  margin-block-start: 1.125rem;
+`;
+
+const Divider = styled.div`
+  height: 1px;
+  border-radius: 2px;
+  background-color: #84a4fb;
+  margin-block-end: 35px;
+  margin-block-start: 35px;
+  opacity: 0.3;
+`;
+
+const InstructionsTitle = styled.p`
   text-align: start;
+  font-size: 1.375rem;
+  font-weight: 700;
+  margin-block-start: 4.063rem;
+  margin-block-end: 2.25rem;
+`;
+
+const RoutineWrapper = styled.div`
   display: flex;
-  justify-content: flex-end;
-  gap: 0.25rem;
-  margin-block-start: 0.6875rem;
-  margin-inline: var(--screen-texts-padding);
+  align-items: center;
+  gap: 1.375rem;
+`;
+
+const RoutineText = styled.p`
+  text-align: start;
+  font-size: 1.188rem;
+  font-weight: 400;
+  margin-block: 0;
 `;
 
 const Footer = styled.footer`
   font-weight: 500;
   text-align: center;
   font-size: 1.5rem;
-  padding-inline: 1.2rem;
-`;
-
-const Divider = styled.div`
-  height: 1px;
-  border-radius: 2px;
-  background-color: #d6d6d6;
-  margin-block: 34px;
-  margin-inline: var(--screen-texts-padding);
+  padding-inline: 44px;
 `;
