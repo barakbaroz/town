@@ -7,6 +7,7 @@ import LanguageBar from "../components/User/LanguageBar";
 import medicationsIcon from "../assets/Icons/drugs.png";
 import dietIcon from "../assets/Icons/diet.png";
 import activityIcon from "../assets/Icons/activity.png";
+import { Translator } from "../components/Translation";
 
 function VideoPage() {
   const [showFeedback, setShowFeedback] = useState(false);
@@ -16,8 +17,7 @@ function VideoPage() {
       <ContentWrapper>
         <LanguageBar />
         <Title>
-          אי ספיקת לב הינה מחלה המחייבת מעקב, היענות לטיפול וניהול אורח חיים
-          נכון. צפה בסרטון כדי לדעת עוד
+          <Translator>Video-Title</Translator>
         </Title>
       </ContentWrapper>
       <Player setShowFeedback={setShowFeedback} />
@@ -27,21 +27,25 @@ function VideoPage() {
         </ShareWrapper>
         <SatisfactionQuestions videoStarted={showFeedback} />
         <InstructionsTitle>
-          חשוב לזכור לנהל שגרת חיים נכונה כחלק מהטיפול שלך
+          <Translator>Video-Routine-Title</Translator>
         </InstructionsTitle>
         {Object.values(routinesInstructions).map(
           ({ icon, paragraph }, index) => (
             <Fragment key={index}>
               <RoutineWrapper>
                 <img src={icon} alt={icon} />
-                <RoutineText>{paragraph}</RoutineText>
+                <RoutineText>
+                  <Translator>{paragraph}</Translator>
+                </RoutineText>
               </RoutineWrapper>
               <Divider />
             </Fragment>
           )
         )}
       </ContentWrapper>
-      <Footer>מטופל מעורב הוא מטופל שמחלים טוב יותר</Footer>
+      <Footer>
+        <Translator>Footer</Translator>
+      </Footer>
     </Container>
   );
 }
@@ -51,18 +55,15 @@ export default VideoPage;
 const routinesInstructions = {
   medications: {
     icon: medicationsIcon,
-    paragraph:
-      "ליטול את התרופות שניתנו לך בדיוק לפי המרשם, ולקחת אותן בזמן - במרווחים קבועים",
+    paragraph: ["Video-Routine-Medications"],
   },
   diet: {
     icon: dietIcon,
-    paragraph:
-      "תזונה בריאה דלת מלח הכוללת דגנים מלאים, פירות, ירקות ומאכלים דלי שומן, חיונית לאורח חיים מאוזן והאטת התקדמות המחלה",
+    paragraph: ["Video-Routine-Diet"],
   },
   activity: {
     icon: activityIcon,
-    paragraph:
-      "מומלץ לשלב בשגרת היומיום שלך פעילות גופנית כמו הליכה, שתשפר גם את הכושר הגופני וגם את ההרגשה הכללית ובעיקר - תחזק את שרירי הלב.",
+    paragraph: ["Video-Routine-Activity"],
   },
 };
 

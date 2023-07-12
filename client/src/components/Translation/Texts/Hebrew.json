@@ -19,94 +19,19 @@
   "Character-Selection-Avatar": "בחירת דמות מועדפת",
   "Character-Selection-Next": "הבא",
   "Character-Selection-Error": "עליך למלא תחילה שדות קודמים",
-  
-  "Instructions-Title-male":"הסרטון הבא הותאם במיוחד עבור ילדכם",
-  "Instructions-Title-female":"הסרטון הבא הותאם במיוחד עבור ילדתכם",
-  "Instructions-Description":"לאחר הצפיה בסרטון, יש לקרוא ולאשר את ההנחיות לקראת הניתוח המצורפות בהמשך המסך.",
 
-  "video-page-default-title-male": "הסרטון הבא הותאם במיוחד עבור ילדכם",
-  "video-page-default-title-female": "הסרטון הבא הותאם במיוחד עבור ילדתכם",
-  "video-page-sign-title": "יש לקרוא ולאשר את ההנחיות לקראת הניתוח",
-
-  "video-page-subtitle-answeredAllNo-notWatchedVideo-signedConfirmation": "יש לצפות בסרטון במלואו לקבלת פטור מפגישה עם רופא/ה מרדים/ה ביום ההכנה לניתוח",
-  "video-page-subtitle-answeredAllNo-watchedVideo-notSignedConfirmation-male": "לנוחיותכם מצורף סרטון ההדרכה שהותאם עבור ילדכם לצפייה חוזרת",
-  "video-page-subtitle-answeredAllNo-watchedVideo-notSignedConfirmation-female": "לנוחיותכם מצורף סרטון ההדרכה שהותאם עבור ילדתכם לצפייה חוזרת",
-  "video-page-subtitle-answeredAllNo-notWatchedVideo-notSignedConfirmation": "לצורך קבלת פטור מפגישה עם רופא/ה מרדים/ה ביום ההכנה לניתוח עליכם לצפות בסרטון וללחוץ על כפתור 'אישור הנחיות', בהמשך המסך.",
-
-  "instructions-title": "הנחיות לקראת הניתוח",
+  "Video-Title-male":"אי ספיקת לב היא מחלה המחייבת מעקב, היענות לטיפול וניהול אורח חיים נכון. צפה בסרטון כדי לדעת עוד",
+  "Video-Title-female":"אי ספיקת לב היא מחלה המחייבת מעקב, היענות לטיפול וניהול אורח חיים נכון. צפי בסרטון כדי לדעת עוד",
+  "Video-Routine-Title":"חשוב לזכור לנהל שגרת חיים נכונה כחלק מהטיפול שלך",
+  "Video-Routine-Medications":"ליטול את התרופות שניתנו לך בדיוק לפי המרשם, ולקחת אותן בזמן - במרווחים קבועים",
+  "Video-Routine-Diet":"תזונה בריאה דלת מלח הכוללת דגנים מלאים פירות, ירקות ומאכלים דלי שומן, היא חיונית לאורח חיים מאוזן והאטת התקדמות המחלה",
+  "Video-Routine-Activity":"מומלץ לשלב בשגרת היום יום שלך פעילות גופנית כמו הליכה או שחייה, שתשפר את הכושר הגופני שלך, את הרגשתך הכללית, ובעיקר - תחזק את שריר הלב.",
 
   "Satisfaction-Response": "תודה! תשובתך חשובה לנו, נשמח לדעת עוד:",
   "Satisfaction-question-video-helpful": "האם הסרטון עזר לך?",
-  "Satisfaction-question-reduce-worries": "האם הסרטון עזר לך להפיג חששות לקראת הניתוח?",
-  "Satisfaction-question-recommend-other-parents": "האם תמליצו להורים אחרים לצפות בסרטון לקראת ניתוח צפוי של ילדים?",
   "Satisfaction-question-all-answered": "תודה על שיתוף הפעולה, רפואה שלמה.",
   "Satisfaction-Answer-Yes": "כן",
   "Satisfaction-Answer-No": "לא",
 
-  "SurgeryInstructions-title": "הנחיות לקראת הניתוח",
-  "SurgeryInstructions-approveButton":"אישור הנחיות",
-
-  "DontForget-Title":"לא לשכוח להביא לפגישת טרום ניתוח",
-  "DontForget-Letters-male":"מכתבי סיכום עדכניים מרופא ילדים או מרופא מומחה מטפל בילדכם",
-  "DontForget-Letters-female":"מכתבי סיכום עדכניים מרופא ילדים או מרופא מומחה מטפל בילדתכם",
-
-  "Surgery-Instruction-Fever-male": "אם במהלך השבועיים הקודמים לניתוח ילדכם יעלה חום (מעל 38.5 מעלות) / יסבול משיעול עם ליחה / יתנהג כחולה / יחלה בקורונה - עליכם ליידע את המחלקה ולהמתין להחלטה בדבר קיום הניתוח או דחייתו למועד אחר.",
-  "Surgery-Instruction-Fever-female": "אם במהלך השבועיים הקודמים לניתוח ילדכם יעלה חום (מעל 38.5 מעלות) / יסבול משיעול עם ליחה / יתנהג כחולה / יחלה בקורונה - עליכם ליידע את המחלקה ולהמתין להחלטה בדבר קיום הניתוח או דחייתו למועד אחר.",
-  "Surgery-Instruction-Medical-Condition-male": "אם מצבו הבריאותי של הילד החמיר או התגלתה בעיה חדשה טרם מועד הניתוח, יש ליידע את המחלקה.",
-  "Surgery-Instruction-Medical-Condition-female": "אם מצבה הבריאותי של הילדה החמיר או התגלתה בעיה חדשה טרם מועד הניתוח, יש ליידע את המחלקה.",
-  "Surgery-Instruction-Feast-6-Hours-male": "שש שעות לפני הניתוח - על ילדכם להיות בצום ממזון מוצק.",
-  "Surgery-Instruction-Feast-6-Hours-female": "שש שעות לפני הניתוח - על ילדתכם להיות בצום ממזון מוצק.",
-  "Surgery-Instruction-Feast-4-Hours": "ארבע שעות לפני הניתוח  - יש להפסיק לשתות נוזלים לא צלולים כמו מיצים עם רכיבי פרי, חלב ותחליפי חלב כמו פורמולה.",
-  "Surgery-Instruction-Feast-3-Hours-male": "שלוש שעות לפני הניתוח - יש לחדול מחלב אם, במידה וילדכם יונק או שותה חלב אם מבקבוק.",
-  "Surgery-Instruction-Feast-3-Hours-female": "שלוש שעות לפני הניתוח - יש לחדול מחלב אם, במידה וילדתכם יונקת או שותה חלב אם מבקבוק.",
-  "Surgery-Instruction-Feast-1-Hours-Max": "עד שעה לפני הניתוח - מותר ואף מומלץ לשתות נוזלים צלולים כמו מיץ ממותק ללא רכיבי פרי, מים ותה.",
-  "Surgery-Instruction-Feast-1-Hours": "שעה לפני הניתוח - יש להיות בצום מלא, ללא שתייה.",
-
-  "SummaryDocuments-male": "מכתבי סיכום עדכניים מרופא ילדים או מרופא מומחה מטפל בילדכם",
-  "SummaryDocuments-female": "מכתבי סיכום עדכניים מרופא ילדים או מרופא מומחה מטפל בילדתכם",
-  "medicineList-male": "רשימת תרופות או את מארזי התרופות של ילדכם",
-  "medicineList-female": "רשימת תרופות או את מארזי התרופות של ילדתכם",
-
-  "bloodTest": "בדיקת דם עדכנית (רק אם נדרשתם)",
-  "results": "תוצאות סיכומי בדיקות רלוונטיות",
-  "tofes17": "טופס 17",
-  "DontForget-DownloadInstructions": "הנחיות לקראת הניתוח להורדה",
-
-  "consent-title": "טופס הסכמה מדעת",
-  "consent-text": "לקראת הניתוח הקרוב, הצוות הרפואי יבקש מכם לחתום בנוכחותו על טופס הסכמה מדעת. אנו ממליצים לכם לקרוא מראש ובעיון את הטופס.",
-  "consent-download": "טופס הסכמה מדעת להורדה",
-
-  "Footer": "מטופל מעורב הוא מטופל שמחלים טוב יותר",
-
-  "problemsInFamily-male": "האם לילדכם או למישהו במשפחה היו בעיות בהרדמה רפואית?",
-  "neurologicalProblem-male": "האם ילדכם סובל ממחלה נוירולוגית?",
-  "coagulation-male": "האם ילדכם מאובחן או חשוד כסובל מבעיית קרישה?",
-  "thyroidOrDiabetes-male": "האם ילדכם סובל מסוכרת או ממחלה בבלוטת התריס?",
-  "renalFunctionAndSpecialDiet-male": "האם ילדכם סובל מירידה בתפקוד הכלייתי ונדרש לתרופות או לתזונה מיוחדת?",
-  "muscleSystem-male": "האם ילדכם סובל מתסמונת הפוגעת במערכת השרירים?",
-  "lungDisease-male": "האם ילדכם סובל ממחלת ריאות שהתבטאה בצפצופים ובקוצר נשימה?",
-  "heartProblems-male": "האם ילדכם סובל או סבל בעבר מבעיות לב?",
-  "diseasesNeedTreatment-male": "האם ילדכם סובל מתסמונת, ממחלה מטבולית, פגם גנטי, בעיה מבנית או ממצב כרוני שדורש טיפול ומעקב?",
-  "bornBeforeWeek36-male": "האם ילדכם נולד לפני שבוע 36 להריון והיה מאושפז בפגיה (פג)?",
-
-  "problemsInFamily-female": "האם לילדתכם או למישהו במשפחה היו בעיות בהרדמה רפואית?",
-  "neurologicalProblem-female": "האם ילדתכם סובלת ממחלה נוירולוגית?",
-  "coagulation-female": "האם ילדתכם מאובחנת או חשודה כסובלת מבעיית קרישה?",
-  "thyroidOrDiabetes-female": "האם ילדתכם סובלת מסוכרת או ממחלה בבלוטת התריס?",
-  "renalFunctionAndSpecialDiet-female": "האם ילדתכם סובלת מירידה בתפקוד הכלייתי ונדרשת לתרופות או לתזונה מיוחדת?",
-  "muscleSystem-female": "האם ילדתכם סובלת מתסמונת הפוגעת במערכת השרירים?",
-  "lungDisease-female": "האם ילדתכם סובלת ממחלת ריאות שהתבטאה בצפצופים ובקוצר נשימה?",
-  "heartProblems-female": "האם ילדתכם סובלת או סבלה בעבר מבעיות לב?",
-  "diseasesNeedTreatment-female": "האם ילדתכם סובלת מתסמונת, ממחלה מטבולית, פגם גנטי, בעיה מבנית או ממצב כרוני שדורש טיפול ומעקב?",
-  "bornBeforeWeek36-female": "האם ילדתכם נולדה לפני שבוע 36 להריון והייתה מאושפזת בפגיה (פגה)?",
-
-  "questionnaireValidationTitle": "סיימתם לענות על השאלון, בדקו את תשובותיכם לפני שליחה",
-
-  "Dismiss-Header":"בהתאם לשאלון הרפואי שמילאתם, נחסך לכם זמן המתנה רב ותיפגשו את הרופא המרדים רק ביום הניתוח.",
-  "Dismiss-Paragraph":"עליכם להציג אישור זה בקבלה הסיעודית במרפאות הילדים, בהגיעכם ליום ההכנה לניתוח.",
-  "Dismiss-PayAttention":"*אישור זה תקף לשלושה חודשים מיום קבלתו",
-  "Dismiss-Button-Consent":"טופס הסכמה מדעת",
-  "Dismiss-Button-Instructions":"הנחיות לקראת ניתוח",
-  "Dismiss-Button-WatchVideo":"צפייה בסרטון"
-
+  "Footer": "מטופל מעורב הוא מטופל שמחלים טוב יותר"
 }
