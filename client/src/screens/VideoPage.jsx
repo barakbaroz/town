@@ -7,7 +7,6 @@ import LanguageBar from "../components/User/LanguageBar";
 import medicationsIcon from "../assets/Icons/drugs.png";
 import dietIcon from "../assets/Icons/diet.png";
 import activityIcon from "../assets/Icons/activity.png";
-import background from "../assets/Backgrounds/wave_background.svg";
 
 function VideoPage() {
   const [showFeedback, setShowFeedback] = useState(false);
@@ -68,8 +67,16 @@ const routinesInstructions = {
 };
 
 const Container = styled.div`
-  background-image: url(${background});
-  background-size: cover;
+  background: transparent
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f1f4fb 10%,
+      #e3e8f6 53%,
+      #f5f7fc 85%,
+      #ffffff 100%
+    )
+    0% 0% no-repeat padding-box;
   padding-block-end: 57px;
 `;
 
