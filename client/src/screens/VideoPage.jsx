@@ -110,7 +110,7 @@ const InstructionsTitle = styled.p`
 const RoutineWrapper = styled.div`
   display: flex;
   align-items: center;
-  gap: 1.375rem;
+  gap: 22px;
 `;
 
 const RoutineText = styled.p`

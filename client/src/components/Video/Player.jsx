@@ -65,5 +65,5 @@ Player.propTypes = {
 };
 
 const VideoContainer = styled.div`
-  margin-inline: 20px;
+  margin-inline: 15px;
 `;
