@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import login from "../assets/Backgrounds/login.svg";
+import background from "../assets/Backgrounds/login.svg";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -49,7 +49,7 @@ const Login = () => {
 export default Login;
 
 const Container = styled.div`
-  background-image: url(${login});
+  background-image: url(${background});
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
@@ -69,10 +69,12 @@ const Form = styled.form`
   width: fit-content;
   align-items: center;
   direction: ltr;
-  border-radius: 50px;
   padding: 4rem;
   margin: 8rem;
+  border-radius: 70px;
+  opacity: 1;
   backdrop-filter: blur(30px);
+  background-color: rgba(255, 255, 255, 0.15);
 `;
 
 const Field = styled.div`
