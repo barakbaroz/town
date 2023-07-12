@@ -14,35 +14,31 @@ function VideoPage() {
 
   return (
     <Container>
-      <ContentWrapper>
+      <StyledLanguageBar>
         <LanguageBar />
-        <Title>
-          <Translator>Video-Title</Translator>
-        </Title>
-      </ContentWrapper>
+      </StyledLanguageBar>
+      <Title>
+        <Translator>Video-Title</Translator>
+      </Title>
       <Player setShowFeedback={setShowFeedback} />
-      <ContentWrapper>
-        <ShareWrapper>
-          <VideoButtons />
-        </ShareWrapper>
-        <SatisfactionQuestions videoStarted={showFeedback} />
-        <InstructionsTitle>
-          <Translator>Video-Routine-Title</Translator>
-        </InstructionsTitle>
-        {Object.values(routinesInstructions).map(
-          ({ icon, paragraph }, index) => (
-            <Fragment key={index}>
-              <RoutineWrapper>
-                <img src={icon} alt={icon} />
-                <RoutineText>
-                  <Translator>{paragraph}</Translator>
-                </RoutineText>
-              </RoutineWrapper>
-              <Divider />
-            </Fragment>
-          )
-        )}
-      </ContentWrapper>
+      <ShareWrapper>
+        <VideoButtons />
+      </ShareWrapper>
+      <SatisfactionQuestions videoStarted={showFeedback} />
+      <InstructionsTitle>
+        <Translator>Video-Routine-Title</Translator>
+      </InstructionsTitle>
+      {Object.values(routinesInstructions).map(({ icon, paragraph }, index) => (
+        <Fragment key={index}>
+          <RoutineWrapper>
+            <img src={icon} alt={icon} />
+            <RoutineText>
+              <Translator>{paragraph}</Translator>
+            </RoutineText>
+          </RoutineWrapper>
+          <Divider />
+        </Fragment>
+      ))}
       <Footer>
         <Translator>Footer</Translator>
       </Footer>
@@ -68,6 +64,7 @@ const routinesInstructions = {
 };
 
 const Container = styled.div`
+  --screen-texts-padding: 25px;
   background: transparent
     linear-gradient(
       180deg,
@@ -80,9 +77,8 @@ const Container = styled.div`
     0% 0% no-repeat padding-box;
   padding-block-end: 57px;
 `;
-
-const ContentWrapper = styled.div`
-  padding-inline: 25px;
+const StyledLanguageBar = styled.div`
+  padding-inline: var(--screen-texts-padding);
 `;
 
 const Title = styled.p`
@@ -91,19 +87,21 @@ const Title = styled.p`
   font-weight: 500;
   margin-block-start: 2.125rem;
   margin-block-end: 1.813rem;
+  padding-inline: var(--screen-texts-padding);
 `;
 
 const ShareWrapper = styled.div`
   justify-content: end;
-  margin-block-start: 1.125rem;
+  margin-block-start: 18px;
+  padding-inline: var(--screen-texts-padding);
 `;
 
 const Divider = styled.div`
   height: 1px;
-  border-radius: 2px;
   background-color: #84a4fb;
   margin-block-end: 35px;
   margin-block-start: 35px;
+  margin-inline: var(--screen-texts-padding);
   opacity: 0.3;
 `;
 
@@ -111,14 +109,16 @@ const InstructionsTitle = styled.p`
   text-align: start;
   font-size: 1.375rem;
   font-weight: 700;
-  margin-block-start: 4.063rem;
-  margin-block-end: 2.25rem;
+  margin-block-start: 65px;
+  margin-block-end: 36px;
+  padding-inline: var(--screen-texts-padding);
 `;
 
 const RoutineWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 22px;
+  padding-inline: var(--screen-texts-padding);
 `;
 
 const RoutineText = styled.p`
