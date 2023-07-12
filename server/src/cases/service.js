@@ -4,7 +4,6 @@ const {
   Users,
   CasesProgress,
   SmsQueue,
-  StaffMembers,
 } = require("../models");
 const { Op } = require("sequelize");
 const sms = require("../sms/service");
@@ -58,7 +57,7 @@ const zehutFilter = ({ zehutNumber }) =>
 const myCasesFilter = ({ myCases }, creatorId) =>
   myCases ? { creatorId } : {};
 
-module.exports.search = async ({ creatorId, search, role, department }) => {
+module.exports.search = async ({ creatorId, search }) => {
   console.info("Get cases service");
   const cases = await Cases.findAll({
     include: [
@@ -100,15 +99,17 @@ module.exports.search = async ({ creatorId, search, role, department }) => {
 
 module.exports.postCase = async ({
   creatorId,
-  department,
   phoneNumber,
   zehutNumber,
+  symptoms,
+  heartConditions,
 }) => {
   console.info(`Post case by staff member: ${creatorId}`);
   const newCase = await Cases.create({
     creatorId,
-    department,
     zehutNumber,
+    symptoms,
+    heartConditions,
   });
   const CaseId = newCase.dataValues.id;
   const user = await Users.create({ CaseId, phoneNumber });

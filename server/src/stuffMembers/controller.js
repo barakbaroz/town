@@ -23,8 +23,8 @@ module.exports.login = async (req, res) => {
     if (!staffMembers) return res.status(403).end();
 
     if (bcrypt.compareSync(password, staffMembers.password)) {
-      const { id, role, department } = staffMembers;
-      const token = jwt.sign({ id, role, department }, process.env.JWT_KEY);
+      const { id } = staffMembers;
+      const token = jwt.sign({ id }, process.env.JWT_KEY);
       return res
         .cookie("access_token", token, { httpOnly: true })
         .status(200)
