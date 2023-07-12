@@ -28,7 +28,7 @@ function VideoPage() {
       <InstructionsTitle>
         <Translator>Video-Routine-Title</Translator>
       </InstructionsTitle>
-      {Object.values(routinesInstructions).map(({ icon, paragraph }, index) => (
+      {routinesInstructions.map(({ icon, paragraph }, index) => (
         <Fragment key={index}>
           <RoutineWrapper>
             <img src={icon} alt={icon} />
@@ -48,20 +48,20 @@ function VideoPage() {
 
 export default VideoPage;
 
-const routinesInstructions = {
-  medications: {
+const routinesInstructions = [
+  {
     icon: medicationsIcon,
-    paragraph: ["Video-Routine-Medications"],
+    paragraph: "Video-Routine-Medications",
   },
-  diet: {
+  {
     icon: dietIcon,
-    paragraph: ["Video-Routine-Diet"],
+    paragraph: "Video-Routine-Diet",
   },
-  activity: {
+  {
     icon: activityIcon,
-    paragraph: ["Video-Routine-Activity"],
+    paragraph: "Video-Routine-Activity",
   },
-};
+];
 
 const Container = styled.div`
   --screen-texts-padding: 25px;
