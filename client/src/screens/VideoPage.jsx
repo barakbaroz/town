@@ -4,9 +4,9 @@ import { useState, Fragment } from "react";
 import VideoButtons from "../components/Instructions/VideoButtons";
 import SatisfactionQuestions from "../components/Instructions/SatisfactionQuestions";
 import LanguageBar from "../components/User/LanguageBar";
-import medicationsIcon from "../assets/Icons/drugs.png";
-import dietIcon from "../assets/Icons/diet.png";
-import activityIcon from "../assets/Icons/activity.png";
+import medicationsIcon from "../assets/Video/drugs.png";
+import dietIcon from "../assets/Video/diet.png";
+import activityIcon from "../assets/Video/activity.png";
 import { Translator } from "../components/Translation";
 
 function VideoPage() {
