@@ -114,67 +114,67 @@ const avatars = [
   {
     key: "male_20-50_white",
     fields: ["male", "20-50", "other"],
-    tags: { gender: "male", age: "20-50" },
+    tags: { gender: "male", age: "20-50", ethnicity: "white" },
   },
   {
     key: "male_20-50_black",
     fields: ["male", "20-50", "other"],
-    tags: { gender: "male", age: "20-50" },
+    tags: { gender: "male", age: "20-50", ethnicity: "black" },
   },
 
   {
     key: "male_50-70_white",
     fields: ["male", "50-70", "other"],
-    tags: { gender: "male", age: "50-70" },
+    tags: { gender: "male", age: "50-70", ethnicity: "white" },
   },
   {
     key: "male_50-70_black",
     fields: ["male", "50-70", "other"],
-    tags: { gender: "male", age: "50-70" },
+    tags: { gender: "male", age: "50-70", ethnicity: "black" },
   },
 
   {
     key: "male_70+_white",
     fields: ["male", "70+", "other"],
-    tags: { gender: "male", age: "70+" },
+    tags: { gender: "male", age: "70+", ethnicity: "white" },
   },
   {
     key: "male_70+_black",
     fields: ["male", "70+", "other"],
-    tags: { gender: "male", age: "70+" },
+    tags: { gender: "male", age: "70+", ethnicity: "black" },
   },
 
   {
     key: "female_20-50_white",
     fields: ["female", "20-50", "other"],
-    tags: { gender: "female", age: "20-50" },
+    tags: { gender: "female", age: "20-50", ethnicity: "white" },
   },
   {
     key: "female_20-50_black",
     fields: ["female", "20-50", "other"],
-    tags: { gender: "female", age: "20-50" },
+    tags: { gender: "female", age: "20-50", ethnicity: "black" },
   },
 
   {
     key: "female_50-70_white",
     fields: ["female", "50-70", "other"],
-    tags: { gender: "female", age: "50-70" },
+    tags: { gender: "female", age: "50-70", ethnicity: "white" },
   },
   {
     key: "female_50-70_black",
     fields: ["female", "50-70", "other"],
-    tags: { gender: "female", age: "50-70" },
+    tags: { gender: "female", age: "50-70", ethnicity: "black" },
   },
 
   {
     key: "female_70+_white",
     fields: ["female", "70+", "other"],
-    tags: { gender: "female", age: "70+" },
+    tags: { gender: "female", age: "70+", ethnicity: "white" },
   },
   {
     key: "female_70+_black",
     fields: ["female", "70+", "other"],
-    tags: { gender: "female", age: "70+" },
+    tags: { gender: "female", age: "70+", ethnicity: "black" },
   },
 ];
 
