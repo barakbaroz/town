@@ -21,24 +21,26 @@ function VideoPage() {
         <Translator>Video-Title</Translator>
       </Title>
       <Player setShowFeedback={setShowFeedback} />
-      <ShareWrapper>
+      <VideoInteraction>
         <VideoButtons />
-      </ShareWrapper>
-      <SatisfactionQuestions videoStarted={showFeedback} />
-      <InstructionsTitle>
-        <Translator>Video-Routine-Title</Translator>
-      </InstructionsTitle>
-      {routinesInstructions.map(({ icon, paragraph }, index) => (
-        <Fragment key={index}>
-          <RoutineWrapper>
-            <img src={icon} alt={icon} />
-            <RoutineText>
-              <Translator>{paragraph}</Translator>
-            </RoutineText>
-          </RoutineWrapper>
-          <Divider />
-        </Fragment>
-      ))}
+        <SatisfactionQuestions videoStarted={showFeedback} />
+      </VideoInteraction>
+      <InstructionsContainer>
+        <InstructionsTitle>
+          <Translator>Video-Instructions-Title</Translator>
+        </InstructionsTitle>
+        {routinesInstructions.map(({ icon, paragraph }, index) => (
+          <Fragment key={index}>
+            <RoutineWrapper>
+              <img src={icon} alt={icon} />
+              <RoutineText>
+                <Translator>{paragraph}</Translator>
+              </RoutineText>
+            </RoutineWrapper>
+            <Divider />
+          </Fragment>
+        ))}
+      </InstructionsContainer>
       <Footer>
         <Translator>Footer</Translator>
       </Footer>
@@ -64,7 +66,7 @@ const routinesInstructions = [
 ];
 
 const Container = styled.div`
-  --screen-texts-padding: 25px;
+  --screen-margin: 25px;
   background: transparent
     linear-gradient(
       180deg,
@@ -77,8 +79,14 @@ const Container = styled.div`
     0% 0% no-repeat padding-box;
   padding-block-end: 57px;
 `;
+
 const StyledLanguageBar = styled.div`
-  padding-inline: var(--screen-texts-padding);
+  margin-inline: var(--screen-margin);
+`;
+
+const InstructionsContainer = styled.div`
+  margin-block-start: 44px;
+  margin-inline: var(--screen-margin);
 `;
 
 const Title = styled.p`
@@ -87,13 +95,16 @@ const Title = styled.p`
   font-weight: 500;
   margin-block-start: 2.125rem;
   margin-block-end: 1.813rem;
-  padding-inline: var(--screen-texts-padding);
+  margin-inline: var(--screen-margin);
 `;
 
-const ShareWrapper = styled.div`
+const VideoInteraction = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
   justify-content: end;
   margin-block-start: 18px;
-  padding-inline: var(--screen-texts-padding);
+  margin-inline: var(--screen-margin);
 `;
 
 const Divider = styled.div`
@@ -101,7 +112,6 @@ const Divider = styled.div`
   background-color: #84a4fb;
   margin-block-end: 35px;
   margin-block-start: 35px;
-  margin-inline: var(--screen-texts-padding);
   opacity: 0.3;
 `;
 
@@ -109,16 +119,13 @@ const InstructionsTitle = styled.p`
   text-align: start;
   font-size: 1.375rem;
   font-weight: 700;
-  margin-block-start: 65px;
   margin-block-end: 36px;
-  padding-inline: var(--screen-texts-padding);
 `;
 
 const RoutineWrapper = styled.div`
   display: flex;
   align-items: center;
   gap: 22px;
-  padding-inline: var(--screen-texts-padding);
 `;
 
 const RoutineText = styled.p`
@@ -131,6 +138,6 @@ const RoutineText = styled.p`
 const Footer = styled.footer`
   font-weight: 500;
   text-align: center;
-  font-size: 1.5rem;
-  padding-inline: 44px;
+  font-size: 1.375rem;
+  padding-inline: 70px;
 `;

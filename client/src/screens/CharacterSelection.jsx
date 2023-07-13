@@ -44,7 +44,7 @@ function CharacterSelection() {
     if (!avatar) return;
     postAnalytics({ userId, type: "general-information-answered" });
     userInfo.updateCase(tag);
-    navigate("../Questionnaire");
+    navigate("../Video");
   };
 
   return (

@@ -15,16 +15,12 @@ function Player({ setShowFeedback }) {
 
   const params = useMemo(() => {
     const { age, gender, ethnicity } = userInfo.Case;
-    const backgroundDisease = userInfo.Questionnaires.map(
-      ({ questionKey }) => questionKey
-    );
     return {
       gender,
       age,
       language,
       ethnicity,
       hospital: "ichilov",
-      backgroundDisease,
     };
   }, [language, userInfo]);
 
