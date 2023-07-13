@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import styled from "styled-components";
 import { Link, useParams } from "react-router-dom";
 import LanguageBar from "../components/User/LanguageBar";
-import MatotLandingPage from "../assets/Start/Matot_LandingPage.svg";
+import nurse from "../assets/Start/nurse.svg";
 import { Translator } from "../components/Translation";
 import postAnalytics from "../utilities/postAnalytics";
 
@@ -24,7 +24,7 @@ const Start = () => {
   return (
     <StartContainer id="StartContainer">
       <LanguageBar />
-      <Nurse id="MatotLandingPage" src={MatotLandingPage} />
+      <Nurse id="MatotLandingPage" src={nurse} />
       <dev id="TextsContainer">
         <Title id="HelloTitle">
           <Translator>Start-Title</Translator>
