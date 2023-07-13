@@ -33,7 +33,7 @@ function SearchBar({ search, setSearch }) {
   return (
     <Container>
       <HospitalLogoContainer>
-        <Logo src={hospitalLogo} alt="Ichilov Logo" />
+        <Logo src={hospitalLogo} alt="Hospital Logo" />
       </HospitalLogoContainer>
 
       <SearchHeader>

@@ -5,8 +5,8 @@ import hospitalLogo from "../../assets/Logos/hospital_logo.svg";
 const Header = () => {
   return (
     <Container id="HeaderContainer">
-      <Ichilov id="IchilovImg" src={hospitalLogo} />
-      <GistLogo id="GistLogo" src={gistLogo} />
+      <Logo alt="Hospital Logo" src={hospitalLogo} />
+      <Logo alt="Gist Logo" src={gistLogo} />
     </Container>
   );
 };
@@ -22,10 +22,6 @@ const Container = styled.div`
   padding-inline: var(--header-inline-padding);
 `;
 
-const GistLogo = styled.img`
-  height: var(--header-logo-height);
-`;
-
-const Ichilov = styled.img`
+const Logo = styled.img`
   height: var(--header-logo-height);
 `;
