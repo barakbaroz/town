@@ -33,12 +33,8 @@ const Login = () => {
             <br /> מטופלים עם אי ספיקת לב
           </SubTitle>
         </Titles>
-        <Field>
-          <Input name="email" type="text" placeholder="Email" />
-        </Field>
-        <Field>
-          <Input name="password" type="password" placeholder="Password" />
-        </Field>
+        <Input name="email" type="text" placeholder="Email" />
+        <Input name="password" type="password" placeholder="Password" />
         <Submit disabled={loading} type="submit">
           כניסה
         </Submit>
@@ -52,11 +48,12 @@ const Container = styled.div`
   background-image: url(${background});
   background-repeat: no-repeat;
   background-size: cover;
+  background-position-x: center;
   height: 100vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   direction: rtl;
   font-family: "Abraham";
@@ -69,20 +66,12 @@ const Form = styled.form`
   width: fit-content;
   align-items: center;
   direction: ltr;
-  padding: 4rem;
-  margin: 8rem;
+  padding: 95px;
   border-radius: 70px;
   opacity: 1;
   backdrop-filter: blur(30px);
-  background-color: rgba(255, 255, 255, 0.15);
-`;
-
-const Field = styled.div`
-  border-radius: 2rem;
-  padding: 0.7rem 1.2rem;
-  background-color: rgba(255, 255, 255, 0.8);
-  width: 16rem;
-  text-align: start;
+  background-color: rgba(255, 255, 255, 0.25);
+  transform: translateX(60%);
 `;
 
 const Submit = styled.button`
@@ -114,7 +103,12 @@ const Input = styled.input`
   border: none;
   outline: none;
   font-family: inherit;
-  width: 100%;
+  border-radius: 2rem;
+  padding-block: 1rem;
+  padding-inline: 30px;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 16rem;
+  text-align: start;
 `;
 
 const Title = styled.h1`
