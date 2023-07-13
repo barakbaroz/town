@@ -36,7 +36,7 @@ const init = (sequelize) =>
 
 const associations = (sequelize) => {
   const { Cases, Users, Comments, CasesProgress } = sequelize.models;
-  Cases.hasMany(Users, { onDelete: "CASCADE" });
+  Cases.hasOne(Users, { onDelete: "CASCADE" });
   Cases.hasOne(Comments, { onDelete: "CASCADE" });
   Cases.hasOne(CasesProgress, { onDelete: "CASCADE" });
 };
