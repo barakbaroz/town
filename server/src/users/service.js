@@ -10,32 +10,11 @@ const sms = require("../sms/service");
 
 module.exports.getData = async ({ userId }) => {
   return await Users.findByPk(userId, {
-    attributes: ["id", "language", "phoneNumber"],
+    attributes: ["id", "language"],
     include: [
       {
         model: Cases,
-        attributes: [
-          "id",
-          "zehutNumber",
-          "gender",
-          "age",
-          "ethnicity",
-          "createdAt",
-        ],
-      },
-      {
-        model: UserActions,
-        required: false,
-        attributes: ["type"],
-        where: { type: { [Op.like]: "%feedbacks" } },
-      },
-      {
-        model: Questionnaire,
-        required: false,
-        where: {
-          questionKey: ["thyroidOrDiabetes", "lungDisease"],
-          answerKey: "Yes",
-        },
+        attributes: ["id", "gender", "age", "ethnicity"],
       },
     ],
   });
@@ -94,15 +73,4 @@ module.exports.userVideoAction = async ({ UserId, type, data }) => {
     await updateCasesProgress({ UserId, type });
     await sms.action({ UserId, actionKey: type });
   }
-};
-
-module.exports.updateQuestionnaire = async ({ UserId, data }) => {
-  const rowsToInsert = Object.entries(data).map(([questionKey, answerKey]) => ({
-    UserId,
-    questionKey,
-    answerKey,
-  }));
-  await Questionnaire.bulkCreate(rowsToInsert, {
-    updateOnDuplicate: ["answerKey"],
-  });
 };
