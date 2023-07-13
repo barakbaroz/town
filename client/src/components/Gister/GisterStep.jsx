@@ -14,6 +14,7 @@ function GisterStep({ stepNumber, children, title, subTitle }) {
     </StepContainer>
   );
 }
+
 GisterStep.propTypes = {
   children: PropTypes.node,
   title: PropTypes.string,
@@ -39,21 +40,27 @@ const InformationContainer = styled.div`
 
 const StepNumber = styled.div`
   font-size: 3.438rem;
-  font-weight: 200;
+  font-weight: 300;
   font-family: "Poppins";
   color: #84a4fc;
 `;
 
 const Title = styled.span`
   font-size: 1.5rem;
+  font-weight: 500;
 `;
 
-const SubTitle = styled.span``;
+const SubTitle = styled.span`
+  font-size: 1.25rem;
+  font-weight: 400;
+`;
 
 const Text = styled.div`
   width: fit-content;
   border-bottom: 1px solid #cecece;
   padding-bottom: 1rem;
-  font-weight: 500;
-  padding-inline-end: 1.5rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
 `;

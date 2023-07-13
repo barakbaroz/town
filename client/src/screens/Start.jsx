@@ -39,7 +39,7 @@ const Start = () => {
           to="../CharacterSelection"
           onClick={handleStartClick}
         >
-          <Translator>Start-Button</Translator>
+          <Translator>Next</Translator>
         </StartButton>
         <Translator>Start-Legal-Explain</Translator>
         &nbsp;

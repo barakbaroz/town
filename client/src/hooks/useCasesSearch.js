@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function useCasesSearch(search, fetchStuffMembersInfo) {
+export default function useCasesSearch(search, refetchCasesCount) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [cases, setCases] = useState([]);
@@ -10,7 +10,7 @@ export default function useCasesSearch(search, fetchStuffMembersInfo) {
     setCases((cases) => cases.filter((item) => item.id !== caseId));
     axios
       .delete("/api/cases/deleteCase", { data: { CaseId: caseId } })
-      .then(fetchStuffMembersInfo)
+      .then(refetchCasesCount)
       .catch(() => setCases(cases));
   };
 

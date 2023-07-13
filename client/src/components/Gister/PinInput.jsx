@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { GeneralInput } from "./Giser.styled";
 
 const regex = new RegExp("[0-9]");
 
@@ -65,19 +66,10 @@ PinInput.propTypes = {
 
 export default PinInput;
 
-const Pin = styled.input`
-  border: 1px solid transparent;
-  transition: all 250ms ease-in;
-  background-color: #f5f6f8;
-  border-radius: 10px;
-  caret-color: #81a0f6;
-  font-size: 1.5rem;
+const Pin = styled(GeneralInput)`
+  padding-inline: var(--field-padding-block);
+  width: var(--field-line-height);
   text-align: center;
-  padding-block: 15px;
-  padding-inline: 21px;
-  width: 1rem;
-  outline: none;
-  font-family: "Poppins";
 `;
 
 const PinInputContainer = styled.div`
@@ -92,7 +84,7 @@ const PinInputContainer = styled.div`
 const Utility = styled.div`
   .invalid {
     & > ${Pin} {
-      border: var(--invalid);
+      border-color: var(--invalid);
     }
   }
 `;

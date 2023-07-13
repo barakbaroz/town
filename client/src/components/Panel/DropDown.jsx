@@ -3,21 +3,12 @@ import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import arrowIcon from "../../assets/Icons/hollow_arrow.svg";
 
-const dropDownList = [
-  "all",
-  "openSms",
-  "avatarSelection",
-  "signedConfirmation",
-  "watchedVideo",
-  "complete",
-];
+const dropDownList = ["all", "openSms", "avatarSelection", "watchedVideo"];
 const texts = {
   all: "סטטוס מטופל / הכל",
   openSms: "סמס נפתח",
   avatarSelection: "שאלון נענה",
-  signedConfirmation: "הנחיות אושרו",
   watchedVideo: "סרטון נצפה",
-  complete: "תהליך הושלם",
 };
 
 const DropDown = ({ setSearch, selectedOne }) => {

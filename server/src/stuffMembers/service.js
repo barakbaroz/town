@@ -1,5 +1,13 @@
-const { Cases } = require("../models");
+const { Cases, StaffMembers } = require("../models");
 const { Op, fn, col } = require("sequelize");
+
+module.exports.info = async ({ staffMembersId }) => {
+  const stuffmemberData = await StaffMembers.findOne({
+    attributes: ["name", "role"],
+    where: { id: staffMembersId },
+  });
+  return stuffmemberData;
+};
 
 module.exports.casesCount = async ({ staffMembersId, role }) => {
   const startOfToday = new Date();

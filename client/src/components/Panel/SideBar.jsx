@@ -1,30 +1,31 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import CircleProfile from "../../assets/Panel/circle_profile.svg";
 import Plus from "../../assets/Icons/plus.svg";
 import Support from "./Support";
 
 const roles = {
-  coordinator: "אחות ראשית סטומה",
+  coordinator: "אחות מרפאה ראשית",
 };
 
-const SideBar = ({ stuffData }) => {
+const SideBar = ({ casesCount }) => {
+  const stuffMemberInfo = useLoaderData();
   return (
     <Container>
       <Inner>
         <Content>
           <img src={CircleProfile} style={{ maxWidth: "132px" }} alt="img" />
-          <Name>{stuffData.name}</Name>
-          <SubName>{roles[stuffData.role]}</SubName>
+          <Name>{stuffMemberInfo.name}</Name>
+          <SubName>{roles[stuffMemberInfo.role]}</SubName>
           <CasesCounters>
             <div>
-              <Number>{stuffData.totalCases}</Number>
+              <Number>{casesCount.totalCases}</Number>
               <Title>הדרכות סה&quot;כ</Title>
             </div>
             <Divider />
             <div>
-              <Number>{stuffData.todayCases}</Number>
+              <Number>{casesCount.todayCases}</Number>
               <Title>הדרכות מהיום</Title>
             </div>
           </CasesCounters>
@@ -40,7 +41,10 @@ const SideBar = ({ stuffData }) => {
 };
 
 SideBar.propTypes = {
-  stuffData: PropTypes.object,
+  casesCount: PropTypes.shape({
+    todayCases: PropTypes.number,
+    totalCases: PropTypes.number,
+  }),
 };
 
 export default SideBar;

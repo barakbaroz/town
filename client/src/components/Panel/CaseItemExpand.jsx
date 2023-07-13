@@ -8,13 +8,15 @@ const CaseItemExpand = ({ item, show }) => {
     <Container show={show}>
       <CaseItemButtons item={item} />
 
-      <Column style={{ width: "19%", gap: "1rem" }}>
+      <Column style={{ width: "19%", gap: "26px" }}>
         <div>
-          <Text>פרטי קשר מטופל</Text>
-          {item.Users.map((user, index) => (
-            <SubText key={user.id}>
-              הורה {index + 1} {user.phoneNumber}
-            </SubText>
+          <Text>פרטי קשר</Text>
+          {item.User.phoneNumber}
+        </div>
+        <div>
+          <Text>סימפטומים</Text>
+          {item.symptoms.map((symptom) => (
+            <div key={symptom}>{symptoms[symptom]}</div>
           ))}
         </div>
       </Column>
@@ -33,11 +35,17 @@ const CaseItemExpand = ({ item, show }) => {
     </Container>
   );
 };
-export default CaseItemExpand;
-
 CaseItemExpand.propTypes = {
   item: PropTypes.object,
   show: PropTypes.bool,
+};
+
+export default CaseItemExpand;
+
+const symptoms = {
+  shortness_of_breath: "קוצר נשימה",
+  edema: "בצקת",
+  chest_pain: "כאבים בחזה",
 };
 
 const Container = styled.div`
@@ -68,14 +76,6 @@ const Text = styled.div`
   line-height: 23px;
   color: #444444;
   margin-bottom: 5px;
-`;
-const SubText = styled.div`
-  font-size: 16px;
-  line-height: 21px;
-  color: #444444;
-  display: flex;
-  direction: ltr;
-  justify-content: flex-end;
 `;
 
 const TextArea = styled.textarea`
