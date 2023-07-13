@@ -28,25 +28,11 @@ const casesProgressFilter = {
   avatarSelection: {
     where: {
       avatarSelection: { [Op.ne]: null },
-      signedConfirmation: { [Op.eq]: null },
-    },
-  },
-  signedConfirmation: {
-    where: {
-      signedConfirmation: { [Op.ne]: null },
-      watchedVideo: { [Op.eq]: null },
     },
   },
   watchedVideo: {
     where: {
       watchedVideo: { [Op.ne]: null },
-      signedConfirmation: { [Op.eq]: null },
-    },
-  },
-  complete: {
-    where: {
-      watchedVideo: { [Op.ne]: null },
-      signedConfirmation: { [Op.ne]: null },
     },
   },
 };
@@ -68,12 +54,7 @@ module.exports.search = async ({ creatorId, search }) => {
       { model: Comments },
       {
         model: CasesProgress,
-        attributes: [
-          "openSms",
-          "avatarSelection",
-          "signedConfirmation",
-          "watchedVideo",
-        ],
+        attributes: ["openSms", "avatarSelection", "watchedVideo"],
         ...casesProgressFilter[search.patientStatus],
       },
     ],
@@ -84,6 +65,8 @@ module.exports.search = async ({ creatorId, search }) => {
       "age",
       "ethnicity",
       "createdAt",
+      "heartConditions",
+      "symptoms",
     ],
     where: {
       ...zehutFilter(search),

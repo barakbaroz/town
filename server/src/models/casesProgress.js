@@ -10,7 +10,6 @@ const init = (sequelize) =>
       },
       openSms: DataTypes.DATE,
       avatarSelection: DataTypes.DATE,
-      signedConfirmation: DataTypes.DATE,
       watchedVideo: DataTypes.DATE,
     },
     { underscored: true }

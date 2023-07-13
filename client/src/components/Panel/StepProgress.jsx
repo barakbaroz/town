@@ -5,7 +5,6 @@ import styled from "styled-components";
 const texts = {
   openSms: "סמס נפתח",
   avatarSelection: "שאלון נענה",
-  signedConfirmation: "הנחיות אושרו",
   watchedVideo: "סרטון נצפה",
 };
 
@@ -22,7 +21,7 @@ const StepProgress = ({ item }) => {
             <TextContainer id="TextContainer">
               <Name color={color}>{texts[step]}</Name>
               <Time show={isDone}>
-                {new Date(time).toLocaleDateString("en-US", dateOptions)}
+                {new Date(time).toLocaleDateString(undefined, dateOptions)}
               </Time>
             </TextContainer>
 
