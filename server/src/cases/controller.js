@@ -14,13 +14,11 @@ module.exports.update = async (req, res) => {
 
 module.exports.search = async (req, res) => {
   try {
-    const { id: creatorId, role, department } = req.staffMembers;
+    const { id: creatorId } = req.staffMembers;
     const { search } = req.body;
     const cases = await casesServices.search({
       creatorId,
       search,
-      role,
-      department,
     });
     return res.status(200).json(cases);
   } catch (error) {
@@ -32,9 +30,9 @@ module.exports.search = async (req, res) => {
 module.exports.postCase = async (req, res) => {
   console.info("Post Case");
   try {
-    const { id: creatorId, department } = req.staffMembers;
+    const { id: creatorId } = req.staffMembers;
     const { body } = req;
-    await casesServices.postCase({ creatorId, department, ...body });
+    await casesServices.postCase({ creatorId, ...body });
     return res.status(200).send("Case Created");
   } catch (error) {
     console.error(error);

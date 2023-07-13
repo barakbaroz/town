@@ -3,6 +3,7 @@ import styled from "styled-components";
 import PinInput from "./PinInput";
 import PhoneInput from "./PhoneInput";
 import PropTypes from "prop-types";
+import { FieldTitle } from "./Giser.styled";
 
 function PatientInformation({ casesDataRef }) {
   const zehutInputRef = useRef(null);
@@ -21,7 +22,7 @@ function PatientInformation({ casesDataRef }) {
   return (
     <Container>
       <InputContainer>
-        <Title>4 ספרות אחרונות של ת.ז.</Title>
+        <FieldTitle>4 ספרות אחרונות של ת.ז.</FieldTitle>
         <PinInput
           ZehutInputRef={zehutInputRef}
           nextInput={phoneInputRef}
@@ -29,7 +30,7 @@ function PatientInformation({ casesDataRef }) {
         />
       </InputContainer>
       <InputContainer>
-        <Title>נייד המטופל</Title>
+        <FieldTitle>נייד המטופל</FieldTitle>
         <PhoneInput
           phoneInputRef={phoneInputRef}
           onChange={handlePhoneNumber}
@@ -43,24 +44,18 @@ PatientInformation.propTypes = {
 };
 
 const Container = styled.div`
+  --field-line-height: 2rem;
+  --field-padding-block: 0.813rem;
+  --field-font-size: 1.5rem;
+  --field-font-family: "Poppins";
   display: flex;
   flex-direction: column;
-  gap: 21px;
-`;
-
-const Title = styled.div`
-  color: #444444;
-  padding: 0.825rem 0;
-  font-size: 1.438rem;
-  font-weight: 400;
-  width: max-content;
-  padding: 0;
+  gap: 28px;
 `;
 
 const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   text-align: start;
-  gap: 9px;
 `;
 export default PatientInformation;

@@ -1,0 +1,15 @@
+<svg id="Group_117303" data-name="Group 117303" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="90" height="90" viewBox="0 0 90 90">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="System_Background_Primary_Dark_Base" data-name="System Background Primary Dark Base" width="90" height="89.999" fill="#84a4fc"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#3b5db7"/>
+      <stop offset="1" stop-color="#84a4fc" stop-opacity="0.38"/>
+    </linearGradient>
+  </defs>
+  <rect id="System_Background_Primary_Dark_Base-2" data-name="System Background Primary Dark Base" width="90" height="89.999" transform="translate(0 0.001)" fill="#84a4fc"/>
+  <g id="Mask_Group_1355" data-name="Mask Group 1355" transform="translate(0)" clip-path="url(#clip-path)">
+    <path id="Path_18273" data-name="Path 18273" d="M224.261,40.119l-75.225-.6c-11.872,0-7.522-5-7.522,11.595V96.923C174.755,118.9,188.828,75.765,233.092,75.4V49.511C233.092,33.961,234.472,40.119,224.261,40.119Z" transform="translate(-142.236 -41.165)" opacity="0.95" fill="url(#linear-gradient)"/>
+  </g>
+</svg>

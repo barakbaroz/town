@@ -15,16 +15,12 @@ function Player({ setShowFeedback }) {
 
   const params = useMemo(() => {
     const { age, gender, ethnicity } = userInfo.Case;
-    const backgroundDisease = userInfo.Questionnaires.map(
-      ({ questionKey }) => questionKey
-    );
     return {
       gender,
       age,
       language,
       ethnicity,
       hospital: "ichilov",
-      backgroundDisease,
     };
   }, [language, userInfo]);
 
@@ -65,5 +61,5 @@ Player.propTypes = {
 };
 
 const VideoContainer = styled.div`
-  margin-inline: 20px;
+  margin-inline: 15px;
 `;

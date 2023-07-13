@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="52.696" height="52.689" viewBox="0 0 52.696 52.689">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" y1="1" x2="0.504" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#982d4d"/>
+      <stop offset="0.714" stop-color="#ba3d62"/>
+      <stop offset="1" stop-color="#c64e71"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.912" y1="0.722" x2="0.063" y2="0.005" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#906a7d"/>
+      <stop offset="0.714" stop-color="#ef8aa7"/>
+      <stop offset="1" stop-color="#faadc3"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-3" x1="0.088" y1="0.722" x2="0.937" y2="0.005" xlink:href="#linear-gradient-2"/>
+  </defs>
+  <g id="Mitral_Valve_Stenosis" data-name="Mitral Valve Stenosis" transform="translate(0 0)">
+    <g id="Group_1936" data-name="Group 1936" transform="translate(0 0)">
+      <g id="Group_1935" data-name="Group 1935">
+        <path id="Path_1474" data-name="Path 1474" d="M-16.294-53.548A25.374,25.374,0,0,0-34.916-61.26a25.407,25.407,0,0,0-18.632,7.712A25.407,25.407,0,0,0-61.26-34.916a25.374,25.374,0,0,0,7.712,18.622A25.39,25.39,0,0,0-34.916-8.572a25.358,25.358,0,0,0,18.622-7.722A25.358,25.358,0,0,0-8.572-34.916,25.39,25.39,0,0,0-16.294-53.548Z" transform="translate(61.26 61.26)" fill="url(#linear-gradient)"/>
+      </g>
+    </g>
+    <g id="Group_68638" data-name="Group 68638" transform="translate(28.302 16.988)" opacity="0.087">
+      <g id="Group_1939" data-name="Group 1939">
+        <path id="Path_1476" data-name="Path 1476" d="M-54.173.279a.709.709,0,0,1-.446-.413.8.8,0,0,1-.446-.429q-1.5-1.611-1.188-2.883a3.687,3.687,0,0,1,.99-1.862A3.423,3.423,0,0,1-51.9-6.6a7.9,7.9,0,0,1,2.643.915,1.674,1.674,0,0,1,.2.1C-41-1.233-39.6-.573-32.948-4.692a27.229,27.229,0,0,1,0,14.72,42.327,42.327,0,0,1-4.226-.97Q-45.382,6.919-54.173.279Z" transform="translate(56.308 6.627)"/>
+      </g>
+    </g>
+    <g id="Group_68640" data-name="Group 68640" transform="translate(0.017 16.988)" opacity="0.087">
+      <g id="Group_1939-2" data-name="Group 1939">
+        <path id="Path_1476-2" data-name="Path 1476" d="M-34.064.279a.709.709,0,0,0,.446-.413.8.8,0,0,0,.446-.429q1.5-1.611,1.188-2.883a3.687,3.687,0,0,0-.99-1.862A3.423,3.423,0,0,0-36.341-6.6a7.905,7.905,0,0,0-2.643.915,1.674,1.674,0,0,0-.2.1c-8.059,4.351-9.454,5.01-16.107.891a27.227,27.227,0,0,0,0,14.719,42.328,42.328,0,0,0,4.226-.97Q-42.856,6.919-34.064.279Z" transform="translate(56.308 6.627)"/>
+      </g>
+    </g>
+    <g id="Group_68637" data-name="Group 68637" transform="translate(28.302 16.494)">
+      <g id="Group_1939-3" data-name="Group 1939">
+        <path id="Path_1476-3" data-name="Path 1476" d="M-54.173-.777a.677.677,0,0,1-.446-.35.763.763,0,0,1-.446-.364q-1.5-1.365-1.188-2.442a3,3,0,0,1,.99-1.578A3.746,3.746,0,0,1-51.9-6.6a8.906,8.906,0,0,1,2.643.775,1.816,1.816,0,0,1,.2.082C-41-2.057-39.861-1.5-33.208-4.986c.013.261,2.24,4.357.823,13.332a29.9,29.9,0,0,1-4.79-1.687S-48.312,2.973-54.173-.777Z" transform="translate(56.308 6.627)" fill="url(#linear-gradient-2)"/>
+      </g>
+    </g>
+    <g id="Group_68639" data-name="Group 68639" transform="translate(0 16.494)">
+      <g id="Group_1939-4" data-name="Group 1939">
+        <path id="Path_1476-4" data-name="Path 1476" d="M-34.047-.777a.677.677,0,0,0,.446-.35.763.763,0,0,0,.446-.364q1.5-1.365,1.188-2.442a3,3,0,0,0-.99-1.578A3.746,3.746,0,0,0-36.324-6.6a8.907,8.907,0,0,0-2.643.775,1.816,1.816,0,0,0-.2.082c-8.059,3.686-9.194,4.246-15.847.757-.013.261-2.24,4.357-.823,13.332a29.9,29.9,0,0,0,4.79-1.687S-39.908,2.973-34.047-.777Z" transform="translate(56.308 6.627)" fill="url(#linear-gradient-3)"/>
+      </g>
+    </g>
+  </g>
+</svg>
