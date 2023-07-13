@@ -8,10 +8,20 @@ import videoThumbnail from "../../assets/videoThumbnail.png";
 
 const PanelVideo = ({ close, item, show }) => {
   const params = useMemo(() => {
-    return {};
-  }, []);
+    const { gender, age, ethnicity, User, heartConditions, symptoms } = item;
+    const { language } = User;
+    return {
+      gender,
+      age,
+      language,
+      ethnicity,
+      heartConditions,
+      symptoms,
+      hospital: "clalit",
+    };
+  }, [item]);
 
-  const { videoUrl } = useVideoUrl(params, "");
+  const { videoUrl } = useVideoUrl(params, "heart-failure-community");
 
   if (!show) return <></>;
 
