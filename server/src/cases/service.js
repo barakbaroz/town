@@ -38,7 +38,7 @@ const casesProgressFilter = {
 };
 
 const zehutFilter = ({ zehutNumber }) =>
-  zehutNumber ? { zehutNumber: { [Op.like]: `${search.zehut}%` } } : {};
+  zehutNumber ? { zehutNumber: { [Op.substring]: zehutNumber } } : {};
 
 const myCasesFilter = ({ myCases }, creatorId) =>
   myCases ? { creatorId } : {};
