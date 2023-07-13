@@ -5,7 +5,7 @@ import CircularProgress from "./CircularProgress";
 import CaseItemExpand from "./CaseItemExpand";
 import DeletePopup from "./DeletePopup";
 import Trash from "../../assets/Icons/trash.svg";
-import Avatars from "../../assets/Characters";
+import Avatars from "../../assets/Avatars";
 
 const dateOptions = { hour12: false };
 

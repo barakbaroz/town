@@ -1,9 +1,9 @@
 {
   "Start-Title": "שלום!",
   "Start-Paragraph": "לקראת הניתוח שנקבע לכם, ענו על עשר שאלות כדי להיערך להליך ההרדמה בצורה בטיחותית. בהתאם לתשובותיכם תקבלו סרטון הדרכה מותאם אישית שיקל עליכם להתכונן ליום ההכנה ועשוי לחסוך פגישות נוספות.",
-  "Start-Button": "התחל",
   "Start-Legal-Explain": "לחיצה על הכפתור מהווה אישור של",
   "Start-Legal-Link": "תנאי השימוש",
+  "Next": "הבא",
 
   "Yes": "כן",
   "No": "לא",
@@ -12,17 +12,16 @@
 
   "Character-Selection-Title": "יצירת הדמות שלך",
   "Character-Selection-Gender": "בחירת המין",
-  "Character-Selection-female": "ילדה",
-  "Character-Selection-male": "ילד",
+  "Character-Selection-female": "אישה",
+  "Character-Selection-male": "גבר",
   "Character-Selection-other": "אחר",
   "Character-Selection-Age": "בחירת הגיל",
   "Character-Selection-Avatar": "בחירת דמות מועדפת",
-  "Character-Selection-Next": "הבא",
   "Character-Selection-Error": "עליך למלא תחילה שדות קודמים",
-  
-  "Instructions-Title-male":"הסרטון הבא הותאם במיוחד עבור ילדכם",
-  "Instructions-Title-female":"הסרטון הבא הותאם במיוחד עבור ילדתכם",
-  "Instructions-Description":"לאחר הצפיה בסרטון, יש לקרוא ולאשר את ההנחיות לקראת הניתוח המצורפות בהמשך המסך.",
+
+  "Instructions-Title-male": "הסרטון הבא הותאם במיוחד עבור ילדכם",
+  "Instructions-Title-female": "הסרטון הבא הותאם במיוחד עבור ילדתכם",
+  "Instructions-Description": "לאחר הצפיה בסרטון, יש לקרוא ולאשר את ההנחיות לקראת הניתוח המצורפות בהמשך המסך.",
 
   "video-page-default-title-male": "הסרטון הבא הותאם במיוחד עבור ילדכם",
   "video-page-default-title-female": "הסרטון הבא הותאם במיוחד עבור ילדתכם",
@@ -44,11 +43,11 @@
   "Satisfaction-Answer-No": "לא",
 
   "SurgeryInstructions-title": "הנחיות לקראת הניתוח",
-  "SurgeryInstructions-approveButton":"אישור הנחיות",
+  "SurgeryInstructions-approveButton": "אישור הנחיות",
 
-  "DontForget-Title":"לא לשכוח להביא לפגישת טרום ניתוח",
-  "DontForget-Letters-male":"מכתבי סיכום עדכניים מרופא ילדים או מרופא מומחה מטפל בילדכם",
-  "DontForget-Letters-female":"מכתבי סיכום עדכניים מרופא ילדים או מרופא מומחה מטפל בילדתכם",
+  "DontForget-Title": "לא לשכוח להביא לפגישת טרום ניתוח",
+  "DontForget-Letters-male": "מכתבי סיכום עדכניים מרופא ילדים או מרופא מומחה מטפל בילדכם",
+  "DontForget-Letters-female": "מכתבי סיכום עדכניים מרופא ילדים או מרופא מומחה מטפל בילדתכם",
 
   "Surgery-Instruction-Fever-male": "אם במהלך השבועיים הקודמים לניתוח ילדכם יעלה חום (מעל 38.5 מעלות) / יסבול משיעול עם ליחה / יתנהג כחולה / יחלה בקורונה - עליכם ליידע את המחלקה ולהמתין להחלטה בדבר קיום הניתוח או דחייתו למועד אחר.",
   "Surgery-Instruction-Fever-female": "אם במהלך השבועיים הקודמים לניתוח ילדכם יעלה חום (מעל 38.5 מעלות) / יסבול משיעול עם ליחה / יתנהג כחולה / יחלה בקורונה - עליכם ליידע את המחלקה ולהמתין להחלטה בדבר קיום הניתוח או דחייתו למועד אחר.",
@@ -102,11 +101,10 @@
 
   "questionnaireValidationTitle": "סיימתם לענות על השאלון, בדקו את תשובותיכם לפני שליחה",
 
-  "Dismiss-Header":"בהתאם לשאלון הרפואי שמילאתם, נחסך לכם זמן המתנה רב ותיפגשו את הרופא המרדים רק ביום הניתוח.",
-  "Dismiss-Paragraph":"עליכם להציג אישור זה בקבלה הסיעודית במרפאות הילדים, בהגיעכם ליום ההכנה לניתוח.",
-  "Dismiss-PayAttention":"*אישור זה תקף לשלושה חודשים מיום קבלתו",
-  "Dismiss-Button-Consent":"טופס הסכמה מדעת",
-  "Dismiss-Button-Instructions":"הנחיות לקראת ניתוח",
-  "Dismiss-Button-WatchVideo":"צפייה בסרטון"
-
+  "Dismiss-Header": "בהתאם לשאלון הרפואי שמילאתם, נחסך לכם זמן המתנה רב ותיפגשו את הרופא המרדים רק ביום הניתוח.",
+  "Dismiss-Paragraph": "עליכם להציג אישור זה בקבלה הסיעודית במרפאות הילדים, בהגיעכם ליום ההכנה לניתוח.",
+  "Dismiss-PayAttention": "*אישור זה תקף לשלושה חודשים מיום קבלתו",
+  "Dismiss-Button-Consent": "טופס הסכמה מדעת",
+  "Dismiss-Button-Instructions": "הנחיות לקראת ניתוח",
+  "Dismiss-Button-WatchVideo": "צפייה בסרטון"
 }

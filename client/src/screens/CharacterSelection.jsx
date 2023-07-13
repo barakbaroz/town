@@ -3,7 +3,7 @@ import styled from "styled-components";
 import background from "../assets/Backgrounds/wave_background.svg";
 import data from "../components/CharacterSelection/CharacterSelectionData.json";
 import { useNavigate, useParams } from "react-router-dom";
-import Avatars from "../assets/Characters";
+import avatarsImg from "../assets/Avatars";
 import { Translator } from "../components/Translation";
 import postAnalytics from "../utilities/postAnalytics";
 import { userContext } from "../providers/UserProvider";
@@ -26,12 +26,12 @@ function CharacterSelection() {
     }));
   };
 
-  const handleAvatar = (name, tags) => () => {
-    postAnalytics({ userId, type: `avatar-${name}` });
+  const handleAvatar = (key, tags) => () => {
+    postAnalytics({ userId, type: `avatar-${key}` });
     const missinsAnswers = !Object.keys(data).every((key) => key in answers);
     setShowError(missinsAnswers);
     if (missinsAnswers) return;
-    setAvatar(name);
+    setAvatar(key);
     setTag(tags);
   };
 
@@ -84,13 +84,13 @@ function CharacterSelection() {
             <Translator>Character-Selection-Avatar</Translator>
           </Question>
           <CharacterQuestionPickerContainer id="CharacterQuestionPickerContainer">
-            {filtersAvatars.map(({ name, tags }) => (
+            {filtersAvatars.map(({ key, tags }) => (
               <Avatar
-                key={name}
                 id="Avatar"
-                selected={name === avatar}
-                onClick={handleAvatar(name, tags)}
-                src={Avatars[name]}
+                key={key}
+                selected={key === avatar}
+                onClick={handleAvatar(key, tags)}
+                src={avatarsImg[key]}
               />
             ))}
           </CharacterQuestionPickerContainer>
@@ -102,7 +102,7 @@ function CharacterSelection() {
         </CharacterQuestion>
       </PickerContainer>
       <ConfirmationButton id="Button" onClick={handelNext} disable={avatar}>
-        <Translator>Character-Selection-Next</Translator>
+        <Translator>Next</Translator>
       </ConfirmationButton>
     </CharacterSelectionContainer>
   );
@@ -112,69 +112,69 @@ export default CharacterSelection;
 
 const avatars = [
   {
-    name: "male_20-50_white",
+    key: "male_20-50_white",
     fields: ["male", "20-50", "other"],
-    tags: { gender: "male", age: "20-50", ethnicity: "white" },
+    tags: { gender: "male", age: "20-50" },
   },
   {
-    name: "male_20-50_black",
+    key: "male_20-50_black",
     fields: ["male", "20-50", "other"],
-    tags: { gender: "male", age: "20-50", ethnicity: "black" },
+    tags: { gender: "male", age: "20-50" },
   },
 
   {
-    name: "male_50-70_white",
+    key: "male_50-70_white",
     fields: ["male", "50-70", "other"],
-    tags: { gender: "male", age: "50-70", ethnicity: "white" },
+    tags: { gender: "male", age: "50-70" },
   },
   {
-    name: "male_50-70_black",
+    key: "male_50-70_black",
     fields: ["male", "50-70", "other"],
-    tags: { gender: "male", age: "50-70", ethnicity: "black" },
+    tags: { gender: "male", age: "50-70" },
   },
 
   {
-    name: "male_70+_white",
+    key: "male_70+_white",
     fields: ["male", "70+", "other"],
-    tags: { gender: "male", age: "70+", ethnicity: "white" },
+    tags: { gender: "male", age: "70+" },
   },
   {
-    name: "male_70+_black",
+    key: "male_70+_black",
     fields: ["male", "70+", "other"],
-    tags: { gender: "male", age: "70+", ethnicity: "black" },
+    tags: { gender: "male", age: "70+" },
   },
 
   {
-    name: "female_20-50_white",
+    key: "female_20-50_white",
     fields: ["female", "20-50", "other"],
-    tags: { gender: "female", age: "20-50", ethnicity: "white" },
+    tags: { gender: "female", age: "20-50" },
   },
   {
-    name: "female_20-50_black",
+    key: "female_20-50_black",
     fields: ["female", "20-50", "other"],
-    tags: { gender: "female", age: "20-50", ethnicity: "black" },
+    tags: { gender: "female", age: "20-50" },
   },
 
   {
-    name: "female_50-70_white",
+    key: "female_50-70_white",
     fields: ["female", "50-70", "other"],
-    tags: { gender: "female", age: "50-70", ethnicity: "white" },
+    tags: { gender: "female", age: "50-70" },
   },
   {
-    name: "female_50-70_black",
+    key: "female_50-70_black",
     fields: ["female", "50-70", "other"],
-    tags: { gender: "female", age: "50-70", ethnicity: "black" },
+    tags: { gender: "female", age: "50-70" },
   },
 
   {
-    name: "female_70+_white",
+    key: "female_70+_white",
     fields: ["female", "70+", "other"],
-    tags: { gender: "female", age: "70+", ethnicity: "white" },
+    tags: { gender: "female", age: "70+" },
   },
   {
-    name: "female_70+_black",
+    key: "female_70+_black",
     fields: ["female", "70+", "other"],
-    tags: { gender: "female", age: "70+", ethnicity: "black" },
+    tags: { gender: "female", age: "70+" },
   },
 ];
 
@@ -275,6 +275,8 @@ const Avatar = styled.img`
   margin: 0.5rem;
   border-radius: 50%;
   border: 2px solid ${({ selected }) => (selected ? "#84a4fc" : "transparent")};
+  width: 4.688rem;
+  height: 4.688rem;
 `;
 
 const CharacterQuestion = styled.div`
