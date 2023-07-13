@@ -3,6 +3,17 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const service = require("./service");
 
+module.exports.info = async (req, res) => {
+  try {
+    const { id: staffMembersId } = req.staffMembers;
+    const result = await service.info({ staffMembersId });
+    return res.status(200).json(result);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("Error");
+  }
+};
+
 module.exports.casesCount = async (req, res) => {
   try {
     const { id: staffMembersId, role } = req.staffMembers;

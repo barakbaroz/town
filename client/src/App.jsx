@@ -15,6 +15,7 @@ import ErrorElement from "./screens/Error";
 import NotFound from "./screens/NotFound";
 import CharacterSelection from "./screens/CharacterSelection";
 import VideoPage from "./screens/VideoPage";
+import panelLoader from "./Loaders/panelLoader";
 
 const App = () => {
   return <RouterProvider router={router} />;
@@ -24,7 +25,7 @@ const router = createBrowserRouter([
   { index: true, element: <Navigate to="/Panel" /> },
   { path: "Login", element: <Login /> },
 
-  { path: "Panel", element: <Panel /> },
+  { path: "Panel", element: <Panel />, loader: panelLoader },
   { path: "Gister", element: <Gister /> },
   {
     path: "user/:userId",

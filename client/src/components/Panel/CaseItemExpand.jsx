@@ -8,15 +8,9 @@ const CaseItemExpand = ({ item, show }) => {
     <Container show={show}>
       <CaseItemButtons item={item} />
 
-      <Column style={{ width: "19%", gap: "1rem" }}>
-        <div>
-          <Text>פרטי קשר מטופל</Text>
-          {item.Users.map((user, index) => (
-            <SubText key={user.id}>
-              הורה {index + 1} {user.phoneNumber}
-            </SubText>
-          ))}
-        </div>
+      <Column style={{ width: "19%", gap: "4px" }}>
+        <Text>פרטי קשר</Text>
+        {item.User.phoneNumber}
       </Column>
 
       <Column style={{ gap: "23px" }}>
@@ -68,14 +62,6 @@ const Text = styled.div`
   line-height: 23px;
   color: #444444;
   margin-bottom: 5px;
-`;
-const SubText = styled.div`
-  font-size: 16px;
-  line-height: 21px;
-  color: #444444;
-  display: flex;
-  direction: ltr;
-  justify-content: flex-end;
 `;
 
 const TextArea = styled.textarea`

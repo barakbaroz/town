@@ -4,10 +4,10 @@ import useCasesSearch from "../../hooks/useCasesSearch";
 import CaseItem from "./CaseItem";
 import SkeletonCaseItem from "./SkeletonCaseItem";
 
-const Cases = ({ search, fetchStuffMembersInfo }) => {
+const Cases = ({ search, refetchCasesCount }) => {
   const { loading, cases, error, deleteCase } = useCasesSearch(
     search,
-    fetchStuffMembersInfo
+    refetchCasesCount
   );
   if (error) return <Message>Error</Message>;
 
@@ -27,7 +27,7 @@ export default Cases;
 
 Cases.propTypes = {
   search: PropTypes.object,
-  fetchStuffMembersInfo: PropTypes.func,
+  refetchCasesCount: PropTypes.func,
 };
 
 const Container = styled.div`

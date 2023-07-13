@@ -89,11 +89,10 @@ const languages = {
   he: "עברית",
 };
 
-const getLengAndAge = ({ gender, age, Users }) => {
-  const [user1] = Users;
+const getLengAndAge = ({ gender, age, User }) => {
   return [
     gender && age ? `${genders[gender]} ${age}` : "גיל",
-    languages[user1.language],
+    languages[User.language],
   ].join(", ");
 };
 

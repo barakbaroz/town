@@ -4,23 +4,20 @@ import SideBar from "../components/Panel/SideBar";
 import Cases from "../components/Panel/Cases";
 import SearchBar from "../components/Panel/SearchBar";
 import panelBackground from "../assets/Backgrounds/panel_background.svg";
-import useStuffMembersInfo from "../hooks/useStuffMembersInfo";
 import { LanguageProvider } from "../components/Translation";
+import useCasesCount from "../hooks/useCasesCount";
 
 const Panel = () => {
   const [search, setSearch] = useState({ patientStatus: "all" });
-  const { stuffData, fetch: fetchStuffMembersInfo } = useStuffMembersInfo();
+  const { casesCount, fetch: refetchCasesCount } = useCasesCount();
 
   return (
     <LanguageProvider>
       <Container>
         <SearchBar search={search} setSearch={setSearch} />
         <Wrapper>
-          <SideBar stuffData={stuffData} />
-          <Cases
-            search={search}
-            fetchStuffMembersInfo={fetchStuffMembersInfo}
-          />
+          <SideBar casesCount={casesCount} />
+          <Cases search={search} refetchCasesCount={refetchCasesCount} />
         </Wrapper>
       </Container>
     </LanguageProvider>
