@@ -7,7 +7,7 @@ import DeletePopup from "./DeletePopup";
 import Trash from "../../assets/Icons/trash.svg";
 import Avatars from "../../assets/Characters";
 
-const dateOptions = { year: "2-digit", month: "2-digit", day: "2-digit" };
+const dateOptions = { hour12: false };
 
 function CaseItem({ item, deleteCase }) {
   const [expand, setExpand] = useState(false);
@@ -38,16 +38,20 @@ function CaseItem({ item, deleteCase }) {
           <SubHeadin>{getLengAndAge(item)}</SubHeadin>
         </Unit>
         <Unit>
-          <Heading>Heading</Heading>
+          <Heading>
+            {item.heartConditions
+              .map((condition) => heartConditions[condition])
+              .join(" + ")}
+          </Heading>
           <SubHeadin>
-            {new Date(item.preSurgery).toLocaleDateString("en-US", dateOptions)}
+            {new Date(item.createdAt).toLocaleString(undefined, dateOptions)}
           </SubHeadin>
         </Unit>
         <EndPart>
           <Progress>
             <ProgressText>{getMaxProgress(item)}</ProgressText>
             <CircularProgress
-              maxValue={4}
+              maxValue={3}
               progress={
                 Object.values(item.CasesProgress).filter((progress) => progress)
                   .length
@@ -94,6 +98,18 @@ const getLengAndAge = ({ gender, age, User }) => {
     gender && age ? `${genders[gender]} ${age}` : "גיל",
     languages[User.language],
   ].join(", ");
+};
+
+const heartConditions = {
+  aortic_valve_regurgitation: "דלף של המסתם האאורטלי",
+  aortic_valve_stenosis: "היצרות של המסתם האאורטלי",
+  atherosclerosis: "טרשת עורקים",
+  cardiac_arrhythmia: "הפרעות בקצב הלב",
+  cardiomyopathy: "קרדיומיופתיה",
+  general: "כללי",
+  mitral_valve_regurgitation: "דלף של המסתם המיטרלי",
+  mitral_valve_stenosis: "היצרות של המסתם המיטרלי",
+  myocardial_infarction: "אוטם שריר הלב",
 };
 
 export default CaseItem;

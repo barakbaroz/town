@@ -8,9 +8,17 @@ const CaseItemExpand = ({ item, show }) => {
     <Container show={show}>
       <CaseItemButtons item={item} />
 
-      <Column style={{ width: "19%", gap: "4px" }}>
-        <Text>פרטי קשר</Text>
-        {item.User.phoneNumber}
+      <Column style={{ width: "19%", gap: "26px" }}>
+        <div>
+          <Text>פרטי קשר</Text>
+          {item.User.phoneNumber}
+        </div>
+        <div>
+          <Text>סימפטומים</Text>
+          {item.symptoms.map((symptom) => (
+            <div key={symptom}>{symptoms[symptom]}</div>
+          ))}
+        </div>
       </Column>
 
       <Column style={{ gap: "23px" }}>
@@ -27,11 +35,17 @@ const CaseItemExpand = ({ item, show }) => {
     </Container>
   );
 };
-export default CaseItemExpand;
-
 CaseItemExpand.propTypes = {
   item: PropTypes.object,
   show: PropTypes.bool,
+};
+
+export default CaseItemExpand;
+
+const symptoms = {
+  shortness_of_breath: "קוצר נשימה",
+  edema: "בצקת",
+  chest_pain: "כאבים בחזה",
 };
 
 const Container = styled.div`
