@@ -48,6 +48,7 @@ const Line = styled.div`
   background-color: ${({ color }) => color};
   height: calc(100% - 1.5rem - 4px);
   width: 3px;
+  height: 50px;
 `;
 
 const OuterCircle = styled.div`
@@ -103,7 +104,6 @@ const SingleStepContainer = styled.div`
 const StyledStepProgress = styled.div`
   display: grid;
   grid-template-columns: auto 90px;
-  grid-template-rows: repeat(3, 1fr);
   width: 100%;
   height: 100%;
   grid-column-gap: 5%;
