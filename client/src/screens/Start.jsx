@@ -25,14 +25,14 @@ const Start = () => {
     <StartContainer id="StartContainer">
       <LanguageBar />
       <Nurse id="MatotLandingPage" src={MatotLandingPage} />
-      <dev id="TextsContainer">
+      <div id="TextsContainer">
         <Title id="HelloTitle">
           <Translator>Start-Title</Translator>
         </Title>
         <Paragraph id="StartParagraph">
           <Translator>Start-Paragraph</Translator>
         </Paragraph>
-      </dev>
+      </div>
       <BottomContentContainer>
         <StartButton
           id="StartButton"
