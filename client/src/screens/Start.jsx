@@ -41,11 +41,17 @@ const Start = () => {
         >
           <Translator>Next</Translator>
         </StartButton>
-        <Translator>Start-Legal-Explain</Translator>
-        &nbsp;
-        <LegalLink id="LegalLink" to="../Legal" onClick={handleLegalLinkClick}>
-          <Translator>Start-Legal-Link</Translator>
-        </LegalLink>
+        <div>
+          <Translator>Start-Legal-Explain</Translator>
+          &nbsp;
+          <LegalLink
+            id="LegalLink"
+            to="../Legal"
+            onClick={handleLegalLinkClick}
+          >
+            <Translator>Start-Legal-Link</Translator>
+          </LegalLink>
+        </div>
       </BottomContentContainer>
     </StartContainer>
   );
