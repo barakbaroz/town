@@ -14,7 +14,7 @@ const CaseItemExpand = ({ item, show }) => {
           {item.User.phoneNumber}
         </div>
         <div>
-          <Text>סימפטומים</Text>
+          <Text show={item.symptoms.length > 0}>סימפטומים</Text>
           {item.symptoms.map((symptom) => (
             <div key={symptom}>{symptoms[symptom]}</div>
           ))}
@@ -76,6 +76,7 @@ const Text = styled.div`
   line-height: 23px;
   color: #444444;
   margin-bottom: 5px;
+  display: ${({ show }) => (show ? "block" : "none")};
 `;
 
 const TextArea = styled.textarea`
