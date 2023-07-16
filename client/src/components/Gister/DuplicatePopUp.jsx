@@ -48,6 +48,7 @@ const Backdrop = styled.div`
   align-items: center;
   justify-content: center;
   display: ${({ open }) => (open ? "flex" : "none")};
+  z-index: 3;
 `;
 
 const Container = styled.div`
