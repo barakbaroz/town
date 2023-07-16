@@ -2,23 +2,21 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import trashIcon from "../../assets/Icons/trash_pop_icon.svg";
 
-const DeletePopup = ({ close, deleteCase, show }) => {
+const DeletePopup = ({ close, deleteCase }) => {
   const handleDeleteClick = () => {
     deleteCase();
     close();
   };
 
   return (
-    <Backdrop show={show}>
-      <Container id="deletePopUpContent">
-        <img alt="alert" src={trashIcon} />
-        <Text>האם את/ה בטוח/ה שברצונך למחוק את המקרה?</Text>
-        <ActionButtons>
-          <Button onClick={handleDeleteClick}>אישור</Button>
-          <Button onClick={close}>ביטול</Button>
-        </ActionButtons>
-      </Container>
-    </Backdrop>
+    <Container id="deletePopUpContent">
+      <img alt="alert" src={trashIcon} />
+      <Text>האם את/ה בטוח/ה שברצונך למחוק את המקרה?</Text>
+      <ActionButtons>
+        <AcceptButton onClick={handleDeleteClick}>אישור</AcceptButton>
+        <CancelButton onClick={close}>ביטול</CancelButton>
+      </ActionButtons>
+    </Container>
   );
 };
 
@@ -30,50 +28,57 @@ DeletePopup.propTypes = {
 
 export default DeletePopup;
 
-const Backdrop = styled.div`
-  position: fixed;
-  z-index: 2;
-  inset: 0;
-  background-color: #000000b3;
-  align-items: center;
-  justify-content: center;
-  display: ${({ show }) => (show ? "flex" : "none")};
-`;
-
 const Container = styled.div`
   font-family: "Assistant";
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2.5rem;
-  background: #fff;
-  padding: 100px;
-  border-radius: 20px;
+  padding-inline: 140px;
+  padding-block: 136px;
 `;
 
 const Text = styled.div`
   font-family: inherit;
   font-size: 1.3rem;
-  font-weight: bold;
-  color: #2a2a2a;
+  margin-block-start: 59px;
+  margin-block-end: 49px;
 `;
+
 const Button = styled.button`
-  font-family: inherit;
   background-color: white;
-  font-size: 1.2rem;
+  font-family: inherit;
+  font-size: 1.125rem;
   cursor: pointer;
   border-radius: 40px;
-  padding: 0.5rem 2rem;
-  color: #f02a4c;
-  border: 2px solid #f02a4c;
-  &:hover {
-    background-color: #f02a4c;
-    color: white;
+  padding-block: 0.5rem;
+  padding-inline: 3rem;
+  transition: all 200ms linear;
+  &:disabled {
+    opacity: 0.5;
+    cursor: wait;
   }
 `;
+
 const ActionButtons = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.5rem;
+  gap: 23px;
+`;
+const AcceptButton = styled(Button)`
+  border: 1px solid #84a4fc;
+  color: #84a4fc;
+  &:hover {
+    background-color: #84a4fc;
+    color: white;
+  }
+`;
+
+const CancelButton = styled(Button)`
+  border: 1px solid #f02a4c;
+  color: #f02a4c;
+  &:hover {
+    background-color: #f02a4c;
+    color: white;
+  }
 `;

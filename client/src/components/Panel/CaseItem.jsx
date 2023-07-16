@@ -6,6 +6,7 @@ import CaseItemExpand from "./CaseItemExpand";
 import DeletePopup from "./DeletePopup";
 import Trash from "../../assets/Icons/trash.svg";
 import Avatars from "../../assets/Avatars";
+import PopUp from "../Popups/PopUp";
 
 const dateOptions = { hour12: false };
 
@@ -17,11 +18,12 @@ function CaseItem({ item, deleteCase }) {
 
   return (
     <Case>
-      <DeletePopup
-        deleteCase={() => deleteCase(item.id)}
-        close={() => setShowDeletePopUp(false)}
-        show={showDeletePopUp}
-      />
+      <PopUp isPreviewOpen={showDeletePopUp} setIsOpen={setShowDeletePopUp}>
+        <DeletePopup
+          deleteCase={() => deleteCase(item.id)}
+          close={() => setShowDeletePopUp(false)}
+        />
+      </PopUp>
       <Container onClick={handleExpand}>
         <Avatar>
           <span />
