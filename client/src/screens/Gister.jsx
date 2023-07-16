@@ -12,7 +12,6 @@ function Gister() {
   const navigate = useNavigate();
   const casesDataRef = useRef({ heartConditions: [], symptoms: [] });
   const [loading, setLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
   const [showDuplicatePopup, setShowDuplicatePopup] = useState(false);
 
   const checkMissingFields = (data) => {
@@ -42,8 +41,7 @@ function Gister() {
   const handleSubmit = () => {
     const data = casesDataRef.current;
     const missingFields = checkMissingFields(data);
-    if (missingFields) return setIsError(true);
-    setIsError(false);
+    if (missingFields) return;
     setLoading(true);
     axios
       .post("/api/cases/duplicate", data)
@@ -61,7 +59,7 @@ function Gister() {
       />
       <GisterHeader text="מערכת ליווי והדרכת מטופלים עם אי ספיקת לב" />
       <Container>
-        <Flex>
+        <CasesDetails>
           <GisterStep stepNumber="01" title="פרטי מטופל ויצירת קשר">
             <PatientInformation casesDataRef={casesDataRef} />
           </GisterStep>
@@ -72,9 +70,9 @@ function Gister() {
           >
             <MedicalBackground casesDataRef={casesDataRef} />
           </GisterStep>
-        </Flex>
+        </CasesDetails>
         <ButtonContainer>
-          <ErrorTitle show={isError}>* חסרים נתונים להמשך תהליך</ErrorTitle>
+          <ErrorTitle>* חסרים נתונים להמשך תהליך</ErrorTitle>
           <SubmitButton disabled={loading} onClick={handleSubmit}>
             שליחה
           </SubmitButton>
@@ -100,6 +98,12 @@ const GisterContainer = styled.div`
   font-family: "Abraham";
 `;
 
+const ErrorTitle = styled.p`
+  font-size: 1.25rem;
+  color: #f02a4c;
+  visibility: hidden;
+`;
+
 const Container = styled.div`
   height: 80%;
   width: 100%;
@@ -107,11 +111,15 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  &:has(.invalid) {
+    ${ErrorTitle} {
+      visibility: visible;
+    }
+  }
 `;
 
-const Flex = styled.div`
+const CasesDetails = styled.div`
   display: flex;
-  padding-block-start: 4%;
   box-sizing: border-box;
   justify-content: space-evenly;
   width: 100%;
@@ -132,12 +140,6 @@ const SubmitButton = styled.button`
     opacity: 0.5;
     cursor: wait;
   }
-`;
-
-const ErrorTitle = styled.p`
-  font-size: 1.25rem;
-  color: #f02a4c;
-  visibility: ${({ show }) => (show ? "visible" : "hidden")};
 `;
 
 const ButtonContainer = styled.div`

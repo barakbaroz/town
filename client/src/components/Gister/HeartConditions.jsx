@@ -12,12 +12,13 @@ function HeartConditions({ casesDataRef }) {
   const handleSelect = () => {
     const formData = new FormData(conditionsRef.current);
     casesDataRef.current.heartConditions = [...formData.keys()];
+    conditionsRef.current.classList.remove("invalid");
   };
 
   return (
     <div>
       <FieldTitle>מהו מצב הלב של המטופל?</FieldTitle>
-      <Conditions ref={conditionsRef}>
+      <Conditions id="heartConditions" ref={conditionsRef}>
         {data.map(({ key, name, icon }) => (
           <Condition key={key}>
             <Icon>
