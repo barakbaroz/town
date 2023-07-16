@@ -1,19 +1,20 @@
 import Lottie from "lottie-react";
 import PropTypes from "prop-types";
 import notificationCopy from "../../assets/Lotties/notificationCopy.json";
+import PopUp from "../Popups/PopUp";
 
 import styled from "styled-components";
 
 function DuplicatePopUp({ onConfirm, onCancel, open, loading }) {
   return (
-    <Backdrop open={open}>
+    <PopUp isPreviewOpen={open}>
       <Container>
-        <NotificationCopyLottie animationData={notificationCopy} loop={false} />
+        <Megaphone />
 
-        <TextContainer>
+        <TextWrapper>
           <Text>קיים מקרה עם טלפון זהה במערכת.</Text>
-          <Text>האם לשלוח שוב את הסרטון שוב?</Text>
-        </TextContainer>
+          <Text>האם לשלוח שוב את הסרטון?</Text>
+        </TextWrapper>
 
         <ActionButtons>
           <AcceptButton disabled={loading} onClick={onConfirm}>
@@ -24,7 +25,7 @@ function DuplicatePopUp({ onConfirm, onCancel, open, loading }) {
           </CancelButton>
         </ActionButtons>
       </Container>
-    </Backdrop>
+    </PopUp>
   );
 }
 
@@ -37,48 +38,28 @@ DuplicatePopUp.propTypes = {
 
 export default DuplicatePopUp;
 
-const NotificationCopyLottie = styled(Lottie)`
-  width: 200px;
-`;
-
-const Backdrop = styled.div`
-  position: fixed;
-  inset: 0;
-  background-color: #000000b3;
-  align-items: center;
-  justify-content: center;
-  display: ${({ open }) => (open ? "flex" : "none")};
-`;
-
 const Container = styled.div`
   font-family: "Assistant";
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #fff;
-  padding-inline: 151px;
-  padding-block-end: 99px;
-  padding-block-start: 59px;
-  border-radius: 20px;
-`;
-
-const TextContainer = styled.div`
-  padding-block-end: 57px;
-  padding-block-start: 9px;
+  padding-block-end: 92px;
+  padding-block-start: 49px;
+  padding-inline: 165px;
 `;
 
 const Text = styled.p`
+  padding: 0;
   margin: 0;
-  font-size: 1.5rem;
-  font-weight: 700;
-  text-align: center;
+  font-family: inherit;
+  font-size: 1.25rem;
 `;
 
 const ActionButtons = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1.313rem;
+  gap: 23px;
 `;
 
 const Button = styled.button`
@@ -87,8 +68,8 @@ const Button = styled.button`
   font-size: 1.125rem;
   cursor: pointer;
   border-radius: 40px;
-  padding-block: 10px;
-  padding-inline: 53px;
+  padding-block: 0.5rem;
+  padding-inline: 3rem;
   transition: all 200ms linear;
   &:disabled {
     opacity: 0.5;
@@ -97,10 +78,10 @@ const Button = styled.button`
 `;
 
 const AcceptButton = styled(Button)`
-  border: 1px solid #84a4fb;
-  color: #84a4fb;
+  border: 1px solid #84a4fc;
+  color: #84a4fc;
   &:hover {
-    background-color: #84a4fb;
+    background-color: #84a4fc;
     color: white;
   }
 `;
@@ -112,4 +93,10 @@ const CancelButton = styled(Button)`
     background-color: #f02a4c;
     color: white;
   }
+`;
+const Megaphone = styled(Lottie).attrs({ animationData: notificationCopy })`
+  height: 229px;
+`;
+const TextWrapper = styled.div`
+  margin-block-end: 49px;
 `;

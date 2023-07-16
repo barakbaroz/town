@@ -21,7 +21,7 @@ function PopUp({ children, isPreviewOpen }) {
 }
 PopUp.propTypes = {
   children: PropTypes.node,
-  isPreviewOpen: PropTypes.func,
+  isPreviewOpen: PropTypes.bool,
 };
 
 export default PopUp;
