@@ -47,7 +47,7 @@ function SearchBar({ search, setSearch }) {
           />
           <ClearId onClick={clearId} />
         </GreyWrapper>
-        <GuidanceSwitcher />
+        <GuidanceSwitcher search={search} setSearch={setSearch} />
         <DropDown setSearch={setSearch} selectedOne={search.patientStatus} />
         <IconButton onClick={clearSearch}>
           <Reload />

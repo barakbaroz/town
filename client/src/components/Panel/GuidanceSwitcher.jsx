@@ -1,62 +1,62 @@
-import { useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+import PropTypes from "prop-types";
 
-const GuidanceSwitcher = () => {
-  const [myGuidances, setMyGuidances] = useState(true);
-  const changeGuidance = () => {
-    setMyGuidances(!myGuidances);
+const GuidanceSwitcher = ({ search, setSearch }) => {
+  const changeGuidance = (value) => () => {
+    setSearch((prev) => ({ ...prev, myCases: value }));
   };
   return (
-    <GuideanceSwitcher>
-      <AllGuidances myGuidances={myGuidances} onClick={changeGuidance}>
+    <Wrapper>
+      <GuidanceOption
+        selected={!search.myCases}
+        onClick={changeGuidance(false)}
+      >
         כל ההדרכות
-      </AllGuidances>
-      <MyGuidances myGuidances={myGuidances} onClick={changeGuidance}>
+      </GuidanceOption>
+      <GuidanceOption selected={search.myCases} onClick={changeGuidance(true)}>
         הדרכות שלי
-      </MyGuidances>
-    </GuideanceSwitcher>
+      </GuidanceOption>
+    </Wrapper>
   );
+};
+
+GuidanceSwitcher.propTypes = {
+  search: PropTypes.shape({
+    myCases: PropTypes.bool,
+  }),
+  setSearch: PropTypes.func,
 };
 
 export default GuidanceSwitcher;
 
-const GuideanceSwitcher = styled.div`
+const Wrapper = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  border-radius: 20px;
+  font-size: 0.938rem;
+  border-radius: var(--field-height);
   background: #f4f4f4;
   padding: 0.4rem 0.4rem;
   height: var(--field-height);
   padding-block: var(--field-padding-block);
-  font-family: Assistant;
   white-space: nowrap;
+`;
+
+const GuidanceOption = styled.div`
+  display: flex;
+  align-items: center;
+  border-radius: 1rem;
+  padding-inline: 22px;
+  height: 2rem;
+  width: fit-content;
+  cursor: pointer;
+  background-color: #f4f4f4;
   font-weight: 600;
-`;
-const AllGuidances = styled.div`
-  display: flex;
-  align-items: center;
-  background-color: ${({ myGuidances }) =>
-    myGuidances ? "#f4f4f4" : "#84a4fc"};
-  border-radius: 1rem;
-  padding: ${({ myGuidances }) => (myGuidances ? "0 22px 0 0" : "0 22px")};
-  height: 2rem;
-  width: fit-content;
-  box-shadow: ${({ myGuidances }) =>
-    myGuidances ? "none" : "0px 2px 6px #00000029"};
-  color: ${({ myGuidances }) => (myGuidances ? "black" : "white")};
-`;
-const MyGuidances = styled.div`
-  display: flex;
-  align-items: center;
-  background-color: ${({ myGuidances }) =>
-    myGuidances ? "#84a4fc" : "#f4f4f4"};
-  border-radius: 1rem;
-  padding: ${({ myGuidances }) => (myGuidances ? "0 22px" : "0 0 0 22px")};
-  box-shadow: ${({ myGuidances }) =>
-    myGuidances ? "0px 2px 6px #00000029" : "none"};
-  color: ${({ myGuidances }) => (myGuidances ? "white" : "black")};
-  height: 2rem;
-  width: fit-content;
+  ${({ selected }) =>
+    selected &&
+    css`
+      background-color: #84a4fc;
+      box-shadow: 0px 2px 6px #00000029;
+      color: white;
+      font-weight: 700;
+    `}
 `;
