@@ -8,7 +8,7 @@ router.post("/logout", logout);
 
 router.use(verifyToken);
 
-router.get("/casesCount", casesCount);
+router.post("/casesCount", casesCount);
 router.get("/info", info);
 
 module.exports = router;

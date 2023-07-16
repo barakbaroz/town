@@ -16,8 +16,9 @@ module.exports.info = async (req, res) => {
 
 module.exports.casesCount = async (req, res) => {
   try {
-    const { id: staffMembersId, role } = req.staffMembers;
-    const result = await service.casesCount({ staffMembersId, role });
+    const { id: staffMembersId } = req.staffMembers;
+    const search = req.body;
+    const result = await service.casesCount({ staffMembersId, search });
     return res.status(200).json(result);
   } catch (error) {
     console.error(error);

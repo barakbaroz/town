@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function useCasesCount(userId) {
+export default function useCasesCount(search) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [casesCount, setCasesCount] = useState({
@@ -16,9 +16,10 @@ export default function useCasesCount(userId) {
     setError(false);
     let cancel;
     axios({
-      method: "GET",
+      method: "POST",
       url: "/api/stuffMembers/casesCount",
       cancelToken: new axios.CancelToken((c) => (cancel = c)),
+      data: search,
     })
       .then((res) => {
         setCasesCount(res.data);
@@ -35,7 +36,7 @@ export default function useCasesCount(userId) {
     return () => cancel();
   };
 
-  useEffect(fetch, [navigate, userId]);
+  useEffect(fetch, [navigate, search]);
 
   return { loading, error, casesCount, fetch };
 }

@@ -8,8 +8,11 @@ import { LanguageProvider } from "../components/Translation";
 import useCasesCount from "../hooks/useCasesCount";
 
 const Panel = () => {
-  const [search, setSearch] = useState({ patientStatus: "all" });
-  const { casesCount, fetch: refetchCasesCount } = useCasesCount();
+  const [search, setSearch] = useState({
+    patientStatus: "all",
+    myCases: true,
+  });
+  const { casesCount, fetch: refetchCasesCount } = useCasesCount(search);
 
   return (
     <LanguageProvider>
