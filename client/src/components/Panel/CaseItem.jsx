@@ -24,6 +24,7 @@ function CaseItem({ item, deleteCase }) {
       />
       <Container onClick={handleExpand}>
         <Avatar>
+          <span />
           <AvatarImage
             alt="avatar"
             src={
@@ -75,7 +76,7 @@ CaseItem.propTypes = {
 
 const getMaxProgress = (item) => {
   if (item.CasesProgress.watchedVideo) return "סרטון נצפה";
-  if (item.CasesProgress.generalInformationAnswered) return "שאלון נענה";
+  if (item.CasesProgress.avatarSelection) return "שאלון נענה";
   if (item.CasesProgress.openSms) return "סמס נפתח";
   return "";
 };
@@ -134,8 +135,8 @@ const Container = styled.div`
 
 const AvatarImage = styled.img`
   border-radius: 50%;
-  height: 100%;
-  width: 100%;
+  width: 75px;
+  height: 75px;
 `;
 
 const Avatar = styled.div`

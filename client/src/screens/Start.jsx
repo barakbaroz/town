@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import styled from "styled-components";
 import { Link, useParams } from "react-router-dom";
 import LanguageBar from "../components/User/LanguageBar";
-import MatotLandingPage from "../assets/Start/Matot_LandingPage.svg";
+import nurse from "../assets/Start/nurse.svg";
 import { Translator } from "../components/Translation";
 import postAnalytics from "../utilities/postAnalytics";
 
@@ -41,11 +41,17 @@ const Start = () => {
         >
           <Translator>Next</Translator>
         </StartButton>
-        <Translator>Start-Legal-Explain</Translator>
-        &nbsp;
-        <LegalLink id="LegalLink" to="../Legal" onClick={handleLegalLinkClick}>
-          <Translator>Start-Legal-Link</Translator>
-        </LegalLink>
+        <div>
+          <Translator>Start-Legal-Explain</Translator>
+          &nbsp;
+          <LegalLink
+            id="LegalLink"
+            to="../Legal"
+            onClick={handleLegalLinkClick}
+          >
+            <Translator>Start-Legal-Link</Translator>
+          </LegalLink>
+        </div>
       </BottomContentContainer>
     </StartContainer>
   );

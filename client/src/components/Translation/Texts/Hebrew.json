@@ -1,6 +1,6 @@
 {
   "Start-Title": "שלום!",
-  "Start-Paragraph": "לקראת הניתוח שנקבע לכם, ענו על עשר שאלות כדי להיערך להליך ההרדמה בצורה בטיחותית. בהתאם לתשובותיכם תקבלו סרטון הדרכה מותאם אישית שיקל עליכם להתכונן ליום ההכנה ועשוי לחסוך פגישות נוספות.",
+  "Start-Paragraph": "הכנו עבורך סרטון הדרכה שיתן לך ידע חיוני וכלים שימושיים להתמודדות עם אי ספיקת לב",
   "Start-Legal-Explain": "לחיצה על הכפתור מהווה אישור של",
   "Start-Legal-Link": "תנאי השימוש",
   "Next": "הבא",
@@ -16,7 +16,8 @@
   "Character-Selection-male": "גבר",
   "Character-Selection-other": "אחר",
   "Character-Selection-Age": "בחירת הגיל",
-  "Character-Selection-Avatar": "בחירת דמות מועדפת",
+  "Character-Selection-Avatar-Single": "יש ללחוץ על הדמות שלך",
+  "Character-Selection-Avatar-Multiple": "מהי הדמות המועדפת עליך?",
   "Character-Selection-Error": "עליך למלא תחילה שדות קודמים",
 
   "Video-Title-male": "אי ספיקת לב היא מחלה המחייבת מעקב, היענות לטיפול וניהול אורח חיים נכון. צפה בסרטון כדי לדעת עוד",

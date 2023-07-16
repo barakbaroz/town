@@ -41,7 +41,7 @@ function CharacterSelection() {
   );
 
   const handelNext = () => {
-    if (!avatar) return;
+    if (!avatar) return setShowError(true);
     postAnalytics({ userId, type: "general-information-answered" });
     userInfo.updateCase(tag);
     navigate("../Video");
@@ -81,7 +81,10 @@ function CharacterSelection() {
         ))}
         <CharacterQuestion id="CharacterQuestion">
           <Question id="Question">
-            <Translator>Character-Selection-Avatar</Translator>
+            <Translator>
+              Character-Selection-Avatar-
+              {filtersAvatars === 1 ? "Single" : "Multiple"}
+            </Translator>
           </Question>
           <CharacterQuestionPickerContainer id="CharacterQuestionPickerContainer">
             {filtersAvatars.map(({ key, tags }) => (
@@ -101,7 +104,7 @@ function CharacterSelection() {
           </ErrorContainer>
         </CharacterQuestion>
       </PickerContainer>
-      <ConfirmationButton id="Button" onClick={handelNext} disable={avatar}>
+      <ConfirmationButton id="Button" onClick={handelNext} avatar={avatar}>
         <Translator>Next</Translator>
       </ConfirmationButton>
     </CharacterSelectionContainer>
@@ -265,7 +268,8 @@ const ConfirmationButton = styled.button`
   color: #ffffff;
   font-size: 1.063rem;
   font-family: inherit;
-  opacity: ${({ disable }) => !disable && "60%"};
+  opacity: 0.6;
+  opacity: ${({ avatar }) => avatar && 1};
   margin-top: 2.125rem;
   display: block;
   margin-inline: auto;
