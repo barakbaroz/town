@@ -4,7 +4,6 @@ const {
   Users,
   CasesProgress,
   SmsQueue,
-  StaffMembers,
 } = require("../models");
 const { Op } = require("sequelize");
 const sms = require("../sms/service");
@@ -29,36 +28,22 @@ const casesProgressFilter = {
   avatarSelection: {
     where: {
       avatarSelection: { [Op.ne]: null },
-      signedConfirmation: { [Op.eq]: null },
-    },
-  },
-  signedConfirmation: {
-    where: {
-      signedConfirmation: { [Op.ne]: null },
-      watchedVideo: { [Op.eq]: null },
     },
   },
   watchedVideo: {
     where: {
       watchedVideo: { [Op.ne]: null },
-      signedConfirmation: { [Op.eq]: null },
-    },
-  },
-  complete: {
-    where: {
-      watchedVideo: { [Op.ne]: null },
-      signedConfirmation: { [Op.ne]: null },
     },
   },
 };
 
 const zehutFilter = ({ zehutNumber }) =>
-  zehutNumber ? { zehutNumber: { [Op.like]: `${search.zehut}%` } } : {};
+  zehutNumber ? { zehutNumber: { [Op.substring]: zehutNumber } } : {};
 
 const myCasesFilter = ({ myCases }, creatorId) =>
   myCases ? { creatorId } : {};
 
-module.exports.search = async ({ creatorId, search, role, department }) => {
+module.exports.search = async ({ creatorId, search }) => {
   console.info("Get cases service");
   const cases = await Cases.findAll({
     include: [
@@ -69,12 +54,7 @@ module.exports.search = async ({ creatorId, search, role, department }) => {
       { model: Comments },
       {
         model: CasesProgress,
-        attributes: [
-          "openSms",
-          "avatarSelection",
-          "signedConfirmation",
-          "watchedVideo",
-        ],
+        attributes: ["openSms", "avatarSelection", "watchedVideo"],
         ...casesProgressFilter[search.patientStatus],
       },
     ],
@@ -85,6 +65,8 @@ module.exports.search = async ({ creatorId, search, role, department }) => {
       "age",
       "ethnicity",
       "createdAt",
+      "heartConditions",
+      "symptoms",
     ],
     where: {
       ...zehutFilter(search),
@@ -100,15 +82,17 @@ module.exports.search = async ({ creatorId, search, role, department }) => {
 
 module.exports.postCase = async ({
   creatorId,
-  department,
   phoneNumber,
   zehutNumber,
+  symptoms,
+  heartConditions,
 }) => {
   console.info(`Post case by staff member: ${creatorId}`);
   const newCase = await Cases.create({
     creatorId,
-    department,
     zehutNumber,
+    symptoms,
+    heartConditions,
   });
   const CaseId = newCase.dataValues.id;
   const user = await Users.create({ CaseId, phoneNumber });

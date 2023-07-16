@@ -2,14 +2,12 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-export default function useStuffMembersInfo(userId) {
+export default function useCasesCount(search) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [stuffData, setStuffData] = useState({
+  const [casesCount, setCasesCount] = useState({
     totalCases: 0,
     todayCases: 0,
-    name: "",
-    role: "",
   });
   const navigate = useNavigate();
 
@@ -18,12 +16,13 @@ export default function useStuffMembersInfo(userId) {
     setError(false);
     let cancel;
     axios({
-      method: "GET",
-      url: "/api/stuffMembers/info",
+      method: "POST",
+      url: "/api/stuffMembers/casesCount",
       cancelToken: new axios.CancelToken((c) => (cancel = c)),
+      data: search,
     })
       .then((res) => {
-        setStuffData(res.data);
+        setCasesCount(res.data);
         setLoading(false);
       })
       .catch((e) => {
@@ -37,7 +36,7 @@ export default function useStuffMembersInfo(userId) {
     return () => cancel();
   };
 
-  useEffect(fetch, [navigate, userId]);
+  useEffect(fetch, [navigate, search]);
 
-  return { loading, error, stuffData, fetch };
+  return { loading, error, casesCount, fetch };
 }

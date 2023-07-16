@@ -1,56 +1,46 @@
 import styled from "styled-components";
-import { Translate, Translator } from "../components/Translation";
 import Player from "../components/Video/Player";
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import VideoButtons from "../components/Instructions/VideoButtons";
 import SatisfactionQuestions from "../components/Instructions/SatisfactionQuestions";
 import LanguageBar from "../components/User/LanguageBar";
+import medicationsIcon from "../assets/Video/drugs.png";
+import dietIcon from "../assets/Video/diet.png";
+import activityIcon from "../assets/Video/activity.png";
+import { Translator } from "../components/Translation";
 
 function VideoPage() {
   const [showFeedback, setShowFeedback] = useState(false);
-
-  const watchedVideo = null;
-  const signedConfirmation = null;
-  const points = 0;
-
-  const getTitle = () => {
-    const titleType =
-      points === 0 && watchedVideo && !signedConfirmation ? "sign" : "default";
-    return `video-page-${titleType}-title`;
-  };
-
-  const getSubtitle = () => {
-    if (points > 0) return "video-page-AnsweredOneYes";
-    const watchedVideoString = watchedVideo
-      ? "watchedVideo"
-      : "notWatchedVideo";
-    const SignedString = signedConfirmation
-      ? "signedConfirmation"
-      : "notSignedConfirmation";
-    return `video-page-subtitle-answeredAllNo-${watchedVideoString}-${SignedString}`;
-  };
 
   return (
     <Container>
       <StyledLanguageBar>
         <LanguageBar />
       </StyledLanguageBar>
-      <VideoPreviewTexts>
-        <Title>
-          <Translator>{getTitle()}</Translator>
-        </Title>
-
-        <Subtitle>{Translate(getSubtitle())}</Subtitle>
-      </VideoPreviewTexts>
-
+      <Title>
+        <Translator>Video-Title</Translator>
+      </Title>
       <Player setShowFeedback={setShowFeedback} />
-      <ShareWrapper>
+      <VideoInteraction>
         <VideoButtons />
-      </ShareWrapper>
-      <SatisfactionQuestions videoStarted={showFeedback} />
-
-      <Divider />
-
+        <SatisfactionQuestions videoStarted={showFeedback} />
+      </VideoInteraction>
+      <InstructionsContainer>
+        <InstructionsTitle>
+          <Translator>Video-Instructions-Title</Translator>
+        </InstructionsTitle>
+        {routinesInstructions.map(({ icon, paragraph }, index) => (
+          <Fragment key={index}>
+            <RoutineWrapper>
+              <img src={icon} alt={icon} />
+              <RoutineText>
+                <Translator>{paragraph}</Translator>
+              </RoutineText>
+            </RoutineWrapper>
+            <Divider />
+          </Fragment>
+        ))}
+      </InstructionsContainer>
       <Footer>
         <Translator>Footer</Translator>
       </Footer>
@@ -60,57 +50,94 @@ function VideoPage() {
 
 export default VideoPage;
 
+const routinesInstructions = [
+  {
+    icon: medicationsIcon,
+    paragraph: "Video-Routine-Medications",
+  },
+  {
+    icon: dietIcon,
+    paragraph: "Video-Routine-Diet",
+  },
+  {
+    icon: activityIcon,
+    paragraph: "Video-Routine-Activity",
+  },
+];
+
 const Container = styled.div`
-  --screen-texts-padding: 26px;
-  padding-block-start: 20px;
-  padding-block-end: 65px;
+  --screen-margin: 25px;
+  background: transparent
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #f1f4fb 10%,
+      #e3e8f6 53%,
+      #f5f7fc 85%,
+      #ffffff 100%
+    )
+    0% 0% no-repeat padding-box;
+  padding-block-end: 57px;
 `;
 
 const StyledLanguageBar = styled.div`
-  padding-inline: var(--screen-texts-padding);
+  margin-inline: var(--screen-margin);
 `;
 
-const VideoPreviewTexts = styled.div`
-  margin-inline: 23px;
+const InstructionsContainer = styled.div`
+  margin-block-start: 44px;
+  margin-inline: var(--screen-margin);
 `;
 
-const Title = styled.h1`
-  font-size: 1.625rem;
-  font-weight: 500;
-`;
-
-const Subtitle = styled.h3.attrs(({ children }) => {
-  if (
-    children ===
-    "video-page-subtitle-answeredAllNo-watchedVideo-signedConfirmation"
-  )
-    return { style: { display: "none" } };
-})`
-  font-weight: 400;
-  font-size: 1.1875rem;
-  margin-inline-end: 1.3125rem;
-`;
-
-const ShareWrapper = styled.div`
+const Title = styled.p`
   text-align: start;
+  font-size: 1.375rem;
+  font-weight: 500;
+  margin-block-start: 2.125rem;
+  margin-block-end: 1.813rem;
+  margin-inline: var(--screen-margin);
+`;
+
+const VideoInteraction = styled.div`
   display: flex;
-  justify-content: flex-end;
-  gap: 0.25rem;
-  margin-block-start: 0.6875rem;
-  margin-inline: var(--screen-texts-padding);
+  flex-direction: column;
+  gap: 27px;
+  justify-content: end;
+  margin-block-start: 18px;
+  margin-inline: var(--screen-margin);
+`;
+
+const Divider = styled.div`
+  height: 1px;
+  background-color: #84a4fb;
+  margin-block-end: 35px;
+  margin-block-start: 35px;
+  opacity: 0.3;
+`;
+
+const InstructionsTitle = styled.p`
+  text-align: start;
+  font-size: 1.375rem;
+  font-weight: 700;
+  margin-block-end: 36px;
+`;
+
+const RoutineWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 22px;
+`;
+
+const RoutineText = styled.p`
+  text-align: start;
+  font-size: 1.188rem;
+  font-weight: 400;
+  margin-block: 0;
 `;
 
 const Footer = styled.footer`
   font-weight: 500;
   text-align: center;
-  font-size: 1.5rem;
-  padding-inline: 1.2rem;
-`;
-
-const Divider = styled.div`
-  height: 1px;
-  border-radius: 2px;
-  background-color: #d6d6d6;
-  margin-block: 34px;
-  margin-inline: var(--screen-texts-padding);
+  font-size: 1.375rem;
+  padding-inline: 70px;
 `;

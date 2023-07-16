@@ -5,7 +5,6 @@ import styled from "styled-components";
 const texts = {
   openSms: "סמס נפתח",
   avatarSelection: "שאלון נענה",
-  signedConfirmation: "הנחיות אושרו",
   watchedVideo: "סרטון נצפה",
 };
 
@@ -22,7 +21,7 @@ const StepProgress = ({ item }) => {
             <TextContainer id="TextContainer">
               <Name color={color}>{texts[step]}</Name>
               <Time show={isDone}>
-                {new Date(time).toLocaleDateString("en-US", dateOptions)}
+                {new Date(time).toLocaleDateString(undefined, dateOptions)}
               </Time>
             </TextContainer>
 
@@ -49,6 +48,7 @@ const Line = styled.div`
   background-color: ${({ color }) => color};
   height: calc(100% - 1.5rem - 4px);
   width: 3px;
+  height: 50px;
 `;
 
 const OuterCircle = styled.div`
@@ -104,7 +104,6 @@ const SingleStepContainer = styled.div`
 const StyledStepProgress = styled.div`
   display: grid;
   grid-template-columns: auto 90px;
-  grid-template-rows: repeat(3, 1fr);
   width: 100%;
   height: 100%;
   grid-column-gap: 5%;

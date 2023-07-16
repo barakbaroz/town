@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import PropTypes from "prop-types";
+import { GeneralInput } from "./Giser.styled";
 
 const regex = new RegExp("^[0-9]*$");
 
@@ -35,24 +36,14 @@ PhoneInput.propTypes = {
 
 export default PhoneInput;
 
-const Input = styled.input`
-  border: 1px solid transparent;
-  transition: all 250ms ease-in;
-  background-color: #f5f6f8;
-  border-radius: 10px;
-  caret-color: #81a0f6;
-  font-size: 1.5rem;
-  padding-block: 16px;
-  padding-inline: 27px;
-  line-height: 33px;
+const Input = styled(GeneralInput)`
+  padding-inline: 1.688rem;
   width: 12.5rem;
-  outline: none;
-  font-family: "Poppins";
   direction: ltr;
 `;
 
 const Utility = styled.div`
   .invalid {
-    border: var(--invalid);
+    border-color: var(--invalid);
   }
 `;

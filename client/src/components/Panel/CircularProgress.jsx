@@ -48,9 +48,8 @@ CircularProgress.propTypes = {
 export default CircularProgress;
 
 const Container = styled.div`
-  max-width: 60%;
-  max-height: 60%;
-  height: 60%;
+  height: 60px;
+  width: 60px;
   aspect-ratio: 1;
   padding-left: 1rem;
 `;

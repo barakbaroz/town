@@ -5,12 +5,12 @@ import GisterStep from "../components/Gister/GisterStep";
 import PatientInformation from "../components/Gister/PatientInformation";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import DateSelector from "../components/Gister/DateSelector";
 import DuplicatePopUp from "../components/Gister/DuplicatePopUp";
+import MedicalBackground from "../components/Gister/MedicalBackground";
 
 function Gister() {
   const navigate = useNavigate();
-  const casesDataRef = useRef({});
+  const casesDataRef = useRef({ heartConditions: [], symptoms: [] });
   const [loading, setLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [showDuplicatePopup, setShowDuplicatePopup] = useState(false);
@@ -51,9 +51,6 @@ function Gister() {
       .finally(() => setLoading(false));
   };
 
-  const handleDateSelect = (operationType, date) =>
-    (casesDataRef.current[operationType] = date.toDate());
-
   return (
     <GisterContainer>
       <DuplicatePopUp
@@ -70,18 +67,18 @@ function Gister() {
           </GisterStep>
           <GisterStep
             stepNumber="02"
-            title="הזנת תאריכי טרום ניתוח"
+            title="רקע רפואי"
             subTitle="(ניתן לבחור יותר מתשובה אחת בכל השאלות)"
           >
-            <DateSelector onChange={handleDateSelect} label="label" />
+            <MedicalBackground casesDataRef={casesDataRef} />
           </GisterStep>
         </Flex>
-        <div>
+        <ButtonContainer>
           <ErrorTitle show={isError}>* חסרים נתונים להמשך תהליך</ErrorTitle>
           <SubmitButton disabled={loading} onClick={handleSubmit}>
             שליחה
           </SubmitButton>
-        </div>
+        </ButtonContainer>
       </Container>
     </GisterContainer>
   );
@@ -92,11 +89,11 @@ export default Gister;
 const validator = {
   zehutNumber: ({ zehutNumber }) => zehutNumber?.length === 4,
   phoneNumber: ({ phoneNumber }) => /^\d{10}$/.test(phoneNumber),
-  preSurgery: ({ preSurgery }) => Boolean(preSurgery),
+  heartConditions: ({ heartConditions }) => heartConditions.length > 0,
 };
 
 const GisterContainer = styled.div`
-  --invalid: 1px solid #f02a4c;
+  --invalid: #f02a4c;
   width: 100vw;
   height: 100vh;
   direction: rtl;
@@ -124,7 +121,8 @@ const SubmitButton = styled.button`
   width: fit-content;
   background: #f02a4c;
   border-radius: 27px;
-  padding: 0.5rem 3rem;
+  padding-block: 0.688rem;
+  padding-inline: 3.125rem;
   border: none;
   color: white;
   font-family: inherit;
@@ -140,4 +138,10 @@ const ErrorTitle = styled.p`
   font-size: 1.25rem;
   color: #f02a4c;
   visibility: ${({ show }) => (show ? "visible" : "hidden")};
+`;
+
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
