@@ -24,7 +24,7 @@ const Start = () => {
   return (
     <StartContainer id="StartContainer">
       <LanguageBar />
-      <Nurse id="MatotLandingPage" src={MatotLandingPage} />
+      <Nurse id="startPageNurse" src={nurse} />
       <div id="TextsContainer">
         <Title id="HelloTitle">
           <Translator>Start-Title</Translator>
