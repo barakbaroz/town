@@ -8,7 +8,7 @@ import { useState } from "react";
 
 function CaseItemButtons({ item }) {
   const [linkCopied, setLinkCopied] = useState(false);
-  const [videoType, setVideoType] = useState(null);
+  const [showVideo, setShowVideo] = useState(false);
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(
@@ -20,13 +20,16 @@ function CaseItemButtons({ item }) {
   return (
     <ButtonsColumn>
       <PanelVideo
-        close={() => setVideoType(null)}
+        close={() => setShowVideo(false)}
         item={item}
-        videoType={videoType}
+        show={showVideo}
       />
 
       <ButtonContainer>
-        <Button disabled={!item.age || !item.gender}>
+        <Button
+          disabled={!item.age || !item.gender}
+          onClick={() => setShowVideo(true)}
+        >
           <img src={PlayIcon} />
         </Button>
         <ActionText>נגן סרטון</ActionText>
