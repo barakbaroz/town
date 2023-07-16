@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import DropDown from "./DropDown";
+import GuidanceSwitcher from "./GuidanceSwitcher";
 import Black_X from "../../assets/Icons/black_X.svg";
 import searchLogo from "../../assets/Icons/search.svg";
 import gistLogo from "../../assets/Logos/gist_logo.svg";
@@ -35,7 +36,6 @@ function SearchBar({ search, setSearch }) {
       <HospitalLogoContainer>
         <Logo src={hospitalLogo} alt="Ichilov Logo" />
       </HospitalLogoContainer>
-
       <SearchHeader>
         <GreyWrapper>
           <SearchIcon src={searchLogo} />
@@ -47,6 +47,7 @@ function SearchBar({ search, setSearch }) {
           />
           <ClearId onClick={clearId} />
         </GreyWrapper>
+        <GuidanceSwitcher />
         <DropDown setSearch={setSearch} selectedOne={search.patientStatus} />
         <IconButton onClick={clearSearch}>
           <Reload />
