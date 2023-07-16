@@ -10,7 +10,7 @@ const CaseItemExpand = ({ item, show }) => {
 
       <Column style={{ width: "19%", gap: "26px" }}>
         <div>
-          <Text>פרטי קשר</Text>
+          <Text show={true}>פרטי קשר</Text>
           {item.User.phoneNumber}
         </div>
         <div>
