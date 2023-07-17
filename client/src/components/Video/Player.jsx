@@ -12,19 +12,20 @@ import PropTypes from "prop-types";
 function Player({ setShowFeedback }) {
   const userInfo = useContext(userContext);
   const { language } = useContext(LanguageContext);
-
   const params = useMemo(() => {
-    const { age, gender, ethnicity } = userInfo.Case;
+    const { age, gender, ethnicity, heartConditions, symptoms } = userInfo.Case;
     return {
       gender,
       age,
       language,
       ethnicity,
-      hospital: "ichilov",
+      heartConditions,
+      symptoms,
+      hospital: "clalit",
     };
   }, [language, userInfo]);
 
-  const { videoUrl } = useVideoUrl(params, "pediatric-pre-anesthesia");
+  const { videoUrl } = useVideoUrl(params, "heart-failure-community");
 
   const onLocationUpdate = useCallback(
     (percentage, location) => {

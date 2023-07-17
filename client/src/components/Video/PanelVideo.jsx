@@ -8,10 +8,20 @@ import videoThumbnail from "../../assets/videoThumbnail.png";
 
 const PanelVideo = ({ close, item, show }) => {
   const params = useMemo(() => {
-    return {};
-  }, []);
+    const { gender, age, ethnicity, User, heartConditions, symptoms } = item;
+    const { language } = User;
+    return {
+      gender,
+      age,
+      language,
+      ethnicity,
+      heartConditions,
+      symptoms,
+      hospital: "clalit",
+    };
+  }, [item]);
 
-  const { videoUrl } = useVideoUrl(params, "");
+  const { videoUrl } = useVideoUrl(params, "heart-failure-community");
 
   if (!show) return <></>;
 
@@ -39,19 +49,20 @@ export default PanelVideo;
 
 const Modal = styled.div`
   position: fixed;
+  display: flex;
   inset: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
 `;
 
 const VideoWrapper = styled.div`
   width: 60%;
-  pointer-events: all;
-  position: fixed;
-  top: 15%;
-  right: 20%;
 `;
+
 const Close = styled.img`
   font-size: 40px;
   font-weight: bold;

@@ -25,7 +25,12 @@ const router = createBrowserRouter([
   { index: true, element: <Navigate to="/Panel" /> },
   { path: "Login", element: <Login /> },
 
-  { path: "Panel", element: <Panel />, loader: panelLoader },
+  {
+    path: "Panel",
+    element: <Panel />,
+    loader: panelLoader,
+    errorElement: <ErrorElement />,
+  },
   { path: "Gister", element: <Gister /> },
   {
     path: "user/:userId",
