@@ -7,7 +7,9 @@ router.get("/assets/*", (req, res) => {
 });
 
 router.get("/*", (req, res) => {
-  res.sendFile(path.resolve(`./dist/index.html`));
+  res
+    .setHeader("Cache-Control", "no-cache")
+    .sendFile(path.resolve(`./dist/index.html`));
 });
 
 module.exports = router;
