@@ -9,7 +9,6 @@ const CaseItemExpand = ({ item, show }) => {
       <CaseItemButtons item={item} />
 
       <Column>
-        {/* <Test> */}
         <div>
           <Text show={true}>פרטי קשר</Text>
           {item.User.phoneNumber}
@@ -20,7 +19,6 @@ const CaseItemExpand = ({ item, show }) => {
             <div key={symptom}>{symptoms[symptom]}</div>
           ))}
         </div>
-        {/* </Test> */}
       </Column>
 
       <Column>
