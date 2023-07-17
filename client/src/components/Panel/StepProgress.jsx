@@ -104,7 +104,6 @@ const SingleStepContainer = styled.div`
 const StyledStepProgress = styled.div`
   display: grid;
   grid-template-columns: auto 75px;
-  grid-template-rows: repeat(3, 1fr);
   width: 100%;
   height: 100%;
   grid-column-gap: 5%;
