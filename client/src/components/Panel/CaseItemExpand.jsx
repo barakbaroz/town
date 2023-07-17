@@ -8,7 +8,8 @@ const CaseItemExpand = ({ item, show }) => {
     <Container show={show}>
       <CaseItemButtons item={item} />
 
-      <Column style={{ width: "19%", gap: "26px" }}>
+      <Column>
+        {/* <Test> */}
         <div>
           <Text show={true}>פרטי קשר</Text>
           {item.User.phoneNumber}
@@ -19,9 +20,10 @@ const CaseItemExpand = ({ item, show }) => {
             <div key={symptom}>{symptoms[symptom]}</div>
           ))}
         </div>
+        {/* </Test> */}
       </Column>
 
-      <Column style={{ gap: "23px" }}>
+      <Column>
         <TextArea
           defaultValue={item.Comment?.message}
           placeholder="הוספת הערה..."
@@ -29,9 +31,9 @@ const CaseItemExpand = ({ item, show }) => {
         />
       </Column>
 
-      <ProgressColumn>
+      <Column>
         <StepProgress item={item} />
-      </ProgressColumn>
+      </Column>
     </Container>
   );
 };
@@ -48,26 +50,23 @@ const symptoms = {
   chest_pain: "כאבים בחזה",
 };
 
-const Container = styled.div`
+export const ItemGrid = styled.div`
+  display: grid;
+  grid-template-columns: 10% 24.5% 29% 29%;
+  grid-column-gap: 2.5%;
+`;
+
+const Container = styled(ItemGrid)`
   height: ${({ show }) => (show ? "fit-content" : "0px")};
-  margin: 0 auto;
-  display: flex;
-  align-items: flex-start;
   overflow: hidden;
-  gap: 4%;
 `;
 
 const Column = styled.div`
   text-align: start;
   display: flex;
   flex-direction: column;
-  width: 29%;
-  height: 98%;
-  margin: 2rem 0;
-`;
-
-const ProgressColumn = styled(Column)`
-  width: 28%;
+  margin-block: 2rem;
+  gap: 1.5rem;
 `;
 
 const Text = styled.div`
@@ -91,7 +90,7 @@ const TextArea = styled.textarea`
   border: 1px #dfdfdf solid;
   border-radius: 15px;
   padding: 15px;
-  width: 94%;
   height: 6rem;
   cursor: not-allowed;
+  box-sizing: border-box;
 `;

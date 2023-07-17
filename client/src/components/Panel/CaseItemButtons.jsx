@@ -18,7 +18,7 @@ function CaseItemButtons({ item }) {
   };
 
   return (
-    <ButtonsColumn>
+    <Column>
       <PanelVideo
         close={() => setShowVideo(false)}
         item={item}
@@ -45,7 +45,7 @@ function CaseItemButtons({ item }) {
       <ButtonContainer>
         <PhoneInput item={item} />
       </ButtonContainer>
-    </ButtonsColumn>
+    </Column>
   );
 }
 
@@ -56,18 +56,11 @@ CaseItemButtons.propTypes = {
 };
 
 const Column = styled.div`
+  justify-content: space-around;
   text-align: start;
   display: flex;
   flex-direction: column;
-  width: 29%;
-  height: 98%;
   margin: 2rem 0;
-`;
-
-const ButtonsColumn = styled(Column)`
-  width: 10%;
-  justify-content: space-around;
-  gap: 1.5rem;
 `;
 
 const Button = styled.button`

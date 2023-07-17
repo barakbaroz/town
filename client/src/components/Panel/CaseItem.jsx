@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import styled from "styled-components";
 import CircularProgress from "./CircularProgress";
-import CaseItemExpand from "./CaseItemExpand";
+import CaseItemExpand, { ItemGrid } from "./CaseItemExpand";
 import DeletePopup from "./DeletePopup";
 import Trash from "../../assets/Icons/trash.svg";
 import Avatars from "../../assets/Avatars";
@@ -36,7 +36,7 @@ function CaseItem({ item, deleteCase }) {
           />
           <Line />
         </Avatar>
-        <Unit style={{ width: "19%" }}>
+        <Unit>
           <Heading>ת.ז {item.zehutNumber}</Heading>
           <SubHeadin>{getLengAndAge(item)}</SubHeadin>
         </Unit>
@@ -123,27 +123,20 @@ const Case = styled.div`
   background: white;
 `;
 
-const Container = styled.div`
-  height: 100px;
+const Container = styled(ItemGrid)`
+  grid-template-rows: 100px;
   border-radius: 15px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  background: white;
-  gap: 4%;
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.16);
   overflow: hidden;
+  box-shadow: 0px 3px 15px #00000029;
 `;
 
 const AvatarImage = styled.img`
   border-radius: 50%;
-  width: 75px;
-  height: 75px;
+  height: 80%;
 `;
 
 const Avatar = styled.div`
-  width: 10%;
-  height: 80%;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -156,8 +149,11 @@ const Line = styled.div`
 `;
 
 const Unit = styled.div`
-  width: 29%;
+  display: flex;
+  flex-direction: column;
   text-align: start;
+  align-items: start;
+  justify-content: center;
 `;
 
 const Heading = styled.div`
@@ -202,7 +198,6 @@ const ProgressText = styled.div`
 `;
 
 const EndPart = styled.div`
-  width: 30%;
-  height: 100%;
+  height: 100px;
   display: flex;
 `;

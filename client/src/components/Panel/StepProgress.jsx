@@ -48,7 +48,6 @@ const Line = styled.div`
   background-color: ${({ color }) => color};
   height: calc(100% - 1.5rem - 4px);
   width: 3px;
-  height: 50px;
 `;
 
 const OuterCircle = styled.div`
@@ -75,7 +74,6 @@ const TextContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2%;
-  margin-block-end: 17px;
 `;
 
 const Time = styled.div`
@@ -94,7 +92,9 @@ const SingleStepContainer = styled.div`
   align-items: center;
   flex-direction: column;
   padding-left: 1rem;
+  height: 65px;
   &:last-of-type {
+    height: auto;
     & > ${Line} {
       display: none;
     }
@@ -103,8 +103,11 @@ const SingleStepContainer = styled.div`
 
 const StyledStepProgress = styled.div`
   display: grid;
-  grid-template-columns: auto 90px;
+  grid-template-columns: auto 75px;
+  grid-template-rows: repeat(3, 1fr);
   width: 100%;
   height: 100%;
   grid-column-gap: 5%;
+  padding-inline-end: 10%;
+  box-sizing: border-box;
 `;
