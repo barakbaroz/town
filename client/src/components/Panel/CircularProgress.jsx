@@ -25,7 +25,7 @@ const CircularProgress = ({ maxValue, progress, strokeWidth }) => {
           progress={progress}
         />
         <Path
-          d="M 0 0 L 4.5 -4 l -5.92 5.919 l -2.546 -2.545 a 1.172 1.172 0 1 0 -1.657 1.657 l 3.374 3.374 a 1.172 1.172 0 0 0 1.657 0 l 6.749 -6.749 a 1.172 1.172 0 0 0 -1.657 -1.657 Z"
+          d="M 0 0 l 4.5 -4 l -5.92 5.919 l -2.546 -2.545 a 1.172 1.172 0 1 0 -1.657 1.657 l 3.374 3.374 a 1.172 1.172 0 0 0 1.657 0 l 6.749 -6.749 a 1.172 1.172 0 0 0 -1.657 -1.657 Z"
           fill="#fff"
           show={progress >= maxValue}
         />
@@ -116,7 +116,7 @@ CircularProgress.defaultProps = {
 
 const Path = styled.path`
   translate: 50% 50%;
-  scale: 2.5;
+  scale: 1.65;
   fill-opacity: 0%;
   ${({ show }) =>
     show &&
