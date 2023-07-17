@@ -10,31 +10,46 @@
 //and which reminder should we trigger next after userAction or after cronJob handle (if we need to trigger at all).
 
 const sendTime = [
-  "11:00",
-  "11:00",
-  "11:00",
-  "11:00",
-  "11:00",
+  "15:00",
+  "15:00",
+  "15:00",
+  "15:00",
+  "15:00",
   "10:00",
-  "20:00",
+  "20:50",
 ];
 
 const remindersInfo = {
-  firstReminders: {
-    id: "firstReminders",
-    text: "reminders",
-    sendAt: "1 days after creation",
-    sendTime: sendTime,
+  caseCreation: {
+    id: "caseCreation",
+    text: "CaseCreation",
+    sendAt: "immediate",
     onSend: [],
     onAction: {},
     dependencies: [],
   },
+  firstVideoReminder: {
+    id: "firstVideoReminder",
+    text: "FirstVideoReminder",
+    sendAt: "1 days after creation",
+    sendTime: sendTime,
+    onSend: ["secondVideoReminder"],
+    onAction: { "watched-video": [] },
+    dependencies: ["creation"],
+  },
+  secondVideoReminder: {
+    id: "secondVideoReminder",
+    text: "SecondVideoReminder",
+    sendAt: "2 days after creation",
+    sendTime: sendTime,
+    onSend: [],
+    onAction: { "watched-video": [] },
+    dependencies: ["creation"],
+  },
 };
 
 const independentAction = {
-  creationInsulinInjection: ["insulinFirstRemind"],
-  creationSugarTest: ["sugarTestFirstRemind"],
-  creationInsulinInjectionSugarTest: ["insulinSugarTestFirstRemind"],
+  "create-case": ["firstVideoReminder"],
 };
 
 module.exports = { remindersInfo, independentAction };

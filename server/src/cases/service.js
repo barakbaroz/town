@@ -96,9 +96,8 @@ module.exports.postCase = async ({
   });
   const CaseId = newCase.dataValues.id;
   const user = await Users.create({ CaseId, phoneNumber });
-  const actionKey = "creation";
-  await sms.action({ UserId: user.id, actionKey });
-  await sms.sendImmediate({ CaseId, type: actionKey, phoneNumber });
+  await sms.action({ UserId: user.id, actionKey: "create-case" });
+  await sms.sendImmediate({ CaseId, type: "caseCreation", phoneNumber });
 };
 
 module.exports.deleteCase = async ({ CaseId, staffMembersId }) => {

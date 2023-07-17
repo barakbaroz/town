@@ -1,5 +1,5 @@
 const { Op } = require("sequelize");
-const { independentAction } = require("./config");
+const { independentAction, remindersInfo } = require("./config");
 const getMessageTemplate = require("./templates");
 const { SmsTracking, SmsQueue, Users, Cases } = require("../models");
 const {
@@ -14,7 +14,8 @@ module.exports.sendImmediate = async ({ CaseId, type, phoneNumber }) => {
     include: Cases,
     where: { CaseId },
   });
-  const message = getMessageTemplate(type, user);
+  const {text} = remindersInfo[type];
+  const message = getMessageTemplate(text, user);
   await sendSms({ message, phoneNumber });
   await SmsTracking.create({ UserId: user.id, type, phoneNumber, message });
 };
