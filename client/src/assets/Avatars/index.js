@@ -14,8 +14,8 @@ import male_70_black from "./male_70_black.svg";
 
 const avatars = {
   blank,
-  "female_20-50_black": female_50_70_black,
-  "female_20-50_white": female_50_70_white,
+  "female_20-50_black": female_20_50_black,
+  "female_20-50_white": female_20_50_white,
   "female_50-70_black": female_50_70_black,
   "female_50-70_white": female_50_70_white,
   "female_70+_black": female_70_black,

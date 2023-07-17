@@ -115,24 +115,13 @@ export default CharacterSelection;
 
 const avatars = [
   {
-    key: "male_20-50_white",
-    fields: ["male", "20-50", "other"],
-    tags: { gender: "male", age: "20-50", ethnicity: "white" },
-  },
-  {
-    key: "male_20-50_black",
-    fields: ["male", "20-50", "other"],
-    tags: { gender: "male", age: "20-50", ethnicity: "black" },
-  },
-
-  {
     key: "male_50-70_white",
-    fields: ["male", "50-70", "other"],
+    fields: ["male", "20-50", "50-70", "other"],
     tags: { gender: "male", age: "50-70", ethnicity: "white" },
   },
   {
     key: "male_50-70_black",
-    fields: ["male", "50-70", "other"],
+    fields: ["male", "20-50", "50-70", "other"],
     tags: { gender: "male", age: "50-70", ethnicity: "black" },
   },
 
@@ -148,24 +137,13 @@ const avatars = [
   },
 
   {
-    key: "female_20-50_white",
-    fields: ["female", "20-50", "other"],
-    tags: { gender: "female", age: "20-50", ethnicity: "white" },
-  },
-  {
-    key: "female_20-50_black",
-    fields: ["female", "20-50", "other"],
-    tags: { gender: "female", age: "20-50", ethnicity: "black" },
-  },
-
-  {
     key: "female_50-70_white",
-    fields: ["female", "50-70", "other"],
+    fields: ["female", "20-50", "50-70", "other"],
     tags: { gender: "female", age: "50-70", ethnicity: "white" },
   },
   {
     key: "female_50-70_black",
-    fields: ["female", "50-70", "other"],
+    fields: ["female", "20-50", "50-70", "other"],
     tags: { gender: "female", age: "50-70", ethnicity: "black" },
   },
 
