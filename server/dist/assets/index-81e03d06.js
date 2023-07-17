@@ -563,21 +563,11 @@ browserWorkerPolyFill(self);
   height: 3.3rem;
 `,NewCase=styled.div`
   font-weight: 600;
-`;function useCasesSearch(s,i){const[a,o]=reactExports.useState(!0),[et,tt]=reactExports.useState(!1),[rt,it]=reactExports.useState([]),nt=st=>{it(at=>at.filter(lt=>lt.id!==st)),axios$1.delete("/api/cases/deleteCase",{data:{CaseId:st}}).then(i).catch(()=>it(rt))};return reactExports.useEffect(()=>{o(!0),tt(!1),it([]);let st;return axios$1({method:"POST",url:"/api/cases/search",data:{search:s},cancelToken:new axios$1.CancelToken(at=>st=at)}).then(at=>{it(at.data),o(!1)}).catch(at=>{axios$1.isCancel(at)||(tt(!0),o(!1))}),()=>st()},[s]),{loading:a,error:et,cases:rt,deleteCase:nt}}const mark="/assets/mark-f51d6ed6.svg",CircularProgress=({maxValue:s,progress:i,strokeWidth:a,startDegrees:o})=>jsxRuntimeExports.jsxs(Container$h,{children:[jsxRuntimeExports.jsxs(SVG,{children:[jsxRuntimeExports.jsx(BackCircle,{stroke:"#DDDDDD",cx:"50%",cy:"50%",strokeWidth:a,fillOpacity:"0%",center:"50%"}),jsxRuntimeExports.jsx(FrontCircle,{stroke:"#84A4FC",fill:"#84A4FC",cx:"50%",cy:"50%",strokeWidth:a,strokeLinecap:"round",fillOpacity:"0%",startDegrees:o,maxValue:s,progress:i}),"$"]}),i>=s&&jsxRuntimeExports.jsx(Icons,{src:mark})]});CircularProgress.propTypes={maxValue:PropTypes.number,progress:PropTypes.number,strokeWidth:PropTypes.number,startDegrees:PropTypes.number};const Container$h=styled.div`
+`;function useCasesSearch(s,i){const[a,o]=reactExports.useState(!0),[et,tt]=reactExports.useState(!1),[rt,it]=reactExports.useState([]),nt=st=>{it(at=>at.filter(lt=>lt.id!==st)),axios$1.delete("/api/cases/deleteCase",{data:{CaseId:st}}).then(i).catch(()=>it(rt))};return reactExports.useEffect(()=>{o(!0),tt(!1),it([]);let st;return axios$1({method:"POST",url:"/api/cases/search",data:{search:s},cancelToken:new axios$1.CancelToken(at=>st=at)}).then(at=>{it(at.data),o(!1)}).catch(at=>{axios$1.isCancel(at)||(tt(!0),o(!1))}),()=>st()},[s]),{loading:a,error:et,cases:rt,deleteCase:nt}}const CircularProgress=({maxValue:s,progress:i,strokeWidth:a})=>jsxRuntimeExports.jsx(Container$h,{children:jsxRuntimeExports.jsxs(SVG,{children:[jsxRuntimeExports.jsx(BackCircle,{stroke:"#DDDDDD",cx:"50%",cy:"50%",strokeWidth:a,fillOpacity:"0%",center:"50%"}),jsxRuntimeExports.jsx(FrontCircle,{stroke:"#84A4FC",fill:"#84A4FC",cx:"50%",cy:"50%",strokeWidth:a,strokeLinecap:"round",fillOpacity:"0%",maxValue:s,progress:i}),jsxRuntimeExports.jsx(Path,{d:"M 0 0 L 4.5 -4 l -5.92 5.919 l -2.546 -2.545 a 1.172 1.172 0 1 0 -1.657 1.657 l 3.374 3.374 a 1.172 1.172 0 0 0 1.657 0 l 6.749 -6.749 a 1.172 1.172 0 0 0 -1.657 -1.657 Z",fill:"#fff",show:i>=s})]})});CircularProgress.propTypes={maxValue:PropTypes.number,progress:PropTypes.number,strokeWidth:PropTypes.number};const Container$h=styled.div`
   height: 60px;
   width: 60px;
   aspect-ratio: 1;
   padding-left: 1rem;
-`,Icons=styled.img`
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 55%;
-  left: 50%;
-  height: 25%;
-  width: 25%;
-  transform: translate(0, -70%);
 `,BackCircle=styled.circle`
   ${({strokeWidth:s})=>Ae`
       r: calc(50% - ${s} / 2);
@@ -611,15 +601,22 @@ to {
   `,FrontCircle=styled.circle`
   stroke-dasharray: calc(${Math.PI} * 100%);
   transform-origin: center;
-  ${({maxValue:s,progress:i,strokeWidth:a,startDegrees:o})=>Ae`
+  ${({maxValue:s,progress:i,strokeWidth:a})=>Ae`
       r: calc(50% - ${a} / 2);
-      transform: rotate(${o}deg);
+      transform: rotate(-45deg);
       ${chooseAnimation({maxValue:s,progress:i})}
     `};
 `,SVG=styled.svg`
   height: 100%;
   width: 100%;
-`;CircularProgress.defaultProps={progress:0,maxValue:100,strokeWidth:"12%",startDegrees:-45};const texts$1={openSms:"סמס נפתח",avatarSelection:"שאלון נענה",watchedVideo:"סרטון נצפה"},dateOptions$1={year:"2-digit",month:"2-digit",day:"2-digit"},StepProgress=({item:s})=>jsxRuntimeExports.jsx(StyledStepProgress,{id:"StyledStepProgress",children:Object.entries(s.CasesProgress).map(([i,a])=>{const o=!!a,et=o?"#84a4fc":"#dddddd";return jsxRuntimeExports.jsxs(reactExports.Fragment,{children:[jsxRuntimeExports.jsxs(TextContainer,{id:"TextContainer",children:[jsxRuntimeExports.jsx(Name$1,{color:et,children:texts$1[i]}),jsxRuntimeExports.jsx(Time,{show:o,children:new Date(a).toLocaleDateString(void 0,dateOptions$1)})]}),jsxRuntimeExports.jsxs(SingleStepContainer,{id:"SingleStepContainer",children:[jsxRuntimeExports.jsx(OuterCircle,{color:et,children:jsxRuntimeExports.jsx(InnerCircle,{show:o})}),jsxRuntimeExports.jsx(Line$2,{color:et})]})]},i)})});StepProgress.propTypes={item:PropTypes.object};const Line$2=styled.div`
+`;CircularProgress.defaultProps={progress:0,maxValue:100,strokeWidth:"12%"};const Path=styled.path`
+  translate: 50% 50%;
+  scale: 2.5;
+  fill-opacity: 0%;
+  ${({show:s})=>s&&Ae`
+      animation: ${completed} 2s ease-in-out forwards;
+    `}
+`,texts$1={openSms:"סמס נפתח",avatarSelection:"שאלון נענה",watchedVideo:"סרטון נצפה"},dateOptions$1={year:"2-digit",month:"2-digit",day:"2-digit"},StepProgress=({item:s})=>jsxRuntimeExports.jsx(StyledStepProgress,{id:"StyledStepProgress",children:Object.entries(s.CasesProgress).map(([i,a])=>{const o=!!a,et=o?"#84a4fc":"#dddddd";return jsxRuntimeExports.jsxs(reactExports.Fragment,{children:[jsxRuntimeExports.jsxs(TextContainer,{id:"TextContainer",children:[jsxRuntimeExports.jsx(Name$1,{color:et,children:texts$1[i]}),jsxRuntimeExports.jsx(Time,{show:o,children:new Date(a).toLocaleDateString(void 0,dateOptions$1)})]}),jsxRuntimeExports.jsxs(SingleStepContainer,{id:"SingleStepContainer",children:[jsxRuntimeExports.jsx(OuterCircle,{color:et,children:jsxRuntimeExports.jsx(InnerCircle,{show:o})}),jsxRuntimeExports.jsx(Line$2,{color:et})]})]},i)})});StepProgress.propTypes={item:PropTypes.object};const Line$2=styled.div`
   background-color: ${({color:s})=>s};
   height: calc(100% - 1.5rem - 4px);
   width: 3px;
@@ -874,7 +871,7 @@ to {
     background-color: #f02a4c;
     color: white;
   }
-`,Trash="/assets/trash-94ba5625.svg",blank="/assets/blank-0cf29935.svg",female_20_50_black="/assets/female_20_50_black-5bb8a225.svg",female_20_50_white="/assets/female_20_50_white-1ab0cd36.svg",female_50_70_black="/assets/female_50_70_black-f12ab9dd.svg",female_50_70_white="/assets/female_50_70_white-c65d8c8b.svg",female_70_black="/assets/female_70_black-3deb9d3a.svg",female_70_white="/assets/female_70_white-d52862df.svg",male_20_50_black="/assets/male_20_50_black-739592bb.svg",male_20_50_white="/assets/male_20_50_white-d33087d6.svg",male_50_70_black="/assets/male_50_70_black-7afbe35b.svg",male_50_70_white="/assets/male_50_70_white-a4f1f45e.svg",male_70_white="/assets/male_70_white-42cb9919.svg",male_70_black="/assets/male_70_black-624cd958.svg",avatars$1={blank,"female_20-50_black":female_20_50_black,"female_20-50_white":female_20_50_white,"female_50-70_black":female_50_70_black,"female_50-70_white":female_50_70_white,"female_70+_black":female_70_black,"female_70+_white":female_70_white,"male_20-50_black":male_20_50_black,"male_20-50_white":male_20_50_white,"male_50-70_black":male_50_70_black,"male_50-70_white":male_50_70_white,"male_70+_white":male_70_white,"male_70+_black":male_70_black};function PopUp({children:s,isPreviewOpen:i}){const a=reactExports.useRef(null);return reactExports.useEffect(()=>(a.current.style.top=window.scrollY+"px",document.body.style.overflow="hidden",()=>document.body.style.overflow="unset"),[]),jsxRuntimeExports.jsx(PopUpContainer,{ref:a,isPreviewOpen:i,children:jsxRuntimeExports.jsx(PopUpContentWrapper,{onClick:o=>o.stopPropagation(),children:s})})}PopUp.propTypes={children:PropTypes.node,isPreviewOpen:PropTypes.bool};const PopUpContainer=styled.div`
+`,Trash="/assets/trash-94ba5625.svg",blank="/assets/blank-0cf29935.svg",female_50_70_black="/assets/female_50_70_black-fa46b856.svg",female_50_70_white="/assets/female_50_70_white-c65d8c8b.svg",female_70_black="/assets/female_70_black-5562b8c2.svg",female_70_white="/assets/female_70_white-d52862df.svg",male_20_50_black="/assets/male_20_50_black-cde1d7cc.svg",male_20_50_white="/assets/male_20_50_white-d33087d6.svg",male_50_70_black="/assets/male_50_70_black-03f82cd6.svg",male_50_70_white="/assets/male_50_70_white-a4f1f45e.svg",male_70_white="/assets/male_70_white-42cb9919.svg",male_70_black="/assets/male_70_black-bd8630b5.svg",avatars$1={blank,"female_20-50_black":female_50_70_black,"female_20-50_white":female_50_70_white,"female_50-70_black":female_50_70_black,"female_50-70_white":female_50_70_white,"female_70+_black":female_70_black,"female_70+_white":female_70_white,"male_20-50_black":male_20_50_black,"male_20-50_white":male_20_50_white,"male_50-70_black":male_50_70_black,"male_50-70_white":male_50_70_white,"male_70+_white":male_70_white,"male_70+_black":male_70_black};function PopUp({children:s,isPreviewOpen:i}){const a=reactExports.useRef(null);return reactExports.useEffect(()=>(a.current.style.top=window.scrollY+"px",document.body.style.overflow="hidden",()=>document.body.style.overflow="unset"),[]),jsxRuntimeExports.jsx(PopUpContainer,{ref:a,isPreviewOpen:i,children:jsxRuntimeExports.jsx(PopUpContentWrapper,{onClick:o=>o.stopPropagation(),children:s})})}PopUp.propTypes={children:PropTypes.node,isPreviewOpen:PropTypes.bool};const PopUpContainer=styled.div`
   display: ${({isPreviewOpen:s})=>s?"flex":"none"};
   z-index: 10; /* Sit on top */
   position: absolute;
