@@ -98,5 +98,8 @@ const Megaphone = styled(Lottie).attrs({ animationData: notificationCopy })`
   height: 229px;
 `;
 const TextWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-block-end: 49px;
 `;
