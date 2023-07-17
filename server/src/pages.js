@@ -8,7 +8,7 @@ router.get("/assets/*", (req, res) => {
 
 router.get("/*", (req, res) => {
   res
-    .setHeader("Cache-Control", "no-cache")
+    .setHeader("Cache-Control", "no-cache, no-store, must-revalidate")
     .sendFile(path.resolve(`./dist/index.html`));
 });
 
