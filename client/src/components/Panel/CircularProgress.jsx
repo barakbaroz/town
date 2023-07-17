@@ -1,13 +1,7 @@
 import PropTypes from "prop-types";
 import styled, { css, keyframes } from "styled-components";
-import mark from "../../assets/Icons/mark.svg";
 
-const CircularProgress = ({
-  maxValue,
-  progress,
-  strokeWidth,
-  startDegrees,
-}) => {
+const CircularProgress = ({ maxValue, progress, strokeWidth }) => {
   return (
     <Container>
       <SVG>
@@ -27,13 +21,15 @@ const CircularProgress = ({
           strokeWidth={strokeWidth}
           strokeLinecap="round"
           fillOpacity="0%"
-          startDegrees={startDegrees}
           maxValue={maxValue}
           progress={progress}
         />
-        $
+        <Path
+          d="M 0 0 L 4.5 -4 l -5.92 5.919 l -2.546 -2.545 a 1.172 1.172 0 1 0 -1.657 1.657 l 3.374 3.374 a 1.172 1.172 0 0 0 1.657 0 l 6.749 -6.749 a 1.172 1.172 0 0 0 -1.657 -1.657 Z"
+          fill="#fff"
+          show={progress >= maxValue}
+        />
       </SVG>
-      {progress >= maxValue && <Icons src={mark} />}
     </Container>
   );
 };
@@ -42,7 +38,6 @@ CircularProgress.propTypes = {
   maxValue: PropTypes.number,
   progress: PropTypes.number,
   strokeWidth: PropTypes.number,
-  startDegrees: PropTypes.number,
 };
 
 export default CircularProgress;
@@ -52,18 +47,6 @@ const Container = styled.div`
   width: 60px;
   aspect-ratio: 1;
   padding-left: 1rem;
-`;
-
-const Icons = styled.img`
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  top: 55%;
-  left: 50%;
-  height: 25%;
-  width: 25%;
-  transform: translate(0, -70%);
 `;
 
 const BackCircle = styled.circle`
@@ -112,10 +95,10 @@ const chooseAnimation = ({ maxValue, progress }) => {
 const FrontCircle = styled.circle`
   stroke-dasharray: calc(${Math.PI} * 100%);
   transform-origin: center;
-  ${({ maxValue, progress, strokeWidth, startDegrees }) =>
+  ${({ maxValue, progress, strokeWidth }) =>
     css`
       r: calc(50% - ${strokeWidth} / 2);
-      transform: rotate(${startDegrees}deg);
+      transform: rotate(-45deg);
       ${chooseAnimation({ maxValue, progress })}
     `};
 `;
@@ -129,5 +112,15 @@ CircularProgress.defaultProps = {
   progress: 0,
   maxValue: 100,
   strokeWidth: "12%",
-  startDegrees: -45,
 };
+
+const Path = styled.path`
+  translate: 50% 50%;
+  scale: 2.5;
+  fill-opacity: 0%;
+  ${({ show }) =>
+    show &&
+    css`
+      animation: ${completed} 2s ease-in-out forwards;
+    `}
+`;
