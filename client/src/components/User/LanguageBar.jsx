@@ -8,6 +8,9 @@ function LanguageBar() {
     useContext(LanguageContext);
   const { id: userId } = useContext(userContext);
 
+  return <span></span>;
+
+  /* eslint-disable no-unreachable */
   return (
     <GistLanguageBar
       selectedLanguage={selectedLanguage}
