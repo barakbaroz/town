@@ -92,9 +92,8 @@ const SingleStepContainer = styled.div`
   align-items: center;
   flex-direction: column;
   padding-left: 1rem;
-  height: 65px;
+  height: 80px;
   &:last-of-type {
-    height: auto;
     & > ${Line} {
       display: none;
     }
@@ -107,6 +106,7 @@ const StyledStepProgress = styled.div`
   width: 100%;
   height: 100%;
   grid-column-gap: 5%;
+  grid-template-rows: repeat(3, 1fr);
   padding-inline-end: 10%;
   box-sizing: border-box;
 `;
