@@ -54,7 +54,7 @@ SingleQuestion.propTypes = {
 const FeedBackWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 0.75rem;
   opacity: ${({ show }) => (show ? 1 : 0)};
   height: ${({ show }) => (show ? 1 : 0)};
   transition: opacity 200ms linear;
@@ -70,7 +70,7 @@ const FeedbackTitle = styled.div`
 const Answers = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem;
+  gap: 0.625rem;
 `;
 const Answer = styled.button`
   border: 1.5px solid #84a4fc;

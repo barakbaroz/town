@@ -10,6 +10,7 @@ import male_20_50_white from "./male_20_50_white.svg";
 import male_50_70_black from "./male_50_70_black.svg";
 import male_50_70_white from "./male_50_70_white.svg";
 import male_70_white from "./male_70_white.svg";
+import male_70_black from "./male_70_black.svg";
 
 const avatars = {
   blank,
@@ -24,5 +25,6 @@ const avatars = {
   "male_50-70_black": male_50_70_black,
   "male_50-70_white": male_50_70_white,
   "male_70+_white": male_70_white,
+  "male_70+_black": male_70_black,
 };
 export default avatars;
