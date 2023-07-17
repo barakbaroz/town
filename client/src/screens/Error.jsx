@@ -5,10 +5,9 @@ import styled from "styled-components";
 
 function ErrorElement() {
   const error = useRouteError();
-  console.log(error.response.statusText);
-  if (error.response?.statusText === "Forbidden")
-    return <Navigate to="/login" />;
-  if (error.response?.statusText === "Not Found") return <NotFound />;
+  console.log(error.response);
+  if (error.response?.status === 403) return <Navigate to="/login" />;
+  if (error.response?.status === 404) return <NotFound />;
   return (
     <Page>
       <Container>
