@@ -1,14 +1,14 @@
 import { useCallback, useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { LanguageContext } from "../components/Translation";
+import { useNavigate } from "react-router-dom";
 
 export default function useUserInfo(userId) {
   const { setLanguage } = useContext(LanguageContext);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [userInfo, setUserInfo] = useState({
-    Case: { age: "0-3", gender: "male", race: "white" },
-  });
+  const [userInfo, setUserInfo] = useState({ Case: {} });
+  const navigate = useNavigate();
 
   const updateCase = (newData) => {
     setUserInfo((prev) => ({ ...prev, Case: { ...prev.Case, ...newData } }));
@@ -28,11 +28,12 @@ export default function useUserInfo(userId) {
         setUserInfo(res.data);
         setLoading(false);
       })
-      .catch(() => {
+      .catch((error) => {
+        if (error.response?.status === 404) return navigate("/NotFound");
         setError(true);
         setLoading(false);
       });
-  }, [setLanguage, userId]);
+  }, [navigate, setLanguage, userId]);
 
   useEffect(() => {
     fetch();
