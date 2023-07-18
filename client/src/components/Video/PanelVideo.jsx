@@ -21,7 +21,10 @@ const PanelVideo = ({ close, item, show }) => {
     };
   }, [item]);
 
-  const { videoUrl } = useVideoUrl(params, "heart-failure-community");
+  const { videoUrl } = useVideoUrl(
+    show ? params : null,
+    "heart-failure-community"
+  );
 
   if (!show) return <></>;
 
