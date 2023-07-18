@@ -1,13 +1,14 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import styled from "styled-components";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import LanguageBar from "../components/User/LanguageBar";
 import nurse from "../assets/Start/nurse.svg";
 import { Translator } from "../components/Translation";
 import postAnalytics from "../utilities/postAnalytics";
+import { userContext } from "../providers/UserProvider";
 
 const Start = () => {
-  const { userId } = useParams();
+  const { id: userId, Case } = useContext(userContext);
 
   const handleLegalLinkClick = () => {
     postAnalytics({ userId, type: "opened-tos" });
@@ -36,7 +37,7 @@ const Start = () => {
       <BottomContentContainer>
         <StartButton
           id="StartButton"
-          to="../CharacterSelection"
+          to={Case.age && Case.gender ? "../Video" : "../CharacterSelection"}
           onClick={handleStartClick}
         >
           <Translator>Next</Translator>
