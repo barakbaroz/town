@@ -1,5 +1,4 @@
 import { useRouteError, Navigate } from "react-router-dom";
-import NotFound from "./NotFound";
 import NotFoundLogo from "../assets/Logos/404Logo.svg";
 import styled from "styled-components";
 
@@ -7,7 +6,7 @@ function ErrorElement() {
   const error = useRouteError();
   console.log(error.response);
   if (error.response?.status === 403) return <Navigate to="/login" />;
-  if (error.response?.status === 404) return <NotFound />;
+  if (error.response?.status === 404) return <Navigate to="/NotFound" />;
   return (
     <Page>
       <Container>
