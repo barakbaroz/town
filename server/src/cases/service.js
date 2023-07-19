@@ -28,6 +28,7 @@ const casesProgressFilter = {
   avatarSelection: {
     where: {
       avatarSelection: { [Op.ne]: null },
+      watchedVideo: { [Op.eq]: null },
     },
   },
   watchedVideo: {
