@@ -4,7 +4,7 @@ import { LanguageContext } from "../components/Translation";
 import { useNavigate } from "react-router-dom";
 
 export default function useUserInfo(userId) {
-  const { setLanguage } = useContext(LanguageContext);
+  const { setLanguage, setGender } = useContext(LanguageContext);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [userInfo, setUserInfo] = useState({ Case: {} });
@@ -25,6 +25,7 @@ export default function useUserInfo(userId) {
     })
       .then((res) => {
         setLanguage(res.data.language);
+        setGender(res.data.gender);
         setUserInfo(res.data);
         setLoading(false);
       })
@@ -33,7 +34,7 @@ export default function useUserInfo(userId) {
         setError(true);
         setLoading(false);
       });
-  }, [navigate, setLanguage, userId]);
+  }, [navigate, setGender, setLanguage, userId]);
 
   useEffect(() => {
     fetch();
