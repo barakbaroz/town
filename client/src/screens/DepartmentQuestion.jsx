@@ -11,22 +11,41 @@ function DepartmentQuestion() {
         <Translator>לאיזו מחלקה זומנת?</Translator>
       </Title>
 
-      <Select id="cars" name="carlist" onChange={() => setAnswered(true)}>
-        {!answered && (
-          <Option value="" disabled selected hidden>
-            <Translator>לחץ לבחירת תשובה</Translator>
-          </Option>
-        )}
-        <Option value="volvo">Volvo</Option>
-        <Option value="saab">Saab</Option>
-        <Option value="opel">Opel</Option>
-        <Option value="audi">Audi</Option>
-      </Select>
+      <SelectContainer>
+        <Select id="cars" name="carlist" onChange={() => setAnswered(true)}>
+          {!answered && (
+            <Option value="" disabled selected hidden>
+              <Translator>לחץ לבחירת תשובה</Translator>
+            </Option>
+          )}
+          <Option value="volvo">Volvo</Option>
+          <Option value="saab">Saab</Option>
+          <Option value="opel">Opel</Option>
+          <Option value="audi">Audi</Option>
+        </Select>
+      </SelectContainer>
     </AuthQuestionLayout>
   );
 }
 
 export default DepartmentQuestion;
+
+const SelectContainer = styled.div`
+  position: relative;
+  &::after {
+    font-size: 1rem;
+    text-align: center;
+    content: "X";
+    color: #84a4fc;
+    position: absolute;
+    pointer-events: none;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    margin-inline-end: 10px;
+  }
+`;
+
 const Select = styled.select`
   font-size: 1.1875rem;
   -webkit-appearance: none;
