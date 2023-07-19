@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useMemo } from "react";
 import styled from "styled-components";
-import X_Icon from "../../assets/Icons/black_X.svg";
+import X_Icon from "../../assets/Icons/white_X.svg";
 import useVideoUrl from "../../hooks/useVideoUrl";
 import { Player as GistPlayer } from "@gistmed/gist-ui";
 import videoThumbnail from "../../assets/videoThumbnail.png";
@@ -72,7 +72,7 @@ const Close = styled.img`
   cursor: pointer;
   z-index: 1;
   color: white;
-  left: 40px;
-  top: 20px;
+  left: 44px;
+  top: 40px;
   position: absolute;
 `;
