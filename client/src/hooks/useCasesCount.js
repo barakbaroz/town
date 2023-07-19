@@ -27,9 +27,6 @@ export default function useCasesCount(search) {
       })
       .catch((e) => {
         if (axios.isCancel(e)) return;
-        if (e.response.status === 401 || e.response.status === 403) {
-          navigate("/login");
-        }
         setError(true);
         setLoading(false);
       });
