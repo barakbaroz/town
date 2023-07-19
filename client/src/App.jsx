@@ -16,6 +16,10 @@ import NotFound from "./screens/NotFound";
 import CharacterSelection from "./screens/CharacterSelection";
 import VideoPage from "./screens/VideoPage";
 import panelLoader from "./Loaders/panelLoader";
+import ZehutQuestion from "./screens/ZehutQuestion";
+import AuthenticationLayout from "./layouts/AuthenticationLayout";
+import DateOfBirthQuestion from "./screens/DateOfBirthQuestion";
+import DepartmentQuestion from "./screens/DepartmentQuestion";
 
 const App = () => {
   return <RouterProvider router={router} />;
@@ -32,6 +36,15 @@ const router = createBrowserRouter([
     errorElement: <ErrorElement />,
   },
   { path: "Gister", element: <Gister /> },
+  {
+    path: "AuthenticationLayout/:userId",
+    element: <AuthenticationLayout />,
+    children: [
+      { path: "Zehut", element: <ZehutQuestion /> },
+      { path: "DateOfBirth", element: <DateOfBirthQuestion /> },
+      { path: "Department", element: <DepartmentQuestion /> },
+    ],
+  },
   {
     path: "user/:userId",
     element: <UserLayout />,
