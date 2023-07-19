@@ -1,3 +1,4 @@
+import axios from "axios";
 import PropTypes from "prop-types";
 import { useState, createContext, useCallback } from "react";
 export const LanguageContext = createContext();
@@ -15,7 +16,7 @@ function LanguageProvider({ children }) {
   const updateLanguage = ({ userId, language }) => {
     setLanguage(language);
     if (!userId) return;
-    // axios.put(`/api/users/update`, { language, userId });
+    axios.put(`/api/users/update`, { language, userId });
   };
 
   return (
