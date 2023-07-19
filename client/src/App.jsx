@@ -22,7 +22,7 @@ const App = () => {
 };
 
 const router = createBrowserRouter([
-  { index: true, element: <Navigate to="/Panel" /> },
+  { path: "", element: <Navigate to="/Panel" /> },
   { path: "Login", element: <Login /> },
 
   {
