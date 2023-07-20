@@ -1,9 +1,8 @@
 import styled from "styled-components";
 import { Translator } from "./Translation";
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
-function AuthQuestionLayout({ children, index, nextRoute }) {
+function AuthQuestionLayout({ children, index }) {
   return (
     <>
       <ProgressContainer>
@@ -11,10 +10,6 @@ function AuthQuestionLayout({ children, index, nextRoute }) {
       </ProgressContainer>
 
       <QuestionContainer>{children}</QuestionContainer>
-
-      <SubmitButton to={`../${nextRoute}`}>
-        <Translator>שלח</Translator>
-      </SubmitButton>
     </>
   );
 }
@@ -22,7 +17,7 @@ function AuthQuestionLayout({ children, index, nextRoute }) {
 AuthQuestionLayout.propTypes = {
   children: PropTypes.node,
   index: PropTypes.number,
-  nextRoute: PropTypes.string,
+  onNext: PropTypes.func,
 };
 
 export default AuthQuestionLayout;
@@ -41,24 +36,4 @@ const ProgressContainer = styled.div`
   color: #7a9dfd;
   margin-block-end: 3rem;
   margin-inline: var(--question-padding);
-`;
-
-const SubmitButton = styled(Link)`
-  text-decoration: none;
-  margin-top: auto;
-  margin-block-end: 40px;
-  margin-inline: var(--question-padding);
-  border-radius: 3rem;
-  border: none;
-  background-color: #f02a4c;
-  padding: 0.7rem;
-  width: 60%;
-  color: white;
-  font-size: 1rem;
-  cursor: pointer;
-  font-family: inherit;
-  transition: all 200ms linear;
-  &:disabled {
-    opacity: 0.3;
-  }
 `;
