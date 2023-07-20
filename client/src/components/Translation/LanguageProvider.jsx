@@ -13,10 +13,9 @@ function LanguageProvider({ children }) {
     setDirection(directions[newLanguage]);
   }, []);
 
-  const updateLanguage = ({ userId, language }) => {
+  const updateLanguage = ({ language }) => {
     setLanguage(language);
-    if (!userId) return;
-    axios.put(`/api/users/update`, { language, userId });
+    axios.put(`/api/users/update`, { language });
   };
 
   return (

@@ -1,26 +1,23 @@
-import { useContext, useEffect } from "react";
+import { useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import LanguageBar from "../components/User/LanguageBar";
 import nurse from "../assets/Start/nurse.svg";
 import { Translator } from "../components/Translation";
-import postAnalytics from "../utilities/postAnalytics";
-import { userContext } from "../providers/UserProvider";
+import postAnalytics from "../postAnalytics";
 
 const Start = () => {
-  const { id: userId, Case } = useContext(userContext);
-
   const handleLegalLinkClick = () => {
-    postAnalytics({ userId, type: "opened-tos" });
+    postAnalytics({ type: "opened-tos" });
   };
 
   const handleStartClick = () => {
-    postAnalytics({ userId, type: "start-button-clicked" });
+    postAnalytics({ type: "start-button-clicked" });
   };
 
   useEffect(() => {
-    postAnalytics({ userId, type: "opened-sms" });
-  }, [userId]);
+    postAnalytics({ type: "opened-sms" });
+  }, []);
 
   return (
     <StartContainer id="StartContainer">

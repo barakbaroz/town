@@ -1,10 +1,9 @@
-import { Link, useParams } from "react-router-dom";
-import postAnalytics from "../../utilities/postAnalytics";
+import { Link } from "react-router-dom";
+import postAnalytics from "../../postAnalytics";
 
 function PrivacyText() {
-  const { userId } = useParams();
   const handlePrivacyClick = () => {
-    postAnalytics({ userId, type: "Privacy-legal-link-clicked" });
+    postAnalytics({ type: "Privacy-legal-link-clicked" });
   };
   return (
     <>
