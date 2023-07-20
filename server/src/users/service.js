@@ -22,6 +22,7 @@ module.exports.getData = async ({ userId }) => {
           "heartConditions",
           "symptoms",
         ],
+        include: CasesProgress,
       },
     ],
   });
@@ -36,6 +37,7 @@ const typeToColumn = {
   "opened-sms": "openSms",
   "general-information-answered": "avatarSelection",
   "watched-video": "watchedVideo",
+  "feedback-answer": "feedbackAnswer",
 };
 
 const updateCasesProgress = async ({ UserId, type }) => {
@@ -57,6 +59,7 @@ const updateCasesProgress = async ({ UserId, type }) => {
 };
 
 module.exports.userAction = async ({ UserId, type, data }) => {
+  console.log({ UserId, type, data });
   await UserActions.create({ UserId, type, data });
   await sms.action({ UserId, actionKey: type });
   await updateCasesProgress({ UserId, type });
