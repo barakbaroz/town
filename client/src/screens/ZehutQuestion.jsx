@@ -16,7 +16,6 @@ function ZehutQuestion() {
       answer: zehut,
       nextRoute: "DateOfBirth",
     });
-    console.log(zehut);
   };
 
   return (
