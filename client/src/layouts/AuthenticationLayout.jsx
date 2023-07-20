@@ -17,6 +17,11 @@ function AuthenticationLayout() {
   const answersRef = useRef(state || {});
   const navigate = useNavigate();
 
+  const reset = () => {
+    setButtonEnable(false);
+    answersRef.current = {};
+  };
+
   const updateAnswers = ({ questionName, answer, nextRoute }) => {
     answersRef.current[questionName] = answer;
     if (nextRoute) navigate(nextRoute, { state: answersRef.current });
@@ -37,7 +42,16 @@ function AuthenticationLayout() {
       .catch(() => setStatusState("failed"));
   };
 
-  if (statusState !== "idle") return <Loader state={statusState} />;
+  if (statusState !== "idle")
+    return (
+      <LanguageProvider>
+        <Loader
+          state={statusState}
+          setStatusState={setStatusState}
+          reset={reset}
+        />
+      </LanguageProvider>
+    );
 
   return (
     <LanguageProvider>
