@@ -1,12 +1,15 @@
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import LanguageBar from "../components/User/LanguageBar";
 import nurse from "../assets/Start/nurse.svg";
 import { Translator } from "../components/Translation";
 import postAnalytics from "../postAnalytics";
+import { userContext } from "../providers/UserProvider";
 
 const Start = () => {
+  const { Case } = useContext(userContext);
+
   const handleLegalLinkClick = () => {
     postAnalytics({ type: "opened-tos" });
   };
