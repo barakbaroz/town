@@ -11,6 +11,7 @@ const init = (sequelize) =>
       openSms: DataTypes.DATE,
       avatarSelection: DataTypes.DATE,
       watchedVideo: DataTypes.DATE,
+      feedbackAnswer: DataTypes.DATE,
     },
     { underscored: true }
   );
