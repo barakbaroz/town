@@ -25,7 +25,7 @@ export default function useUserInfo(userId) {
     })
       .then((res) => {
         setLanguage(res.data.language);
-        setGender(res.data.gender);
+        setGender(res.data.Case.gender);
         setUserInfo(res.data);
         setLoading(false);
       })

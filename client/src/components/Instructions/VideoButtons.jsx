@@ -19,7 +19,7 @@ function VideoButtons() {
         data={{
           text: Translate("Share-Video-Text"),
           url: window.location.href,
-          title: Translate("Ichiliov-Name"),
+          title: Translate("Hospital-Name"),
         }}
       >
         <img id="ShareButton" src={ShareIcon} alt="Share" />
