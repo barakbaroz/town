@@ -21,8 +21,8 @@ module.exports.verify = async (req, res) => {
 
 module.exports.getData = async (req, res) => {
   try {
-    const { id } = req.user;
-    const user = await userServices.getData({ userId: id });
+    const userId = req.user.id;
+    const user = await userServices.getData({ userId });
     if (!user) return res.status(404).send("Not user found");
     return res.status(200).json(user);
   } catch (error) {
@@ -33,9 +33,9 @@ module.exports.getData = async (req, res) => {
 
 module.exports.update = async (req, res) => {
   try {
-    const userId = req.user.id;
+    const { id } = req.user;
     const data = req.body;
-    await userServices.update({ id: userId, data });
+    await userServices.update({ id, data });
     return res.status(200).send("Updated");
   } catch (error) {
     console.error(error);

@@ -5,7 +5,7 @@ const service = require("./service");
 
 module.exports.info = async (req, res) => {
   try {
-    const { id: staffMembersId } = req.staffMembers;
+    const staffMembersId = req.staffMembers.id;
     const result = await service.info({ staffMembersId });
     return res.status(200).json(result);
   } catch (error) {
@@ -16,7 +16,7 @@ module.exports.info = async (req, res) => {
 
 module.exports.casesCount = async (req, res) => {
   try {
-    const { id: staffMembersId } = req.staffMembers;
+    const staffMembersId = req.staffMembers.id;
     const search = req.body;
     const result = await service.casesCount({ staffMembersId, search });
     return res.status(200).json(result);
