@@ -12,7 +12,8 @@ function SingleQuestion({ questionKey, onAnswer, show }) {
   const handleFeedback = (answer) => () => {
     postAnalytics({
       userId,
-      type: `satisfaction-question-${questionKey}-${answer}`,
+      type: `feedback-answer`,
+      data: answer,
     });
     setAnswer(answer);
     if (onAnswer) onAnswer();
