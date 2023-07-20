@@ -1,14 +1,21 @@
 import styled from "styled-components";
 import PinInput from "../components/Gister/PinInput";
 import { Translator } from "../components/Translation";
-import { useRef } from "react";
+import { useContext } from "react";
 import AuthQuestionLayout from "../components/AuthQuestionLayout";
+import { AuthenticationContext } from "../layouts/AuthenticationLayout";
 
 function ZehutQuestion() {
-  const zehutInputRef = useRef(null);
+  const { updateAnswers } = useContext(AuthenticationContext);
 
   const handleZehutNumber = (zehut) => {
     //Update the corresponding state or something.
+    if (zehut.length !== 4) return;
+    updateAnswers({
+      questionName: "zehutNumber",
+      answer: zehut,
+      nextRoute: "DateOfBirth",
+    });
     console.log(zehut);
   };
 
@@ -18,7 +25,7 @@ function ZehutQuestion() {
         <Translator>מה הן ארבעת הספרות האחרונות של תעודת הזהות שלך?</Translator>
       </Title>
 
-      <PinInput ZehutInputRef={zehutInputRef} onChange={handleZehutNumber} />
+      <PinInput onChange={handleZehutNumber} />
     </AuthQuestionLayout>
   );
 }

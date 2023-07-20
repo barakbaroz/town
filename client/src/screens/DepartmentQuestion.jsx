@@ -1,23 +1,35 @@
-import { useState } from "react";
 import styled from "styled-components";
-import { Translate, Translator } from "../components/Translation";
+import { Translator } from "../components/Translation";
 import AuthQuestionLayout from "../components/AuthQuestionLayout";
+import { useContext } from "react";
+import { AuthenticationContext } from "../layouts/AuthenticationLayout";
 
 function DepartmentQuestion() {
-  const [answered, setAnswered] = useState(false);
+  const { updateAnswers } = useContext(AuthenticationContext);
+  const handleSelect = (e) => {
+    updateAnswers({
+      questionName: "department",
+      answer: e.target.value,
+      nextRoute: "Department",
+    });
+  };
+
   return (
-    <AuthQuestionLayout index={3} key="Department" nextRoute="">
+    <AuthQuestionLayout index={3} key="Department">
       <Title>
         <Translator>לאיזו מחלקה זומנת?</Translator>
       </Title>
 
       <SelectContainer>
-        <Select id="cars" name="carlist" onChange={() => setAnswered(true)}>
-          {!answered && (
-            <Option value="" disabled selected hidden>
-              <Translator>לחץ לבחירת תשובה</Translator>
-            </Option>
-          )}
+        <Select
+          id="cars"
+          name="carlist"
+          defaultValue=""
+          onChange={handleSelect}
+        >
+          <Option value="" disabled hidden>
+            <Translator>לחץ לבחירת תשובה</Translator>
+          </Option>
           <Option value="volvo">Volvo</Option>
           <Option value="saab">Saab</Option>
           <Option value="opel">Opel</Option>

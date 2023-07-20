@@ -1,11 +1,22 @@
-import { useRef } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import { Translator } from "../components/Translation";
 import AuthQuestionLayout from "../components/AuthQuestionLayout";
 import PinInput from "../components/Gister/PinInput";
+import { AuthenticationContext } from "../layouts/AuthenticationLayout";
 
 function DateOfBirthQuestion() {
-  const dateOfBirthInputRef = useRef(null);
+  const { updateAnswers } = useContext(AuthenticationContext);
+
+  const handleDateOfBirth = (dateOfBirth) => {
+    //Update the corresponding state or something.
+    if (dateOfBirth.length !== 4) return;
+    updateAnswers({
+      questionName: "yearOfBirth",
+      answer: dateOfBirth,
+      nextRoute: "Department",
+    });
+  };
 
   return (
     <AuthQuestionLayout index={2} key="DateOfBirth" nextRoute="Department">
@@ -13,7 +24,7 @@ function DateOfBirthQuestion() {
         <Translator>מתי נולדת?</Translator>
       </Title>
 
-      <PinInput ZehutInputRef={zehutInputRef} onChange={handleZehutNumber} />
+      <PinInput onChange={handleDateOfBirth} />
     </AuthQuestionLayout>
   );
 }
