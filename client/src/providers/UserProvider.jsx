@@ -5,8 +5,8 @@ import PropTypes from "prop-types";
 
 export const userContext = createContext();
 
-const UserProvider = ({ children, userId }) => {
-  const { loading, userInfo, updateCase } = useUserInfo(userId);
+const UserProvider = ({ children }) => {
+  const { loading, userInfo, updateCase } = useUserInfo();
 
   if (loading) return <Loader />;
 

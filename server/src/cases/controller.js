@@ -27,12 +27,12 @@ module.exports.search = async (req, res) => {
   }
 };
 
-module.exports.postCase = async (req, res) => {
+module.exports.create = async (req, res) => {
   console.info("Post Case");
   try {
     const { id: creatorId } = req.staffMembers;
     const { body } = req;
-    await casesServices.postCase({ creatorId, ...body });
+    await casesServices.create({ creatorId, ...body });
     return res.status(200).send("Case Created");
   } catch (error) {
     console.error(error);

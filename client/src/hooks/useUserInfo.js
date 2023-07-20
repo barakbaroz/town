@@ -3,7 +3,7 @@ import axios from "axios";
 import { LanguageContext } from "../components/Translation";
 import { useNavigate } from "react-router-dom";
 
-export default function useUserInfo(userId) {
+export default function useUserInfo() {
   const { setLanguage, setGender } = useContext(LanguageContext);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -12,17 +12,14 @@ export default function useUserInfo(userId) {
 
   const updateCase = (newData) => {
     setUserInfo((prev) => ({ ...prev, Case: { ...prev.Case, ...newData } }));
-    return axios.put("/api/cases/update", { ...newData, userId });
+    return axios.put("/api/cases/update", newData);
   };
 
   const fetch = useCallback(() => {
     setLoading(true);
     setError(false);
-    axios({
-      method: "POST",
-      url: "/api/users/getData",
-      data: { userId },
-    })
+    axios
+      .get("/api/users/getData")
       .then((res) => {
         setLanguage(res.data.language);
         setGender(res.data.Case.gender);
@@ -34,11 +31,11 @@ export default function useUserInfo(userId) {
         setError(true);
         setLoading(false);
       });
-  }, [navigate, setGender, setLanguage, userId]);
+  }, [navigate, setGender, setLanguage]);
 
   useEffect(() => {
     fetch();
   }, [fetch]);
 
-  return { loading, error, userInfo, fetchUserInfo: fetch, updateCase };
+  return { loading, error, userInfo, updateCase };
 }

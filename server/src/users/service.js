@@ -1,12 +1,16 @@
 const { Op } = require("sequelize");
-const {
-  Users,
-  UserActions,
-  Cases,
-  CasesProgress,
-  Questionnaire,
-} = require("../models");
+const { Users, UserActions, Cases, CasesProgress } = require("../models");
 const sms = require("../sms/service");
+
+module.exports.verify = ({ id, zehutNumber, yearOfBirth }) =>
+  Users.findOne({
+    where: { id },
+    include: {
+      model: Cases,
+      required: true,
+      where: { zehutNumber, yearOfBirth },
+    },
+  });
 
 module.exports.getData = async ({ userId }) => {
   return await Users.findByPk(userId, {
