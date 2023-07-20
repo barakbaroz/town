@@ -88,6 +88,7 @@ const validator = {
   zehutNumber: ({ zehutNumber }) => zehutNumber?.length === 4,
   phoneNumber: ({ phoneNumber }) => /^\d{10}$/.test(phoneNumber),
   heartConditions: ({ heartConditions }) => heartConditions.length > 0,
+  yearOfBirth: ({ yearOfBirth }) => yearOfBirth?.length === 4,
 };
 
 const GisterContainer = styled.div`
@@ -111,6 +112,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  margin-block-start: 74px;
   &:has(.invalid) {
     ${ErrorTitle} {
       visibility: visible;

@@ -41,10 +41,7 @@ const SideBar = ({ casesCount }) => {
 };
 
 SideBar.propTypes = {
-  casesCount: PropTypes.shape({
-    todayCases: PropTypes.number,
-    totalCases: PropTypes.number,
-  }),
+  casesCount: PropTypes.object,
 };
 
 export default SideBar;

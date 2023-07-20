@@ -8,6 +8,7 @@ import { FieldTitle } from "./Giser.styled";
 function PatientInformation({ casesDataRef }) {
   const zehutInputRef = useRef(null);
   const phoneInputRef = useRef(null);
+  const yearOfBirthRef = useRef(null);
 
   const handleZehutNumber = (zehut) => {
     casesDataRef.current.zehutNumber = zehut;
@@ -19,14 +20,20 @@ function PatientInformation({ casesDataRef }) {
     phoneInputRef.current.classList.remove("invalid");
   };
 
+  const handleYearOfBirth = (number) => {
+    casesDataRef.current.yearOfBirth = number;
+    yearOfBirthRef.current.classList.remove("invalid");
+  };
+
   return (
     <Container>
       <InputContainer>
         <FieldTitle>4 ספרות אחרונות של ת.ז.</FieldTitle>
         <PinInput
-          ZehutInputRef={zehutInputRef}
+          ContainerRef={zehutInputRef}
           nextInput={phoneInputRef}
           onChange={handleZehutNumber}
+          id="zehutNumber"
         />
       </InputContainer>
       <InputContainer>
@@ -34,6 +41,14 @@ function PatientInformation({ casesDataRef }) {
         <PhoneInput
           phoneInputRef={phoneInputRef}
           onChange={handlePhoneNumber}
+        />
+      </InputContainer>
+      <InputContainer>
+        <FieldTitle>שנת לידה</FieldTitle>
+        <PinInput
+          ContainerRef={yearOfBirthRef}
+          onChange={handleYearOfBirth}
+          id="yearOfBirth"
         />
       </InputContainer>
     </Container>
