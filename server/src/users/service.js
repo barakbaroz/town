@@ -2,6 +2,15 @@ const { Op } = require("sequelize");
 const { Users, UserActions, Cases, CasesProgress } = require("../models");
 const sms = require("../sms/service");
 
+module.exports.lastStap = async ({ userId }) => {
+  const user = await Users.findByPk(userId, {
+    include: { model: Cases, include: { model: CasesProgress } },
+  });
+  const { avatarSelection } = user.Cases.CasesProgress;
+  if (avatarSelection) return "Video";
+  return "Start";
+};
+
 module.exports.verify = ({ id, zehutNumber, yearOfBirth }) =>
   Users.findOne({
     where: { id },

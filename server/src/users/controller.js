@@ -2,6 +2,21 @@ const { isUUID } = require("../validator");
 const userServices = require("./service");
 const jwt = require("jsonwebtoken");
 
+module.exports.entry = async (req, res) => {
+  const { id } = req.param;
+  const authURL = `/Auth/${id}/zehut`;
+  try {
+    const token = req.cookies.user_token;
+    if (!token) return req.redrict(authURL);
+    const user = jwt.verify(token, process.env.JWT_KEY_USER);
+    if (user.id != id) return req.redrict(authURL);
+    const route = userServices.lastStap({ userId: id });
+    return req.redrict(`/user/${route}`);
+  } catch (err) {
+    return req.redrict(authURL);
+  }
+};
+
 module.exports.verify = async (req, res) => {
   try {
     const { id, zehutNumber, yearOfBirth } = req.body;
