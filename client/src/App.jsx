@@ -37,7 +37,7 @@ const router = createBrowserRouter([
   },
   { path: "Gister", element: <Gister /> },
   {
-    path: "AuthenticationLayout/:userId",
+    path: "Auth/:userId",
     element: <AuthenticationLayout />,
     children: [
       { path: "Zehut", element: <ZehutQuestion /> },
