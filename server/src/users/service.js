@@ -4,9 +4,9 @@ const sms = require("../sms/service");
 
 module.exports.lastStap = async ({ userId }) => {
   const user = await Users.findByPk(userId, {
-    include: { model: Cases, include: { model: CasesProgress } },
+    include: { model: Cases, include: CasesProgress },
   });
-  const { avatarSelection } = user.Cases.CasesProgress;
+  const { avatarSelection } = user.Case.CasesProgress;
   if (avatarSelection) return "Video";
   return "Start";
 };

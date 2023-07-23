@@ -10,9 +10,10 @@ module.exports.entry = async (req, res) => {
     if (!token) return res.redirect(authURL);
     const user = jwt.verify(token, process.env.JWT_KEY_USER);
     if (user.id != id) return res.redirect(authURL);
-    const route = userServices.lastStap({ userId: id });
+    const route = await userServices.lastStap({ userId: id });
     return res.redirect(`/user/${route}`);
-  } catch (err) {
+  } catch (error) {
+    console.log({ error });
     return res.redirect(authURL);
   }
 };
