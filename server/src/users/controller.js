@@ -20,13 +20,20 @@ module.exports.entry = async (req, res) => {
 
 module.exports.verify = async (req, res) => {
   try {
-    const { id, zehutNumber, yearOfBirth } = req.body;
+    const { id, zehutNumber, yearOfBirth, rememberMe } = req.body;
     if (!isUUID(id)) return res.status(400).send("Error");
     const user = await userServices.verify({ id, zehutNumber, yearOfBirth });
     if (!user) return res.status(403).send("verification failed");
-    const token = jwt.sign({ id }, process.env.JWT_KEY_USER);
+    const token = jwt.sign(
+      { id },
+      process.env.JWT_KEY_USER,
+      rememberMe ? { expiresIn: "30d" } : {}
+    );
     return res
-      .cookie("user_token", token, { httpOnly: true })
+      .cookie("user_token", token, {
+        httpOnly: true,
+        maxAge: rememberMe ? 1000 * 60 * 60 * 24 * 30 : undefined,
+      })
       .status(200)
       .send("Successfully verify");
   } catch (error) {
