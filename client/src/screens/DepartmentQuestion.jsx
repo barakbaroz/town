@@ -3,6 +3,7 @@ import { Translator } from "../components/Translation";
 import AuthQuestionLayout from "../components/AuthQuestionLayout";
 import { useContext } from "react";
 import { AuthenticationContext } from "../layouts/AuthenticationLayout";
+import arrow_dropdown from "../assets/Icons/arrow_dropdown.svg";
 
 function DepartmentQuestion() {
   const { updateAnswers } = useContext(AuthenticationContext);
@@ -30,10 +31,9 @@ function DepartmentQuestion() {
           <Option value="" disabled hidden>
             <Translator>לחץ לבחירת תשובה</Translator>
           </Option>
-          <Option value="volvo">Volvo</Option>
-          <Option value="saab">Saab</Option>
-          <Option value="opel">Opel</Option>
-          <Option value="audi">Audi</Option>
+          <Option value="colonoscopy">קולונוסקופיה</Option>
+          <Option value="birth">לידה</Option>
+          <Option value="heart">אי ספיקת לב</Option>
         </Select>
       </SelectContainer>
     </AuthQuestionLayout>
@@ -43,13 +43,14 @@ function DepartmentQuestion() {
 export default DepartmentQuestion;
 
 const SelectContainer = styled.div`
-  position: relative;
+  background-color: #f2f2f2;
+  color: #b7b7b7;
+  border-radius: 8px;
+  width: max-content;
   &::after {
     font-size: 1rem;
     text-align: center;
-    content: "X";
-    color: #84a4fc;
-    position: absolute;
+    content: url(${arrow_dropdown});
     pointer-events: none;
     top: 50%;
     left: 0;
@@ -59,16 +60,21 @@ const SelectContainer = styled.div`
 `;
 
 const Select = styled.select`
+  border: none;
+  font-family: inherit;
   font-size: 1.1875rem;
   -webkit-appearance: none;
   outline: none;
-  background-color: #f2f2f2;
-  color: #b7b7b7;
+  background-color: transparent;
+  color: inherit;
   padding-block: 1rem;
   padding-inline: 2rem;
-  border-radius: 8px;
+
   text-align: center;
+  text-align: -webkit-center;
+  text-align-last: center;
 `;
+
 const Option = styled.option`
   text-align: inherit;
 `;
