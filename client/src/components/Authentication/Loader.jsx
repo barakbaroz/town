@@ -16,7 +16,7 @@ const lottiesMapper = {
 
 const navigationRoutes = {
   success: "/user/start",
-  failed: "Zehut",
+  failed: "zehut",
 };
 
 function Loader({ state, setStatusState, reset }) {
