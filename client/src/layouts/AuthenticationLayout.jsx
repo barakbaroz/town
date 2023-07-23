@@ -6,10 +6,12 @@ import LanguageBar from "../components/User/LanguageBar";
 import styled from "styled-components";
 import axios from "axios";
 import Loader from "../components/Authentication/Loader";
+import gist_v from "../assets/Icons/gist_v.svg";
 
 export const AuthenticationContext = createContext({});
 
 function AuthenticationLayout() {
+  const rememberMeRef = useRef(null);
   const [statusState, setStatusState] = useState("idle");
   const { userId } = useParams();
   const [buttonEnabled, setButtonEnable] = useState(false);
@@ -37,7 +39,11 @@ function AuthenticationLayout() {
     //Post request with the object on the value as body.
     setStatusState("loading");
     axios
-      .post("/api/users/verify", { userId, ...answersRef.current })
+      .post("/api/user/verify", {
+        id: userId,
+        rememberMe: rememberMeRef.current.checked,
+        ...answersRef.current,
+      })
       .then(() => setStatusState("success"))
       .catch(() => setStatusState("failed"));
   };
@@ -64,13 +70,21 @@ function AuthenticationLayout() {
           </Title>
 
           <Outlet />
+          <DownSection>
+            <RememberMe show={buttonEnabled}>
+              <CheckBox id="remember-me" ref={rememberMeRef} />
+              <Label for="remember-me">
+                <Translator>remember-me</Translator>
+              </Label>
+            </RememberMe>
 
-          <SubmitButton
-            disabled={!buttonEnabled}
-            onClick={handleAuthentication}
-          >
-            <Translator>שלח</Translator>
-          </SubmitButton>
+            <SubmitButton
+              disabled={!buttonEnabled}
+              onClick={handleAuthentication}
+            >
+              <Translator>שלח</Translator>
+            </SubmitButton>
+          </DownSection>
         </Container>
       </AuthenticationContext.Provider>
     </LanguageProvider>
@@ -84,15 +98,12 @@ const Container = styled.div`
   --field-padding-block: 0.813rem;
   --field-font-size: 1.5rem;
   --field-font-family: "Poppins";
-
   --question-padding: 58px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-
   min-height: 100dvh;
   width: 100vw;
 `;
@@ -106,9 +117,54 @@ const Title = styled.h1`
   margin-inline: var(--question-padding);
 `;
 
+const DownSection = styled.div`
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+`;
+
+const Label = styled.label`
+  font-size: 1rem;
+`;
+
+const RememberMe = styled.div`
+  display: ${({ show }) => (show ? "flex" : "none")};
+  align-items: center;
+  gap: 10px;
+`;
+const CheckBox = styled.input.attrs({
+  type: "checkbox",
+})`
+  width: 1.25em;
+  height: 1.25em;
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  appearance: none;
+  /* For iOS < 15 to remove gradient background */
+  background-color: #fff;
+  /* Not removed via appearance */
+  margin: 0;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  display: grid;
+  place-content: center;
+
+  &::before {
+    content: url(${gist_v});
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+  }
+  &:checked::before {
+    transform: scale(0.8);
+  }
+`;
+
 const SubmitButton = styled.button`
   color: white;
-  margin-top: auto;
   text-decoration: none;
   padding-inline: 4.875rem;
   padding-block: 0.7rem;
