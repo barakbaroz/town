@@ -72,8 +72,8 @@ function AuthenticationLayout() {
           <Outlet />
           <DownSection>
             <RememberMe show={buttonEnabled}>
-              <CheckBox id="remember-me" ref={rememberMeRef} />
-              <Label for="remember-me">
+              <Label>
+                <CheckBox id="remember-me" ref={rememberMeRef} />
                 <Translator>remember-me</Translator>
               </Label>
             </RememberMe>
@@ -126,6 +126,9 @@ const DownSection = styled.div`
 `;
 
 const Label = styled.label`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 1rem;
 `;
 
