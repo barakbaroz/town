@@ -3,17 +3,17 @@ const userServices = require("./service");
 const jwt = require("jsonwebtoken");
 
 module.exports.entry = async (req, res) => {
-  const { id } = req.param;
+  const { id } = req.params;
   const authURL = `/Auth/${id}/zehut`;
   try {
     const token = req.cookies.user_token;
-    if (!token) return req.redrict(authURL);
+    if (!token) return res.redirect(authURL);
     const user = jwt.verify(token, process.env.JWT_KEY_USER);
-    if (user.id != id) return req.redrict(authURL);
+    if (user.id != id) return res.redirect(authURL);
     const route = userServices.lastStap({ userId: id });
-    return req.redrict(`/user/${route}`);
+    return res.redirect(`/user/${route}`);
   } catch (err) {
-    return req.redrict(authURL);
+    return res.redirect(authURL);
   }
 };
 
