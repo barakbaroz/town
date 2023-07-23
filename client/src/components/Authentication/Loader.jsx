@@ -71,13 +71,16 @@ const Title = styled.p`
 `;
 
 const StatusContainer = styled.div`
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  align-items: center;
 `;
 
 const StatusIndicator = styled(Lottie).attrs(({ lottie }) => ({
   animationData: lottie,
   loop: false,
 }))`
-  align-self: center;
-  height: 229px;
+  width: 120px;
+  max-width: 100%;
 `;
