@@ -11,7 +11,7 @@ import Panel from "./screens/Panel";
 import Gister from "./screens/Gister";
 import Login from "./screens/Login";
 import UserLayout from "./layouts/UserLayout";
-import ErrorElement from "./screens/Error";
+import ErrorElement from "./screens/ErrorElement";
 import NotFound from "./screens/NotFound";
 import CharacterSelection from "./screens/CharacterSelection";
 import VideoPage from "./screens/VideoPage";
@@ -48,7 +48,6 @@ const router = createBrowserRouter([
   {
     path: "user",
     element: <UserLayout />,
-    errorElement: <ErrorElement />,
     children: [
       { path: "Start", element: <Start /> },
       { path: "Video", element: <VideoPage /> },
