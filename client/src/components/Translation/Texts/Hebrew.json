@@ -1,4 +1,8 @@
 {
+  "authentication-success": "זיהוי הצליח",
+  "authentication-failed": "זיהוי נכשל",
+  "remember-me": "זכור אותי במכשיר זה",
+
   "Start-Title": "שלום!",
   "Start-Paragraph": "הכנו עבורך סרטון הדרכה שיתן לך ידע חיוני וכלים שימושיים להתמודדות עם אי ספיקת לב",
   "Start-Legal-Explain": "לחיצה על הכפתור מהווה אישור של",
