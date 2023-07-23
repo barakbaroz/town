@@ -8,16 +8,6 @@ const {
 const { Op } = require("sequelize");
 const sms = require("../sms/service");
 
-module.exports.update = async ({ userId, data }) => {
-  const caseByUserId = await Cases.findOne({
-    include: {
-      model: Users,
-      where: { id: userId },
-    },
-  });
-  caseByUserId.update(data);
-};
-
 const casesProgressFilter = {
   openSms: {
     where: {

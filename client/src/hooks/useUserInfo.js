@@ -12,14 +12,14 @@ export default function useUserInfo() {
 
   const updateCase = (newData) => {
     setUserInfo((prev) => ({ ...prev, Case: { ...prev.Case, ...newData } }));
-    return axios.put("/api/cases/update", newData);
+    return axios.put("/api/user/update", newData);
   };
 
   const fetch = useCallback(() => {
     setLoading(true);
     setError(false);
     axios
-      .get("/api/users/getData")
+      .get("/api/user/getData")
       .then((res) => {
         setLanguage(res.data.language);
         setGender(res.data.Case.gender);

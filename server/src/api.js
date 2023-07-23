@@ -6,7 +6,7 @@ const sms = require("./sms/route");
 const stuffMembers = require("./stuffMembers/route");
 
 router.use("/cases", cases);
-router.use("/users", users);
+router.use("/user", users);
 router.use("/sms", sms);
 router.use("/stuffMembers", stuffMembers);
 

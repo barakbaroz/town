@@ -10,8 +10,6 @@ const {
 } = require("./controller");
 const { verifyToken } = require("../stuffMembers/authorization");
 
-router.put("/update", update);
-
 router.use(verifyToken);
 
 router.post("/create", create);

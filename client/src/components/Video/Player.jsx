@@ -28,7 +28,7 @@ function Player({ setShowFeedback }) {
   const { videoUrl } = useVideoUrl(params, "heart-failure-community");
 
   const onLocationUpdate = useCallback((percentage, location) => {
-    axios.post("/api/users/userVideoAction", {
+    axios.post("/api/user/userVideoAction", {
       type: "watched-video",
       data: { percentage, location },
     });

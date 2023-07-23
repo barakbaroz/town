@@ -32,8 +32,12 @@ module.exports.getData = async ({ userId }) => {
 };
 
 module.exports.update = async ({ id, data }) => {
-  await Users.update(data, { where: { id } });
-  console.log(`user: ${id} updated successfuly`);
+  const { gender, age, ethnicity, language } = data;
+  await Users.update({ language }, { where: { id } });
+  const caseByUserId = await Cases.findOne({
+    include: { model: Users, where: { id } },
+  });
+  await caseByUserId.update({ gender, age, ethnicity });
 };
 
 const typeToColumn = {
