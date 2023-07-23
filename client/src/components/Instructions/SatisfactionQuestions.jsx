@@ -1,9 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styled, { keyframes } from "styled-components";
 import { Translator } from "../Translation";
 import SingleQuestion from "./SingleQuestion";
 import PropTypes from "prop-types";
-import { useContext } from "react";
 import { userContext } from "../../providers/UserProvider";
 
 const SatisfactionQuestions = ({ videoStarted }) => {
