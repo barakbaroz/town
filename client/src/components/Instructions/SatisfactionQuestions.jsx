@@ -8,10 +8,10 @@ import { userContext } from "../../providers/UserProvider";
 
 const SatisfactionQuestions = ({ videoStarted }) => {
   const userInfo = useContext(userContext);
-  const { feedbackAnswer } = userInfo.Case.CasesProgress;
+  const { satisfactionAnswer } = userInfo.Case.CasesProgress;
   const [state, setState] = useState("none");
 
-  if (feedbackAnswer) {
+  if (satisfactionAnswer) {
     return <></>;
   }
 

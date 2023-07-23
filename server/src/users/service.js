@@ -37,7 +37,7 @@ const typeToColumn = {
   "opened-sms": "openSms",
   "general-information-answered": "avatarSelection",
   "watched-video": "watchedVideo",
-  "feedback-answer": "feedbackAnswer",
+  "Satisfaction-question": "satisfactionAnswer",
 };
 
 const updateCasesProgress = async ({ UserId, type }) => {
@@ -59,7 +59,6 @@ const updateCasesProgress = async ({ UserId, type }) => {
 };
 
 module.exports.userAction = async ({ UserId, type, data }) => {
-  console.log({ UserId, type, data });
   await UserActions.create({ UserId, type, data });
   await sms.action({ UserId, actionKey: type });
   await updateCasesProgress({ UserId, type });
