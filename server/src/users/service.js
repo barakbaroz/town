@@ -11,15 +11,20 @@ module.exports.lastStap = async ({ userId }) => {
   return "Start";
 };
 
-module.exports.verify = ({ id, zehutNumber, yearOfBirth }) =>
-  Users.findOne({
+module.exports.verify = async ({ id, zehutNumber, yearOfBirth }) => {
+  const user = await Users.findOne({
     where: { id },
-    include: {
-      model: Cases,
-      required: true,
-      where: { zehutNumber, yearOfBirth },
-    },
+    include: { model: Cases, required: true },
   });
+  if (!user) return { failedAttempts: 0 };
+  const { Cases } = user;
+  if (Cases.zehutNumber !== zehutNumber || Cases.yearOfBirth !== yearOfBirth) {
+    user.increment("failedAttempts", { by: 1 });
+    return { failedAttempts: user.failedAttempts };
+  }
+  user.update({ failedAttempts: 0 }, { where: { id } });
+  return { user };
+};
 
 module.exports.getData = async ({ userId }) => {
   return await Users.findByPk(userId, {

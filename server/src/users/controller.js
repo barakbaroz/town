@@ -6,6 +6,8 @@ module.exports.entry = async (req, res) => {
   const { id } = req.params;
   const authURL = `/Auth/${id}/zehut`;
   try {
+    const dbUser = userServices.getData({ userId: id });
+    if (!dbUser) return res.redirect("notFrond");
     const token = req.cookies.user_token;
     if (!token) return res.redirect(authURL);
     const user = jwt.verify(token, process.env.JWT_KEY_USER);
@@ -21,9 +23,16 @@ module.exports.entry = async (req, res) => {
 module.exports.verify = async (req, res) => {
   try {
     const { id, zehutNumber, yearOfBirth, rememberMe } = req.body;
-    if (!isUUID(id)) return res.status(400).send("Error");
-    const user = await userServices.verify({ id, zehutNumber, yearOfBirth });
-    if (!user) return res.status(403).send("verification failed");
+    if (!isUUID(id)) return res.status(400).send("Invalid UUID");
+    const { user, failedAttempts } = await userServices.verify({
+      id,
+      zehutNumber,
+      yearOfBirth,
+    });
+    if (!user)
+      return res
+        .status(403)
+        .json({ message: "verification failed", failedAttempts });
     const token = jwt.sign(
       { id },
       process.env.JWT_KEY_USER,
