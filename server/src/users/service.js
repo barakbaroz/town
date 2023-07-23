@@ -22,6 +22,7 @@ module.exports.getData = async ({ userId }) => {
           "heartConditions",
           "symptoms",
         ],
+        include: CasesProgress,
       },
     ],
   });
@@ -36,6 +37,7 @@ const typeToColumn = {
   "opened-sms": "openSms",
   "general-information-answered": "avatarSelection",
   "watched-video": "watchedVideo",
+  "Satisfaction-question": "satisfactionAnswer",
 };
 
 const updateCasesProgress = async ({ UserId, type }) => {
