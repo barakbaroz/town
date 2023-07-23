@@ -1,6 +1,7 @@
 {
   "authentication-success": "זיהוי הצליח",
   "authentication-failed": "זיהוי נכשל",
+  "authentication-loading": "טוען...",
   "remember-me": "זכור אותי במכשיר זה",
 
   "Start-Title": "שלום!",
