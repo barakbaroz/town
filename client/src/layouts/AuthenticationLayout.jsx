@@ -1,4 +1,4 @@
-import { createContext, useRef, useState } from "react";
+import { createContext, useEffect, useRef, useState } from "react";
 import { Outlet, useLocation, useNavigate, useParams } from "react-router-dom";
 import { LanguageProvider, Translator } from "../components/Translation";
 import Header from "../components/User/Header";
@@ -12,7 +12,7 @@ export const AuthenticationContext = createContext({});
 
 function AuthenticationLayout() {
   const rememberMeRef = useRef(null);
-  const [statusState, setStatusState] = useState("idle");
+  const [statusState, setStatusState] = useState("loading");
   const { userId } = useParams();
   const [buttonEnabled, setButtonEnable] = useState(false);
   const { state } = useLocation();
@@ -23,6 +23,12 @@ function AuthenticationLayout() {
     setButtonEnable(false);
     answersRef.current = {};
   };
+
+  useEffect(() => {
+    axios
+      .post("/api/user/getAuthStatus", { userId })
+      .then((res) => setStatusState(res.data));
+  }, [userId]);
 
   const updateAnswers = ({ questionName, answer, nextRoute }) => {
     answersRef.current[questionName] = answer;
@@ -35,8 +41,6 @@ function AuthenticationLayout() {
   };
 
   const handleAuthentication = () => {
-    //Sendind axios request to the endpoint on Server to check authentication.
-    //Post request with the object on the value as body.
     setStatusState("loading");
     axios
       .post("/api/user/verify", {
@@ -45,7 +49,7 @@ function AuthenticationLayout() {
         ...answersRef.current,
       })
       .then(() => setStatusState("success"))
-      .catch(() => setStatusState("failed"));
+      .catch((error) => setStatusState(error.response.data.status));
   };
 
   if (statusState !== "idle")

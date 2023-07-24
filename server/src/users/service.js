@@ -2,6 +2,18 @@ const { Op } = require("sequelize");
 const { Users, UserActions, Cases, CasesProgress } = require("../models");
 const sms = require("../sms/service");
 
+const MAX_ATTEMPTS = 2;
+
+module.exports.getAuthStatus = async ({ userId }) => {
+  const user = await Users.findOne({
+    where: { id: userId, failedAttempts: { [Op.lt]: MAX_ATTEMPTS } },
+    attributes: ["id", "failedAttempts"],
+  });
+  console.log(user);
+  if (user) return "idle";
+  return "blocked";
+};
+
 module.exports.lastStap = async ({ userId }) => {
   const user = await Users.findByPk(userId, {
     include: { model: Cases, include: CasesProgress },
@@ -12,15 +24,19 @@ module.exports.lastStap = async ({ userId }) => {
 };
 
 module.exports.verify = async ({ id, zehutNumber, yearOfBirth }) => {
-  const user = await Users.findOne({
-    where: { id },
+  const user = await Users.findByPk(id, {
     include: { model: Cases, required: true },
   });
-  if (!user) return { failedAttempts: 0 };
-  const { Cases } = user;
-  if (Cases.zehutNumber !== zehutNumber || Cases.yearOfBirth !== yearOfBirth) {
-    user.increment("failedAttempts", { by: 1 });
-    return { failedAttempts: user.failedAttempts };
+  if (!user) return { status: "blocked" };
+  if (
+    user.Case.zehutNumber !== zehutNumber ||
+    user.Case.yearOfBirth !== yearOfBirth
+  ) {
+    user.failedAttempts += 1;
+    user.save();
+    return {
+      status: user.failedAttempts >= MAX_ATTEMPTS ? "blocked" : "failed",
+    };
   }
   user.update({ failedAttempts: 0 }, { where: { id } });
   return { user };

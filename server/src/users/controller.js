@@ -2,6 +2,17 @@ const { isUUID } = require("../validator");
 const userServices = require("./service");
 const jwt = require("jsonwebtoken");
 
+module.exports.getAuthStatus = async (req, res) => {
+  try {
+    const { userId } = req.body;
+    const status = await userServices.getAuthStatus({ userId });
+    return res.status(200).send(status);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("Error");
+  }
+};
+
 module.exports.entry = async (req, res) => {
   const { id } = req.params;
   const authURL = `/Auth/${id}/zehut`;
@@ -24,15 +35,13 @@ module.exports.verify = async (req, res) => {
   try {
     const { id, zehutNumber, yearOfBirth, rememberMe } = req.body;
     if (!isUUID(id)) return res.status(400).send("Invalid UUID");
-    const { user, failedAttempts } = await userServices.verify({
+    const { user, status } = await userServices.verify({
       id,
       zehutNumber,
       yearOfBirth,
     });
     if (!user)
-      return res
-        .status(403)
-        .json({ message: "verification failed", failedAttempts });
+      return res.status(403).json({ message: "verification failed", status });
     const token = jwt.sign(
       { id },
       process.env.JWT_KEY_USER,

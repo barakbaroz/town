@@ -1,7 +1,16 @@
 {
-  "authentication-success": "זיהוי הצליח",
-  "authentication-failed": "זיהוי נכשל",
-  "authentication-loading": "טוען...",
+  "authentication-success-title": "זיהוי הצליח",
+  "authentication-success-subtitle": "מיד נעביר אותך",
+
+  "authentication-failed-title": "זיהוי נכשל",
+  "authentication-failed-subtitle": "ניסיון נוסף לזיהוי יתחיל בעוד מספר שניות",
+
+  "authentication-blocked-title": "הזיהוי נכשל בפעם השנייה",
+  "authentication-blocked-subtitle": "יש לפנות למרפאה להשלמת תהליך הזיהוי",
+
+  "authentication-loading-title": "טוען...",
+  "authentication-loading-subtitle": "אנא המתן כמה רגעים",
+
   "remember-me": "זכור אותי במכשיר זה",
 
   "Start-Title": "שלום!",
