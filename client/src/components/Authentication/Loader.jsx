@@ -9,10 +9,10 @@ import { Translator } from "../Translation";
 import { useNavigate } from "react-router-dom";
 
 const lottiesMapper = {
-  loading,
-  success,
-  failed,
-  blocked: failed,
+  loading: { animationData: loading, loop: true },
+  success: { animationData: success, loop: false },
+  failed: { animationData: failed, loop: false },
+  blocked: { animationData: failed, loop: false },
 };
 
 const navigationRoutes = {
@@ -37,7 +37,7 @@ function Loader({ state, setStatusState, reset }) {
       <Header />
       <StatusContainer>
         <StatusIndicator
-          lottie={lottiesMapper[state]}
+          {...lottiesMapper[state]}
           onComplete={handleComplete}
         />
         <Title>
@@ -82,10 +82,7 @@ const StatusContainer = styled.div`
   align-items: center;
 `;
 
-const StatusIndicator = styled(Lottie).attrs(({ lottie }) => ({
-  animationData: lottie,
-  loop: false,
-}))`
+const StatusIndicator = styled(Lottie)`
   width: 120px;
   max-width: 100%;
 `;
