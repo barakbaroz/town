@@ -40,13 +40,15 @@ function Loader({ state, setStatusState, reset }) {
           {...lottiesMapper[state]}
           onComplete={handleComplete}
         />
-        <Title>
-          <Translator>{`authentication-${state}-title`}</Translator>
-        </Title>
+        <Content>
+          <Title>
+            <Translator>{`authentication-${state}-title`}</Translator>
+          </Title>
 
-        <Title>
-          <Translator>{`authentication-${state}-subtitle`}</Translator>
-        </Title>
+          <Subtitle>
+            <Translator>{`authentication-${state}-subtitle`}</Translator>
+          </Subtitle>
+        </Content>
       </StatusContainer>
       <span></span>
     </LoaderContainer>
@@ -70,9 +72,23 @@ const LoaderContainer = styled.div`
   justify-content: space-between;
 `;
 
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding-inline: 15px;
+`;
+
 const Title = styled.p`
+  margin: 0;
   font-size: 1.5rem;
   font-weight: 500;
+`;
+
+const Subtitle = styled.p`
+  margin: 0;
+  font-size: 1.375rem;
 `;
 
 const StatusContainer = styled.div`
@@ -85,4 +101,5 @@ const StatusContainer = styled.div`
 const StatusIndicator = styled(Lottie)`
   width: 120px;
   max-width: 100%;
+  margin-block-end: 30px;
 `;
