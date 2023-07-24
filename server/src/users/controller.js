@@ -2,11 +2,6 @@ const { isUUID } = require("../validator");
 const userServices = require("./service");
 const jwt = require("jsonwebtoken");
 
-module.exports.extarctUserIdFromBody = (req, res, next) => {
-  req.user = { id: req.body.userId };
-  next();
-};
-
 module.exports.getAuthStatus = async (req, res) => {
   try {
     const { userId } = req.body;
@@ -43,6 +38,7 @@ module.exports.verify = async (req, res) => {
       id,
       zehutNumber,
       yearOfBirth,
+      rememberMe,
     });
     if (!user)
       return res.status(403).json({ message: "verification failed", status });

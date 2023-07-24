@@ -22,23 +22,33 @@ module.exports.lastStap = async ({ userId }) => {
   return "Start";
 };
 
-module.exports.verify = async ({ id, zehutNumber, yearOfBirth }) => {
+module.exports.verify = async ({
+  id,
+  zehutNumber,
+  yearOfBirth,
+  rememberMe,
+}) => {
   const user = await Users.findByPk(id, {
     include: { model: Cases, required: true },
   });
   if (!user) return { status: "blocked" };
-  if (
-    user.Case.zehutNumber !== zehutNumber ||
-    user.Case.yearOfBirth !== yearOfBirth
-  ) {
-    user.failedAttempts += 1;
-    user.save();
-    return {
-      status: user.failedAttempts >= MAX_ATTEMPTS ? "blocked" : "failed",
-    };
+  const verifyObj = {
+    zehutNumber: user.Case.zehutNumber === zehutNumber,
+    yearOfBirth: user.Case.yearOfBirth === yearOfBirth,
+    rememberMe,
+    attempts: user.failedAttempts + 1,
+  };
+  verifyObj.success = verifyObj.zehutNumber && verifyObj.yearOfBirth;
+  this.userAction({ UserId: id, type: "verify", data: verifyObj });
+  if (verifyObj.success) {
+    user.update({ failedAttempts: 0 }, { where: { id } });
+    return { user };
   }
-  user.update({ failedAttempts: 0 }, { where: { id } });
-  return { user };
+  user.failedAttempts += 1;
+  user.save();
+  return {
+    status: user.failedAttempts >= MAX_ATTEMPTS ? "blocked" : "failed",
+  };
 };
 
 module.exports.getData = async ({ userId }) => {
