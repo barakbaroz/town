@@ -79,4 +79,8 @@ const Option = styled.option`
   text-align: inherit;
 `;
 
-const Title = styled.h2``;
+const Title = styled.h2`
+  margin: 0;
+  font-size: 1.188rem;
+  font-weight: 400;
+`;

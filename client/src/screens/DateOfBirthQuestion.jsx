@@ -30,4 +30,8 @@ function DateOfBirthQuestion() {
 }
 
 export default DateOfBirthQuestion;
-const Title = styled.h2``;
+const Title = styled.h2`
+  margin: 0;
+  font-size: 1.188rem;
+  font-weight: 400;
+`;

@@ -33,5 +33,6 @@ export default ZehutQuestion;
 
 const Title = styled.h2`
   margin: 0;
-  font-size: 1.1875rem;
+  font-size: 1.188rem;
+  font-weight: 400;
 `;
