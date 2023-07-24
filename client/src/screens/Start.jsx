@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import LanguageBar from "../components/User/LanguageBar";
 import nurse from "../assets/Start/nurse.svg";
 import { Translator } from "../components/Translation";
-import postAnalytics from "../postAnalytics";
+import { postAnalytics } from "../analytics";
 import { userContext } from "../providers/UserProvider";
 
 const Start = () => {

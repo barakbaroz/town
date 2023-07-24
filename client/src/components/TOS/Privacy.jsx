@@ -1,4 +1,4 @@
-import postAnalytics from "../../postAnalytics";
+import { postAnalytics } from "../../analytics";
 import Wrapper from "./Wrapper";
 import PrivacyText from "./PrivacyText";
 

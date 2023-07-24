@@ -2,6 +2,11 @@ const { isUUID } = require("../validator");
 const userServices = require("./service");
 const jwt = require("jsonwebtoken");
 
+module.exports.extarctUserIdFromBody = (req, res, next) => {
+  req.user = { id: req.body.userId };
+  next();
+};
+
 module.exports.getAuthStatus = async (req, res) => {
   try {
     const { userId } = req.body;

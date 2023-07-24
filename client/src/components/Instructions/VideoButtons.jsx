@@ -2,7 +2,7 @@ import { RWebShare } from "react-web-share";
 import IconButton from "../User/IconButton";
 import ShareIcon from "../../assets/Icons/share.svg";
 import { Translate } from "../Translation";
-import postAnalytics from "../../postAnalytics";
+import { postAnalytics } from "../../analytics";
 
 function VideoButtons() {
   return (

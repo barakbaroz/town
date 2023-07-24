@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import postAnalytics from "../../postAnalytics";
+import { postAnalytics } from "../../analytics";
 
 function LegalText() {
   const supportClick = () => {

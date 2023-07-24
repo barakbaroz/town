@@ -5,7 +5,7 @@ import data from "../components/CharacterSelection/CharacterSelectionData.json";
 import { useNavigate } from "react-router-dom";
 import avatarsImg from "../assets/Avatars";
 import { Translator } from "../components/Translation";
-import postAnalytics from "../postAnalytics";
+import { postAnalytics } from "../analytics";
 import { userContext } from "../providers/UserProvider";
 
 function CharacterSelection() {

@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import { Translator } from "../Translation";
-import postAnalytics from "../../postAnalytics";
+import { postAnalytics } from "../../analytics";
 import PropTypes from "prop-types";
 import { useState } from "react";
 
