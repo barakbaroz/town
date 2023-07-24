@@ -12,6 +12,7 @@ const lottiesMapper = {
   loading,
   success,
   failed,
+  blocked: failed,
 };
 
 const navigationRoutes = {
@@ -40,7 +41,11 @@ function Loader({ state, setStatusState, reset }) {
           onComplete={handleComplete}
         />
         <Title>
-          <Translator>{`authentication-${state}`}</Translator>
+          <Translator>{`authentication-${state}-title`}</Translator>
+        </Title>
+
+        <Title>
+          <Translator>{`authentication-${state}-subtitle`}</Translator>
         </Title>
       </StatusContainer>
       <span></span>
