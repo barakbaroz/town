@@ -8,8 +8,7 @@ const verifyToken = (req, res, next) => {
   try {
     req.user = jwt.verify(token, process.env.JWT_KEY_USER);
     return next();
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
     return res.status(401).send("Invalid Token");
   }
 };

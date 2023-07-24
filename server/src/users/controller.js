@@ -26,7 +26,6 @@ module.exports.entry = async (req, res) => {
     const route = await userServices.lastStap({ userId: id });
     return res.redirect(`/user/${route}`);
   } catch (error) {
-    console.log({ error });
     return res.redirect(authURL);
   }
 };

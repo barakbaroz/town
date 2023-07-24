@@ -9,7 +9,6 @@ module.exports.getAuthStatus = async ({ userId }) => {
     where: { id: userId, failedAttempts: { [Op.lt]: MAX_ATTEMPTS } },
     attributes: ["id", "failedAttempts"],
   });
-  console.log(user);
   if (user) return "idle";
   return "blocked";
 };
