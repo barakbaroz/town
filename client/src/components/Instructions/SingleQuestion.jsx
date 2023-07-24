@@ -8,7 +8,10 @@ function SingleQuestion({ questionKey, onAnswer, show }) {
   const [answer, setAnswer] = useState("");
 
   const handleFeedback = (answer) => () => {
-    postAnalytics({ type: `satisfaction-question-${questionKey}-${answer}` });
+    postAnalytics({
+      type: `satisfaction-question`,
+      data: answer,
+    });
     setAnswer(answer);
     if (onAnswer) onAnswer();
   };

@@ -8,6 +8,7 @@ import { LanguageContext } from "../Translation";
 import { useMemo } from "react";
 import useVideoUrl from "../../hooks/useVideoUrl";
 import PropTypes from "prop-types";
+import videoThumbnail from "../../assets/videoThumbnail.png";
 
 function Player({ setShowFeedback }) {
   const userInfo = useContext(userContext);
@@ -46,6 +47,7 @@ function Player({ setShowFeedback }) {
         audioStartDelay={3}
         onLocationUpdate={onLocationUpdate}
         onPlayerPlaying={onPlayerPlaying}
+        thumbnail={videoThumbnail}
       />
     </VideoContainer>
   );

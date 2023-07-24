@@ -1,11 +1,18 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import styled, { keyframes } from "styled-components";
 import { Translator } from "../Translation";
 import SingleQuestion from "./SingleQuestion";
 import PropTypes from "prop-types";
+import { userContext } from "../../providers/UserProvider";
 
 const SatisfactionQuestions = ({ videoStarted }) => {
+  const userInfo = useContext(userContext);
+  const { satisfactionAnswer } = userInfo.Case.CasesProgress;
   const [state, setState] = useState("none");
+
+  if (satisfactionAnswer) {
+    return <></>;
+  }
 
   // First stage when someone clicked the video so the question is popping.
   if (state === "none")
