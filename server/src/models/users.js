@@ -11,15 +11,17 @@ const init = (sequelize) =>
       },
       phoneNumber: DataTypes.STRING(15),
       language: { type: DataTypes.STRING, defaultValue: "he" },
+      failedAttempts: { type: DataTypes.INTEGER, defaultValue: 0 },
     },
     { underscored: true, paranoid: true }
   );
 
 const associations = (sequelize) => {
-  const { Users, SmsTracking, Cases, UserActions } = sequelize.models;
+  const { Users, SmsTracking, Cases, UserActions, SmsQueue } = sequelize.models;
   Users.belongsTo(Cases);
   Users.hasMany(UserActions);
-  Users.hasMany(SmsTracking, { onDelete: "CASCADE" });
+  Users.hasMany(SmsTracking);
+  Users.hasMany(SmsQueue, { onDelete: "CASCADE" });
 };
 
 module.exports = { init, associations };

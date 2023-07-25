@@ -5,7 +5,7 @@ import { GeneralInput } from "./Giser.styled";
 
 const regex = new RegExp("[0-9]");
 
-function PinInput({ ZehutInputRef, nextInput, onChange }) {
+function PinInput({ ContainerRef, nextInput, onChange, ...props }) {
   const refs = useRef([]);
 
   const handleChange = (index) => (event) => {
@@ -42,7 +42,7 @@ function PinInput({ ZehutInputRef, nextInput, onChange }) {
 
   return (
     <Utility>
-      <PinInputContainer id="zehutNumber" ref={ZehutInputRef}>
+      <PinInputContainer ref={ContainerRef} {...props}>
         {[...Array(4)].map((_, index) => (
           <Pin
             type="tel"
@@ -59,9 +59,9 @@ function PinInput({ ZehutInputRef, nextInput, onChange }) {
 }
 
 PinInput.propTypes = {
-  onChange: PropTypes.func,
-  ZehutInputRef: PropTypes.object,
+  ContainerRef: PropTypes.object,
   nextInput: PropTypes.object,
+  onChange: PropTypes.func,
 };
 
 export default PinInput;

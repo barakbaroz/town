@@ -2,23 +2,22 @@ import { useState, Fragment, useContext } from "react";
 import styled from "styled-components";
 import background from "../assets/Backgrounds/wave_background.svg";
 import data from "../components/CharacterSelection/CharacterSelectionData.json";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import avatarsImg from "../assets/Avatars";
 import { Translator } from "../components/Translation";
-import postAnalytics from "../utilities/postAnalytics";
+import { postAnalytics } from "../analytics";
 import { userContext } from "../providers/UserProvider";
 
 function CharacterSelection() {
   const navigate = useNavigate();
   const userInfo = useContext(userContext);
-  const { userId } = useParams();
   const [answers, setAnswers] = useState({});
   const [avatar, setAvatar] = useState("");
   const [tag, setTag] = useState({});
   const [showError, setShowError] = useState(false);
 
   const answerQuestion = (questionKey, answerKey) => () => {
-    postAnalytics({ userId, type: `answer-${questionKey}-${answerKey}` });
+    postAnalytics({ type: `answer-${questionKey}-${answerKey}` });
     setAvatar("");
     setAnswers((prev) => ({
       ...prev,
@@ -27,7 +26,7 @@ function CharacterSelection() {
   };
 
   const handleAvatar = (key, tags) => () => {
-    postAnalytics({ userId, type: `avatar-${key}` });
+    postAnalytics({ type: `avatar-${key}` });
     const missinsAnswers = !Object.keys(data).every((key) => key in answers);
     setShowError(missinsAnswers);
     if (missinsAnswers) return;
@@ -42,7 +41,7 @@ function CharacterSelection() {
 
   const handelNext = () => {
     if (!avatar) return setShowError(true);
-    postAnalytics({ userId, type: "general-information-answered" });
+    postAnalytics({ type: "general-information-answered" });
     userInfo.updateCase(tag);
     navigate("../Video");
   };

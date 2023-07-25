@@ -1,12 +1,7 @@
-import { useRouteError, Navigate } from "react-router-dom";
 import NotFoundLogo from "../assets/Logos/404Logo.svg";
 import styled from "styled-components";
 
-function ErrorElement() {
-  const error = useRouteError();
-  console.log(error.response);
-  if (error.response?.status === 403) return <Navigate to="/login" />;
-  if (error.response?.status === 404) return <Navigate to="/NotFound" />;
+function Error() {
   return (
     <Page>
       <Container>
@@ -21,11 +16,11 @@ function ErrorElement() {
   );
 }
 
-export default ErrorElement;
+export default Error;
 
 const Page = styled.div`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   font-family: "Abraham";
   display: flex;
   align-items: center;

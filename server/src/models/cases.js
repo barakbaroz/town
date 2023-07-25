@@ -14,6 +14,7 @@ const init = (sequelize) =>
       age: DataTypes.ENUM("20-50", "50-70", "70+"),
       ethnicity: DataTypes.ENUM("white", "black"),
       creatorId: DataTypes.UUID,
+      yearOfBirth: DataTypes.STRING(4),
       heartConditions: DataTypes.ARRAY(
         DataTypes.ENUM(
           "aortic_valve_regurgitation",

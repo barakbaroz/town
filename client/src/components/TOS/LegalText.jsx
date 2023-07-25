@@ -1,14 +1,12 @@
-import { Link, useParams } from "react-router-dom";
-import postAnalytics from "../../utilities/postAnalytics";
+import { Link } from "react-router-dom";
+import { postAnalytics } from "../../analytics";
 
 function LegalText() {
-  const { userId } = useParams();
-
   const supportClick = () => {
-    postAnalytics({ userId, type: `TOS-support-request` });
+    postAnalytics({ type: `TOS-support-request` });
   };
   const handlePrivacyClick = () => {
-    postAnalytics({ userId, type: "TOS-privacy-link-clicked" });
+    postAnalytics({ type: "TOS-privacy-link-clicked" });
   };
 
   return (

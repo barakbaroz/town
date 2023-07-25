@@ -5,7 +5,7 @@ const service = require("./service");
 
 module.exports.info = async (req, res) => {
   try {
-    const { id: staffMembersId } = req.staffMembers;
+    const staffMembersId = req.staffMembers.id;
     const result = await service.info({ staffMembersId });
     return res.status(200).json(result);
   } catch (error) {
@@ -16,7 +16,7 @@ module.exports.info = async (req, res) => {
 
 module.exports.casesCount = async (req, res) => {
   try {
-    const { id: staffMembersId } = req.staffMembers;
+    const staffMembersId = req.staffMembers.id;
     const search = req.body;
     const result = await service.casesCount({ staffMembersId, search });
     return res.status(200).json(result);
@@ -36,7 +36,7 @@ module.exports.login = async (req, res) => {
 
     if (bcrypt.compareSync(password, staffMembers.password)) {
       const { id } = staffMembers;
-      const token = jwt.sign({ id }, process.env.JWT_KEY);
+      const token = jwt.sign({ id }, process.env.JWT_KEY_STAFF_MEMBERS);
       return res
         .cookie("access_token", token, { httpOnly: true })
         .status(200)

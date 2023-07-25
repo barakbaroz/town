@@ -124,6 +124,7 @@ const Case = styled.div`
 `;
 
 const Container = styled(ItemGrid)`
+  cursor: pointer;
   grid-template-rows: 100px;
   border-radius: 15px;
   overflow: hidden;
