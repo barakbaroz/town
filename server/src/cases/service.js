@@ -4,6 +4,7 @@ const {
   Users,
   CasesProgress,
   SmsQueue,
+  Avatar,
 } = require("../models");
 const { Op } = require("sequelize");
 const sms = require("../sms/service");
@@ -48,13 +49,13 @@ module.exports.search = async ({ creatorId, search }) => {
         attributes: ["openSms", "avatarSelection", "watchedVideo"],
         ...casesProgressFilter[search.patientStatus],
       },
+      Avatar,
     ],
     attributes: [
       "id",
       "zehutNumber",
       "gender",
       "age",
-      "ethnicity",
       "createdAt",
       "heartConditions",
       "symptoms",

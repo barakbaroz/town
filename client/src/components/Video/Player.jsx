@@ -14,12 +14,11 @@ function Player({ setShowFeedback }) {
   const userInfo = useContext(userContext);
   const { language } = useContext(LanguageContext);
   const params = useMemo(() => {
-    const { age, gender, ethnicity, heartConditions, symptoms } = userInfo.Case;
+    const { Avatar, heartConditions, symptoms } = userInfo.Case;
+    console.log(userInfo.Case);
     return {
-      gender,
-      age,
+      ...Avatar,
       language,
-      ethnicity,
       heartConditions,
       symptoms,
       hospital: "clalit",

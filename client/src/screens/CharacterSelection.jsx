@@ -12,26 +12,23 @@ function CharacterSelection() {
   const navigate = useNavigate();
   const userInfo = useContext(userContext);
   const [answers, setAnswers] = useState({});
-  const [avatar, setAvatar] = useState("");
-  const [tag, setTag] = useState({});
+  const [avatarKey, setAvatarKey] = useState("");
+  const [avatar, setAvatar] = useState({});
   const [showError, setShowError] = useState(false);
 
   const answerQuestion = (questionKey, answerKey) => () => {
     postAnalytics({ type: `answer-${questionKey}-${answerKey}` });
-    setAvatar("");
-    setAnswers((prev) => ({
-      ...prev,
-      [questionKey]: answerKey,
-    }));
+    setAvatarKey("");
+    setAnswers((prev) => ({ ...prev, [questionKey]: answerKey }));
   };
 
-  const handleAvatar = (key, tags) => () => {
-    postAnalytics({ type: `avatar-${key}` });
+  const handleAvatar = (key, avatar) => () => {
+    postAnalytics({ type: `avatarKey-${key}` });
     const missinsAnswers = !Object.keys(data).every((key) => key in answers);
     setShowError(missinsAnswers);
     if (missinsAnswers) return;
-    setAvatar(key);
-    setTag(tags);
+    setAvatarKey(key);
+    setAvatar(avatar);
   };
 
   const filtersAvatars = Object.values(answers).reduce(
@@ -40,9 +37,9 @@ function CharacterSelection() {
   );
 
   const handelNext = () => {
-    if (!avatar) return setShowError(true);
+    if (!avatarKey) return setShowError(true);
     postAnalytics({ type: "general-information-answered" });
-    userInfo.updateCase(tag);
+    userInfo.updateCase({ ...answers, Avatar: avatar });
     navigate("../Video");
   };
 
@@ -80,18 +77,15 @@ function CharacterSelection() {
         ))}
         <CharacterQuestion id="CharacterQuestion">
           <Question id="Question">
-            <Translator>
-              Character-Selection-Avatar-
-              {filtersAvatars === 1 ? "Single" : "Multiple"}
-            </Translator>
+            <Translator>Character-Selection-Avatar</Translator>
           </Question>
           <CharacterQuestionPickerContainer id="CharacterQuestionPickerContainer">
-            {filtersAvatars.map(({ key, tags }) => (
+            {filtersAvatars.map(({ key, avatar }) => (
               <Avatar
                 id="Avatar"
                 key={key}
-                selected={key === avatar}
-                onClick={handleAvatar(key, tags)}
+                selected={key === avatarKey}
+                onClick={handleAvatar(key, avatar)}
                 src={avatarsImg[key]}
               />
             ))}
@@ -103,7 +97,11 @@ function CharacterSelection() {
           </ErrorContainer>
         </CharacterQuestion>
       </PickerContainer>
-      <ConfirmationButton id="Button" onClick={handelNext} avatar={avatar}>
+      <ConfirmationButton
+        id="Button"
+        onClick={handelNext}
+        avatarKey={avatarKey}
+      >
         <Translator>Next</Translator>
       </ConfirmationButton>
     </CharacterSelectionContainer>
@@ -114,47 +112,47 @@ export default CharacterSelection;
 
 const avatars = [
   {
-    key: "male_50-70_white",
+    key: "male_middle_white",
     fields: ["male", "20-50", "50-70", "other"],
-    tags: { gender: "male", age: "50-70", ethnicity: "white" },
+    avatar: { gender: "male", age: "middle", ethnicity: "white" },
   },
   {
-    key: "male_50-70_black",
+    key: "male_middle_black",
     fields: ["male", "20-50", "50-70", "other"],
-    tags: { gender: "male", age: "50-70", ethnicity: "black" },
+    avatar: { gender: "male", age: "middle", ethnicity: "black" },
   },
 
   {
-    key: "male_70+_white",
+    key: "male_old_white",
     fields: ["male", "70+", "other"],
-    tags: { gender: "male", age: "70+", ethnicity: "white" },
+    avatar: { gender: "male", age: "old", ethnicity: "white" },
   },
   {
-    key: "male_70+_black",
+    key: "male_old_black",
     fields: ["male", "70+", "other"],
-    tags: { gender: "male", age: "70+", ethnicity: "black" },
+    avatar: { gender: "male", age: "old", ethnicity: "black" },
   },
 
   {
-    key: "female_50-70_white",
+    key: "female_middle_white",
     fields: ["female", "20-50", "50-70", "other"],
-    tags: { gender: "female", age: "50-70", ethnicity: "white" },
+    avatar: { gender: "female", age: "middle", ethnicity: "white" },
   },
   {
-    key: "female_50-70_black",
+    key: "female_middle_black",
     fields: ["female", "20-50", "50-70", "other"],
-    tags: { gender: "female", age: "50-70", ethnicity: "black" },
+    avatar: { gender: "female", age: "middle", ethnicity: "black" },
   },
 
   {
-    key: "female_70+_white",
+    key: "female_old_white",
     fields: ["female", "70+", "other"],
-    tags: { gender: "female", age: "70+", ethnicity: "white" },
+    avatar: { gender: "female", age: "old", ethnicity: "white" },
   },
   {
-    key: "female_70+_black",
+    key: "female_old_black",
     fields: ["female", "70+", "other"],
-    tags: { gender: "female", age: "70+", ethnicity: "black" },
+    avatar: { gender: "female", age: "old", ethnicity: "black" },
   },
 ];
 
@@ -246,7 +244,7 @@ const ConfirmationButton = styled.button`
   font-size: 1.063rem;
   font-family: inherit;
   opacity: 0.6;
-  opacity: ${({ avatar }) => avatar && 1};
+  opacity: ${({ avatarKey }) => avatarKey && 1};
   margin-top: 2.125rem;
   display: block;
   margin-inline: auto;

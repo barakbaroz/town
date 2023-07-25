@@ -1,6 +1,7 @@
 const Sequelize = require("sequelize");
 const cases = require("./cases");
 const users = require("./users");
+const avatar = require("./avatar");
 const userActions = require("./userActions");
 const smsTracking = require("./smsTracking");
 const smsQueue = require("./smsQueue");
@@ -21,6 +22,7 @@ const sequelize = new Sequelize(
 //init
 cases.init(sequelize);
 users.init(sequelize);
+avatar.init(sequelize);
 userActions.init(sequelize);
 smsTracking.init(sequelize);
 smsQueue.init(sequelize);
@@ -31,6 +33,7 @@ casesProgress.init(sequelize);
 //Associations
 cases.associations(sequelize);
 users.associations(sequelize);
+avatar.associations(sequelize);
 userActions.associations(sequelize);
 smsTracking.associations(sequelize);
 smsQueue.associations(sequelize);
