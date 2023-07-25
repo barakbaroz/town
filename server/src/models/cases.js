@@ -12,7 +12,6 @@ const init = (sequelize) =>
       zehutNumber: DataTypes.STRING(4),
       gender: DataTypes.ENUM("male", "female"),
       age: DataTypes.ENUM("20-50", "50-70", "70+"),
-      ethnicity: DataTypes.ENUM("white", "black"),
       creatorId: DataTypes.UUID,
       yearOfBirth: DataTypes.STRING(4),
       heartConditions: DataTypes.ARRAY(
@@ -36,17 +35,19 @@ const init = (sequelize) =>
   );
 
 const associations = (sequelize) => {
-  const { Cases, Users, Comments, CasesProgress } = sequelize.models;
+  const { Cases, Users, Comments, CasesProgress, Avatar } = sequelize.models;
   Cases.hasOne(Users, { onDelete: "CASCADE" });
   Cases.hasOne(Comments, { onDelete: "CASCADE" });
   Cases.hasOne(CasesProgress, { onDelete: "CASCADE" });
+  Cases.hasOne(Avatar, { onDelete: "CASCADE" });
 };
 
 const hooks = (sequelize) => {
-  const { Cases, CasesProgress } = sequelize.models;
-  Cases.afterCreate(async (caseData) =>
-    CasesProgress.create({ CaseId: caseData.id })
-  );
+  const { Cases, CasesProgress, Avatar } = sequelize.models;
+  Cases.afterCreate(async (caseData) => {
+    await CasesProgress.create({ CaseId: caseData.id });
+    await Avatar.create({ CaseId: caseData.id });
+  });
 };
 
 module.exports = { init, associations, hooks };

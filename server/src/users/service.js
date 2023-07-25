@@ -1,5 +1,11 @@
 const { Op } = require("sequelize");
-const { Users, UserActions, Cases, CasesProgress } = require("../models");
+const {
+  Users,
+  UserActions,
+  Cases,
+  CasesProgress,
+  Avatar,
+} = require("../models");
 const sms = require("../sms/service");
 
 const MAX_ATTEMPTS = 2;
@@ -57,27 +63,21 @@ module.exports.getData = async ({ userId }) => {
     include: [
       {
         model: Cases,
-        attributes: [
-          "id",
-          "gender",
-          "age",
-          "ethnicity",
-          "heartConditions",
-          "symptoms",
-        ],
-        include: CasesProgress,
+        attributes: ["id", "gender", "age", "heartConditions", "symptoms"],
+        include: [CasesProgress, Avatar],
       },
     ],
   });
 };
 
 module.exports.update = async ({ id, data }) => {
-  const { gender, age, ethnicity, language } = data;
-  await Users.update({ language }, { where: { id } });
+  const { gender, age, language } = data;
   const caseByUserId = await Cases.findOne({
-    include: { model: Users, where: { id } },
+    include: [{ model: Users, where: { id } }, Avatar],
   });
-  await caseByUserId.update({ gender, age, ethnicity });
+  await caseByUserId.update({ gender, age });
+  await caseByUserId.User.update({ language });
+  await caseByUserId.Avatar.update(data.Avatar);
 };
 
 const typeToColumn = {
