@@ -18,12 +18,12 @@ module.exports.entry = async (req, res) => {
   const authURL = `/Auth/${id}/zehut`;
   try {
     const dbUser = userServices.getData({ userId: id });
-    if (!dbUser) return res.redirect("notFrond");
+    if (!dbUser) return res.redirect("notFound");
     const token = req.cookies.user_token;
     if (!token) return res.redirect(authURL);
     const user = jwt.verify(token, process.env.JWT_KEY_USER);
     if (user.id != id) return res.redirect(authURL);
-    const route = await userServices.lastStap({ userId: id });
+    const route = await userServices.lastStep({ userId: id });
     return res.redirect(`/user/${route}`);
   } catch (error) {
     return res.redirect(authURL);
