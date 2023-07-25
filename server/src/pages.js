@@ -4,10 +4,10 @@ const router = express.Router();
 const fs = require("fs");
 
 router.get("/*", (req, res) => {
-  const requestedPath = fs.existsSync(`./dist${req.path}` ) && req.path != '/'
-    ? req.path
-    : "/index.html";
-    console.log({requestedPath, path: req.path});
+  const requestedPath =
+    fs.existsSync(`./dist${req.path}`) && req.path != "/"
+      ? req.path
+      : "/index.html";
   return res
     .setHeader("Cache-Control", "no-cache, no-store, must-revalidate")
     .sendFile(path.resolve(`./dist${requestedPath}`));

@@ -15,7 +15,6 @@ function Player({ setShowFeedback }) {
   const { language } = useContext(LanguageContext);
   const params = useMemo(() => {
     const { Avatar, heartConditions, symptoms } = userInfo.Case;
-    console.log(userInfo.Case);
     return {
       ...Avatar,
       language,

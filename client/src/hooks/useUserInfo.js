@@ -12,6 +12,8 @@ export default function useUserInfo() {
 
   const updateCase = (newData) => {
     setUserInfo((prev) => ({ ...prev, Case: { ...prev.Case, ...newData } }));
+    if (newData.gender) setGender(newData.gender);
+    if (newData.language) setLanguage(newData.language);
     return axios.put("/api/user/update", newData);
   };
 
