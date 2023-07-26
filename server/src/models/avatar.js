@@ -2,23 +2,22 @@ const { DataTypes } = require("sequelize");
 
 const init = (sequelize) =>
   sequelize.define(
-    "CasesProgress",
+    "Avatar",
     {
       CaseId: {
         primaryKey: true,
         type: DataTypes.UUID,
       },
-      openSms: DataTypes.DATE,
-      avatarSelection: DataTypes.DATE,
-      watchedVideo: DataTypes.DATE,
-      satisfactionAnswer: DataTypes.DATE,
+      gender: DataTypes.ENUM("male", "female"),
+      age: DataTypes.ENUM("young", "middle", "old"),
+      ethnicity: DataTypes.ENUM("white", "black"),
     },
     { underscored: true }
   );
 
 const associations = (sequelize) => {
-  const { CasesProgress, Cases } = sequelize.models;
-  CasesProgress.belongsTo(Cases);
+  const { Cases, Avatar } = sequelize.models;
+  Avatar.belongsTo(Cases);
 };
 
 module.exports = { init, associations };

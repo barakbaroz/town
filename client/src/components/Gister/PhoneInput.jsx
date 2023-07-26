@@ -24,6 +24,7 @@ function PhoneInput({ phoneInputRef, onChange }) {
         value={number}
         ref={phoneInputRef}
         onChange={handleNumberChange}
+        maxLength={10}
       />
     </Utility>
   );

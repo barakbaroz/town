@@ -1,30 +1,30 @@
 import blank from "./blank.svg";
-import female_20_50_black from "./female_20_50_black.svg";
-import female_20_50_white from "./female_20_50_white.svg";
-import female_50_70_black from "./female_50_70_black.svg";
-import female_50_70_white from "./female_50_70_white.svg";
-import female_70_black from "./female_70_black.svg";
-import female_70_white from "./female_70_white.svg";
-import male_20_50_black from "./male_20_50_black.svg";
-import male_20_50_white from "./male_20_50_white.svg";
-import male_50_70_black from "./male_50_70_black.svg";
-import male_50_70_white from "./male_50_70_white.svg";
-import male_70_white from "./male_70_white.svg";
-import male_70_black from "./male_70_black.svg";
+import female_young_black from "./female_young_black.svg";
+import female_young_white from "./female_young_white.svg";
+import female_middle_black from "./female_middle_black.svg";
+import female_middle_white from "./female_middle_white.svg";
+import female_old_black from "./female_old_black.svg";
+import female_old_white from "./female_old_white.svg";
+import male_young_black from "./male_young_black.svg";
+import male_young_white from "./male_young_white.svg";
+import male_middle_black from "./male_middle_black.svg";
+import male_middle_white from "./male_middle_white.svg";
+import male_old_white from "./male_old_white.svg";
+import male_old_black from "./male_old_black.svg";
 
 const avatars = {
   blank,
-  "female_20-50_black": female_20_50_black,
-  "female_20-50_white": female_20_50_white,
-  "female_50-70_black": female_50_70_black,
-  "female_50-70_white": female_50_70_white,
-  "female_70+_black": female_70_black,
-  "female_70+_white": female_70_white,
-  "male_20-50_black": male_20_50_black,
-  "male_20-50_white": male_20_50_white,
-  "male_50-70_black": male_50_70_black,
-  "male_50-70_white": male_50_70_white,
-  "male_70+_white": male_70_white,
-  "male_70+_black": male_70_black,
+  female_young_black,
+  female_young_white,
+  female_middle_black,
+  female_middle_white,
+  female_old_black,
+  female_old_white,
+  male_young_black,
+  male_young_white,
+  male_middle_black,
+  male_middle_white,
+  male_old_white,
+  male_old_black,
 };
 export default avatars;

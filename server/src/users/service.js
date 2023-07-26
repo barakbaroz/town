@@ -4,9 +4,58 @@ const {
   UserActions,
   Cases,
   CasesProgress,
-  Questionnaire,
+  Avatar,
 } = require("../models");
 const sms = require("../sms/service");
+
+const MAX_ATTEMPTS = 2;
+
+module.exports.getAuthStatus = async ({ userId }) => {
+  const user = await Users.findOne({
+    where: { id: userId, failedAttempts: { [Op.lt]: MAX_ATTEMPTS } },
+    attributes: ["id", "failedAttempts"],
+  });
+  if (user) return "idle";
+  return "blocked";
+};
+
+module.exports.lastStep = async ({ userId }) => {
+  const user = await Users.findByPk(userId, {
+    include: { model: Cases, include: CasesProgress },
+  });
+  const { avatarSelection } = user.Case.CasesProgress;
+  if (avatarSelection) return "Video";
+  return "Start";
+};
+
+module.exports.verify = async ({
+  id,
+  zehutNumber,
+  yearOfBirth,
+  rememberMe,
+}) => {
+  const user = await Users.findByPk(id, {
+    include: { model: Cases, required: true },
+  });
+  if (!user) return { status: "blocked" };
+  const verifyObj = {
+    zehutNumber: user.Case.zehutNumber === zehutNumber,
+    yearOfBirth: user.Case.yearOfBirth === yearOfBirth,
+    rememberMe,
+    attempts: user.failedAttempts + 1,
+  };
+  verifyObj.success = verifyObj.zehutNumber && verifyObj.yearOfBirth;
+  this.userAction({ UserId: id, type: "verify", data: verifyObj });
+  if (verifyObj.success) {
+    user.update({ failedAttempts: 0 }, { where: { id } });
+    return { user };
+  }
+  user.failedAttempts += 1;
+  user.save();
+  return {
+    status: user.failedAttempts >= MAX_ATTEMPTS ? "blocked" : "failed",
+  };
+};
 
 module.exports.getData = async ({ userId }) => {
   return await Users.findByPk(userId, {
@@ -14,28 +63,28 @@ module.exports.getData = async ({ userId }) => {
     include: [
       {
         model: Cases,
-        attributes: [
-          "id",
-          "gender",
-          "age",
-          "ethnicity",
-          "heartConditions",
-          "symptoms",
-        ],
+        attributes: ["id", "gender", "age", "heartConditions", "symptoms"],
+        include: [CasesProgress, Avatar],
       },
     ],
   });
 };
 
 module.exports.update = async ({ id, data }) => {
-  await Users.update(data, { where: { id } });
-  console.log(`user: ${id} updated successfuly`);
+  const { gender, age, language } = data;
+  const caseByUserId = await Cases.findOne({
+    include: [{ model: Users, where: { id } }, Avatar],
+  });
+  await caseByUserId.update({ gender, age });
+  await caseByUserId.User.update({ language });
+  await caseByUserId.Avatar.update(data.Avatar);
 };
 
 const typeToColumn = {
   "opened-sms": "openSms",
   "general-information-answered": "avatarSelection",
   "watched-video": "watchedVideo",
+  "Satisfaction-question": "satisfactionAnswer",
 };
 
 const updateCasesProgress = async ({ UserId, type }) => {

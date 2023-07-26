@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const {
-  update,
-  postCase,
+  create,
   CommentCase,
   duplicate,
   search,
@@ -10,11 +9,9 @@ const {
 } = require("./controller");
 const { verifyToken } = require("../stuffMembers/authorization");
 
-router.put("/update", update);
-
 router.use(verifyToken);
 
-router.post("/create", postCase);
+router.post("/create", create);
 router.post("/CommentCase", CommentCase);
 router.post("/duplicate", duplicate);
 

@@ -8,17 +8,16 @@ import { LanguageContext } from "../Translation";
 import { useMemo } from "react";
 import useVideoUrl from "../../hooks/useVideoUrl";
 import PropTypes from "prop-types";
+import videoThumbnail from "../../assets/videoThumbnail.png";
 
 function Player({ setShowFeedback }) {
   const userInfo = useContext(userContext);
   const { language } = useContext(LanguageContext);
   const params = useMemo(() => {
-    const { age, gender, ethnicity, heartConditions, symptoms } = userInfo.Case;
+    const { Avatar, heartConditions, symptoms } = userInfo.Case;
     return {
-      gender,
-      age,
+      ...Avatar,
       language,
-      ethnicity,
       heartConditions,
       symptoms,
       hospital: "clalit",
@@ -27,16 +26,12 @@ function Player({ setShowFeedback }) {
 
   const { videoUrl } = useVideoUrl(params, "heart-failure-community");
 
-  const onLocationUpdate = useCallback(
-    (percentage, location) => {
-      axios.post("/api/users/userVideoAction", {
-        UserId: userInfo.id,
-        type: "watched-video",
-        data: { percentage, location },
-      });
-    },
-    [userInfo.id]
-  );
+  const onLocationUpdate = useCallback((percentage, location) => {
+    axios.post("/api/user/userVideoAction", {
+      type: "watched-video",
+      data: { percentage, location },
+    });
+  }, []);
 
   const onPlayerPlaying = useCallback(() => {
     setShowFeedback(true);
@@ -50,6 +45,7 @@ function Player({ setShowFeedback }) {
         audioStartDelay={3}
         onLocationUpdate={onLocationUpdate}
         onPlayerPlaying={onPlayerPlaying}
+        thumbnail={videoThumbnail}
       />
     </VideoContainer>
   );

@@ -37,7 +37,7 @@ const CircularProgress = ({ maxValue, progress, strokeWidth }) => {
 CircularProgress.propTypes = {
   maxValue: PropTypes.number,
   progress: PropTypes.number,
-  strokeWidth: PropTypes.number,
+  strokeWidth: PropTypes.string,
 };
 
 export default CircularProgress;

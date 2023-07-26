@@ -1,17 +1,5 @@
 const casesServices = require("./service");
 
-module.exports.update = async (req, res) => {
-  try {
-    const { body } = req;
-    const { userId, ...data } = body;
-    await casesServices.update({ userId, data });
-    return res.status(200).json("updated");
-  } catch (error) {
-    console.error(error);
-    return res.status(500).send("Error in Update Cases");
-  }
-};
-
 module.exports.search = async (req, res) => {
   try {
     const { id: creatorId } = req.staffMembers;
@@ -27,12 +15,12 @@ module.exports.search = async (req, res) => {
   }
 };
 
-module.exports.postCase = async (req, res) => {
+module.exports.create = async (req, res) => {
   console.info("Post Case");
   try {
     const { id: creatorId } = req.staffMembers;
     const { body } = req;
-    await casesServices.postCase({ creatorId, ...body });
+    await casesServices.create({ creatorId, ...body });
     return res.status(200).send("Case Created");
   } catch (error) {
     console.error(error);

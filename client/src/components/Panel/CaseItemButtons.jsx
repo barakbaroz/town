@@ -12,7 +12,7 @@ function CaseItemButtons({ item }) {
 
   const handleCopyLink = () => {
     navigator.clipboard.writeText(
-      `${window.location.origin}/user/${item.User.id}/Start`
+      `${window.location.origin}/api/user/entry/${item.User.id}`
     );
     setLinkCopied(true);
   };

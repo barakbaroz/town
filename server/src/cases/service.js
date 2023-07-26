@@ -4,19 +4,10 @@ const {
   Users,
   CasesProgress,
   SmsQueue,
+  Avatar,
 } = require("../models");
 const { Op } = require("sequelize");
 const sms = require("../sms/service");
-
-module.exports.update = async ({ userId, data }) => {
-  const caseByUserId = await Cases.findOne({
-    include: {
-      model: Users,
-      where: { id: userId },
-    },
-  });
-  caseByUserId.update(data);
-};
 
 const casesProgressFilter = {
   openSms: {
@@ -45,7 +36,7 @@ const myCasesFilter = ({ myCases }, creatorId) =>
   myCases ? { creatorId } : {};
 
 module.exports.search = async ({ creatorId, search }) => {
-  console.info("Get cases service");
+  console.info(`search ${search} by ${creatorId}`);
   const cases = await Cases.findAll({
     include: [
       {
@@ -58,13 +49,13 @@ module.exports.search = async ({ creatorId, search }) => {
         attributes: ["openSms", "avatarSelection", "watchedVideo"],
         ...casesProgressFilter[search.patientStatus],
       },
+      Avatar,
     ],
     attributes: [
       "id",
       "zehutNumber",
       "gender",
       "age",
-      "ethnicity",
       "createdAt",
       "heartConditions",
       "symptoms",
@@ -81,17 +72,19 @@ module.exports.search = async ({ creatorId, search }) => {
   return cases;
 };
 
-module.exports.postCase = async ({
+module.exports.create = async ({
   creatorId,
   phoneNumber,
   zehutNumber,
+  yearOfBirth,
   symptoms,
   heartConditions,
 }) => {
-  console.info(`Post case by staff member: ${creatorId}`);
+  console.info(`create case by staff member: ${creatorId}`);
   const newCase = await Cases.create({
     creatorId,
     zehutNumber,
+    yearOfBirth,
     symptoms,
     heartConditions,
   });

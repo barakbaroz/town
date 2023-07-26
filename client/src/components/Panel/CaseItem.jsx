@@ -30,8 +30,9 @@ function CaseItem({ item, deleteCase }) {
           <AvatarImage
             alt="avatar"
             src={
-              Avatars[`${item.gender}_${item.age}_${item.ethnicity}`] ||
-              Avatars.blank
+              Avatars[
+                `${item.Avatar?.gender}_${item.Avatar?.age}_${item.Avatar?.ethnicity}`
+              ] || Avatars.blank
             }
           />
           <Line />
@@ -124,6 +125,7 @@ const Case = styled.div`
 `;
 
 const Container = styled(ItemGrid)`
+  cursor: pointer;
   grid-template-rows: 100px;
   border-radius: 15px;
   overflow: hidden;

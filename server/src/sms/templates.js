@@ -1,6 +1,6 @@
 module.exports = (type, user) => {
   const { BASIC_URL } = process.env;
-  const startLink = `${BASIC_URL}/user/${user.id}/start`;
+  const startLink = `${BASIC_URL}/api/user/entry/${user.id}`;
 
   const template = {
     key: "type",

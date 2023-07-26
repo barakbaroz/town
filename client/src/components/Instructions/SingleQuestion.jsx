@@ -1,18 +1,16 @@
 import styled, { css } from "styled-components";
 import { Translator } from "../Translation";
-import postAnalytics from "../../utilities/postAnalytics";
-import { useParams } from "react-router-dom";
+import { postAnalytics } from "../../analytics";
 import PropTypes from "prop-types";
 import { useState } from "react";
 
 function SingleQuestion({ questionKey, onAnswer, show }) {
   const [answer, setAnswer] = useState("");
-  const { userId } = useParams();
 
   const handleFeedback = (answer) => () => {
     postAnalytics({
-      userId,
-      type: `satisfaction-question-${questionKey}-${answer}`,
+      type: `satisfaction-question`,
+      data: answer,
     });
     setAnswer(answer);
     if (onAnswer) onAnswer();

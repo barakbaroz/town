@@ -8,13 +8,11 @@ import videoThumbnail from "../../assets/videoThumbnail.png";
 
 const PanelVideo = ({ close, item, show }) => {
   const params = useMemo(() => {
-    const { gender, age, ethnicity, User, heartConditions, symptoms } = item;
+    const { Avatar, User, heartConditions, symptoms } = item;
     const { language } = User;
     return {
-      gender,
-      age,
+      ...Avatar,
       language,
-      ethnicity,
       heartConditions,
       symptoms,
       hospital: "clalit",
