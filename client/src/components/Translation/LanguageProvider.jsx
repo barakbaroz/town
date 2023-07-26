@@ -13,7 +13,7 @@ function LanguageProvider({ children }) {
     setDirection(directions[newLanguage]);
   }, []);
 
-  const updateLanguage = ({ language }) => {
+  const updateLanguage = (language) => {
     setLanguage(language);
     axios.put(`/api/user/update`, { language });
   };
