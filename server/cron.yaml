@@ -1,0 +1,4 @@
+cron:
+  - url: /api/sms/sendReminders
+    schedule: every 10 mins
+    timezone: Israel
