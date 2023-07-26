@@ -80,13 +80,13 @@ function CharacterSelection() {
             <Translator>Character-Selection-Avatar</Translator>
           </Question>
           <CharacterQuestionPickerContainer id="CharacterQuestionPickerContainer">
-            {filtersAvatars.map(({ key, avatar }) => (
+            {filtersAvatars.map(({ key, avatar, image }) => (
               <Avatar
                 id="Avatar"
                 key={key}
                 selected={key === avatarKey}
                 onClick={handleAvatar(key, avatar)}
-                src={avatarsImg[key]}
+                src={image}
               />
             ))}
           </CharacterQuestionPickerContainer>
@@ -113,46 +113,51 @@ export default CharacterSelection;
 const avatars = [
   {
     key: "male_middle_white",
-    fields: ["male", "20-50", "50-70", "other"],
+    fields: ["male", "20-50", "50-70", "70+", "other"],
     avatar: { gender: "male", age: "middle", ethnicity: "white" },
+    image: avatarsImg.male_middle_white,
   },
   {
     key: "male_middle_black",
-    fields: ["male", "20-50", "50-70", "other"],
+    fields: ["male", "20-50", "50-70", "70+", "other"],
     avatar: { gender: "male", age: "middle", ethnicity: "black" },
+    image: avatarsImg.male_middle_black,
   },
-
   {
     key: "male_old_white",
     fields: ["male", "70+", "other"],
     avatar: { gender: "male", age: "old", ethnicity: "white" },
+    image: avatarsImg.male_old_white,
   },
   {
     key: "male_old_black",
     fields: ["male", "70+", "other"],
     avatar: { gender: "male", age: "old", ethnicity: "black" },
+    image: avatarsImg.male_old_black,
   },
-
   {
     key: "female_middle_white",
-    fields: ["female", "20-50", "50-70", "other"],
+    fields: ["female", "20-50", "50-70", "70+", "other"],
     avatar: { gender: "female", age: "middle", ethnicity: "white" },
+    image: avatarsImg.female_middle_white,
   },
   {
     key: "female_middle_black",
-    fields: ["female", "20-50", "50-70", "other"],
+    fields: ["female", "20-50", "50-70", "70+", "other"],
     avatar: { gender: "female", age: "middle", ethnicity: "black" },
+    image: avatarsImg.female_middle_black,
   },
-
   {
     key: "female_old_white",
     fields: ["female", "70+", "other"],
     avatar: { gender: "female", age: "old", ethnicity: "white" },
+    image: avatarsImg.female_old_white,
   },
   {
     key: "female_old_black",
     fields: ["female", "70+", "other"],
     avatar: { gender: "female", age: "old", ethnicity: "black" },
+    image: avatarsImg.female_old_black,
   },
 ];
 
