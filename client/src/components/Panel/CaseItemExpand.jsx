@@ -13,12 +13,6 @@ const CaseItemExpand = ({ item, show }) => {
           <Text show={true}>פרטי קשר</Text>
           {item.User.phoneNumber}
         </div>
-        <div>
-          <Text show={item.symptoms.length > 0}>סימפטומים</Text>
-          {item.symptoms.map((symptom) => (
-            <div key={symptom}>{symptoms[symptom]}</div>
-          ))}
-        </div>
       </Column>
 
       <Column>
@@ -41,12 +35,6 @@ CaseItemExpand.propTypes = {
 };
 
 export default CaseItemExpand;
-
-const symptoms = {
-  shortness_of_breath: "קוצר נשימה",
-  edema: "בצקת",
-  chest_pain: "כאבים בחזה",
-};
 
 export const ItemGrid = styled.div`
   display: grid;
