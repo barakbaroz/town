@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import Player from "../components/Video/Player";
-import { useState, Fragment } from "react";
+import { useState } from "react";
 import VideoButtons from "../components/Instructions/VideoButtons";
 import SatisfactionQuestions from "../components/Instructions/SatisfactionQuestions";
 import LanguageBar from "../components/User/LanguageBar";
-import medicationsIcon from "../assets/Video/drugs.png";
-import dietIcon from "../assets/Video/diet.png";
-import activityIcon from "../assets/Video/activity.png";
 import { Translator } from "../components/Translation";
 import NutritionalGuidelines from "../components/Instructions/NutritionalGuidelines";
+import ConsultDoctor from "../components/Instructions/ConsultDoctor";
+import DontForget from "../components/Instructions/DontForget";
+import Consent from "../components/Instructions/Consent";
 
 function VideoPage() {
   const [showFeedback, setShowFeedback] = useState(false);
@@ -27,24 +27,13 @@ function VideoPage() {
         <SatisfactionQuestions videoStarted={showFeedback} />
       </VideoInteraction>
 
-      <NutritionalGuidelines />
+      <CardsWrapper>
+        <NutritionalGuidelines />
+        <ConsultDoctor />
+        <DontForget />
+        <Consent />
+      </CardsWrapper>
 
-      <InstructionsContainer>
-        <InstructionsTitle>
-          <Translator>Video-Instructions-Title</Translator>
-        </InstructionsTitle>
-        {routinesInstructions.map(({ icon, paragraph }, index) => (
-          <Fragment key={index}>
-            <RoutineWrapper>
-              <img src={icon} alt={icon} />
-              <RoutineText>
-                <Translator>{paragraph}</Translator>
-              </RoutineText>
-            </RoutineWrapper>
-            <Divider />
-          </Fragment>
-        ))}
-      </InstructionsContainer>
       <Footer>
         <Translator>Footer</Translator>
       </Footer>
@@ -53,21 +42,6 @@ function VideoPage() {
 }
 
 export default VideoPage;
-
-const routinesInstructions = [
-  {
-    icon: medicationsIcon,
-    paragraph: "Video-Routine-Medications",
-  },
-  {
-    icon: dietIcon,
-    paragraph: "Video-Routine-Diet",
-  },
-  {
-    icon: activityIcon,
-    paragraph: "Video-Routine-Activity",
-  },
-];
 
 const Container = styled.div`
   --screen-margin: 25px;
@@ -88,11 +62,6 @@ const StyledLanguageBar = styled.div`
   margin-inline: var(--screen-margin);
 `;
 
-const InstructionsContainer = styled.div`
-  margin-block-start: 44px;
-  margin-inline: var(--screen-margin);
-`;
-
 const Title = styled.p`
   text-align: start;
   font-size: 1.375rem;
@@ -102,6 +71,12 @@ const Title = styled.p`
   margin-inline: var(--screen-margin);
 `;
 
+const CardsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 34px;
+`;
+
 const VideoInteraction = styled.div`
   display: flex;
   flex-direction: column;
@@ -109,34 +84,6 @@ const VideoInteraction = styled.div`
   justify-content: end;
   margin-block-start: 18px;
   margin-inline: var(--screen-margin);
-`;
-
-const Divider = styled.div`
-  height: 1px;
-  background-color: #84a4fb;
-  margin-block-end: 35px;
-  margin-block-start: 35px;
-  opacity: 0.3;
-`;
-
-const InstructionsTitle = styled.p`
-  text-align: start;
-  font-size: 1.375rem;
-  font-weight: 700;
-  margin-block-end: 36px;
-`;
-
-const RoutineWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 22px;
-`;
-
-const RoutineText = styled.p`
-  text-align: start;
-  font-size: 1.188rem;
-  font-weight: 400;
-  margin-block: 0;
 `;
 
 const Footer = styled.footer`
