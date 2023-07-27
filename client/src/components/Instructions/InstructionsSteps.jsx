@@ -41,9 +41,7 @@ function InstructionsSteps() {
               {" / "}
               {date.toLocaleTimeString("en-IL")}
             </StepDetails>
-            <Wrapper>
-              <DottetLine />
-            </Wrapper>
+            <DottetLine />
             <DescriptionText>
               <Translator>{content}</Translator>
             </DescriptionText>
@@ -64,6 +62,8 @@ const data = [
 export default InstructionsSteps;
 
 const Container = styled.div`
+  /* margin-block-start: 1.063rem; */
+  margin-block-end: 1.75rem;
   display: grid;
   grid-template-columns: 15px 1fr;
   place-items: center;
@@ -72,14 +72,6 @@ const Container = styled.div`
 const DottetLine = styled.div`
   height: 100%;
   border-right: 1px dotted #7a9dfd;
-`;
-
-const Wrapper = styled.div`
-  display: contents;
-  background-color: red;
-  & > ${DottetLine}:last-child() {
-    border-right: 1px dotted red;
-  }
 `;
 
 const Bullet = styled.div`
