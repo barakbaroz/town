@@ -1,17 +1,24 @@
 {
-  "authentication-success-title": "זיהוי הצליח",
-  "authentication-success-subtitle": "מיד נעביר אותך",
-
-  "authentication-failed-title": "זיהוי נכשל",
+  "authentication-success-title": "הזיהוי הצליח",
+  "authentication-success-subtitle": "מיד נעבור למערך ההדרכה!",
+  "authentication-failed-title": "הזיהוי נכשל",
   "authentication-failed-subtitle": "ניסיון נוסף לזיהוי יתחיל בעוד מספר שניות",
-
   "authentication-blocked-title": "הזיהוי נכשל בפעם השנייה",
-  "authentication-blocked-subtitle": "יש לפנות למרפאה להשלמת תהליך הזיהוי",
+  "authentication-blocked-subtitle": "חשוב לפנות למרפאה כדי להתחיל את הליך הזיהוי מחדש",
+  "authentication-loading-title": "רק עוד רגע…",
+  "authentication-loading-subtitle": "העמוד בטעינה",
 
-  "authentication-loading-title": "טוען...",
-  "authentication-loading-subtitle": "אנא המתן כמה רגעים",
+  "questions-title": "אנא ענה/י על 3 שאלות לצורך מסך זיהוי",
+  "enter-id": "מה הן ארבעת ספרות אחרונות של תעודת הזהות שלך?",
+  "year-of-birth": "מהי שנת הלידה שלך?",
+  "schedule-reason": "מהי הסיבה בגללה זומנת למרפאה?",
 
-  "remember-me": "זכור אותי במכשיר זה",
+  "choose-answer": "בחר/י את התשובה",
+  "heart": "אי ספיקת לב",
+  "colonoscopy": "קולונוסקופיה",
+  "birth": "לידה",
+
+  "remember-me": "זכור אותי במכשיר זה לפעם הבאה",
 
   "Start-Title": "שלום!",
   "Start-Paragraph": "הכנו עבורך סרטון הדרכה שיתן לך ידע חיוני וכלים שימושיים להתמודדות עם אי ספיקת לב",
@@ -36,12 +43,20 @@
   "Character-Selection-Avatar": "מהי הדמות המועדפת עליך?",
   "Character-Selection-Error": "עליך למלא תחילה שדות קודמים",
 
-  "Video-Title-male": "אי ספיקת לב היא מחלה המחייבת מעקב, היענות לטיפול וניהול אורח חיים נכון. צפה בסרטון כדי לדעת עוד",
-  "Video-Title-female": "אי ספיקת לב היא מחלה המחייבת מעקב, היענות לטיפול וניהול אורח חיים נכון. צפי בסרטון כדי לדעת עוד",
+  "Video-Title-male": "צפה בסרטון מותאם אישית שיסביר לך איך להתכונן לבדיקה שלך",
+  "Video-Title-female": "צפה בסרטון מותאם אישית שיסביר לך איך להתכונן לבדיקה שלך",
   "Video-Instructions-Title": "חשוב לזכור לנהל שגרת חיים נכונה כחלק מהטיפול שלך",
   "Video-Routine-Medications": "ליטול את התרופות שניתנו לך בדיוק לפי המרשם, ולקחת אותן בזמן - במרווחים קבועים",
   "Video-Routine-Diet": "תזונה בריאה דלת מלח הכוללת דגנים מלאים פירות, ירקות ומאכלים דלי שומן, היא חיונית לאורח חיים מאוזן והאטת התקדמות המחלה",
   "Video-Routine-Activity": "מומלץ לשלב בשגרת היום יום שלך פעילות גופנית כמו הליכה או שחייה, שתשפר את הכושר הגופני שלך, את הרגשתך הכללית, ובעיקר - תחזק את שריר הלב.",
+
+  "Instructions-Steps-sunday": "ראשון",
+  "Instructions-Steps-monday": "שני",
+  "Instructions-Steps-tuesday": "שלישי",
+  "Instructions-Steps-wednesday": "רביעי",
+  "Instructions-Steps-thursday": "חמישי",
+  "Instructions-Steps-friday": "שישי",
+  "Instructions-Steps-saturday": "שבת",
 
   "Satisfaction-Response": "תודה! תשובתך חשובה לנו",
   "Satisfaction-question-video-helpful": "האם הסרטון עזר לך?",
