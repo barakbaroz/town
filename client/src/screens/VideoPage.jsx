@@ -9,6 +9,7 @@ import NutritionalGuidelines from "../components/Instructions/NutritionalGuideli
 import ConsultDoctor from "../components/Instructions/ConsultDoctor";
 import DontForget from "../components/Instructions/DontForget";
 import Consent from "../components/Instructions/Consent";
+import CallCenter from "../components/Instructions/CallCenter";
 
 function VideoPage() {
   const [showFeedback, setShowFeedback] = useState(false);
@@ -34,6 +35,16 @@ function VideoPage() {
         <Consent />
       </CardsWrapper>
 
+      <ScrollSectionWrapper>
+        {/* <NurseImage src="" alt="nurseImage" /> */}
+        <ScrollButton>
+          <Translator>חזרה לסרטון</Translator>
+        </ScrollButton>
+      </ScrollSectionWrapper>
+
+      <CallCenter />
+      <Divider />
+
       <Footer>
         <Translator>Footer</Translator>
       </Footer>
@@ -55,7 +66,7 @@ const Container = styled.div`
       #ffffff 100%
     )
     0% 0% no-repeat padding-box;
-  padding-block-end: 57px;
+  padding-block-end: 35px;
 `;
 
 const StyledLanguageBar = styled.div`
@@ -71,6 +82,13 @@ const Title = styled.p`
   margin-inline: var(--screen-margin);
 `;
 
+const ScrollSectionWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-block: 35px;
+`;
+
 const CardsWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -84,6 +102,30 @@ const VideoInteraction = styled.div`
   justify-content: end;
   margin-block-start: 18px;
   margin-inline: var(--screen-margin);
+`;
+
+const ScrollButton = styled.button`
+  --content-height: 1.625rem;
+  font-size: 1.125rem;
+  min-width: 15.625rem;
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #7a9dfd;
+  border: none;
+  padding-block: 0.688rem;
+  padding-inline: 27px;
+  border-radius: 50px;
+  align-self: center;
+  font-family: inherit;
+`;
+
+const Divider = styled.div`
+  height: 1px;
+  width: 100%;
+  background-color: #84a4fc;
+  margin-block-start: 35px;
+  margin-block-end: 41px;
+  opacity: 0.2;
 `;
 
 const Footer = styled.footer`
