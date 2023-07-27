@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import { Translator } from "../Translation";
 import InstructionsSteps from "./InstructionsSteps";
+import { Card } from "../../stylings/VideoPageStyling";
 
 function NutritionalGuidelines() {
   return (
-    <Container>
+    <Card>
       <TopSection>
         <Title>
           <Translator>הנחיות תזונתיות</Translator>
@@ -29,22 +30,12 @@ function NutritionalGuidelines() {
       <InstructionsDownload>
         <Translator>הנחיות מותאמות אישית להורדה</Translator>
       </InstructionsDownload>
-    </Container>
+    </Card>
   );
 }
 
 export default NutritionalGuidelines;
 
-const Container = styled.div`
-  margin-inline: var(--screen-margin);
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  border-radius: 15px;
-  padding-inline: 27px;
-  padding-block-start: 20px;
-  padding-block-end: 35px;
-`;
 const TopSection = styled.div`
   display: flex;
   align-items: center;
