@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { Card } from "../../stylings/VideoPageStyling";
+import { Card, Icon } from "../../stylings/VideoPageStyling";
 import { Translator } from "../Translation";
+import consentForm from "../../assets/Icons/consent_form.svg";
 
 function Consent() {
   return (
@@ -9,7 +10,7 @@ function Consent() {
         <Title>
           <Translator>ביום הבדיקה לא לשכוח להביא</Translator>
         </Title>
-        <img src="" alt="image" />
+        <Icon src={consentForm} alt="consentForm" />
       </TopSection>
 
       <Text>

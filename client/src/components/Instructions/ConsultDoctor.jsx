@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { Card } from "../../stylings/VideoPageStyling";
+import { Card, Icon } from "../../stylings/VideoPageStyling";
 import { Translator } from "../Translation";
+import doctor_consult from "../../assets/Icons/doctor_consult.svg";
 
 function ConsultDoctor() {
   return (
@@ -9,7 +10,7 @@ function ConsultDoctor() {
         <Title>
           <Translator>התייעצות עם הרופא/ה המטפל/ת</Translator>
         </Title>
-        <img src="" alt="image" />
+        <Icon src={doctor_consult} alt="doctorConsult" />
       </TopSection>
 
       <Text>

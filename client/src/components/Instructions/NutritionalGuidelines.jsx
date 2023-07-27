@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { Translator } from "../Translation";
 import InstructionsSteps from "./InstructionsSteps";
-import { Card } from "../../stylings/VideoPageStyling";
+import { Card, Icon } from "../../stylings/VideoPageStyling";
+import nutrition from "../../assets/Icons/nutrition.svg";
 
 function NutritionalGuidelines() {
   return (
@@ -10,7 +11,7 @@ function NutritionalGuidelines() {
         <Title>
           <Translator>הנחיות תזונתיות</Translator>
         </Title>
-        <img src="" alt="image" />
+        <Icon src={nutrition} alt="nutrition" />
       </TopSection>
 
       <Text>
