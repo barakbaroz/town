@@ -8,6 +8,7 @@ import medicationsIcon from "../assets/Video/drugs.png";
 import dietIcon from "../assets/Video/diet.png";
 import activityIcon from "../assets/Video/activity.png";
 import { Translator } from "../components/Translation";
+import NutritionalGuidelines from "../components/Instructions/NutritionalGuidelines";
 
 function VideoPage() {
   const [showFeedback, setShowFeedback] = useState(false);
@@ -25,6 +26,9 @@ function VideoPage() {
         <VideoButtons />
         <SatisfactionQuestions videoStarted={showFeedback} />
       </VideoInteraction>
+
+      <NutritionalGuidelines />
+
       <InstructionsContainer>
         <InstructionsTitle>
           <Translator>Video-Instructions-Title</Translator>
