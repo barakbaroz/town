@@ -36,9 +36,11 @@ function NutritionalGuidelines() {
 export default NutritionalGuidelines;
 
 const Container = styled.div`
+  margin-inline: var(--screen-margin);
   display: flex;
   flex-direction: column;
   background-color: white;
+  border-radius: 15px;
   padding-inline: 27px;
   padding-block-start: 20px;
   padding-block-end: 35px;
@@ -56,6 +58,7 @@ const Title = styled.h1`
 `;
 const Text = styled.p`
   margin: 0;
+  margin-block-end: 1.125rem;
 `;
 const InstructionsDownload = styled.button`
   --content-height: 1.625rem;
