@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Card, Icon } from "../../stylings/VideoPageStyling";
+import { Card, Icon } from "./style";
 
 import { Translator } from "../Translation";
 import gist_v from "../../assets/Icons/gist_v.svg";
