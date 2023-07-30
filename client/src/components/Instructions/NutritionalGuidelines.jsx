@@ -1,35 +1,38 @@
 import styled from "styled-components";
 import { Translator } from "../Translation";
 import InstructionsSteps from "./InstructionsSteps";
-import { Card, Icon } from "../../stylings/VideoPageStyling";
+import { Card, Icon } from "./style";
+import { Button } from "../general.style";
 import nutrition from "../../assets/Icons/nutrition.svg";
 
 function NutritionalGuidelines() {
+  const examinationDate = new Intl.DateTimeFormat("he-IL", {
+    dateStyle: "full",
+    timeStyle: "short",
+  }).format(new Date());
+
   return (
     <Card>
       <TopSection>
         <Title>
-          <Translator>הנחיות תזונתיות</Translator>
+          <Translator>Nutritional-Guidelines-Title</Translator>
         </Title>
         <Icon src={nutrition} alt="nutrition" />
       </TopSection>
 
       <Text>
-        <Translator>
-          לקראת הבדיקה שלך חשוב מאוד להקפיד על ההנחיות התזונתיות - יש לך תפקיד
-          חשוב בהצלחת הבדיקה!
-        </Translator>
+        <Translator>Nutritional-Guidelines-Preview</Translator>
       </Text>
       <Text>
-        <Translator>
-          הבדיקה שלך נקבעה ליום ראשון, 19.05.23 בשעה 00:00
-        </Translator>
+        <Translator>הבדיקה שלך נקבעה ל</Translator>
+        <span>{examinationDate}</span>
+        {/* <Translator>הבדיקה שלך נקבעה ליום ראשון, 19.05.23 בשעה</Translator> */}
       </Text>
 
       <InstructionsSteps />
 
       <InstructionsDownload>
-        <Translator>הנחיות מותאמות אישית להורדה</Translator>
+        <Translator>Nutritional-Guidelines-Download</Translator>
       </InstructionsDownload>
     </Card>
   );
@@ -52,7 +55,7 @@ const Text = styled.p`
   margin: 0;
   margin-block-end: 1.125rem;
 `;
-const InstructionsDownload = styled.button`
+const InstructionsDownload = styled(Button)`
   --content-height: 1.625rem;
   font-size: 1.125rem;
   cursor: pointer;
