@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import phoneIcon from "../../assets/Icons/phone_icon.svg";
+import contactPhone from "../../assets/Icons/contact_phone.svg";
 import { Translator } from "../Translation";
 
 function CallCenter() {
@@ -17,7 +17,7 @@ function CallCenter() {
           <Translator>בין השעות: 10:00-14:00</Translator>
         </Text>
       </TextContent>
-      <PhoneImage src={phoneIcon} alt="phoneIcon" />
+      <PhoneImage src={contactPhone} alt="phoneIcon" />
     </Container>
   );
 }
@@ -25,31 +25,21 @@ function CallCenter() {
 export default CallCenter;
 
 const Container = styled.div`
+  color: #000;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  background-color: #84a4fc;
   margin-inline: 23px;
-  border-radius: 20px;
   padding-block-start: 1.188rem;
   padding-block-end: 1.375rem;
 `;
 
-const PhoneImage = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background-color: #84a4fc;
-`;
+const PhoneImage = styled.img``;
 
 const TextContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: start;
-  color: #fff;
 `;
 
 const Title = styled.p`
