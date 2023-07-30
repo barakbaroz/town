@@ -67,6 +67,7 @@ module.exports.search = async ({ creatorId, search }) => {
 module.exports.create = async ({
   creatorId,
   phoneNumber,
+  language,
   zehutNumber,
   yearOfBirth,
 }) => {
@@ -77,7 +78,7 @@ module.exports.create = async ({
     yearOfBirth,
   });
   const CaseId = newCase.dataValues.id;
-  const user = await Users.create({ CaseId, phoneNumber });
+  const user = await Users.create({ CaseId, phoneNumber, language });
   await sms.action({ UserId: user.id, actionKey: "create-case" });
   await sms.sendImmediate({ CaseId, type: "caseCreation", phoneNumber });
 };
