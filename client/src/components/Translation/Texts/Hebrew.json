@@ -45,10 +45,27 @@
 
   "Video-Title-male": "צפה בסרטון מותאם אישית שיסביר לך איך להתכונן לבדיקה שלך",
   "Video-Title-female": "צפה בסרטון מותאם אישית שיסביר לך איך להתכונן לבדיקה שלך",
-  "Video-Instructions-Title": "חשוב לזכור לנהל שגרת חיים נכונה כחלק מהטיפול שלך",
-  "Video-Routine-Medications": "ליטול את התרופות שניתנו לך בדיוק לפי המרשם, ולקחת אותן בזמן - במרווחים קבועים",
-  "Video-Routine-Diet": "תזונה בריאה דלת מלח הכוללת דגנים מלאים פירות, ירקות ומאכלים דלי שומן, היא חיונית לאורח חיים מאוזן והאטת התקדמות המחלה",
-  "Video-Routine-Activity": "מומלץ לשלב בשגרת היום יום שלך פעילות גופנית כמו הליכה או שחייה, שתשפר את הכושר הגופני שלך, את הרגשתך הכללית, ובעיקר - תחזק את שריר הלב.",
+
+  "Nutritional-Guidelines-Title": "הנחיות תזונתיות",
+  "Nutritional-Guidelines-Preview": "לקראת הבדיקה שלך יש לעשות שינויים תזונתיים על פי הפירוט המופיע כאן  - יש לך תפקיד חשוב בהצלחת הבדיקה!",
+  "Nutritional-Guidelines-Download": "הנחיות מותאמות אישית להורדה",
+
+  "Instructions-Steps-Diet": "לעבור לדיאטה דלת סיבים",
+  "Instructions-Steps-Liquids": "החל מ 24 שעות לפני הבדיקה- לעבור לשתות נוזלים צלולים בלבד",
+  "Instructions-Steps-FirstPortion": "לקחת את המנה הראשונה של החומר המשלשל",
+  "Instructions-Steps-SecondPortion": "לקחת את המנה השנייה של החומר המשלשל",
+
+  "Consult-Doctor-Title": "התייעצות עם הרופא/ה המטפל/ת",
+
+  "Cpap-Title": "במצב של שימוש בסיפאפ (CPAP)",
+  "Cpap-Information": "יש לפנות למזכירות לבדוק את הצורך בנוכחות רופא מרדים בזמן הפעולה",
+
+  "Dont-Forget-Title": "ביום הבדיקה לא לשכוח להביא:",
+
+  "Consent-Title": "הסכמה מדעת",
+  "Consent-Information-male": "ביום הבדיקה תתבקש לחתום על טופס הסכמה מדעת. אנו ממליצים לך לקרוא את הטופס בעיון מבעוד מועד.",
+  "Consent-Information-female": "ביום הבדיקה תתבקשי לחתום על טופס הסכמה מדעת. אנו ממליצים לך לקרוא את הטופס בעיון מבעוד מועד.",
+  "Consent-Download": "טופס הסכמה מדעת להורדה",
 
   "Instructions-Steps-sunday": "ראשון",
   "Instructions-Steps-monday": "שני",
@@ -58,10 +75,14 @@
   "Instructions-Steps-friday": "שישי",
   "Instructions-Steps-saturday": "שבת",
 
-  "Satisfaction-Response": "תודה! תשובתך חשובה לנו",
-  "Satisfaction-question-video-helpful": "האם הסרטון עזר לך?",
   "Satisfaction-Answer-Yes": "כן",
   "Satisfaction-Answer-No": "לא",
+  "Satisfaction-question-video-helpful": "האם הסרטון עזר לך?",
+  "Satisfaction-Response": "תודה! תשובתך חשובה לנו",
+  "Satisfaction-question-reduce-worries": "האם הסרטון עזר לך להפיג חששות, במידה והיו לך?",
+  "Satisfaction-question-helped-understand": "האם הסרטון עזר לך להבין מה נדרש ממך לעשות לקראת הבדיקה? ",
+  "Satisfaction-question-recommend-others-male": "האם תמליץ למכרייך לצפות בסרטון לפני הבדיקה?",
+  "Satisfaction-question-recommend-others-female": "האם תמליצי למכרייך לצפות בסרטון לפני הבדיקה?",
 
   "Footer": "מטופל מעורב הוא מטופל שמחלים טוב יותר"
 }
