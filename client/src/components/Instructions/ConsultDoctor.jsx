@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import { Card, Icon } from "../../stylings/VideoPageStyling";
+import { Card, Icon } from "./style";
 import { Translator } from "../Translation";
 import doctor_consult from "../../assets/Icons/doctor_consult.svg";
+import { Button } from "../general.style";
 
 function ConsultDoctor() {
   return (
@@ -46,7 +47,7 @@ const Text = styled.p`
   margin-block-end: 1.125rem;
 `;
 
-const DoctorFormDownload = styled.button`
+const DoctorFormDownload = styled(Button)`
   --content-height: 1.625rem;
   font-size: 1.125rem;
   cursor: pointer;
