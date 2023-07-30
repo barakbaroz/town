@@ -1,7 +1,6 @@
+import { Fragment } from "react";
 import styled from "styled-components";
-import { Translator } from "../Translation";
-import { useContext } from "react";
-import { userContext } from "../../providers/UserProvider";
+import { Translator, Translate } from "../Translation";
 
 const dayMapper = {
   0: "sunday",
@@ -18,60 +17,86 @@ const dateOptions = {
   day: "numeric",
 };
 
-const dateFormater = new Intl.DateTimeFormat(undefined, dateOptions);
+const timeOptions = { hour: "2-digit", minute: "2-digit" };
 
 function InstructionsSteps() {
-  const { Case } = useContext(userContext);
-  console.log({ res: Case.CasesProgress.createdAt });
-  const createdAt = new Date(Case.CasesProgress.createdAt);
-  console.log(`Instructions-Steps - ${dayMapper[createdAt.getDay()]}`);
+  const { firstPortion, secondPortion, dietTime, liquids } = getTimes(
+    "2023-07-30 12:00:27.823272+03"
+  );
 
+  const data = [
+    { date: dietTime, content: "Diet" },
+    { date: liquids, content: "Liquids" },
+    { date: firstPortion, content: "FirstPortion" },
+    { date: secondPortion, content: "SecondPortion" },
+  ];
+
+  const dateFormater = new Intl.DateTimeFormat("he-IL", dateOptions);
   return (
-    <Container>
-      {data.map(({ date, content }) => {
+    <Container id="kaki">
+      {data.map(({ date, content }, index) => {
         return (
-          <>
+          <Fragment key={content}>
             <Bullet />
             <StepDetails>
-              <Translator>
-                {`Instructions-Steps-${dayMapper[date.getDay()]}`}
-              </Translator>
-              {" / "}
-              {dateFormater.format(date)}
-              {" / "}
-              {date.toLocaleTimeString("en-IL")}
+              {[
+                Translate(`Instructions-Steps-${dayMapper[date.getDay()]}`),
+                dateFormater.format(date),
+                date.toLocaleTimeString("he-IL", timeOptions),
+              ].join(" | ")}
             </StepDetails>
-            <DottetLine />
+            <DottetLine last={index === data.length - 1} />
             <DescriptionText>
-              <Translator>{content}</Translator>
+              <Translator>{`Instructions-Steps-${content}`}</Translator>
             </DescriptionText>
-          </>
+          </Fragment>
         );
       })}
     </Container>
   );
 }
 
-const data = [
-  { date: new Date(), content: "diet" },
-  { date: new Date(), content: "liquids" },
-  { date: new Date(), content: "first" },
-  { date: new Date(), content: "second" },
-];
-
 export default InstructionsSteps;
 
-const Container = styled.div`
-  /* margin-block-start: 1.063rem; */
-  margin-block-end: 1.75rem;
-  display: grid;
-  grid-template-columns: 15px 1fr;
-  place-items: center;
-`;
+const getTimes = (procedureDateAndTime) => {
+  const date = new Date(procedureDateAndTime);
+  const hour = date.getHours();
+
+  const dietTime = new Date(date);
+  dietTime.setDate(date.getDate() - 3);
+  const liquids = new Date(date);
+  liquids.setDate(date.getDate() - 1);
+
+  const firstPortion = new Date(date);
+  const secondPortion = new Date(date);
+
+  if (hour >= 7 && hour <= 11) {
+    firstPortion.setDate(date.getDate() - 1);
+    firstPortion.setHours(16, 0, 0, 0);
+    secondPortion.setDate(date.getDate() - 1);
+    secondPortion.setHours(21, 0, 0, 0);
+  } else if (hour >= 12 && hour <= 16) {
+    firstPortion.setDate(date.getDate() - 1);
+    firstPortion.setHours(21, 0, 0, 0);
+    secondPortion.getHours(hour - 6, 0, 0, 0);
+  } else if (hour >= 17 && hour <= 19) {
+    firstPortion.setHours(hour - 11, 0, 0, 0);
+    secondPortion.getHours(hour - 6, 0, 0, 0);
+  }
+  return { firstPortion, secondPortion, dietTime, liquids };
+};
 
 const DottetLine = styled.div`
   height: 100%;
   border-right: 1px dotted #7a9dfd;
+  visibility: ${({ last }) => (last ? "hidden" : "visible")};
+`;
+
+const Container = styled.div`
+  margin-block-end: 1.75rem;
+  display: grid;
+  grid-template-columns: 15px 1fr;
+  place-items: center;
 `;
 
 const Bullet = styled.div`
