@@ -42,11 +42,7 @@ function CaseItem({ item, deleteCase }) {
           <SubHeadin>{getLengAndAge(item)}</SubHeadin>
         </Unit>
         <Unit>
-          <Heading>
-            {item.heartConditions
-              .map((condition) => heartConditions[condition])
-              .join(" + ")}
-          </Heading>
+          <Heading>Heading</Heading>
           <SubHeadin>
             {new Date(item.createdAt).toLocaleString(undefined, dateOptions)}
           </SubHeadin>
@@ -102,18 +98,6 @@ const getLengAndAge = ({ gender, age, User }) => {
     gender && age ? `${genders[gender]} ${age}` : "גיל",
     languages[User.language],
   ].join(", ");
-};
-
-const heartConditions = {
-  aortic_valve_regurgitation: "דלף של המסתם האאורטלי",
-  aortic_valve_stenosis: "היצרות של המסתם האאורטלי",
-  atherosclerosis: "טרשת עורקים",
-  cardiac_arrhythmia: "הפרעות בקצב הלב",
-  cardiomyopathy: "קרדיומיופתיה",
-  general: "כללי",
-  mitral_valve_regurgitation: "דלף של המסתם המיטרלי",
-  mitral_valve_stenosis: "היצרות של המסתם המיטרלי",
-  myocardial_infarction: "אוטם שריר הלב",
 };
 
 export default CaseItem;

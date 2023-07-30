@@ -10,7 +10,7 @@ import MedicalBackground from "../components/Gister/MedicalBackground";
 
 function Gister() {
   const navigate = useNavigate();
-  const casesDataRef = useRef({ heartConditions: [], symptoms: [] });
+  const casesDataRef = useRef();
   const [loading, setLoading] = useState(false);
   const [showDuplicatePopup, setShowDuplicatePopup] = useState(false);
 
@@ -87,7 +87,6 @@ export default Gister;
 const validator = {
   zehutNumber: ({ zehutNumber }) => zehutNumber?.length === 4,
   phoneNumber: ({ phoneNumber }) => /^\d{10}$/.test(phoneNumber),
-  heartConditions: ({ heartConditions }) => heartConditions.length > 0,
   yearOfBirth: ({ yearOfBirth }) => yearOfBirth?.length === 4,
 };
 

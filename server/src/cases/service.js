@@ -51,15 +51,7 @@ module.exports.search = async ({ creatorId, search }) => {
       },
       Avatar,
     ],
-    attributes: [
-      "id",
-      "zehutNumber",
-      "gender",
-      "age",
-      "createdAt",
-      "heartConditions",
-      "symptoms",
-    ],
+    attributes: ["id", "zehutNumber", "gender", "age", "createdAt"],
     where: {
       ...zehutFilter(search),
       ...myCasesFilter(search, creatorId),
@@ -77,16 +69,12 @@ module.exports.create = async ({
   phoneNumber,
   zehutNumber,
   yearOfBirth,
-  symptoms,
-  heartConditions,
 }) => {
   console.info(`create case by staff member: ${creatorId}`);
   const newCase = await Cases.create({
     creatorId,
     zehutNumber,
     yearOfBirth,
-    symptoms,
-    heartConditions,
   });
   const CaseId = newCase.dataValues.id;
   const user = await Users.create({ CaseId, phoneNumber });
