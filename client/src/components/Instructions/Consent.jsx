@@ -1,28 +1,25 @@
 import styled from "styled-components";
-import { Card, Icon } from "../../stylings/VideoPageStyling";
+import { Card, Icon } from "./style";
 import { Translator } from "../Translation";
 import consentForm from "../../assets/Icons/consent_form.svg";
+import { Button } from "../general.style";
 
 function Consent() {
   return (
     <Card>
       <TopSection>
         <Title>
-          <Translator>ביום הבדיקה לא לשכוח להביא</Translator>
+          <Translator>Consent-Title</Translator>
         </Title>
         <Icon src={consentForm} alt="consentForm" />
       </TopSection>
 
       <Text>
-        <Translator>
-          עליך לפנות לרופא/ה מטפל/ת לצורך קבלת מרשם לחומרי ההכנה. במידה והינך
-          נוטל תרופות לטיפול בסוכרת ו/או נוגדות קרישה, יש לעקוב אחר ההמלצות
-          הפרטניות ולהביא לרופא/ה את הטופס להורדה המצורף כאן.
-        </Translator>
+        <Translator>Consent-Information</Translator>
       </Text>
 
       <DoctorFormDownload>
-        <Translator>טופס הסכמה מדעת להורדה</Translator>
+        <Translator>Consent-Download</Translator>
       </DoctorFormDownload>
     </Card>
   );
@@ -44,10 +41,10 @@ const Title = styled.h1`
 
 const Text = styled.p`
   margin: 0;
-  margin-block-end: 1.125rem;
+  margin-block-end: 1.188rem;
 `;
 
-const DoctorFormDownload = styled.button`
+const DoctorFormDownload = styled(Button)`
   --content-height: 1.625rem;
   font-size: 1.125rem;
   cursor: pointer;
