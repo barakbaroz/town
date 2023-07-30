@@ -6,11 +6,11 @@ import PatientInformation from "../components/Gister/PatientInformation";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import DuplicatePopUp from "../components/Gister/DuplicatePopUp";
-import MedicalBackground from "../components/Gister/MedicalBackground";
+import MedicalConcentrate from "../components/Panel/MedicalConcentrate";
 
 function Gister() {
   const navigate = useNavigate();
-  const casesDataRef = useRef();
+  const casesDataRef = useRef({ language: "he" });
   const [loading, setLoading] = useState(false);
   const [showDuplicatePopup, setShowDuplicatePopup] = useState(false);
 
@@ -57,19 +57,19 @@ function Gister() {
         open={showDuplicatePopup}
         loading={loading}
       />
-      <GisterHeader text="מערכת ליווי והדרכת מטופלים עם אי ספיקת לב" />
+      <GisterHeader text="מערכת ליווי והדרכת מטופלים לקולונוסקופיה" />
       <Container>
         <CasesDetails>
           <GisterStep stepNumber="01" title="פרטי מטופל ויצירת קשר">
             <PatientInformation casesDataRef={casesDataRef} />
           </GisterStep>
-          <GisterStep
-            stepNumber="02"
-            title="רקע רפואי"
-            subTitle="(ניתן לבחור יותר מתשובה אחת בכל השאלות)"
-          >
-            <MedicalBackground casesDataRef={casesDataRef} />
+          <GisterStep stepNumber="02" title="בחירת סוג התמיסה למטופל">
+            <MedicalConcentrate casesDataRef={casesDataRef} />
           </GisterStep>
+          <GisterStep
+            stepNumber="03"
+            title="קביעת תאריך ושעה לבדיקה"
+          ></GisterStep>
         </CasesDetails>
         <ButtonContainer>
           <ErrorTitle>* חסרים נתונים להמשך תהליך</ErrorTitle>
@@ -93,7 +93,7 @@ const validator = {
 const GisterContainer = styled.div`
   --invalid: #f02a4c;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   direction: rtl;
   font-family: "Abraham";
 `;
@@ -105,7 +105,6 @@ const ErrorTitle = styled.p`
 `;
 
 const Container = styled.div`
-  height: 80%;
   width: 100%;
   display: flex;
   flex-direction: column;

@@ -35,7 +35,7 @@ const DropDown = ({ setSearch, selectedOne }) => {
   const filterdList = dropDownList.filter((item) => item !== selectedOne);
 
   return (
-    <GreyWrapper
+    <Wrapper
       isOpen={isOpen}
       ref={ref}
       onClick={() => setIsOpen((prev) => !prev)}
@@ -50,7 +50,7 @@ const DropDown = ({ setSearch, selectedOne }) => {
           </Item>
         ))}
       </List>
-    </GreyWrapper>
+    </Wrapper>
   );
 };
 
@@ -61,7 +61,7 @@ DropDown.propTypes = {
 
 export default DropDown;
 
-const GreyWrapper = styled.div`
+const Wrapper = styled.div`
   display: flex;
   border-radius: ${({ isOpen }) => (isOpen ? "20px 20px 0px 0px" : "20px")};
   background: #f4f4f4;

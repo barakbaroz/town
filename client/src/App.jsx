@@ -28,7 +28,6 @@ const App = () => {
 const router = createBrowserRouter([
   { path: "", element: <Navigate to="/Panel" /> },
   { path: "Login", element: <Login /> },
-
   {
     path: "Panel",
     element: <Panel />,
