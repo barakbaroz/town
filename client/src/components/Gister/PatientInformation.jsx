@@ -4,6 +4,7 @@ import PinInput from "./PinInput";
 import PhoneInput from "./PhoneInput";
 import PropTypes from "prop-types";
 import { FieldTitle } from "./Giser.styled";
+import LanguageDropDown from "./LanguageDropDown";
 
 function PatientInformation({ casesDataRef }) {
   const zehutInputRef = useRef(null);
@@ -15,14 +16,18 @@ function PatientInformation({ casesDataRef }) {
     zehutInputRef.current.classList.remove("invalid");
   };
 
-  const handlePhoneNumber = (number) => {
-    casesDataRef.current.phoneNumber = number;
+  const handlePhoneNumber = (phoneNumber) => {
+    casesDataRef.current.phoneNumber = phoneNumber;
     phoneInputRef.current.classList.remove("invalid");
   };
 
-  const handleYearOfBirth = (number) => {
-    casesDataRef.current.yearOfBirth = number;
+  const handleYearOfBirth = (yearOfBirth) => {
+    casesDataRef.current.yearOfBirth = yearOfBirth;
     yearOfBirthRef.current.classList.remove("invalid");
+  };
+
+  const handleLanguage = (language) => {
+    casesDataRef.current.language = language;
   };
 
   return (
@@ -42,6 +47,10 @@ function PatientInformation({ casesDataRef }) {
           phoneInputRef={phoneInputRef}
           onChange={handlePhoneNumber}
         />
+      </InputContainer>
+      <InputContainer>
+        <FieldTitle>שפה</FieldTitle>
+        <LanguageDropDown onChange={handleLanguage} />
       </InputContainer>
       <InputContainer>
         <FieldTitle>שנת לידה</FieldTitle>
