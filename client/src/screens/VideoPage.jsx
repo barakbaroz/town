@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Lottie from "lottie-react";
 import Player from "../components/Video/Player";
 import { useState } from "react";
 import VideoButtons from "../components/Instructions/VideoButtons";
@@ -10,6 +11,11 @@ import ConsultDoctor from "../components/Instructions/ConsultDoctor";
 import DontForget from "../components/Instructions/DontForget";
 import Consent from "../components/Instructions/Consent";
 import CallCenter from "../components/Instructions/CallCenter";
+import arrow_up from "../assets/Icons/arrow_up.svg";
+import nurseLottie from "../assets/Lotties/Nurse_Small.json";
+import Cpap from "../components/Instructions/Cpap";
+
+const lottieOptions = { animationData: nurseLottie, loop: true };
 
 function VideoPage() {
   const [showFeedback, setShowFeedback] = useState(false);
@@ -19,7 +25,7 @@ function VideoPage() {
       <StyledLanguageBar>
         <LanguageBar />
       </StyledLanguageBar>
-      <Title>
+      <Title id="video-title">
         <Translator>Video-Title</Translator>
       </Title>
       <Player setShowFeedback={setShowFeedback} />
@@ -31,17 +37,21 @@ function VideoPage() {
       <CardsWrapper>
         <NutritionalGuidelines />
         <ConsultDoctor />
+        <Cpap show={true} />
         <DontForget />
         <Consent />
       </CardsWrapper>
 
       <ScrollSectionWrapper>
-        {/* <NurseImage src="" alt="nurseImage" /> */}
-        <ScrollButton>
+        <NurseLottie {...lottieOptions} />
+        <ScrollButton href="#video-title">
+          <img src={arrow_up} alt="arrowUp" />
           <Translator>חזרה לסרטון</Translator>
+          <span></span>
         </ScrollButton>
       </ScrollSectionWrapper>
 
+      <Divider />
       <CallCenter />
       <Divider />
 
@@ -83,6 +93,7 @@ const Title = styled.p`
 `;
 
 const ScrollSectionWrapper = styled.div`
+  margin-inline: var(--screen-margin);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -101,13 +112,19 @@ const VideoInteraction = styled.div`
   gap: 27px;
   justify-content: end;
   margin-block-start: 18px;
+  margin-block-end: 45px;
   margin-inline: var(--screen-margin);
 `;
 
-const ScrollButton = styled.button`
+const ScrollButton = styled.a`
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  text-align: center;
   --content-height: 1.625rem;
   font-size: 1.125rem;
-  min-width: 15.625rem;
+  width: calc(100% - 50px);
+  max-width: 15rem;
   cursor: pointer;
   color: #ffffff;
   background-color: #7a9dfd;
@@ -125,6 +142,7 @@ const Divider = styled.div`
   background-color: #84a4fc;
   margin-block-start: 35px;
   margin-block-end: 41px;
+  margin-inline: 25px;
   opacity: 0.2;
 `;
 
@@ -133,4 +151,10 @@ const Footer = styled.footer`
   text-align: center;
   font-size: 1.375rem;
   padding-inline: 70px;
+`;
+
+const NurseLottie = styled(Lottie)`
+  width: 130px;
+  max-width: 100%;
+  margin-block-end: 22px;
 `;
