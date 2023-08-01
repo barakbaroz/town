@@ -26,7 +26,6 @@ function NutritionalGuidelines() {
       <Text>
         <Translator>הבדיקה שלך נקבעה ל</Translator>
         <span>{examinationDate}</span>
-        {/* <Translator>הבדיקה שלך נקבעה ליום ראשון, 19.05.23 בשעה</Translator> */}
       </Text>
 
       <InstructionsSteps />
@@ -55,16 +54,4 @@ const Text = styled.p`
   margin: 0;
   margin-block-end: 1.125rem;
 `;
-const InstructionsDownload = styled(Button)`
-  --content-height: 1.625rem;
-  font-size: 1.125rem;
-  cursor: pointer;
-  color: #ffffff;
-  background-color: #f02a4c;
-  border: none;
-  padding-block: 0.688rem;
-  padding-inline: 27px;
-  border-radius: 50px;
-  align-self: center;
-  font-family: inherit;
-`;
+const InstructionsDownload = styled(Button)``;
