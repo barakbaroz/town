@@ -7,6 +7,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import DuplicatePopUp from "../components/Gister/DuplicatePopUp";
 import MedicalConcentrate from "../components/Panel/MedicalConcentrate";
+import Scheduler from "../components/Gister/Scheduler";
 
 function Gister() {
   const navigate = useNavigate();
@@ -66,10 +67,9 @@ function Gister() {
           <GisterStep stepNumber="02" title="בחירת סוג התמיסה למטופל">
             <MedicalConcentrate casesDataRef={casesDataRef} />
           </GisterStep>
-          <GisterStep
-            stepNumber="03"
-            title="קביעת תאריך ושעה לבדיקה"
-          ></GisterStep>
+          <GisterStep stepNumber="03" title="קביעת תאריך ושעה לבדיקה">
+            <Scheduler />
+          </GisterStep>
         </CasesDetails>
         <ButtonContainer>
           <ErrorTitle>* חסרים נתונים להמשך תהליך</ErrorTitle>
@@ -110,7 +110,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin-block-start: 74px;
+  margin-block-start: 55px;
   &:has(.invalid) {
     ${ErrorTitle} {
       visibility: visible;
