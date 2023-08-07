@@ -34,13 +34,12 @@ TimePicker.defaultProps = {};
 const iconCSS = css`
   width: 1em;
   height: 1em;
-  padding: 0.563em;
+  padding-inline: 0.563em;
   border-radius: 50%;
   fill: #b7b7b7;
   ${({ highlight }) =>
     highlight &&
     css`
-      background-color: #eaecf1;
       fill: #7a9dfd;
     `}
 `;
@@ -54,12 +53,11 @@ const Sun = styled(SunIcon)`
 `;
 
 const Time = styled.input.attrs({ type: "time" })`
-  font-size: 1.063em;
+  font-size: 1em;
   font-family: inherit;
   border: none;
   outline: none;
   background-color: transparent;
-  padding-inline: 1.5em;
   &::-webkit-calendar-picker-indicator {
     display: none;
   }
@@ -69,7 +67,6 @@ const Container = styled.div`
   direction: ltr;
   display: flex;
   flex-wrap: nowrap;
-  background-color: #f2f3f7;
   width: fit-content;
-  border-radius: 100vh;
+  align-items: center;
 `;

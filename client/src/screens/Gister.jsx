@@ -68,7 +68,7 @@ function Gister() {
             <MedicalConcentrate casesDataRef={casesDataRef} />
           </GisterStep>
           <GisterStep stepNumber="03" title="קביעת תאריך ושעה לבדיקה">
-            <Scheduler />
+            <Scheduler casesDataRef={casesDataRef} />
           </GisterStep>
         </CasesDetails>
         <ButtonContainer>
@@ -123,6 +123,7 @@ const CasesDetails = styled.div`
   box-sizing: border-box;
   justify-content: space-evenly;
   width: 100%;
+  gap: 4rem;
 `;
 
 const SubmitButton = styled.button`

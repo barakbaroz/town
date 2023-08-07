@@ -70,7 +70,7 @@ PatientInformation.propTypes = {
 const Container = styled.div`
   --field-line-height: 2rem;
   --field-padding-block: 0.813rem;
-  --field-font-size: 1.25rem;
+  --field-font-size: 1.125rem;
   --field-font-family: "Poppins";
   display: flex;
   flex-direction: column;
