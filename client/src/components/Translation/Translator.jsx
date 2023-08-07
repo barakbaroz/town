@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import PropTypes from "prop-types";
 import { LanguagesData } from "./Texts";
-import { LanguageContext } from "./LanguageProvider";
+import { LanguageContext } from "../../providers/LanguageProvider";
 
 function Translator({ children }) {
   const key = children instanceof Array ? children.join("") : children;
