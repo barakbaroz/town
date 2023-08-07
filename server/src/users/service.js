@@ -5,6 +5,7 @@ const {
   Cases,
   CasesProgress,
   Avatar,
+  Questionnaire,
 } = require("../models");
 const sms = require("../sms/service");
 
@@ -129,4 +130,18 @@ module.exports.userVideoAction = async ({ UserId, type, data }) => {
     await updateCasesProgress({ UserId, type });
     await sms.action({ UserId, actionKey: type });
   }
+};
+
+module.exports.updateQuestionnaire = async ({ id, answers }) => {
+  console.log({ id, answers });
+  const rowsToInsert = Object.entries(answers).map(
+    ([questionKey, answerKey]) => ({
+      UserId: id,
+      questionKey,
+      answerKey,
+    })
+  );
+  await Questionnaire.bulkCreate(rowsToInsert, {
+    updateOnDuplicate: ["answerKey"],
+  });
 };
