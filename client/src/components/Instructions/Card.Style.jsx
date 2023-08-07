@@ -16,3 +16,17 @@ export const Icon = styled.img`
   max-width: 70px;
   max-height: 70px;
 `;
+
+export const TopSection = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block-start: 1.25rem;
+  padding-block-end: 0.734rem;
+  gap: 16px;
+`;
+
+export const Title = styled.h3`
+  margin: 0;
+  font-size: 1.375rem;
+`;

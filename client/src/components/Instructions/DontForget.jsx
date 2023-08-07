@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Card, Icon } from "./style";
+import { Card, Icon, Title, TopSection } from "./Card.Style";
 
 import { Translator } from "../Translation";
 import gist_v from "../../assets/Icons/gist_v.svg";
@@ -41,16 +41,6 @@ const dontForgetItems = [
 ];
 
 export default DontForget;
-
-const TopSection = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const Title = styled.h2`
-  font-size: 1.375rem;
-`;
 
 const InstructionText = styled.p`
   margin: 0;
