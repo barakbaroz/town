@@ -7,7 +7,7 @@ export default function useUserInfo() {
   const { setLanguage, setGender } = useContext(LanguageContext);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [userInfo, setUserInfo] = useState({ Case: {} });
+  const [userInfo, setUserInfo] = useState({ Case: { Questionnaire: [] } });
   const navigate = useNavigate();
 
   const updateCase = (newData) => {
@@ -15,6 +15,19 @@ export default function useUserInfo() {
     if (newData.Avatar.gender) setGender(newData.Avatar.gender);
     if (newData.language) setLanguage(newData.language);
     return axios.put("/api/user/update", newData);
+  };
+
+  const updateQuestionaireAnswers = (QuestionaireAnswersObj) => {
+    const QuestionnaireAnswers = Object.entries(QuestionaireAnswersObj).map(
+      ([questionKey, answerKey]) => ({ questionKey, answerKey })
+    );
+    setUserInfo((prev) => ({
+      ...prev,
+      Questionnaires: QuestionnaireAnswers,
+    }));
+    axios.post("/api/user/updateQuestionnaire", {
+      answers: QuestionnaireAnswers,
+    });
   };
 
   const fetch = useCallback(() => {
@@ -40,5 +53,5 @@ export default function useUserInfo() {
     fetch();
   }, [fetch]);
 
-  return { loading, error, userInfo, updateCase };
+  return { loading, error, userInfo, updateCase, updateQuestionaireAnswers };
 }
