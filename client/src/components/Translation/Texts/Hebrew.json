@@ -49,8 +49,10 @@
   "nutritionalSupplement": "האם אתה נוטל תוספי תזונה המכילים ברזל?",
   "colonoscopyBefore": "האם עברת בעבר בדיקת קולונוסקופיה?",
 
+  "Video-Back-To-Video": "חזרה לסרטון",
+
   "Video-Title-male": "צפה בסרטון מותאם אישית שיסביר לך איך להתכונן לבדיקה שלך",
-  "Video-Title-female": "צפה בסרטון מותאם אישית שיסביר לך איך להתכונן לבדיקה שלך",
+  "Video-Title-female": "צפי בסרטון מותאם אישית שיסביר לך איך להתכונן לבדיקה שלך",
 
   "Nutritional-Guidelines-Title": "הנחיות תזונתיות",
   "Nutritional-Guidelines-Preview": "לקראת הבדיקה שלך יש לעשות שינויים תזונתיים על פי הפירוט המופיע כאן  - יש לך תפקיד חשוב בהצלחת הבדיקה!",
@@ -62,11 +64,20 @@
   "Instructions-Steps-SecondPortion": "לקחת את המנה השנייה של החומר המשלשל",
 
   "Consult-Doctor-Title": "התייעצות עם הרופא/ה המטפל/ת",
+  "Consult-Doctor-bloodThinners:Yes-diabetesMedicines:Yes": "עליך לפנות לרופא/ה מטפל/ת לצורך קבלת מרשם לחומרי ההכנה. במידה והינך נוטל תרופות לטיפול בסוכרת ו/או לדילול דם, יש לעקוב אחר ההמלצות הפרטניות ולהביא לרופא/ה את הטופס להורדה המצורף כאן.",
+  "Consult-Doctor-bloodThinners:No-diabetesMedicines:No": "עליך לפנות לרופא/ה מטפל/ת לצורך קבלת מרשם לחומרי ההכנה.",
+  "Consult-Doctor-bloodThinners:No-diabetesMedicines:Yes": "עליך לפנות לרופא/ה מטפל/ת לצורך קבלת מרשם לחומרי ההכנה. במידה והינך נוטל תרופות לטיפול בסוכרת יש לעקוב אחר ההמלצות הפרטניות ולהביא לרופא/ה את הטופס להורדה המצורף כאן.",
+  "Consult-Doctor-bloodThinners:Yes-diabetesMedicines:No": "עליך לפנות לרופא/ה מטפל/ת לצורך קבלת מרשם לחומרי ההכנה. במידה והינך נוטל תרופות לדילול דם, יש לעקוב אחר ההמלצות הפרטניות ולהביא לרופא/ה את הטופס להורדה המצורף כאן.",
 
   "Cpap-Title": "במצב של שימוש בסיפאפ (CPAP)",
   "Cpap-Information": "יש לפנות למזכירות לבדוק את הצורך בנוכחות רופא מרדים בזמן הפעולה",
 
   "Dont-Forget-Title": "ביום הבדיקה לא לשכוח להביא:",
+  "Dont-Forget-IdentificationCertificate": "תעודה מזהה עם תמונה",
+  "Dont-Forget-tofes17": "טופס 17 מתאים",
+  "Dont-Forget-medicalReferral": "מכתב הפניה מהרופא/ה שלך בו מפורטות האבחנות הרפואיות, רשימת תרופות עדכנית וסיבת הבדיקה.",
+  "Dont-Forget-companion": "יש להגיע לבדיקה עם מלווה מעל גיל 18",
+  "Dont-Forget-driving": "אין לנהוג לאחר הבדיקה למשך 12 שעות",
 
   "Consent-Title": "הסכמה מדעת",
   "Consent-Information-male": "ביום הבדיקה תתבקש לחתום על טופס הסכמה מדעת. אנו ממליצים לך לקרוא את הטופס בעיון מבעוד מועד.",
@@ -89,6 +100,10 @@
   "Satisfaction-question-helped-understand": "האם הסרטון עזר לך להבין מה נדרש ממך לעשות לקראת הבדיקה? ",
   "Satisfaction-question-recommend-others-male": "האם תמליץ למכרייך לצפות בסרטון לפני הבדיקה?",
   "Satisfaction-question-recommend-others-female": "האם תמליצי למכרייך לצפות בסרטון לפני הבדיקה?",
+
+  "Call-Center-Belinson": "מזכירות בילינסון",
+  "Call-Center-Details": "03-9377241 שלוחה 8",
+  "Call-Center-Hours": "בין השעות 10:00-14:00",
 
   "Footer": "מטופל מעורב הוא מטופל שמחלים טוב יותר"
 }
