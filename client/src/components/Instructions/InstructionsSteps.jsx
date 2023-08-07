@@ -33,7 +33,7 @@ function InstructionsSteps() {
 
   const dateFormater = new Intl.DateTimeFormat("he-IL", dateOptions);
   return (
-    <Container id="kaki">
+    <Container>
       {data.map(({ date, content }, index) => {
         return (
           <Fragment key={content}>
@@ -93,7 +93,7 @@ const DottetLine = styled.div`
 `;
 
 const Container = styled.div`
-  margin-block-end: 1.75rem;
+  margin-block-end: 5px;
   display: grid;
   grid-template-columns: 15px 1fr;
   place-items: center;
@@ -114,4 +114,6 @@ const StepDetails = styled.div`
 
 const DescriptionText = styled.div`
   place-self: start;
+  font-size: 1.063rem;
+  padding-block-end: 1.063rem;
 `;

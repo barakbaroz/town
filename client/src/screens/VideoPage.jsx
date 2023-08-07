@@ -2,7 +2,6 @@ import styled from "styled-components";
 import Lottie from "lottie-react";
 import Player from "../components/Video/Player";
 import { useState } from "react";
-import VideoButtons from "../components/Instructions/VideoButtons";
 import SatisfactionQuestions from "../components/Instructions/SatisfactionQuestions";
 import LanguageBar from "../components/User/LanguageBar";
 import { Translator } from "../components/Translation";
@@ -30,7 +29,6 @@ function VideoPage() {
       </Title>
       <Player setShowFeedback={setShowFeedback} />
       <VideoInteraction>
-        <VideoButtons />
         <SatisfactionQuestions videoStarted={showFeedback} />
       </VideoInteraction>
 
@@ -46,7 +44,7 @@ function VideoPage() {
         <NurseLottie {...lottieOptions} />
         <ScrollButton href="#video-title">
           <img src={arrow_up} alt="arrowUp" />
-          <Translator>חזרה לסרטון</Translator>
+          <Translator>Video-Back-To-Video</Translator>
           <span></span>
         </ScrollButton>
       </ScrollSectionWrapper>
@@ -65,7 +63,7 @@ function VideoPage() {
 export default VideoPage;
 
 const Container = styled.div`
-  --screen-margin: 25px;
+  --screen-margin: 23px;
   background: transparent
     linear-gradient(
       180deg,
@@ -85,7 +83,7 @@ const StyledLanguageBar = styled.div`
 
 const Title = styled.p`
   text-align: start;
-  font-size: 1.375rem;
+  font-size: 1.5rem;
   font-weight: 500;
   margin-block-start: 2.125rem;
   margin-block-end: 1.813rem;
@@ -103,7 +101,7 @@ const ScrollSectionWrapper = styled.div`
 const CardsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 34px;
+  gap: 35px;
 `;
 
 const VideoInteraction = styled.div`
@@ -121,10 +119,9 @@ const ScrollButton = styled.a`
   justify-content: space-between;
   text-decoration: none;
   text-align: center;
-  --content-height: 1.625rem;
   font-size: 1.125rem;
   width: calc(100% - 50px);
-  max-width: 15rem;
+  max-width: 12.25rem;
   cursor: pointer;
   color: #ffffff;
   background-color: #7a9dfd;

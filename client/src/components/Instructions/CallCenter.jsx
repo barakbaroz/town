@@ -7,14 +7,14 @@ function CallCenter() {
     <Container>
       <TextContent>
         <Title>
-          <Translator>מזכירות בילינסון</Translator>
+          <Translator>Call-Center-Belinson</Translator>
         </Title>
 
         <Text>
-          <Translator>03-9377241 שלוחה 8</Translator>
+          <Translator>Call-Center-Details</Translator>
         </Text>
         <Text>
-          <Translator>בין השעות: 10:00-14:00</Translator>
+          <Translator>Call-Center-Hours</Translator>
         </Text>
       </TextContent>
       <PhoneImage src={contactPhone} alt="phoneIcon" />

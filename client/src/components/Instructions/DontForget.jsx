@@ -10,7 +10,7 @@ function DontForget() {
     <Card>
       <TopSection>
         <Title>
-          <Translator>ביום הבדיקה לא לשכוח להביא</Translator>
+          <Translator>Dont-Forget-Title</Translator>
         </Title>
         <Icon src={dont_forget} alt="dontForget" />
       </TopSection>
@@ -18,16 +18,10 @@ function DontForget() {
       <ListContainer>
         {dontForgetItems.map((dontForgetItem) => (
           <ListItem key={dontForgetItem}>
-            <Translator>{dontForgetItem}</Translator>
+            <Translator>{`Dont-Forget-${dontForgetItem}`}</Translator>
           </ListItem>
         ))}
       </ListContainer>
-
-      <InstructionText>
-        <Translator>
-          יש להגיע לבדיקה עם מלווה (אין לנהוג לאחר הבדיקה למשך 12 שעות)
-        </Translator>
-      </InstructionText>
     </Card>
   );
 }
@@ -36,21 +30,16 @@ const dontForgetItems = [
   "IdentificationCertificate",
   "tofes17",
   "medicalReferral",
-  "medicineList",
   "companion",
+  "driving",
 ];
 
 export default DontForget;
 
-const InstructionText = styled.p`
-  margin: 0;
-  font-weight: 500;
-  font-size: 1.188rem;
-`;
-
 const ListContainer = styled.ul`
   margin-inline: 0;
   padding-inline-start: 1.5rem;
+  margin-block-end: 0;
 `;
 
 const ListItem = styled.li`

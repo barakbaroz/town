@@ -29,12 +29,10 @@ Cpap.propTypes = {
 
 const Container = styled.div`
   display: ${({ show }) => (show ? "flex" : "none")};
+  flex-direction: column;
   margin-inline: var(--screen-margin);
   border: 2px solid #ffffff;
   border-radius: 20px;
-  flex-direction: column;
-  align-items: center;
-  gap: 25px;
   padding-inline: 25px;
   padding-block: 25px;
   background-color: #ffffff40;
