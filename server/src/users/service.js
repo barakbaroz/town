@@ -62,6 +62,7 @@ module.exports.getData = async ({ userId }) => {
   return await Users.findByPk(userId, {
     attributes: ["id", "language"],
     include: [
+      Questionnaire,
       {
         model: Cases,
         attributes: ["id", "gender", "age"],
@@ -133,15 +134,8 @@ module.exports.userVideoAction = async ({ UserId, type, data }) => {
 };
 
 module.exports.updateQuestionnaire = async ({ id, answers }) => {
-  console.log({ id, answers });
-  const rowsToInsert = Object.entries(answers).map(
-    ([questionKey, answerKey]) => ({
-      UserId: id,
-      questionKey,
-      answerKey,
-    })
-  );
-  await Questionnaire.bulkCreate(rowsToInsert, {
+  answers.forEach((answer) => (answer.id = id));
+  await Questionnaire.bulkCreate(answers, {
     updateOnDuplicate: ["answerKey"],
   });
 };
