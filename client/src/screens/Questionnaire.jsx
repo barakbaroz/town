@@ -4,6 +4,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import Navigation from "../components/Questionnaire/Navigation";
 import questionnaireImages from "../assets/Questionnaire";
 import { Button } from "../components/general.style";
+import { questionnaireContext } from "../providers/QuestionnaireProvider";
+import { useContext } from "react";
 
 const questions = [
   "diabetesMedicines",
@@ -15,29 +17,31 @@ const questions = [
 
 function Questionnaire() {
   const navigate = useNavigate();
+  const { updateAnswer, submit } = useContext(questionnaireContext);
   const { questionKey } = useParams();
   const questionIndex = questions.indexOf(questionKey);
   const questionsLength = questions.length;
   const nextQuestionKey = questions[questionIndex + 1];
-
-  const handleAnswer = () => {
-    if (nextQuestionKey) return navigate(`../Questionnaire/${nextQuestionKey}`);
+  const handleAnswer = (answerKey) => () => {
+    updateAnswer({ questionKey, answerKey });
+    if (nextQuestionKey) return navigate(`../${nextQuestionKey}`);
+    else submit();
   };
 
   return (
     <QuestionContainer>
       <QuestionImage src={questionnaireImages[questionKey]} />
-      <Navigation
-        index={questionIndex}
-        questionsSize={questionsLength}
-        nextQuestionKey={nextQuestionKey}
-      />
+      <Navigation index={questionIndex} questionsSize={questionsLength} />
       <QuestionText>
         <Translator>{questionKey}</Translator>
       </QuestionText>
       <ButtonsContainer>
-        <Answer onClick={handleAnswer}>כן</Answer>
-        <Answer onClick={handleAnswer}>לא</Answer>
+        <Answer onClick={handleAnswer("Yes")}>
+          <Translator>Yes</Translator>
+        </Answer>
+        <Answer onClick={handleAnswer("No")}>
+          <Translator>No</Translator>
+        </Answer>
       </ButtonsContainer>
     </QuestionContainer>
   );
