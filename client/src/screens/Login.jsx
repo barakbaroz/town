@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import background from "../assets/Backgrounds/login.svg";
+import background from "../assets/Backgrounds/login.jpg";
 
 const Login = () => {
   const navigate = useNavigate();
