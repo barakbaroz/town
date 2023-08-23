@@ -20,6 +20,8 @@ import ZehutQuestion from "./screens/ZehutQuestion";
 import AuthenticationLayout from "./layouts/AuthenticationLayout";
 import DateOfBirthQuestion from "./screens/DateOfBirthQuestion";
 import DepartmentQuestion from "./screens/DepartmentQuestion";
+import Questionnaire from "./screens/Questionnaire";
+import QuestionnaireProvider from "./providers/QuestionnaireProvider";
 
 const App = () => {
   return <RouterProvider router={router} />;
@@ -53,6 +55,11 @@ const router = createBrowserRouter([
       { path: "Legal", element: <Legal /> },
       { path: "Privacy", element: <Privacy /> },
       { path: "CharacterSelection", element: <CharacterSelection /> },
+      {
+        path: "Questionnaire",
+        children: [{ path: ":questionKey", element: <Questionnaire /> }],
+        element: <QuestionnaireProvider />,
+      },
     ],
   },
   { path: "*", element: <NotFound /> },

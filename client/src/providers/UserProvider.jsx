@@ -7,13 +7,16 @@ import Error from "../components/Error";
 export const userContext = createContext();
 
 const UserProvider = ({ children }) => {
-  const { loading, error, userInfo, updateCase } = useUserInfo();
+  const { loading, error, userInfo, updateCase, updateQuestionaireAnswers } =
+    useUserInfo();
 
   if (loading) return <Loader />;
   if (error) return <Error />;
 
   return (
-    <userContext.Provider value={{ ...userInfo, updateCase }}>
+    <userContext.Provider
+      value={{ ...userInfo, updateCase, updateQuestionaireAnswers }}
+    >
       {children}
     </userContext.Provider>
   );
