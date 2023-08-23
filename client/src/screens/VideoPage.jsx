@@ -1,13 +1,20 @@
 import styled from "styled-components";
+import Lottie from "lottie-react";
 import Player from "../components/Video/Player";
-import { useState, Fragment } from "react";
-import VideoButtons from "../components/Instructions/VideoButtons";
+import { useState } from "react";
 import SatisfactionQuestions from "../components/Instructions/SatisfactionQuestions";
 import LanguageBar from "../components/User/LanguageBar";
-import medicationsIcon from "../assets/Video/drugs.png";
-import dietIcon from "../assets/Video/diet.png";
-import activityIcon from "../assets/Video/activity.png";
 import { Translator } from "../components/Translation";
+import NutritionalGuidelines from "../components/Instructions/NutritionalGuidelines";
+import ConsultDoctor from "../components/Instructions/ConsultDoctor";
+import DontForget from "../components/Instructions/DontForget";
+import Consent from "../components/Instructions/Consent";
+import CallCenter from "../components/Instructions/CallCenter";
+import arrow_up from "../assets/Icons/arrow_up.svg";
+import nurseLottie from "../assets/Lotties/Nurse_Small.json";
+import Cpap from "../components/Instructions/Cpap";
+
+const lottieOptions = { animationData: nurseLottie, loop: true };
 
 function VideoPage() {
   const [showFeedback, setShowFeedback] = useState(false);
@@ -17,30 +24,35 @@ function VideoPage() {
       <StyledLanguageBar>
         <LanguageBar />
       </StyledLanguageBar>
-      <Title>
+      <Title id="video-title">
         <Translator>Video-Title</Translator>
       </Title>
       <Player setShowFeedback={setShowFeedback} />
       <VideoInteraction>
-        <VideoButtons />
         <SatisfactionQuestions videoStarted={showFeedback} />
       </VideoInteraction>
-      <InstructionsContainer>
-        <InstructionsTitle>
-          <Translator>Video-Instructions-Title</Translator>
-        </InstructionsTitle>
-        {routinesInstructions.map(({ icon, paragraph }, index) => (
-          <Fragment key={index}>
-            <RoutineWrapper>
-              <img src={icon} alt={icon} />
-              <RoutineText>
-                <Translator>{paragraph}</Translator>
-              </RoutineText>
-            </RoutineWrapper>
-            <Divider />
-          </Fragment>
-        ))}
-      </InstructionsContainer>
+
+      <CardsWrapper>
+        <NutritionalGuidelines />
+        <ConsultDoctor />
+        <Cpap show={true} />
+        <DontForget />
+        <Consent />
+      </CardsWrapper>
+
+      <ScrollSectionWrapper>
+        <NurseLottie {...lottieOptions} />
+        <ScrollButton href="#video-title">
+          <img src={arrow_up} alt="arrowUp" />
+          <Translator>Video-Back-To-Video</Translator>
+          <span></span>
+        </ScrollButton>
+      </ScrollSectionWrapper>
+
+      <Divider />
+      <CallCenter />
+      <Divider />
+
       <Footer>
         <Translator>Footer</Translator>
       </Footer>
@@ -50,23 +62,8 @@ function VideoPage() {
 
 export default VideoPage;
 
-const routinesInstructions = [
-  {
-    icon: medicationsIcon,
-    paragraph: "Video-Routine-Medications",
-  },
-  {
-    icon: dietIcon,
-    paragraph: "Video-Routine-Diet",
-  },
-  {
-    icon: activityIcon,
-    paragraph: "Video-Routine-Activity",
-  },
-];
-
 const Container = styled.div`
-  --screen-margin: 25px;
+  --screen-margin: 23px;
   background: transparent
     linear-gradient(
       180deg,
@@ -77,25 +74,34 @@ const Container = styled.div`
       #ffffff 100%
     )
     0% 0% no-repeat padding-box;
-  padding-block-end: 57px;
+  padding-block-end: 35px;
 `;
 
 const StyledLanguageBar = styled.div`
   margin-inline: var(--screen-margin);
 `;
 
-const InstructionsContainer = styled.div`
-  margin-block-start: 44px;
-  margin-inline: var(--screen-margin);
-`;
-
 const Title = styled.p`
   text-align: start;
-  font-size: 1.375rem;
+  font-size: 1.5rem;
   font-weight: 500;
   margin-block-start: 2.125rem;
   margin-block-end: 1.813rem;
   margin-inline: var(--screen-margin);
+`;
+
+const ScrollSectionWrapper = styled.div`
+  margin-inline: var(--screen-margin);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-block: 35px;
+`;
+
+const CardsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
 `;
 
 const VideoInteraction = styled.div`
@@ -104,35 +110,37 @@ const VideoInteraction = styled.div`
   gap: 27px;
   justify-content: end;
   margin-block-start: 18px;
+  margin-block-end: 45px;
   margin-inline: var(--screen-margin);
+`;
+
+const ScrollButton = styled.a`
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  text-align: center;
+  font-size: 1.125rem;
+  width: calc(100% - 50px);
+  max-width: 12.25rem;
+  cursor: pointer;
+  color: #ffffff;
+  background-color: #7a9dfd;
+  border: none;
+  padding-block: 0.688rem;
+  padding-inline: 27px;
+  border-radius: 50px;
+  align-self: center;
+  font-family: inherit;
 `;
 
 const Divider = styled.div`
   height: 1px;
-  background-color: #84a4fb;
-  margin-block-end: 35px;
+  width: 100%;
+  background-color: #84a4fc;
   margin-block-start: 35px;
-  opacity: 0.3;
-`;
-
-const InstructionsTitle = styled.p`
-  text-align: start;
-  font-size: 1.375rem;
-  font-weight: 700;
-  margin-block-end: 36px;
-`;
-
-const RoutineWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 22px;
-`;
-
-const RoutineText = styled.p`
-  text-align: start;
-  font-size: 1.188rem;
-  font-weight: 400;
-  margin-block: 0;
+  margin-block-end: 41px;
+  margin-inline: 25px;
+  opacity: 0.2;
 `;
 
 const Footer = styled.footer`
@@ -140,4 +148,10 @@ const Footer = styled.footer`
   text-align: center;
   font-size: 1.375rem;
   padding-inline: 70px;
+`;
+
+const NurseLottie = styled(Lottie)`
+  width: 130px;
+  max-width: 100%;
+  margin-block-end: 22px;
 `;

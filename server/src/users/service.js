@@ -5,6 +5,7 @@ const {
   Cases,
   CasesProgress,
   Avatar,
+  Questionnaire,
 } = require("../models");
 const sms = require("../sms/service");
 
@@ -61,6 +62,7 @@ module.exports.getData = async ({ userId }) => {
   return await Users.findByPk(userId, {
     attributes: ["id", "language"],
     include: [
+      Questionnaire,
       {
         model: Cases,
         attributes: ["id", "gender", "age"],
@@ -129,4 +131,11 @@ module.exports.userVideoAction = async ({ UserId, type, data }) => {
     await updateCasesProgress({ UserId, type });
     await sms.action({ UserId, actionKey: type });
   }
+};
+
+module.exports.updateQuestionnaire = async ({ id, answers }) => {
+  answers.forEach((answer) => (answer.id = id));
+  await Questionnaire.bulkCreate(answers, {
+    updateOnDuplicate: ["answerKey"],
+  });
 };
