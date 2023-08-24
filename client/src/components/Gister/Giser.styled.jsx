@@ -6,7 +6,7 @@ export const FieldTitle = styled.h3`
   font-weight: 400;
   padding: 0;
   margin-block-start: 0;
-  margin-block-end: 0.938rem;
+  margin-block-end: 10px;
 `;
 
 export const GeneralInput = styled.input`

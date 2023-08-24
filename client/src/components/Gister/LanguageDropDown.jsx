@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import arrow from "../../assets/Icons/arrow_dropdown.svg";
 
 export default function LanguageDropDown({ onChange }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +26,7 @@ export default function LanguageDropDown({ onChange }) {
       <Select>
         <Option onClick={() => setIsOpen((prev) => !prev)}>
           <span>{text[selected]}</span>
-          <div>V</div>
+          <Arrow open={isOpen} />
         </Option>
         <List open={isOpen}>{ListData}</List>
       </Select>
@@ -69,6 +70,8 @@ const Option = styled.div`
   padding-block: var(--field-padding-block);
   display: flex;
   justify-content: space-between;
+  height: var(--field-line-height);
+  align-items: center;
 `;
 
 const List = styled.div`
@@ -83,4 +86,9 @@ const List = styled.div`
   ::-webkit-scrollbar {
     display: none;
   }
+`;
+
+const Arrow = styled.img.attrs({ src: arrow })`
+  rotate: ${({ open }) => (open ? "-180deg" : "0deg")};
+  transition: all 300ms linear;
 `;
