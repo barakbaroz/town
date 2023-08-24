@@ -5,21 +5,21 @@ import { ReactComponent as SunIcon } from "../../assets/Icons/sun.svg";
 import { useState } from "react";
 
 export default function TimePicker({ defaultValue, onChange, ...props }) {
-  const [highlightIcon, setHighlightIcon] = useState(null);
+  const [highlight, setHighlight] = useState(null);
 
   const hansleChange = (e) => {
     const { value } = e.target;
-    if (!value) return setHighlightIcon(null);
+    if (!value) return setHighlight(null);
     const [hours] = value.split(":");
-    setHighlightIcon(hours >= 15 ? "moon" : "sun");
+    setHighlight(hours >= 15 ? "moon" : "sun");
     if (onChange) onChange(value);
   };
 
   return (
     <Container {...props}>
       <Time onChange={hansleChange} defaultValue={defaultValue} />
-      <Sun highlight={highlightIcon === "sun"} />
-      <Moon highlight={highlightIcon === "moon"} />
+      <Sun highlight={highlight} />
+      <Moon highlight={highlight} />
     </Container>
   );
 }
@@ -31,25 +31,26 @@ TimePicker.propTypes = {
 
 TimePicker.defaultProps = {};
 
+const highlightCSS = css`
+  fill: #7a9dfd;
+`;
+
 const iconCSS = css`
   width: 1em;
   height: 1em;
   padding-inline: 0.563em;
   border-radius: 50%;
   fill: #b7b7b7;
-  ${({ highlight }) =>
-    highlight &&
-    css`
-      fill: #7a9dfd;
-    `}
 `;
 
 const Moon = styled(MoonIcon)`
   ${iconCSS}
+  ${({ highlight }) => highlight === "moon" && highlightCSS}
 `;
 
 const Sun = styled(SunIcon)`
   ${iconCSS}
+  ${({ highlight }) => highlight === "sun" && highlightCSS}
 `;
 
 const Time = styled.input.attrs({ type: "time" })`

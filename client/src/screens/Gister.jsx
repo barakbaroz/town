@@ -11,7 +11,7 @@ import Scheduler from "../components/Gister/Scheduler";
 
 function Gister() {
   const navigate = useNavigate();
-  const casesDataRef = useRef();
+  const casesDataRef = useRef({});
   const [loading, setLoading] = useState(false);
   const [showDuplicatePopup, setShowDuplicatePopup] = useState(false);
 
