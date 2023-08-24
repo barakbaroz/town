@@ -1,8 +1,9 @@
 import { useContext } from "react";
+import Lottie from "lottie-react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import LanguageBar from "../components/User/LanguageBar";
-import nurse from "../assets/Start/nurse.svg";
+import Adina_Background from "../assets/Lotties/Adina_Background.json";
 import { Translator } from "../components/Translation";
 import { postAnalytics } from "../analytics";
 import { userContext } from "../providers/UserProvider";
@@ -21,7 +22,7 @@ const Start = () => {
   return (
     <StartContainer id="StartContainer">
       <LanguageBar />
-      <Nurse id="startPageNurse" src={nurse} />
+      <Nurse />
       <div id="TextsContainer">
         <Title id="HelloTitle">
           <Translator>Start-Title</Translator>
@@ -69,10 +70,9 @@ const StartContainer = styled.div`
   justify-content: space-between;
 `;
 
-const Nurse = styled.img`
-  width: 20rem;
-  max-width: 100%;
-  align-self: center;
+const Nurse = styled(Lottie).attrs({ animationData: Adina_Background })`
+  width: 270px;
+  height: 186px;
 `;
 
 const Title = styled.h1`
