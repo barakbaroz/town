@@ -9,10 +9,17 @@ function CallCenter() {
         <Title>
           <Translator>Call-Center-Belinson</Translator>
         </Title>
-
-        <Text>
-          <Translator>Call-Center-Details</Translator>
-        </Text>
+        <Wrapper>
+          <Link href="tel:03-9377241">
+            <Text>
+              <Translator>Call-Center-Number</Translator>
+            </Text>
+          </Link>
+          &nbsp;
+          <Text>
+            <Translator>Call-Center-Extension</Translator>
+          </Text>
+        </Wrapper>
         <Text>
           <Translator>Call-Center-Hours</Translator>
         </Text>
@@ -51,4 +58,12 @@ const Title = styled.p`
 const Text = styled.p`
   margin: 0;
   font-size: 1.125rem;
+`;
+const Link = styled.a`
+  text-decoration: none;
+  color: inherit;
+`;
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
 `;
