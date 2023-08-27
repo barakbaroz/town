@@ -31,11 +31,22 @@ function DepartmentQuestion() {
           <Option value="" disabled hidden>
             <Translator>לחץ לבחירת תשובה</Translator>
           </Option>
-          <Option value="eyes">עיניים</Option>
-          <Option value="gastroscopy">גסטרו</Option>
-          <Option value="midwives">מיילדות או נשים</Option>
-          <Option value="preSurgery">טרום ניתוח</Option>
-          <Option value="anesthesia">הרדמה</Option>
+          <Option value="eyes">
+            <Translator>eyes</Translator>
+          </Option>
+          <Option value="gastroscopy">
+            <Translator>gastroscopy</Translator>
+          </Option>
+          <Option value="midwives">
+            {" "}
+            <Translator>midwives</Translator>{" "}
+          </Option>
+          <Option value="preSurgery">
+            <Translator>preSurgery</Translator>
+          </Option>
+          <Option value="anesthesia">
+            <Translator>anesthesia</Translator>
+          </Option>
         </Select>
       </SelectContainer>
     </AuthQuestionLayout>
