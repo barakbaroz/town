@@ -11,9 +11,7 @@ function CallCenter() {
         </Title>
         <Wrapper>
           <Link href="tel:03-9377241">
-            <Text>
-              <Translator>Call-Center-Number</Translator>
-            </Text>
+            <Text>03-9377241</Text>
           </Link>
           &nbsp;
           <Text>
