@@ -73,6 +73,7 @@ const StartContainer = styled.div`
 const Nurse = styled(Lottie).attrs({ animationData: Adina_Background })`
   width: 270px;
   height: 186px;
+  max-width: 100%;
 `;
 
 const Title = styled.h1`
