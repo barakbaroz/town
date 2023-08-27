@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import StepProgress from "./StepProgress";
 import CaseItemButtons from "./CaseItemButtons";
+import { DatePicker } from "@gistmed/gist-ui";
+import TimePicker from "../Gister/TimePicker";
 
 const CaseItemExpand = ({ item, show }) => {
   return (
@@ -13,14 +15,35 @@ const CaseItemExpand = ({ item, show }) => {
           <Text show={true}>פרטי קשר</Text>
           {item.User.phoneNumber}
         </div>
+        <div>
+          <Text show={true}>סוג תמיסה</Text>
+          {concentrateMapper[item.concentrate]}
+        </div>
       </Column>
 
       <Column>
+        <DateAndTimeTitle>עדכון זמן בדיקה</DateAndTimeTitle>
+        <DateAndTime>
+          <DateAndTimeWrapper>
+            <DatePicker
+              label="date"
+              defaultValue={null}
+              onChange={console.log}
+            />
+          </DateAndTimeWrapper>
+          <DateAndTimeWrapper>
+            <TimePicker onChange={console.log} />
+          </DateAndTimeWrapper>
+        </DateAndTime>
         <TextArea
           defaultValue={item.Comment?.message}
           placeholder="הוספת הערה..."
           disabled={true}
         />
+        <div>
+          תאריך יצירת קייס |{" "}
+          {new Date(item.createdAt).toLocaleDateString("he-IL")}
+        </div>
       </Column>
 
       <Column>
@@ -35,6 +58,29 @@ CaseItemExpand.propTypes = {
 };
 
 export default CaseItemExpand;
+
+const concentrateMapper = {
+  moviprep: "מוביפרפ",
+  picolax: "פיקולקס",
+  meroken: "מרוקן",
+};
+
+const DateAndTime = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const DateAndTimeWrapper = styled.div`
+  border-radius: 100vh;
+  background-color: #f2f3f7;
+  padding-inline: 16px;
+  padding-block: 7px;
+`;
+const DateAndTimeTitle = styled.div`
+  color: #84a4fc;
+  font-weight: 700;
+  font-size: 18px;
+`;
 
 export const ItemGrid = styled.div`
   display: grid;
