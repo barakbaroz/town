@@ -3,6 +3,8 @@ import styled from "styled-components";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import background from "../assets/Backgrounds/login.jpg";
+import gistLogo from "../assets/Logos/gist_logo_mask.svg";
+import hospitalLogo from "../assets/Logos/hopital_logo_mask.svg";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -25,6 +27,8 @@ const Login = () => {
 
   return (
     <Container>
+      <GistLogo />
+      <HopitalLogo />
       <Form onSubmit={handleSubmit}>
         <Titles>
           <Title>ברוכים הבאים</Title>
@@ -119,4 +123,16 @@ const Title = styled.h1`
 const SubTitle = styled.p`
   font-size: 1.5rem;
   margin-top: 0.5rem;
+`;
+
+const GistLogo = styled.img.attrs({ src: gistLogo })`
+  position: absolute;
+  top: 40px;
+  left: 40px;
+`;
+
+const HopitalLogo = styled.img.attrs({ src: hospitalLogo })`
+  position: absolute;
+  top: 40px;
+  right: 40px;
 `;
