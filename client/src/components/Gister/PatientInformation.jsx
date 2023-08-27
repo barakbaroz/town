@@ -4,30 +4,23 @@ import PinInput from "./PinInput";
 import PhoneInput from "./PhoneInput";
 import PropTypes from "prop-types";
 import { FieldTitle } from "./Giser.styled";
-import LanguageDropDown from "./LanguageDropDown";
 
 function PatientInformation({ casesDataRef }) {
-  const zehutInputRef = useRef(null);
   const phoneInputRef = useRef(null);
-  const yearOfBirthRef = useRef(null);
 
   const handleZehutNumber = (zehut) => {
     casesDataRef.current.zehutNumber = zehut;
-    zehutInputRef.current.classList.remove("invalid");
+    document.getElementById("zehutNumber").classList.remove("invalid");
   };
 
   const handlePhoneNumber = (phoneNumber) => {
     casesDataRef.current.phoneNumber = phoneNumber;
-    phoneInputRef.current.classList.remove("invalid");
+    document.getElementById("phoneNumber").classList.remove("invalid");
   };
 
   const handleYearOfBirth = (yearOfBirth) => {
     casesDataRef.current.yearOfBirth = yearOfBirth;
-    yearOfBirthRef.current.classList.remove("invalid");
-  };
-
-  const handleLanguage = (language) => {
-    casesDataRef.current.language = language;
+    document.getElementById("yearOfBirth").classList.remove("invalid");
   };
 
   return (
@@ -35,7 +28,6 @@ function PatientInformation({ casesDataRef }) {
       <InputContainer>
         <FieldTitle>4 ספרות אחרונות של ת.ז.</FieldTitle>
         <PinInput
-          ContainerRef={zehutInputRef}
           nextInput={phoneInputRef}
           onChange={handleZehutNumber}
           id="zehutNumber"
@@ -49,16 +41,8 @@ function PatientInformation({ casesDataRef }) {
         />
       </InputContainer>
       <InputContainer>
-        <FieldTitle>שפה</FieldTitle>
-        <LanguageDropDown onChange={handleLanguage} />
-      </InputContainer>
-      <InputContainer>
         <FieldTitle>שנת לידה</FieldTitle>
-        <PinInput
-          ContainerRef={yearOfBirthRef}
-          onChange={handleYearOfBirth}
-          id="yearOfBirth"
-        />
+        <PinInput onChange={handleYearOfBirth} id="yearOfBirth" />
       </InputContainer>
     </Container>
   );

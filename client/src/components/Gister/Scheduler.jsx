@@ -5,23 +5,25 @@ import TimePicker from "./TimePicker";
 
 export default function Scheduler({ casesDataRef }) {
   const handleDateSelect = (date) => {
-    casesDataRef.date = date.toDate();
+    casesDataRef.current.date = date.toDate();
+    document.getElementById("date").classList.remove("invalid");
   };
 
   const handleTimeSelect = (time) => {
-    console.log(time);
+    casesDataRef.current.time = time;
+    document.getElementById("time").classList.remove("invalid");
   };
 
   return (
     <Container>
-      <Wrapper>
+      <Wrapper id="date">
         <DatePicker
           label="date"
           defaultValue={null}
           onChange={handleDateSelect}
         />
       </Wrapper>
-      <Wrapper>
+      <Wrapper id="time">
         <TimePicker onChange={handleTimeSelect} />
       </Wrapper>
     </Container>
@@ -35,6 +37,7 @@ Scheduler.propTypes = {
 const Wrapper = styled.div`
   background-color: #f2f3f7;
   border-radius: 100vh;
+  border: 1px solid transparent;
   width: fit-content;
   padding-inline: 30px;
   padding-block: 10px;
@@ -50,4 +53,7 @@ const Container = styled.div`
   gap: 36px;
   font-size: 1rem;
   font-family: "Poppins";
+  .invalid {
+    border-color: var(--invalid);
+  }
 `;

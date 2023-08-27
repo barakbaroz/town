@@ -5,7 +5,7 @@ import { GeneralInput } from "./Giser.styled";
 
 const regex = new RegExp("[0-9]");
 
-function PinInput({ ContainerRef, nextInput, onChange, ...props }) {
+function PinInput({ nextInput, onChange, ...props }) {
   const refs = useRef([]);
 
   const handleChange = (index) => (event) => {
@@ -42,7 +42,7 @@ function PinInput({ ContainerRef, nextInput, onChange, ...props }) {
 
   return (
     <Utility>
-      <PinInputContainer ref={ContainerRef} {...props}>
+      <PinInputContainer {...props}>
         {[...Array(4)].map((_, index) => (
           <Pin
             type="tel"

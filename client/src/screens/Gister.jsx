@@ -11,7 +11,7 @@ import Scheduler from "../components/Gister/Scheduler";
 
 function Gister() {
   const navigate = useNavigate();
-  const casesDataRef = useRef({ language: "he" });
+  const casesDataRef = useRef({});
   const [loading, setLoading] = useState(false);
   const [showDuplicatePopup, setShowDuplicatePopup] = useState(false);
 
@@ -88,6 +88,9 @@ const validator = {
   zehutNumber: ({ zehutNumber }) => zehutNumber?.length === 4,
   phoneNumber: ({ phoneNumber }) => /^\d{10}$/.test(phoneNumber),
   yearOfBirth: ({ yearOfBirth }) => yearOfBirth?.length === 4,
+  concentrate: ({ concentrate }) => Boolean(concentrate),
+  date: ({ date }) => Boolean(date),
+  time: ({ time }) => Boolean(time),
 };
 
 const GisterContainer = styled.div`
