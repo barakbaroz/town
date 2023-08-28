@@ -29,8 +29,7 @@ const casesProgressFilter = {
     },
   },
 };
-const dateFilter = ({ procedureDate }) =>
-  procedureDate ? { procedureDate: procedureDate } : {};
+const dateFilter = ({ date }) => (date ? { procedureDate: date } : {});
 
 const zehutFilter = ({ zehutNumber }) =>
   zehutNumber ? { zehutNumber: { [Op.substring]: zehutNumber } } : {};

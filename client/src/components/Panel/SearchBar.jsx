@@ -19,10 +19,7 @@ function SearchBar({ search, setSearch }) {
   const handleZehut = (event) => {
     const { value } = event.target;
     if (!NumbersRgx.test(value)) return;
-    setSearch((prev) => ({
-      ...prev,
-      zehutNumber: value,
-    }));
+    setSearch((prev) => ({ ...prev, zehutNumber: value }));
   };
 
   const clearId = () => {
@@ -30,17 +27,14 @@ function SearchBar({ search, setSearch }) {
   };
 
   const clearSearch = () => {
-    setSearch({ patientStatus: "all", date: null });
+    setSearch({ patientStatus: "all" });
   };
 
   const handleLogout = () => {
     axios.get("/api/stuffMembers/logout").then(() => navigate("/login"));
   };
   const handleDateSearch = (date) => {
-    setSearch((prev) => ({
-      ...prev,
-      procedureDate: date,
-    }));
+    setSearch((prev) => ({ ...prev, date }));
   };
 
   return (
@@ -61,7 +55,7 @@ function SearchBar({ search, setSearch }) {
             <DatePicker
               onChange={handleDateSearch}
               defaultValue={null}
-              value={search.procedureDate}
+              value={search.date || null}
             />
           </DatePickerWrapper>
           <ClearId onClick={clearId} id="ClearId" />
