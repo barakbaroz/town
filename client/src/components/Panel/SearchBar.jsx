@@ -10,25 +10,37 @@ import { ReactComponent as ExitIcon } from "../../assets/Icons/exit.svg";
 import { ReactComponent as Reload } from "../../assets/Icons/reload.svg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { DatePicker } from "@gistmed/gist-ui";
 
 const NumbersRgx = /(^[0-9]+$|^$)/;
 
 function SearchBar({ search, setSearch }) {
   const navigate = useNavigate();
-
   const handleZehut = (event) => {
     const { value } = event.target;
     if (!NumbersRgx.test(value)) return;
-    setSearch({ zehutNumber: value, patientStatus: "all" });
+    setSearch((prev) => ({
+      ...prev,
+      zehutNumber: value,
+    }));
   };
 
-  const clearId = () =>
+  const clearId = () => {
     setSearch((prev) => ({ patientStatus: prev.patientStatus }));
+  };
 
-  const clearSearch = () => setSearch({ patientStatus: "all" });
+  const clearSearch = () => {
+    setSearch({ patientStatus: "all", date: null });
+  };
 
   const handleLogout = () => {
     axios.get("/api/stuffMembers/logout").then(() => navigate("/login"));
+  };
+  const handleDateSearch = (date) => {
+    setSearch((prev) => ({
+      ...prev,
+      procedureDate: date,
+    }));
   };
 
   return (
@@ -45,7 +57,14 @@ function SearchBar({ search, setSearch }) {
             maxLength={4}
             value={search.zehutNumber || ""}
           />
-          <ClearId onClick={clearId} />
+          <DatePickerWrapper>
+            <DatePicker
+              onChange={handleDateSearch}
+              defaultValue={null}
+              value={search.procedureDate}
+            />
+          </DatePickerWrapper>
+          <ClearId onClick={clearId} id="ClearId" />
         </GreyWrapper>
         <GuidanceSwitcher search={search} setSearch={setSearch} />
         <DropDown setSearch={setSearch} selectedOne={search.patientStatus} />
@@ -125,7 +144,7 @@ const GreyWrapper = styled.div`
 
 const Input = styled.input`
   width: 1cm;
-  padding-inline-end: 137px;
+  padding-inline: 29px;
   border: none;
   outline: none;
   background: transparent;
@@ -181,4 +200,9 @@ const IconButton = styled.button`
       fill: #84a4fc;
     }
   }
+`;
+const DatePickerWrapper = styled.div`
+  padding-inline-start: 18px;
+  padding-inline-end: 107px;
+  border-right: 1px solid #707070;
 `;

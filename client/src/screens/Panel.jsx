@@ -11,6 +11,7 @@ const Panel = () => {
   const [search, setSearch] = useState({
     patientStatus: "all",
     myCases: true,
+    date: null,
   });
   const { casesCount, fetch: refetchCasesCount } = useCasesCount(search);
 
