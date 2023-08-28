@@ -5,6 +5,7 @@ const {
   CasesProgress,
   SmsQueue,
   Avatar,
+  StaffMembers,
 } = require("../models");
 const { Op } = require("sequelize");
 const sms = require("../sms/service");
@@ -52,8 +53,22 @@ module.exports.search = async ({ creatorId, search }) => {
         ...casesProgressFilter[search.patientStatus],
       },
       Avatar,
+      {
+        model: StaffMembers,
+        attributes: ["name"],
+        ...casesProgressFilter[search.patientStatus],
+      },
     ],
-    attributes: ["id", "zehutNumber", "gender", "age", "createdAt"],
+    attributes: [
+      "id",
+      "zehutNumber",
+      "gender",
+      "age",
+      "concentrate",
+      "procedureDate",
+      "procedureTime",
+      "createdAt",
+    ],
     where: {
       ...zehutFilter(search),
       ...dateFilter(search),

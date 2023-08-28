@@ -8,8 +8,6 @@ import Trash from "../../assets/Icons/trash.svg";
 import Avatars from "../../assets/Avatars";
 import PopUp from "../Popups/PopUp";
 
-const dateOptions = { hour12: false };
-
 function CaseItem({ item, deleteCase }) {
   const [expand, setExpand] = useState(false);
   const [showDeletePopUp, setShowDeletePopUp] = useState(false);
@@ -42,9 +40,10 @@ function CaseItem({ item, deleteCase }) {
           <SubHeadin>{getLengAndAge(item)}</SubHeadin>
         </Unit>
         <Unit>
-          <Heading>Heading</Heading>
+          <Heading>קולונוסקופיה</Heading>
           <SubHeadin>
-            {new Date(item.createdAt).toLocaleString(undefined, dateOptions)}
+            {new Date(item.procedureDate).toLocaleDateString("he-IL")},{" "}
+            {item.procedureTime} | {item.StaffMember.name}
           </SubHeadin>
         </Unit>
         <EndPart>

@@ -22,7 +22,12 @@ const init = (sequelize) =>
   );
 
 const associations = (sequelize) => {
-  const { Cases, Users, Comments, CasesProgress, Avatar } = sequelize.models;
+  const { StaffMembers, Cases, Users, Comments, CasesProgress, Avatar } =
+    sequelize.models;
+  Cases.belongsTo(StaffMembers, {
+    foreignKey: "creatorId",
+    onDelete: "CASCADE",
+  });
   Cases.hasOne(Users, { onDelete: "CASCADE" });
   Cases.hasOne(Comments, { onDelete: "CASCADE" });
   Cases.hasOne(CasesProgress, { onDelete: "CASCADE" });
