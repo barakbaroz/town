@@ -21,29 +21,30 @@ const timeOptions = { hour: "2-digit", minute: "2-digit" };
 
 function InstructionsSteps() {
   const { firstPortion, secondPortion, dietTime, liquids } = getTimes(
-    "2023-07-30 12:00:27.823272+03"
+    "2023-07-30",
+    "12:00"
   );
 
   const data = [
-    { date: dietTime, content: "Diet" },
-    { date: liquids, content: "Liquids" },
-    { date: firstPortion, content: "FirstPortion" },
-    { date: secondPortion, content: "SecondPortion" },
+    { date: dietTime, content: "Diet", showTime: false },
+    { date: liquids, content: "Liquids", showTime: false },
+    { date: firstPortion, content: "FirstPortion", showTime: true },
+    { date: secondPortion, content: "SecondPortion", showTime: true },
   ];
 
   const dateFormater = new Intl.DateTimeFormat("he-IL", dateOptions);
   return (
     <Container>
-      {data.map(({ date, content }, index) => {
+      {data.map(({ date, content, showTime }, index) => {
         return (
           <Fragment key={content}>
             <Bullet />
             <StepDetails>
-              {[
-                Translate(`Instructions-Steps-${dayMapper[date.getDay()]}`),
-                dateFormater.format(date),
-                date.toLocaleTimeString("he-IL", timeOptions),
-              ].join(" | ")}
+              {Translate(`Instructions-Steps-${dayMapper[date.getDay()]}`)}
+              {" | "}
+              {dateFormater.format(date)}
+              {showTime &&
+                " | " + date.toLocaleTimeString("he-IL", timeOptions)}
             </StepDetails>
             <DottetLine last={index === data.length - 1} />
             <DescriptionText>
@@ -58,9 +59,9 @@ function InstructionsSteps() {
 
 export default InstructionsSteps;
 
-const getTimes = (procedureDateAndTime) => {
-  const date = new Date(procedureDateAndTime);
-  const hour = date.getHours();
+const getTimes = (procedureDate, procedureTime) => {
+  const date = new Date(procedureDate);
+  const [hour] = procedureTime.split(":");
 
   const dietTime = new Date(date);
   dietTime.setDate(date.getDate() - 3);
