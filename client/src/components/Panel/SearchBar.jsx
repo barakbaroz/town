@@ -22,20 +22,15 @@ function SearchBar({ search, setSearch }) {
     setSearch((prev) => ({ ...prev, zehutNumber: value }));
   };
 
-  const clearId = () => {
+  const clearId = () =>
     setSearch((prev) => ({ patientStatus: prev.patientStatus }));
-  };
 
-  const clearSearch = () => {
-    setSearch({ patientStatus: "all" });
-  };
+  const clearSearch = () => setSearch({ patientStatus: "all" });
 
   const handleLogout = () => {
     axios.get("/api/stuffMembers/logout").then(() => navigate("/login"));
   };
-  const handleDateSearch = (date) => {
-    setSearch((prev) => ({ ...prev, date }));
-  };
+  const handleDateSearch = (date) => setSearch((prev) => ({ ...prev, date }));
 
   return (
     <Container>
@@ -51,13 +46,11 @@ function SearchBar({ search, setSearch }) {
             maxLength={4}
             value={search.zehutNumber || ""}
           />
-          <DatePickerWrapper>
-            <DatePicker
-              onChange={handleDateSearch}
-              defaultValue={null}
-              value={search.date || null}
-            />
-          </DatePickerWrapper>
+          <DatePickerWrapper
+            onChange={handleDateSearch}
+            defaultValue={null}
+            value={search.date || null}
+          />
           <ClearId onClick={clearId} id="ClearId" />
         </GreyWrapper>
         <GuidanceSwitcher search={search} setSearch={setSearch} />
@@ -195,8 +188,8 @@ const IconButton = styled.button`
     }
   }
 `;
-const DatePickerWrapper = styled.div`
-  padding-inline-start: 18px;
-  padding-inline-end: 107px;
+const DatePickerWrapper = styled(DatePicker)`
+  padding-inline-end: 18px;
+  padding-inline-start: 107px;
   border-right: 1px solid #707070;
 `;
