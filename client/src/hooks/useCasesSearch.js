@@ -9,7 +9,7 @@ export default function useCasesSearch(search, refetchCasesCount) {
   const deleteCase = (caseId) => {
     setCases((cases) => cases.filter((item) => item.id !== caseId));
     axios
-      .delete("/api/cases/deleteCase", { data: { CaseId: caseId } })
+      .delete("/api/cases/delete", { data: { CaseId: caseId } })
       .then(refetchCasesCount)
       .catch(() => setCases(cases));
   };

@@ -17,6 +17,6 @@ router.post("/duplicate", duplicate);
 
 router.post("/search", search);
 
-router.delete("/deleteCase", deleteCase);
+router.delete("/delete", deleteCase);
 
 module.exports = router;

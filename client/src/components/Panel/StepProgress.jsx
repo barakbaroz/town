@@ -21,7 +21,7 @@ const StepProgress = ({ item }) => {
             <TextContainer id="TextContainer">
               <Name color={color}>{texts[step]}</Name>
               <Time show={isDone}>
-                {new Date(time).toLocaleDateString(undefined, dateOptions)}
+                {new Date(time).toLocaleDateString("he-IL", dateOptions)}
               </Time>
             </TextContainer>
 
@@ -92,11 +92,8 @@ const SingleStepContainer = styled.div`
   align-items: center;
   flex-direction: column;
   padding-left: 1rem;
-  height: 80px;
-  &:last-of-type {
-    & > ${Line} {
-      display: none;
-    }
+  &:last-of-type > ${Line} {
+    display: none;
   }
 `;
 
