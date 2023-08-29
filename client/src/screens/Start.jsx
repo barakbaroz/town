@@ -62,7 +62,6 @@ const StartContainer = styled.div`
   align-items: center;
   min-height: calc(100dvh - var(--header-size));
   width: 100vw;
-  background: #ffffff 0% 0% no-repeat padding-box;
   padding-inline: 22px;
   padding-block-end: 1.2rem;
   padding-block-start: 4px;
