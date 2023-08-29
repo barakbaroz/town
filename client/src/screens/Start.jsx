@@ -22,12 +22,12 @@ const Start = () => {
   return (
     <StartContainer>
       <LanguageBar />
-      <Nurse />
-      <ParagraphWrapper>
-        <Title>
+      <Nurse id="startPageNurse" />
+      <ParagraphWrapper id="ParagraphWrapper">
+        <Title id="HelloTitle">
           <Translator>Start-Title</Translator>
         </Title>
-        <Paragraph>
+        <Paragraph id="StartParagraph">
           <Translator>Start-Paragraph</Translator>
         </Paragraph>
       </ParagraphWrapper>
