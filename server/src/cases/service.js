@@ -29,6 +29,7 @@ const casesProgressFilter = {
     },
   },
 };
+const dateFilter = ({ date }) => (date ? { procedureDate: date } : {});
 
 const zehutFilter = ({ zehutNumber }) =>
   zehutNumber ? { zehutNumber: { [Op.substring]: zehutNumber } } : {};
@@ -69,6 +70,7 @@ module.exports.search = async ({ creatorId, search }) => {
     ],
     where: {
       ...zehutFilter(search),
+      ...dateFilter(search),
       ...myCasesFilter(search, creatorId),
     },
     order: [["createdAt", "DESC"]],
