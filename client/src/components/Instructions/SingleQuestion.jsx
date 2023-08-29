@@ -9,9 +9,10 @@ function SingleQuestion({ questionKey, onAnswer, show }) {
 
   const handleFeedback = (answer) => () => {
     postAnalytics({
-      type: `satisfaction-question`,
+      type: `satisfaction-question-${questionKey}`,
       data: answer,
     });
+
     setAnswer(answer);
     if (onAnswer) onAnswer();
   };
