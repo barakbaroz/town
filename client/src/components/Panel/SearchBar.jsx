@@ -49,6 +49,7 @@ function SearchBar({ search, setSearch }) {
           <DatePickerWrapper
             onChange={handleDateSearch}
             defaultValue={null}
+            minValue={null}
             value={search.date || null}
           />
           <ClearId onClick={clearId} id="ClearId" />
