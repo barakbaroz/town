@@ -1,8 +1,9 @@
 import { useContext } from "react";
+import Lottie from "lottie-react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import LanguageBar from "../components/User/LanguageBar";
-import nurse from "../assets/Start/nurse.svg";
+import Adina_Background from "../assets/Lotties/Adina_Background.json";
 import { Translator } from "../components/Translation";
 import { postAnalytics } from "../analytics";
 import { userContext } from "../providers/UserProvider";
@@ -19,17 +20,17 @@ const Start = () => {
   };
 
   return (
-    <StartContainer id="StartContainer">
+    <StartContainer>
       <LanguageBar />
-      <Nurse id="startPageNurse" src={nurse} />
-      <div id="TextsContainer">
+      <Nurse id="startPageNurse" />
+      <ParagraphWrapper id="ParagraphWrapper">
         <Title id="HelloTitle">
           <Translator>Start-Title</Translator>
         </Title>
         <Paragraph id="StartParagraph">
           <Translator>Start-Paragraph</Translator>
         </Paragraph>
-      </div>
+      </ParagraphWrapper>
       <BottomContentContainer>
         <StartButton
           id="StartButton"
@@ -38,7 +39,7 @@ const Start = () => {
         >
           <Translator>Next</Translator>
         </StartButton>
-        <div>
+        <LegalTextWrapper>
           <Translator>Start-Legal-Explain</Translator>
           &nbsp;
           <LegalLink
@@ -48,7 +49,7 @@ const Start = () => {
           >
             <Translator>Start-Legal-Link</Translator>
           </LegalLink>
-        </div>
+        </LegalTextWrapper>
       </BottomContentContainer>
     </StartContainer>
   );
@@ -61,7 +62,6 @@ const StartContainer = styled.div`
   align-items: center;
   min-height: calc(100dvh - var(--header-size));
   width: 100vw;
-  background: linear-gradient(#ffffff, #f1f4fb, #e3e8f6, #f5f7fc, #ffffff);
   padding-inline: 22px;
   padding-block-end: 1.2rem;
   padding-block-start: 4px;
@@ -69,14 +69,14 @@ const StartContainer = styled.div`
   justify-content: space-between;
 `;
 
-const Nurse = styled.img`
-  width: 20rem;
+const Nurse = styled(Lottie).attrs({ animationData: Adina_Background })`
+  width: 270px;
+  height: 186px;
   max-width: 100%;
-  align-self: center;
 `;
 
 const Title = styled.h1`
-  font-size: 1.625rem;
+  font-size: 1.75rem;
   margin: 0;
   text-align: center;
 `;
@@ -91,7 +91,7 @@ const BottomContentContainer = styled.div`
 
 const Paragraph = styled.p`
   font-size: 1.1875rem;
-  margin-block-start: 0.5rem;
+  margin-block: 0;
   text-align: center;
   margin-inline: 25px;
 `;
@@ -99,15 +99,27 @@ const Paragraph = styled.p`
 const StartButton = styled(Link)`
   text-decoration: none;
   background-color: #f02a4c;
-  border-radius: 3rem;
+  border-radius: 1.813rem;
   border: none;
   color: #ffffff;
-  padding: 0.5rem 3rem;
-  font-size: 1.063rem;
+  font-size: 1.125rem;
   font-family: inherit;
+  padding-block: 0.594rem;
+  padding-inline: 4.563rem;
+  box-shadow: 0px 3px 6px #00000029;
 `;
 
 const LegalLink = styled(Link)`
-  color: #84a4fb;
+  color: inherit;
   cursor: pointer;
+  font-weight: 500;
+`;
+const LegalTextWrapper = styled.p`
+  font-size: 1rem;
+  margin-block: 0;
+`;
+const ParagraphWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.656rem;
 `;
