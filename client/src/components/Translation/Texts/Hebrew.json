@@ -34,13 +34,15 @@
   "Share-Video-Text": "שלום, אני רוצה לשתף אותך בסרטון הדרכה שקיבלתי מקופת החולים.",
   "Hospital-Name": "כללית",
 
-  "Character-Selection-Title": "יצירת הדמות שלך",
-  "Character-Selection-Gender": "בחירת המין",
+  "Character-Selection-Title": "בחירת הדמות שלך",
+  "Character-Selection-Gender": "מה המין שלך?",
   "Character-Selection-female": "אישה",
   "Character-Selection-male": "גבר",
   "Character-Selection-other": "אחר",
-  "Character-Selection-Age": "בחירת הגיל",
-  "Character-Selection-Avatar": "מהי הדמות המועדפת עליך?",
+  "Character-Selection-Age": "מה הגיל שלך?",
+  
+  "Character-Selection-Avatar-General": "מהי הדמות המועדפת עליך?",
+  "Character-Selection-Avatar-Single": "יש ללחוץ על הדמות שלך",
   "Character-Selection-Error": "עליך למלא תחילה שדות קודמים",
 
   "diabetesMedicines": "האם אתה נוטל תרופות לסוכרת?",
