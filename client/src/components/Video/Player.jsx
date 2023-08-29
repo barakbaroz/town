@@ -10,7 +10,7 @@ import useVideoUrl from "../../hooks/useVideoUrl";
 import PropTypes from "prop-types";
 import videoThumbnail from "../../assets/videoThumbnail.png";
 
-function Player({ setShowFeedback }) {
+function Player({ setShowFeedback, videoRef }) {
   const userInfo = useContext(userContext);
   const { language } = useContext(LanguageContext);
   const params = useMemo(() => {
@@ -44,6 +44,7 @@ function Player({ setShowFeedback }) {
         onLocationUpdate={onLocationUpdate}
         onPlayerPlaying={onPlayerPlaying}
         thumbnail={videoThumbnail}
+        passedRef={videoRef}
       />
     </VideoContainer>
   );
@@ -53,6 +54,7 @@ export default Player;
 
 Player.propTypes = {
   setShowFeedback: PropTypes.func,
+  videoRef: PropTypes.node,
 };
 
 const VideoContainer = styled.div`

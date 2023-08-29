@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Lottie from "lottie-react";
 import Player from "../components/Video/Player";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import SatisfactionQuestions from "../components/Instructions/SatisfactionQuestions";
 import LanguageBar from "../components/User/LanguageBar";
 import { Translator } from "../components/Translation";
@@ -18,6 +18,12 @@ const lottieOptions = { animationData: nurseLottie, loop: true };
 
 function VideoPage() {
   const [showFeedback, setShowFeedback] = useState(false);
+  const videoRef = useRef(null);
+
+  const handleAutoPlay = () => {
+    if (!videoRef.current) return;
+    videoRef.current.play();
+  };
 
   return (
     <Container>
@@ -27,7 +33,7 @@ function VideoPage() {
       <Title id="video-title">
         <Translator>Video-Title</Translator>
       </Title>
-      <Player setShowFeedback={setShowFeedback} />
+      <Player setShowFeedback={setShowFeedback} videoRef={videoRef} />
       <VideoInteraction>
         <SatisfactionQuestions videoStarted={showFeedback} />
       </VideoInteraction>
@@ -42,7 +48,7 @@ function VideoPage() {
 
       <ScrollSectionWrapper>
         <NurseLottie {...lottieOptions} />
-        <ScrollButton href="#video-title">
+        <ScrollButton href="#video-title" onClick={handleAutoPlay}>
           <img src={arrow_up} alt="arrowUp" />
           <Translator>Video-Back-To-Video</Translator>
           <span></span>
