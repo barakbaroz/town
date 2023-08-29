@@ -43,6 +43,7 @@ module.exports.verify = async ({
     zehutNumber: user.Case.zehutNumber === zehutNumber,
     yearOfBirth: user.Case.yearOfBirth === yearOfBirth,
     rememberMe,
+    department: "gastroscopy" === department,
     attempts: user.failedAttempts + 1,
   };
   verifyObj.success = verifyObj.zehutNumber && verifyObj.yearOfBirth;

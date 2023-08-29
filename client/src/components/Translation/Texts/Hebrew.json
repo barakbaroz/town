@@ -14,9 +14,11 @@
   "schedule-reason": "מהי הסיבה בגללה זומנת למרפאה?",
 
   "choose-answer": "בחר/י את התשובה",
-  "heart": "אי ספיקת לב",
-  "colonoscopy": "קולונוסקופיה",
-  "birth": "לידה",
+  "eyes":"עיניים",
+  "gastroscopy":"גסטרו",
+  "midwives":"מיילדות או נשים",
+  "preSurgery":"טרום ניתוח",
+  "anesthesia":"הרדמה",
 
   "remember-me": "זכור אותי במכשיר זה לפעם הבאה",
 

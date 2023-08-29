@@ -31,9 +31,21 @@ function DepartmentQuestion() {
           <Option value="" disabled hidden>
             <Translator>לחץ לבחירת תשובה</Translator>
           </Option>
-          <Option value="colonoscopy">קולונוסקופיה</Option>
-          <Option value="birth">לידה</Option>
-          <Option value="heart">אי ספיקת לב</Option>
+          <Option value="eyes">
+            <Translator>eyes</Translator>
+          </Option>
+          <Option value="gastroscopy">
+            <Translator>gastroscopy</Translator>
+          </Option>
+          <Option value="midwives">
+            <Translator>midwives</Translator>
+          </Option>
+          <Option value="preSurgery">
+            <Translator>preSurgery</Translator>
+          </Option>
+          <Option value="anesthesia">
+            <Translator>anesthesia</Translator>
+          </Option>
         </Select>
       </SelectContainer>
     </AuthQuestionLayout>
