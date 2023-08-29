@@ -66,14 +66,13 @@ const StartContainer = styled.div`
   padding-block-end: 1.2rem;
   padding-block-start: 4px;
   box-sizing: border-box;
+  justify-content: space-between;
 `;
 
 const Nurse = styled(Lottie).attrs({ animationData: Adina_Background })`
   width: 270px;
   height: 186px;
   max-width: 100%;
-  margin-block-start: 35px;
-  margin-block-end: 37px;
 `;
 
 const Title = styled.h1`
@@ -88,7 +87,6 @@ const BottomContentContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1rem;
-  margin-block-start: 30px;
 `;
 
 const Paragraph = styled.p`
