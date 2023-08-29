@@ -38,8 +38,7 @@ function DepartmentQuestion() {
             <Translator>gastroscopy</Translator>
           </Option>
           <Option value="midwives">
-            {" "}
-            <Translator>midwives</Translator>{" "}
+            <Translator>midwives</Translator>
           </Option>
           <Option value="preSurgery">
             <Translator>preSurgery</Translator>
