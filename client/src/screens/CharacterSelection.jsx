@@ -77,7 +77,10 @@ function CharacterSelection() {
         ))}
         <CharacterQuestion id="CharacterQuestion">
           <Question id="Question">
-            <Translator>Character-Selection-Avatar</Translator>
+            <Translator>
+              Character-Selection-Avatar-
+              {filtersAvatars.length === 1 ? "Single" : "General"}
+            </Translator>
           </Question>
           <CharacterQuestionPickerContainer id="CharacterQuestionPickerContainer">
             {filtersAvatars.map(({ key, avatar, image }) => (
@@ -177,14 +180,17 @@ const Title = styled.p`
   font-size: 1.5rem;
   font-weight: 500;
   padding-inline: var(--inner-padding-inline);
-  padding-block: 1.438em;
+  padding-block-start: 1.938rem;
+  padding-block-end: 1.75rem;
   margin: 0;
 `;
 
 const PickerContainer = styled.div`
   background-color: #ffffff;
   border-radius: 15px;
-  padding: var(--inner-padding-inline);
+  padding-inline: var(--inner-padding-inline);
+  padding-block-start: 1.75rem;
+  padding-block-end: 1.875rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -230,7 +236,7 @@ const Divider = styled.div`
 const QuestionWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.75rem;
 `;
 
 const Line = styled.div`
