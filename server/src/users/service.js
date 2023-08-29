@@ -34,6 +34,7 @@ module.exports.verify = async ({
   zehutNumber,
   yearOfBirth,
   rememberMe,
+  department,
 }) => {
   const user = await Users.findByPk(id, {
     include: { model: Cases, required: true },
