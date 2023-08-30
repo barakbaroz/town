@@ -10,6 +10,7 @@ const init = (sequelize) =>
       },
       openSms: DataTypes.DATE,
       avatarSelection: DataTypes.DATE,
+      answeredQuestionnaire: DataTypes.DATE,
       watchedVideo: DataTypes.DATE,
       satisfactionAnswer: DataTypes.DATE,
     },
