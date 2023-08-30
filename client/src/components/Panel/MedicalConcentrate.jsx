@@ -10,7 +10,7 @@ export default function MedicalConcentrate({ casesDataRef }) {
     casesDataRef.current.concentrate = event.target.value;
   };
   return (
-    <Wrapper>
+    <Wrapper id="concentrate">
       {data.map(({ key, src, name }) => (
         <Label key={key}>
           <Img src={src} />
