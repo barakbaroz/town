@@ -20,12 +20,10 @@ module.exports.getAuthStatus = async ({ userId }) => {
   return "blocked";
 };
 
-module.exports.lastStep = async ({ userId }) => {
-  const user = await Users.findByPk(userId, {
-    include: { model: Cases, include: CasesProgress },
-  });
-  const { avatarSelection } = user.Case.CasesProgress;
-  if (avatarSelection) return "Video";
+module.exports.lastStep = async (user) => {
+  const { avatarSelection, answeredQuestionnaire } = user.Case.CasesProgress;
+  if (answeredQuestionnaire) return "Video";
+  if (avatarSelection) return "Questionnaire/diabetesMedicines";
   return "Start";
 };
 
@@ -37,7 +35,7 @@ module.exports.verify = async ({
   department,
 }) => {
   const user = await Users.findByPk(id, {
-    include: { model: Cases, required: true },
+    include: { model: Cases, required: true, include: CasesProgress },
   });
   if (!user) return { status: "blocked" };
   const verifyObj = {
@@ -87,6 +85,7 @@ module.exports.update = async ({ id, data }) => {
 const typeToColumn = {
   "opened-sms": "openSms",
   "general-information-answered": "avatarSelection",
+  "submit-questionnaire": "answeredQuestionnaire",
   "watched-video": "watchedVideo",
   "satisfaction-question-video-helpful": "satisfactionAnswer",
 };
@@ -136,6 +135,7 @@ module.exports.userVideoAction = async ({ UserId, type, data }) => {
 };
 
 module.exports.updateQuestionnaire = async ({ id, answers }) => {
+  this.userAction({ UserId: id, type: "submit-questionnaire" });
   answers.forEach((answer) => (answer.id = id));
   await Questionnaire.bulkCreate(answers, {
     updateOnDuplicate: ["answerKey"],

@@ -12,7 +12,7 @@ export const AuthenticationContext = createContext({});
 
 function AuthenticationLayout() {
   const rememberMeRef = useRef(null);
-  const [statusState, setStatusState] = useState("loading");
+  const [statusState, setStatusState] = useState({ state: "loading" });
   const { userId } = useParams();
   const [buttonEnabled, setButtonEnable] = useState(false);
   const { state } = useLocation();
@@ -27,7 +27,7 @@ function AuthenticationLayout() {
   useEffect(() => {
     axios
       .post("/api/user/getAuthStatus", { userId })
-      .then((res) => setStatusState(res.data));
+      .then((res) => setStatusState({ state: res.data }));
   }, [userId]);
 
   const updateAnswers = ({ questionName, answer, nextRoute }) => {
@@ -41,22 +41,24 @@ function AuthenticationLayout() {
   };
 
   const handleAuthentication = () => {
-    setStatusState("loading");
+    setStatusState({ state: "loading" });
     axios
       .post("/api/user/verify", {
         id: userId,
         rememberMe: rememberMeRef.current.checked,
         ...answersRef.current,
       })
-      .then(() => setStatusState("success"))
+      .then((res) =>
+        setStatusState({ state: "success", lastStep: res.data.lastStep })
+      )
       .catch((error) => setStatusState(error.response.data.status));
   };
 
-  if (statusState !== "idle")
+  if (statusState.state !== "idle")
     return (
       <LanguageProvider>
         <Loader
-          state={statusState}
+          statusState={statusState}
           setStatusState={setStatusState}
           reset={reset}
         />

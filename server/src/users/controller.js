@@ -24,7 +24,7 @@ module.exports.entry = async (req, res) => {
     if (!token) return res.redirect(authURL);
     const user = jwt.verify(token, process.env.JWT_KEY_USER);
     if (user.id != id) return res.redirect(authURL);
-    const route = await userServices.lastStep({ userId: id });
+    const route = await userServices.lastStep(dbUser);
     return res.redirect(`/user/${route}`);
   } catch (error) {
     return res.redirect(authURL);
@@ -48,13 +48,14 @@ module.exports.verify = async (req, res) => {
       process.env.JWT_KEY_USER,
       rememberMe ? { expiresIn: "30d" } : {}
     );
+    const lastStep = await userServices.lastStep(user);
     return res
       .cookie("user_token", token, {
         httpOnly: true,
         maxAge: rememberMe ? 1000 * 60 * 60 * 24 * 30 : undefined,
       })
       .status(200)
-      .send("Successfully verify");
+      .json({ message: "Successfully verify", lastStep });
   } catch (error) {
     console.error(error);
     return res.status(500).send("Error");

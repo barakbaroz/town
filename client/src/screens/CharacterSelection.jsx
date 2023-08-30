@@ -40,7 +40,7 @@ function CharacterSelection() {
     if (!avatarKey) return setShowError(true);
     postAnalytics({ type: "general-information-answered" });
     userInfo.updateCase({ ...answers, Avatar: avatar });
-    navigate("../Video");
+    navigate("../Questionnaire/diabetesMedicines");
   };
 
   return (

@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import Lottie from "lottie-react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
@@ -6,11 +5,8 @@ import LanguageBar from "../components/User/LanguageBar";
 import Adina_Background from "../assets/Lotties/Adina_Background.json";
 import { Translator } from "../components/Translation";
 import { postAnalytics } from "../analytics";
-import { userContext } from "../providers/UserProvider";
 
 const Start = () => {
-  const { Case } = useContext(userContext);
-
   const handleLegalLinkClick = () => {
     postAnalytics({ type: "opened-tos" });
   };
@@ -34,7 +30,7 @@ const Start = () => {
       <BottomContentContainer>
         <StartButton
           id="StartButton"
-          to={Case.age && Case.gender ? "../Video" : "../CharacterSelection"}
+          to="../CharacterSelection"
           onClick={handleStartClick}
         >
           <Translator>Next</Translator>

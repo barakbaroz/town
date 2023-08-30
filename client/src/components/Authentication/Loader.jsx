@@ -15,19 +15,17 @@ const lottiesMapper = {
   blocked: { animationData: failed, loop: false },
 };
 
-const navigationRoutes = {
-  success: "/user/start",
-  failed: "zehut",
-};
-
-function Loader({ state, setStatusState, reset }) {
+function Loader({ statusState, setStatusState, reset }) {
   const navigate = useNavigate();
   const handleComplete = () => {
-    const nextRoute = navigationRoutes[state];
+    const nextRoute =
+      statusState.state === "success"
+        ? `/user/${statusState.lastStep}`
+        : "zehut";
     if (!nextRoute) return;
     setTimeout(() => {
       navigate(nextRoute);
-      setStatusState("idle");
+      setStatusState({ state: "idle" });
       reset();
     }, 2000);
   };
@@ -37,16 +35,16 @@ function Loader({ state, setStatusState, reset }) {
       <Header />
       <StatusContainer>
         <StatusIndicator
-          {...lottiesMapper[state]}
+          {...lottiesMapper[statusState.state]}
           onComplete={handleComplete}
         />
         <Content>
           <Title>
-            <Translator>{`authentication-${state}-title`}</Translator>
+            <Translator>{`authentication-${statusState.state}-title`}</Translator>
           </Title>
 
           <Subtitle>
-            <Translator>{`authentication-${state}-subtitle`}</Translator>
+            <Translator>{`authentication-${statusState.state}-subtitle`}</Translator>
           </Subtitle>
         </Content>
       </StatusContainer>
@@ -56,7 +54,10 @@ function Loader({ state, setStatusState, reset }) {
 }
 
 Loader.propTypes = {
-  state: PropTypes.oneOf(Object.keys(lottiesMapper)),
+  statusState: PropTypes.shape({
+    state: PropTypes.oneOf(Object.keys(lottiesMapper)),
+    lastStep: PropTypes.string,
+  }),
   setStatusState: PropTypes.func,
   reset: PropTypes.func,
 };
