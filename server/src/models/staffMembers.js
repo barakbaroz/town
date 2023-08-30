@@ -17,7 +17,6 @@ const init = (sequelize) =>
       },
       name: DataTypes.STRING,
       password: DataTypes.STRING,
-      role: DataTypes.STRING,
     },
     { underscored: true }
   );
