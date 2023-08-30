@@ -55,7 +55,6 @@ module.exports.search = async ({ creatorId, search }) => {
       {
         model: StaffMembers,
         attributes: ["name"],
-        ...casesProgressFilter[search.patientStatus],
       },
     ],
     attributes: [
