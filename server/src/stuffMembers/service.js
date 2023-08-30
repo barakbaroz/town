@@ -3,7 +3,7 @@ const { Op, fn, col } = require("sequelize");
 
 module.exports.info = async ({ staffMembersId }) => {
   const stuffmemberData = await StaffMembers.findOne({
-    attributes: ["name", "role"],
+    attributes: ["name"],
     where: { id: staffMembersId },
   });
   return stuffmemberData;

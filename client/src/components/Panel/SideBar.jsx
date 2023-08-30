@@ -5,10 +5,6 @@ import CircleProfile from "../../assets/Panel/circle_profile.svg";
 import Plus from "../../assets/Icons/plus.svg";
 import Support from "./Support";
 
-const roles = {
-  coordinator: "אחות מרפאה ראשית",
-};
-
 const SideBar = ({ casesCount }) => {
   const stuffMemberInfo = useLoaderData();
   return (
@@ -17,7 +13,7 @@ const SideBar = ({ casesCount }) => {
         <Content>
           <img src={CircleProfile} style={{ maxWidth: "132px" }} alt="img" />
           <Name>{stuffMemberInfo.name}</Name>
-          <SubName>{roles[stuffMemberInfo.role]}</SubName>
+          <SubName>אחות מרפאה ראשית</SubName>
           <CasesCounters>
             <div>
               <Number>{casesCount.totalCases}</Number>
