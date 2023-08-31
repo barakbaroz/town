@@ -14,15 +14,24 @@ function Player({ setShowFeedback, videoRef }) {
   const userInfo = useContext(userContext);
   const { language } = useContext(LanguageContext);
   const params = useMemo(() => {
-    const { Avatar } = userInfo.Case;
+    const { Case, Questionnaires } = userInfo;
+    const { Avatar, procedureTime, procedureDate, concentrate } = Case;
+    const questionnaire = Questionnaires.filter(
+      ({ answerKey }) => answerKey === "Yes"
+    ).map(({ questionKey }) => questionKey);
+
     return {
       ...Avatar,
       language,
-      hospital: "clalit",
+      procedureTime,
+      procedureDate,
+      concentrate,
+      questionnaire,
+      hospital: "belinson",
     };
   }, [language, userInfo]);
 
-  const { videoUrl } = useVideoUrl(params, "heart-failure-community");
+  const { videoUrl } = useVideoUrl(params, "colonoscopy-preperation");
 
   const onLocationUpdate = useCallback((percentage, location) => {
     axios.post("/api/user/userVideoAction", {
