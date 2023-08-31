@@ -65,7 +65,14 @@ module.exports.getData = async ({ userId }) => {
       Questionnaire,
       {
         model: Cases,
-        attributes: ["id", "gender", "age"],
+        attributes: [
+          "id",
+          "gender",
+          "age",
+          "procedureDate",
+          "procedureTime",
+          "concentrate",
+        ],
         include: [CasesProgress, Avatar],
       },
     ],
@@ -136,7 +143,7 @@ module.exports.userVideoAction = async ({ UserId, type, data }) => {
 
 module.exports.updateQuestionnaire = async ({ id, answers }) => {
   this.userAction({ UserId: id, type: "submit-questionnaire" });
-  answers.forEach((answer) => (answer.id = id));
+  answers.forEach((answer) => (answer.UserId = id));
   await Questionnaire.bulkCreate(answers, {
     updateOnDuplicate: ["answerKey"],
   });
