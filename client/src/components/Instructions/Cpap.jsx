@@ -3,10 +3,18 @@ import styled from "styled-components";
 import { Translator } from "../Translation";
 import { Icon, Title, TopSection } from "./Card.Style";
 import CPAP from "../../assets/Icons/Cpap.svg";
+import { useContext } from "react";
+import { userContext } from "../../providers/UserProvider";
 
-function Cpap({ show }) {
+function Cpap() {
+  const { Questionnaires } = useContext(userContext);
+  const cpapAnsweredYes = Questionnaires.find(
+    (questionObj) =>
+      questionObj.questionKey === "cpap" && questionObj.answerKey === "Yes"
+  );
+  
   return (
-    <Container show={show}>
+    <Container show={cpapAnsweredYes}>
       <TopSection>
         <Title>
           <Translator>Cpap-Title</Translator>

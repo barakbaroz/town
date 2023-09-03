@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Button = styled.button`
+export const buttonCSS = css`
   --content-height: 1.625rem;
   font-size: 1.125rem;
   cursor: pointer;
@@ -12,4 +12,8 @@ export const Button = styled.button`
   border-radius: 50px;
   align-self: center;
   font-family: inherit;
+`;
+
+export const Button = styled.button`
+  ${buttonCSS}
 `;

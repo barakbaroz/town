@@ -41,7 +41,7 @@ function VideoPage() {
       <CardsWrapper>
         <NutritionalGuidelines />
         <ConsultDoctor />
-        <Cpap show={true} />
+        <Cpap />
         <DontForget />
         <Consent />
       </CardsWrapper>

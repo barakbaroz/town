@@ -14,11 +14,11 @@
   "schedule-reason": "מהי הסיבה בגללה זומנת למרפאה?",
 
   "choose-answer": "בחר/י את התשובה",
-  "eyes":"עיניים",
-  "gastroscopy":"גסטרו",
-  "midwives":"מיילדות או נשים",
-  "preSurgery":"טרום ניתוח",
-  "anesthesia":"הרדמה",
+  "eyes": "עיניים",
+  "gastroscopy": "גסטרו",
+  "midwives": "מיילדות או נשים",
+  "preSurgery": "טרום ניתוח",
+  "anesthesia": "הרדמה",
 
   "remember-me": "זכור אותי במכשיר זה לפעם הבאה",
 
@@ -42,14 +42,14 @@
   "Character-Selection-male": "גבר",
   "Character-Selection-other": "אחר",
   "Character-Selection-Age": "מה הגיל שלך?",
-  
+
   "Character-Selection-Avatar-General": "מהי הדמות המועדפת עליך?",
   "Character-Selection-Avatar-Single": "יש ללחוץ על הדמות שלך",
   "Character-Selection-Error": "עליך למלא תחילה שדות קודמים",
 
   "diabetesMedicines": "האם אתה נוטל תרופות לסוכרת?",
-  "heartMedicines": "האם אתה נוטל תרופות ללחץ דם או מחלת לב?",
   "bloodThinners": "האם אתה נוטל מדללי דם? (לדוגמא - אספירין, פלביקס, אליקוויס, קסרלטו, פרדקסה, קומדין או תרופה דומה)",
+  "cpap": "האם הומלץ לך על שימוש במכשיר סיפאפ?",
   "nutritionalSupplement": "האם אתה נוטל תוספי תזונה המכילים ברזל?",
   "colonoscopyBefore": "האם עברת בעבר בדיקת קולונוסקופיה?",
 
@@ -107,7 +107,7 @@
   "Satisfaction-question-all-answered": "תודה על שיתוף הפעולה, רפואה שלמה.",
 
   "Call-Center-Belinson": "מזכירות בילינסון",
-  "Call-Center-Extension":"שלוחה 8",
+  "Call-Center-Extension": "שלוחה 8",
   "Call-Center-Hours": "בין השעות 10:00-14:00",
 
   "Footer": "מטופל מעורב הוא מטופל שמחלים טוב יותר"
