@@ -2,9 +2,19 @@ import styled from "styled-components";
 import { Card, Icon, Title, TopSection } from "./Card.Style";
 import { Translator } from "../Translation";
 import doctor_consult from "../../assets/Icons/doctor_consult.svg";
-import { Button } from "../general.style";
+import { Button, buttonCSS } from "../general.style";
 import { useContext } from "react";
 import { userContext } from "../../providers/UserProvider";
+import bloodThinnersDiabetesMedicinesPDF from "../../assets/Pdfs/ConsultDoctor/bloodThinners-diabetesMedicines.pdf";
+import bloodThinnersPDF from "../../assets/Pdfs/ConsultDoctor/bloodThinners.pdf";
+import diabetesMedicinesPDF from "../../assets/Pdfs/ConsultDoctor/diabetesMedicines.pdf";
+import { Link } from "react-router-dom";
+
+const pdfs = {
+  "bloodThinners:Yes-diabetesMedicines:Yes": bloodThinnersDiabetesMedicinesPDF,
+  "bloodThinners:Yes-diabetesMedicines:No": bloodThinnersPDF,
+  "bloodThinners:No-diabetesMedicines:Yes": diabetesMedicinesPDF,
+};
 
 const inRelevantQuestionsKey = ({ questionKey }) =>
   ["diabetesMedicines", "bloodThinners"].includes(questionKey);
@@ -12,17 +22,10 @@ const inRelevantQuestionsKey = ({ questionKey }) =>
 function ConsultDoctor() {
   const { Questionnaires } = useContext(userContext);
 
-  const showPDF = Questionnaires.some(
-    (questionObj) =>
-      inRelevantQuestionsKey(questionObj) && questionObj.answerKey === "Yes"
-  );
-
-  const getParagrah = () =>
-    "Consult-Doctor-" +
-    Questionnaires.filter(inRelevantQuestionsKey)
-      .sort((a, b) => (a.questioKey < b.questioKey ? 1 : -1))
-      .map(({ questionKey, answerKey }) => `${questionKey}:${answerKey}`)
-      .join("-");
+  const key = Questionnaires.filter(inRelevantQuestionsKey)
+    .sort((a, b) => (a.questioKey < b.questioKey ? 1 : -1))
+    .map(({ questionKey, answerKey }) => `${questionKey}:${answerKey}`)
+    .join("-");
 
   return (
     <Card>
@@ -34,9 +37,9 @@ function ConsultDoctor() {
       </TopSection>
 
       <Text>
-        <Translator>{getParagrah()}</Translator>
+        <Translator>Consult-Doctor-{key}</Translator>
       </Text>
-      <StyledButton show={showPDF}>
+      <StyledButton href={pdfs[key]} show={pdfs[key]}>
         <Translator>טופס לרופא/ת משפחה</Translator>
       </StyledButton>
     </Card>
@@ -45,7 +48,9 @@ function ConsultDoctor() {
 
 export default ConsultDoctor;
 
-const StyledButton = styled(Button)`
+const StyledButton = styled.a`
+  ${buttonCSS}
+  text-decoration: none;
   display: ${({ show }) => (show ? "block" : "none")};
 `;
 
