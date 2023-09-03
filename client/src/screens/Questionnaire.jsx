@@ -9,8 +9,8 @@ import { useContext } from "react";
 
 const questions = [
   "diabetesMedicines",
-  "heartMedicines",
   "bloodThinners",
+  "cpap",
   "nutritionalSupplement",
   "colonoscopyBefore",
 ];
