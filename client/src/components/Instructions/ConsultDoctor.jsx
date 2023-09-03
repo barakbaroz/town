@@ -12,10 +12,15 @@ const inRelevantQuestionsKey = ({ questionKey }) =>
 function ConsultDoctor() {
   const { Questionnaires } = useContext(userContext);
 
+  const showPDF = Questionnaires.some(
+    (questionObj) =>
+      inRelevantQuestionsKey(questionObj) && questionObj.answerKey === "Yes"
+  );
+
   const getParagrah = () =>
     "Consult-Doctor-" +
     Questionnaires.filter(inRelevantQuestionsKey)
-      .sort()
+      .sort((a, b) => (a.questioKey < b.questioKey ? 1 : -1))
       .map(({ questionKey, answerKey }) => `${questionKey}:${answerKey}`)
       .join("-");
 
@@ -31,14 +36,18 @@ function ConsultDoctor() {
       <Text>
         <Translator>{getParagrah()}</Translator>
       </Text>
-      <Button>
+      <StyledButton show={showPDF}>
         <Translator>טופס לרופא/ת משפחה</Translator>
-      </Button>
+      </StyledButton>
     </Card>
   );
 }
 
 export default ConsultDoctor;
+
+const StyledButton = styled(Button)`
+  display: ${({ show }) => (show ? "block" : "none")};
+`;
 
 const Text = styled.p`
   margin: 0;
