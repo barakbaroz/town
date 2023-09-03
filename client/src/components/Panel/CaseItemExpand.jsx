@@ -4,8 +4,24 @@ import StepProgress from "./StepProgress";
 import CaseItemButtons from "./CaseItemButtons";
 import { DatePicker } from "@gistmed/gist-ui";
 import TimePicker from "../Gister/TimePicker";
+import { parseDate } from "@internationalized/date";
+import axios from "axios";
 
 const CaseItemExpand = ({ item, show }) => {
+  const handleChangeDate = (data) => {
+    axios.put("/api/cases/update", {
+      id: item.id,
+      procedureDate: data.toDate(),
+    });
+  };
+
+  const handleChangeTime = (time) => {
+    axios.put("/api/cases/update", {
+      id: item.id,
+      procedureTime: time,
+    });
+  };
+
   return (
     <Container show={show}>
       <CaseItemButtons item={item} />
@@ -27,12 +43,16 @@ const CaseItemExpand = ({ item, show }) => {
           <DateAndTimeWrapper>
             <DatePicker
               label="date"
-              defaultValue={null}
-              onChange={console.log}
+              defaultValue={parseDate(item.procedureDate)}
+              minValue={null}
+              onChange={handleChangeDate}
             />
           </DateAndTimeWrapper>
           <DateAndTimeWrapper>
-            <TimePicker onChange={console.log} />
+            <TimePicker
+              defaultValue={item.procedureTime}
+              onChange={handleChangeTime}
+            />
           </DateAndTimeWrapper>
         </DateAndTime>
         <TextArea

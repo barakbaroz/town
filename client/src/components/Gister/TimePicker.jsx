@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 import { ReactComponent as MoonIcon } from "../../assets/Icons/moon.svg";
 import { ReactComponent as SunIcon } from "../../assets/Icons/sun.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function TimePicker({ defaultValue, onChange, ...props }) {
   const [highlight, setHighlight] = useState(null);
@@ -14,6 +14,13 @@ export default function TimePicker({ defaultValue, onChange, ...props }) {
     setHighlight(hours >= 15 ? "moon" : "sun");
     if (onChange) onChange(value);
   };
+
+  useEffect(() => {
+    if (defaultValue) {
+      const [hours] = defaultValue.split(":");
+      setHighlight(hours >= 15 ? "moon" : "sun");
+    }
+  }, [defaultValue]);
 
   return (
     <Container {...props}>

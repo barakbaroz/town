@@ -104,6 +104,10 @@ module.exports.create = async ({
   await sms.sendImmediate({ CaseId, type: "caseCreation", phoneNumber });
 };
 
+module.exports.update = async ({ id, data }) => {
+  await Cases.update(data, { where: { id } });
+};
+
 module.exports.deleteCase = async ({ CaseId, staffMembersId }) => {
   console.info(`Delete ${CaseId} by ${staffMembersId}`);
   await Cases.destroy({ where: { id: CaseId } });

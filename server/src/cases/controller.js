@@ -28,6 +28,18 @@ module.exports.create = async (req, res) => {
   }
 };
 
+module.exports.update = async (req, res) => {
+  console.info("Update Case");
+  try {
+    const { id, ...data } = req.body;
+    await casesServices.update({ id, data });
+    return res.status(200).send("Case updated");
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("Error in Post Case");
+  }
+};
+
 module.exports.deleteCase = async (req, res) => {
   try {
     const { id: staffMembersId } = req.staffMembers;
