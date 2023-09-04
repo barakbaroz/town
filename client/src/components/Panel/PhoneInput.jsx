@@ -21,7 +21,7 @@ const PhoneInput = ({ item }) => {
 
   const handleClick = () => {
     if (!open) return setOpen(true);
-    if (!NumberRgx.test(number)) return setError(true);
+    if (number.length != 10) return setError(true);
 
     axios.post("/api/sms/sendImmediate", {
       phoneNumber: number,
@@ -107,6 +107,7 @@ const Close = styled.img`
 `;
 
 const InputWrapper = styled.div`
+  border: 1px solid transparent;
   transition: max-width 0.5s ease-in-out;
   background-color: #f0efef;
   display: flex;
@@ -119,6 +120,7 @@ const InputWrapper = styled.div`
   border-radius: 99px;
   z-index: 1;
   overflow: hidden;
+  border-color: ${({ error }) => (error ? "#f02a4c" : "transparent")};
 `;
 
 const PhoneContainer = styled.div`
