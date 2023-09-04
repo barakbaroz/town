@@ -8,18 +8,27 @@ import videoThumbnail from "../../assets/videoThumbnail.png";
 
 const PanelVideo = ({ close, item, show }) => {
   const params = useMemo(() => {
-    const { Avatar, User } = item;
-    const { language } = User;
+    const { Avatar, User, procedureTime, procedureDate, concentrate } = item;
+    const { language, Questionnaires } = User;
+
+    const questionnaire = Questionnaires.filter(
+      ({ answerKey }) => answerKey === "Yes"
+    ).map(({ questionKey }) => questionKey);
+
     return {
       ...Avatar,
       language,
-      hospital: "clalit",
+      procedureTime,
+      procedureDate,
+      concentrate,
+      questionnaire,
+      hospital: "belinson",
     };
   }, [item]);
 
   const { videoUrl } = useVideoUrl(
     show ? params : null,
-    "heart-failure-community"
+    "colonoscopy-preperation"
   );
 
   if (!show) return <></>;
