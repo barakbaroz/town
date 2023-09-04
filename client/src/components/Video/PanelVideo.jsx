@@ -26,10 +26,7 @@ const PanelVideo = ({ close, item, show }) => {
     };
   }, [item]);
 
-  const { videoUrl } = useVideoUrl(
-    show ? params : null,
-    "colonoscopy-preperation"
-  );
+  const { videoUrl } = useVideoUrl(show ? params : null);
 
   if (!show) return <></>;
 
