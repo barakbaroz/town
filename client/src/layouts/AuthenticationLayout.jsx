@@ -51,7 +51,7 @@ function AuthenticationLayout() {
       .then((res) =>
         setStatusState({ state: "success", lastStep: res.data.lastStep })
       )
-      .catch((error) => setStatusState(error.response.data.status));
+      .catch((error) => setStatusState({ state: error.response.data.status }));
   };
 
   if (statusState.state !== "idle")
