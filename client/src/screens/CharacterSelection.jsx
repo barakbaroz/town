@@ -117,13 +117,13 @@ const avatars = [
   {
     key: "male_young_white",
     fields: ["male", "20-50", "50-70", "other"],
-    avatar: { gender: "male", age: "middle", ethnicity: "white" },
+    avatar: { gender: "male", age: "young", ethnicity: "white" },
     image: avatarsImg.male_young_white,
   },
   {
     key: "male_young_black",
     fields: ["male", "20-50", "50-70", "other"],
-    avatar: { gender: "male", age: "middle", ethnicity: "black" },
+    avatar: { gender: "male", age: "young", ethnicity: "black" },
     image: avatarsImg.male_young_black,
   },
   {
@@ -153,13 +153,13 @@ const avatars = [
   {
     key: "female_young_white",
     fields: ["female", "20-50", "50-70", "other"],
-    avatar: { gender: "female", age: "middle", ethnicity: "white" },
+    avatar: { gender: "female", age: "young", ethnicity: "white" },
     image: avatarsImg.female_young_white,
   },
   {
     key: "female_young_black",
     fields: ["female", "20-50", "50-70", "other"],
-    avatar: { gender: "female", age: "middle", ethnicity: "black" },
+    avatar: { gender: "female", age: "young", ethnicity: "black" },
     image: avatarsImg.female_young_black,
   },
   {
