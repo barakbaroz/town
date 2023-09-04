@@ -23,13 +23,17 @@ function SearchBar({ search, setSearch }) {
   };
 
   const clearId = () =>
-    setSearch((prev) => ({ patientStatus: prev.patientStatus }));
+    setSearch((prev) => ({
+      patientStatus: prev.patientStatus,
+      myCases: prev.myCases,
+    }));
 
-  const clearSearch = () => setSearch({ patientStatus: "all" });
+  const clearSearch = () => setSearch({ patientStatus: "all", myCases: true });
 
   const handleLogout = () => {
     axios.get("/api/stuffMembers/logout").then(() => navigate("/login"));
   };
+
   const handleDateSearch = (date) => setSearch((prev) => ({ ...prev, date }));
 
   return (
