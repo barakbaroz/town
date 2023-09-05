@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Translator } from "../Translation";
 import { Icon, Title, TopSection } from "./Card.Style";
-import CPAP from "../../assets/Icons/Cpap.svg";
+import redFlag from "../../assets/Icons/red_Flag.svg";
 import { useContext } from "react";
 import { userContext } from "../../providers/UserProvider";
 
@@ -12,15 +12,15 @@ function Cpap() {
     (questionObj) =>
       questionObj.questionKey === "cpap" && questionObj.answerKey === "Yes"
   );
-  
+
   return (
     <Container show={cpapAnsweredYes}>
-      <TopSection>
+      <TopContent>
         <Title>
           <Translator>Cpap-Title</Translator>
         </Title>
-        <Icon src={CPAP} alt="consentForm" />
-      </TopSection>
+        <Icon src={redFlag} alt="consentForm" />
+      </TopContent>
 
       <Text>
         <Translator>Cpap-Information</Translator>
@@ -49,4 +49,7 @@ const Container = styled.div`
 const Text = styled.p`
   font-size: 1.188rem;
   margin: 0;
+`;
+const TopContent = styled(TopSection)`
+  margin-block-end: 1.25rem;
 `;
