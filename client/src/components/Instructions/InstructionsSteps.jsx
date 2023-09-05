@@ -1,6 +1,7 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import styled from "styled-components";
 import { Translator, Translate } from "../Translation";
+import { userContext } from "../../providers/UserProvider";
 
 const dayMapper = {
   0: "sunday",
@@ -20,9 +21,11 @@ const dateOptions = {
 const timeOptions = { hour: "2-digit", minute: "2-digit" };
 
 function InstructionsSteps() {
+  const { Case } = useContext(userContext);
+  const { procedureDate, procedureTime } = Case;
   const { firstPortion, secondPortion, dietTime, liquids } = getTimes(
-    "2023-07-30",
-    "12:00"
+    procedureDate,
+    procedureTime
   );
 
   const data = [
