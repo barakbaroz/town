@@ -31,7 +31,7 @@ function Player({ setShowFeedback, videoRef }) {
     };
   }, [language, userInfo]);
 
-  const { videoUrl } = useVideoUrl(params, "colonoscopy-preperation");
+  const { videoUrl } = useVideoUrl(params);
 
   const onLocationUpdate = useCallback((percentage, location) => {
     axios.post("/api/user/userVideoAction", {

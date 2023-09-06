@@ -2,13 +2,12 @@ import styled from "styled-components";
 import { Card, Icon, Title, TopSection } from "./Card.Style";
 import { Translator } from "../Translation";
 import doctor_consult from "../../assets/Icons/doctor_consult.svg";
-import { Button, buttonCSS } from "../general.style";
+import { buttonCSS } from "../general.style";
 import { useContext } from "react";
 import { userContext } from "../../providers/UserProvider";
 import bloodThinnersDiabetesMedicinesPDF from "../../assets/Pdfs/ConsultDoctor/bloodThinners-diabetesMedicines.pdf";
 import bloodThinnersPDF from "../../assets/Pdfs/ConsultDoctor/bloodThinners.pdf";
 import diabetesMedicinesPDF from "../../assets/Pdfs/ConsultDoctor/diabetesMedicines.pdf";
-import { Link } from "react-router-dom";
 
 const pdfs = {
   "bloodThinners:Yes-diabetesMedicines:Yes": bloodThinnersDiabetesMedicinesPDF,
@@ -16,14 +15,16 @@ const pdfs = {
   "bloodThinners:No-diabetesMedicines:Yes": diabetesMedicinesPDF,
 };
 
+const questionsKeys = ["bloodThinners", "diabetesMedicines"];
+
 const inRelevantQuestionsKey = ({ questionKey }) =>
-  ["diabetesMedicines", "bloodThinners"].includes(questionKey);
+  questionsKeys.includes(questionKey);
 
 function ConsultDoctor() {
   const { Questionnaires } = useContext(userContext);
 
   const key = Questionnaires.filter(inRelevantQuestionsKey)
-    .sort((a, b) => (a.questioKey < b.questioKey ? 1 : -1))
+    .sort((a, b) => a.questionKey.localeCompare(b.questionKey))
     .map(({ questionKey, answerKey }) => `${questionKey}:${answerKey}`)
     .join("-");
 

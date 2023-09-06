@@ -6,6 +6,7 @@ const {
   SmsQueue,
   Avatar,
   StaffMembers,
+  Questionnaire,
 } = require("../models");
 const { Op } = require("sequelize");
 const sms = require("../sms/service");
@@ -43,6 +44,7 @@ module.exports.search = async ({ creatorId, search }) => {
     include: [
       {
         model: Users,
+        include: Questionnaire,
         attributes: ["id", "language", "phoneNumber"],
       },
       { model: Comments },
