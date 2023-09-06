@@ -24,11 +24,7 @@ function ConsultDoctor() {
   const { Questionnaires } = useContext(userContext);
 
   const key = Questionnaires.filter(inRelevantQuestionsKey)
-    .sort(
-      (a, b) =>
-        questionsKeys.indexOf(a.questioKey) <
-        questionsKeys.indexOf(b.questioKey)
-    )
+    .sort((a, b) => a.questionKey.localeCompare(b.questionKey))
     .map(({ questionKey, answerKey }) => `${questionKey}:${answerKey}`)
     .join("-");
 
