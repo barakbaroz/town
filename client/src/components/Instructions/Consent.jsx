@@ -2,9 +2,17 @@ import styled from "styled-components";
 import { Card, Icon, Title, TopSection } from "./Card.Style";
 import { Translator } from "../Translation";
 import consentForm from "../../assets/Icons/consent_form.svg";
-import { Button } from "../general.style";
+import { buttonCSS } from "../general.style";
+import consents from "../../assets/Pdfs/ConsentForms";
+import { useLanguage } from "../../providers/LanguageProvider";
+import { postAnalytics } from "../../analytics";
 
 function Consent() {
+  const { language } = useLanguage();
+
+  const handleConsentClick = () =>
+    postAnalytics({ type: `instructions-consent-clicked` });
+
   return (
     <Card>
       <TopSection>
@@ -18,9 +26,13 @@ function Consent() {
         <Translator>Consent-Information</Translator>
       </Text>
 
-      <Button>
+      <ConsentLink
+        href={consents[language]}
+        target="_blank"
+        onClick={handleConsentClick}
+      >
         <Translator>Consent-Download</Translator>
-      </Button>
+      </ConsentLink>
     </Card>
   );
 }
@@ -31,4 +43,8 @@ const Text = styled.p`
   margin: 0;
   margin-block-end: 1.188rem;
   font-size: 1.188rem;
+`;
+
+const ConsentLink = styled.a`
+  ${buttonCSS}
 `;

@@ -12,6 +12,7 @@ export const buttonCSS = css`
   border-radius: 50px;
   align-self: center;
   font-family: inherit;
+  text-decoration: none;
 `;
 
 export const Button = styled.button`
