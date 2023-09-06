@@ -3,11 +3,10 @@ import styled from "styled-components";
 import { Translator } from "../Translation";
 import { Icon, Title, TopSection } from "./Card.Style";
 import redFlag from "../../assets/Icons/red_Flag.svg";
-import { useContext } from "react";
-import { userContext } from "../../providers/UserProvider";
+import { useUser } from "../../providers/UserProvider";
 
 function Cpap() {
-  const { Questionnaires } = useContext(userContext);
+  const { Questionnaires } = useUser();
   const cpapAnsweredYes = Questionnaires.find(
     (questionObj) =>
       questionObj.questionKey === "cpap" && questionObj.answerKey === "Yes"

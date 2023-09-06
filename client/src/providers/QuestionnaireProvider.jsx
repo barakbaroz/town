@@ -1,13 +1,12 @@
 import { createContext, useRef } from "react";
 import PropTypes from "prop-types";
 import { Outlet, useNavigate } from "react-router-dom";
-import { useContext } from "react";
-import { userContext } from "./UserProvider";
+import { useUser } from "./UserProvider";
 
 export const questionnaireContext = createContext();
 
-const QuestionnaireProvider = () => {
-  const { updateQuestionaireAnswers } = useContext(userContext);
+export default function QuestionnaireProvider() {
+  const { updateQuestionaireAnswers } = useUser();
   const answers = useRef({});
   const navigate = useNavigate();
 
@@ -24,10 +23,8 @@ const QuestionnaireProvider = () => {
       <Outlet />
     </questionnaireContext.Provider>
   );
-};
+}
 
 QuestionnaireProvider.propTypes = {
   children: PropTypes.node,
 };
-
-export default QuestionnaireProvider;

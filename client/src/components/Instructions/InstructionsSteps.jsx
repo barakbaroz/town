@@ -1,7 +1,7 @@
-import { Fragment, useContext } from "react";
+import { Fragment } from "react";
 import styled from "styled-components";
 import { Translator, Translate } from "../Translation";
-import { userContext } from "../../providers/UserProvider";
+import { useUser } from "../../providers/UserProvider";
 
 const dayMapper = {
   0: "sunday",
@@ -21,7 +21,7 @@ const dateOptions = {
 const timeOptions = { hour: "2-digit", minute: "2-digit" };
 
 function InstructionsSteps() {
-  const { Case } = useContext(userContext);
+  const { Case } = useUser();
   const { procedureDate, procedureTime } = Case;
   const { firstPortion, secondPortion, dietTime, liquids } = getTimes(
     procedureDate,
@@ -38,24 +38,21 @@ function InstructionsSteps() {
   const dateFormater = new Intl.DateTimeFormat("he-IL", dateOptions);
   return (
     <Container>
-      {data.map(({ date, content, showTime }, index) => {
-        return (
-          <Fragment key={content}>
-            <Bullet />
-            <StepDetails>
-              {Translate(`Instructions-Steps-${dayMapper[date.getDay()]}`)}
-              {" | "}
-              {dateFormater.format(date)}
-              {showTime &&
-                " | " + date.toLocaleTimeString("he-IL", timeOptions)}
-            </StepDetails>
-            <DottetLine last={index === data.length - 1} />
-            <DescriptionText>
-              <Translator>{`Instructions-Steps-${content}`}</Translator>
-            </DescriptionText>
-          </Fragment>
-        );
-      })}
+      {data.map(({ date, content, showTime }, index) => (
+        <Fragment key={content}>
+          <Bullet />
+          <StepDetails>
+            {Translate(`Instructions-Steps-${dayMapper[date.getDay()]}`)}
+            {" | "}
+            {dateFormater.format(date)}
+            {showTime && " | " + date.toLocaleTimeString("he-IL", timeOptions)}
+          </StepDetails>
+          <DottetLine last={index === data.length - 1} />
+          <DescriptionText>
+            <Translator>{`Instructions-Steps-${content}`}</Translator>
+          </DescriptionText>
+        </Fragment>
+      ))}
     </Container>
   );
 }

@@ -1,7 +1,6 @@
-import { useContext } from "react";
 import PropTypes from "prop-types";
 import { LanguagesData } from "./Texts";
-import { LanguageContext } from "../../providers/LanguageProvider";
+import { useLanguage } from "../../providers/LanguageProvider";
 
 function Translator({ children }) {
   const key = children instanceof Array ? children.join("") : children;
@@ -9,7 +8,7 @@ function Translator({ children }) {
 }
 
 export function Translate(key) {
-  const { language, gender } = useContext(LanguageContext);
+  const { language, gender } = useLanguage();
   return (
     LanguagesData[language][key] ||
     LanguagesData[language][`${key}-${gender}`] ||

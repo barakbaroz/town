@@ -1,4 +1,4 @@
-import { useState, Fragment, useContext } from "react";
+import { useState, Fragment } from "react";
 import styled from "styled-components";
 import background from "../assets/Backgrounds/wave_background.svg";
 import data from "../components/CharacterSelection/CharacterSelectionData.json";
@@ -6,11 +6,11 @@ import { useNavigate } from "react-router-dom";
 import avatarsImg from "../assets/Avatars";
 import { Translator } from "../components/Translation";
 import { postAnalytics } from "../analytics";
-import { userContext } from "../providers/UserProvider";
+import { useUser } from "../providers/UserProvider";
 
-function CharacterSelection() {
+export default function CharacterSelection() {
   const navigate = useNavigate();
-  const userInfo = useContext(userContext);
+  const userInfo = useUser();
   const [answers, setAnswers] = useState({});
   const [avatarKey, setAvatarKey] = useState("");
   const [avatar, setAvatar] = useState({});
@@ -110,8 +110,6 @@ function CharacterSelection() {
     </CharacterSelectionContainer>
   );
 }
-
-export default CharacterSelection;
 
 const avatars = [
   {

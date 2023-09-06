@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useContext } from "react";
 import useUserInfo from "../hooks/useUserInfo";
 import Loader from "../components/Loader";
 import PropTypes from "prop-types";
@@ -6,7 +6,7 @@ import Error from "../components/Error";
 
 export const userContext = createContext();
 
-const UserProvider = ({ children }) => {
+export default function UserProvider({ children }) {
   const { loading, error, userInfo, updateCase, updateQuestionaireAnswers } =
     useUserInfo();
 
@@ -20,11 +20,13 @@ const UserProvider = ({ children }) => {
       {children}
     </userContext.Provider>
   );
-};
+}
 
 UserProvider.propTypes = {
   children: PropTypes.node,
   userId: PropTypes.string,
 };
 
-export default UserProvider;
+export function useUser() {
+  return useContext(userContext);
+}

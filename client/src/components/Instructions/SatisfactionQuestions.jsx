@@ -1,10 +1,10 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { Translator } from "../Translation";
 import SingleQuestion from "./SingleQuestion";
 import PropTypes from "prop-types";
 import { useRef } from "react";
-import { userContext } from "../../providers/UserProvider";
+import { useUser } from "../../providers/UserProvider";
 
 const SatisfactionQuestions = ({ videoStarted }) => {
   // Ref to object that represent the question keys possible in order to check if everything answered.
@@ -15,7 +15,7 @@ const SatisfactionQuestions = ({ videoStarted }) => {
   });
 
   const [state, setState] = useState("none");
-  const { Case } = useContext(userContext);
+  const { Case } = useUser();
   if (Case.CasesProgress.satisfactionAnswer) return <></>;
 
   // Specific checking if the second questions pop all answered.

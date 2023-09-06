@@ -1,10 +1,10 @@
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import axios from "axios";
-import { LanguageContext } from "../components/Translation";
 import { useNavigate } from "react-router-dom";
+import { useLanguage } from "../providers/LanguageProvider";
 
 export default function useUserInfo() {
-  const { setLanguage, setGender } = useContext(LanguageContext);
+  const { setLanguage, setGender } = useLanguage();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [userInfo, setUserInfo] = useState({ Case: { Questionnaire: [] } });

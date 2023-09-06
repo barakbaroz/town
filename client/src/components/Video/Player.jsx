@@ -2,17 +2,16 @@ import { useCallback } from "react";
 import axios from "axios";
 import { Player as GistPlayer } from "@gistmed/gist-ui";
 import styled from "styled-components";
-import { useContext } from "react";
-import { userContext } from "../../providers/UserProvider";
-import { LanguageContext } from "../Translation";
+import { useUser } from "../../providers/UserProvider";
 import { useMemo } from "react";
 import useVideoUrl from "../../hooks/useVideoUrl";
 import PropTypes from "prop-types";
 import videoThumbnail from "../../assets/videoThumbnail.png";
+import { useLanguage } from "../../providers/LanguageProvider";
 
 function Player({ setShowFeedback, videoRef }) {
-  const userInfo = useContext(userContext);
-  const { language } = useContext(LanguageContext);
+  const userInfo = useUser();
+  const { language } = useLanguage();
   const params = useMemo(() => {
     const { Case, Questionnaires } = userInfo;
     const { Avatar, procedureTime, procedureDate, concentrate } = Case;

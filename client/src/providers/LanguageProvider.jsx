@@ -1,9 +1,10 @@
 import axios from "axios";
 import PropTypes from "prop-types";
+import { useContext } from "react";
 import { useState, createContext, useCallback } from "react";
-export const LanguageContext = createContext();
+const LanguageContext = createContext();
 
-function LanguageProvider({ children }) {
+export default function LanguageProvider({ children }) {
   const [language, setLocalLanguage] = useState("he");
   const [gender, setGender] = useState("male");
   const [direction, setDirection] = useState("rtl");
@@ -40,7 +41,9 @@ LanguageProvider.propTypes = {
   children: PropTypes.node,
 };
 
-export default LanguageProvider;
+export function useLanguage() {
+  return useContext(LanguageContext);
+}
 
 const directions = {
   he: "rtl",

@@ -3,8 +3,7 @@ import { Card, Icon, Title, TopSection } from "./Card.Style";
 import { Translator } from "../Translation";
 import doctor_consult from "../../assets/Icons/doctor_consult.svg";
 import { buttonCSS } from "../general.style";
-import { useContext } from "react";
-import { userContext } from "../../providers/UserProvider";
+import { useUser } from "../../providers/UserProvider";
 import bloodThinnersDiabetesMedicinesPDF from "../../assets/Pdfs/ConsultDoctor/bloodThinners-diabetesMedicines.pdf";
 import bloodThinnersPDF from "../../assets/Pdfs/ConsultDoctor/bloodThinners.pdf";
 import diabetesMedicinesPDF from "../../assets/Pdfs/ConsultDoctor/diabetesMedicines.pdf";
@@ -21,7 +20,7 @@ const inRelevantQuestionsKey = ({ questionKey }) =>
   questionsKeys.includes(questionKey);
 
 function ConsultDoctor() {
-  const { Questionnaires } = useContext(userContext);
+  const { Questionnaires } = useUser();
 
   const key = Questionnaires.filter(inRelevantQuestionsKey)
     .sort((a, b) => a.questionKey.localeCompare(b.questionKey))

@@ -4,11 +4,10 @@ import InstructionsSteps from "./InstructionsSteps";
 import { Card, Icon, Title, TopSection } from "./Card.Style";
 import { Button } from "../general.style";
 import nutrition from "../../assets/Icons/nutrition.svg";
-import { useContext } from "react";
-import { userContext } from "../../providers/UserProvider";
+import { useUser } from "../../providers/UserProvider";
 
 function NutritionalGuidelines() {
-  const { Case } = useContext(userContext);
+  const { Case } = useUser();
   const { procedureDate } = Case;
   const examinationDate = new Intl.DateTimeFormat("he-IL", {
     dateStyle: "full",
