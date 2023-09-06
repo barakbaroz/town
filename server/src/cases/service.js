@@ -38,6 +38,16 @@ const zehutFilter = ({ zehutNumber }) =>
 const myCasesFilter = ({ myCases }, creatorId) =>
   myCases ? { creatorId } : {};
 
+const dayTime = 1000 * 60 * 60 * 24;
+
+const smsFlow = {
+  3: "three-to-four-days-pre-procedure",
+  4: "three-to-four-days-pre-procedure",
+  5: "five-days-pre-procedure",
+  6: "six-days-pre-procedure",
+  7: "seven-plus-days-pre-procedure",
+};
+
 module.exports.search = async ({ creatorId, search }) => {
   console.info(`search ${search} by ${creatorId}`);
   const cases = await Cases.findAll({
@@ -102,7 +112,13 @@ module.exports.create = async ({
   });
   const CaseId = newCase.dataValues.id;
   const user = await Users.create({ CaseId, phoneNumber });
-  await sms.action({ UserId: user.id, actionKey: "create-case" });
+  const procedureDate = new Date(date);
+  const today = new Date().setHours(0, 0, 0, 0);
+  const daysToProcedure = Math.floor((procedureDate - today) / dayTime);
+  await sms.action({
+    UserId: user.id,
+    actionKey: smsFlow[daysToProcedure] || "seven-plus-days-pre-procedure",
+  });
   await sms.sendImmediate({ CaseId, type: "caseCreation", phoneNumber });
 };
 
