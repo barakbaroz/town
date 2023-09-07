@@ -41,6 +41,8 @@ const myCasesFilter = ({ myCases }, creatorId) =>
 const dayTime = 1000 * 60 * 60 * 24;
 
 const smsFlow = {
+  1: "noReminders",
+  2: "noReminders",
   3: "three-to-four-days-pre-procedure",
   4: "three-to-four-days-pre-procedure",
   5: "five-days-pre-procedure",
@@ -115,6 +117,7 @@ module.exports.create = async ({
   const procedureDate = new Date(date);
   const today = new Date().setHours(0, 0, 0, 0);
   const daysToProcedure = Math.floor((procedureDate - today) / dayTime);
+
   await sms.action({
     UserId: user.id,
     actionKey: smsFlow[daysToProcedure] || "seven-plus-days-pre-procedure",
