@@ -1,7 +1,7 @@
 import NotFoundLogo from "../assets/Logos/404Logo.svg";
 import styled from "styled-components";
 
-function Error() {
+export default function Error() {
   return (
     <Page>
       <Container>
@@ -15,8 +15,6 @@ function Error() {
     </Page>
   );
 }
-
-export default Error;
 
 const Page = styled.div`
   width: 100%;
