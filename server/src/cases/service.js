@@ -40,16 +40,14 @@ const myCasesFilter = ({ myCases }, creatorId) =>
 
 const dayTime = 1000 * 60 * 60 * 24;
 
-const smsFlow = {
-  1: "noReminders",
-  2: "noReminders",
-  3: "three-to-four-days-pre-procedure",
-  4: "three-to-four-days-pre-procedure",
-  5: "five-days-pre-procedure",
-  6: "six-days-pre-procedure",
-  7: "seven-plus-days-pre-procedure",
-};
-
+const smsFlow = [
+  "noReminders",
+  "noReminders",
+  "three-to-four-days-pre-procedure",
+  "three-to-four-days-pre-procedure",
+  "five-days-pre-procedure",
+  "six-days-pre-procedure",
+];
 module.exports.search = async ({ creatorId, search }) => {
   console.info(`search ${search} by ${creatorId}`);
   const cases = await Cases.findAll({
