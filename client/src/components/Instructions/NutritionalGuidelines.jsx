@@ -2,13 +2,22 @@ import styled from "styled-components";
 import { Translator } from "../Translation";
 import InstructionsSteps from "./InstructionsSteps";
 import { Card, Icon, Title, TopSection } from "./Card.Style";
-import { Button } from "../general.style";
+import { buttonCSS } from "../general.style";
 import nutrition from "../../assets/Icons/nutrition.svg";
 import { useUser } from "../../providers/UserProvider";
+import merokenPdf from "../../assets/Pdfs/NutritionalInstructions/hebrew/meroken.pdf";
+import moviprepPdf from "../../assets/Pdfs/NutritionalInstructions/hebrew/moviprep.pdf";
+import picolaxPdf from "../../assets/Pdfs/NutritionalInstructions/hebrew/picolax.pdf";
+
+const pdfs = {
+  meroken: merokenPdf,
+  moviprep: moviprepPdf,
+  picolax: picolaxPdf,
+};
 
 function NutritionalGuidelines() {
   const { Case } = useUser();
-  const { procedureDate } = Case;
+  const { procedureDate, concentrate } = Case;
   const examinationDate = new Intl.DateTimeFormat("he-IL", {
     dateStyle: "full",
     timeStyle: "short",
@@ -33,9 +42,9 @@ function NutritionalGuidelines() {
 
       <InstructionsSteps />
 
-      <Button>
+      <StyledButton href={pdfs[concentrate]}>
         <Translator>Nutritional-Guidelines-Download</Translator>
-      </Button>
+      </StyledButton>
     </Card>
   );
 }
@@ -46,4 +55,9 @@ const Text = styled.p`
   margin: 0;
   margin-block-end: 1.125rem;
   font-size: 1.188rem;
+`;
+
+const StyledButton = styled.a`
+  ${buttonCSS}
+  text-decoration: none;
 `;
