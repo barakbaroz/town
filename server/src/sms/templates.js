@@ -3,10 +3,8 @@ module.exports = (type, user) => {
   const startLink = `${BASIC_URL}/api/user/entry/${user.id}`;
   const { procedureDate, procedureTime } = user.Case;
   const date = new Date(procedureDate);
-  console.log({ DATEEE: date.getDate(), procedureDate });
   const threeDaysBefore = new Date();
   threeDaysBefore.setDate(date.getDate() - 3);
-  console.log({ threeDaysBefore });
   const template = {
     key: "type",
     CaseCreation: `שלום, לקראת הבדיקה שנקבעה לך לתאריך ${procedureDate} בשעה ${procedureTime} , חשוב לדעת שההכנה לבדיקה חיונית להצלחתה. הכנה בלתי מספקת עלולה להוביל לצורך בבדיקה חוזרת. בקישור הבא מצורף סרטון הדרכה מותאם אישית שיעזור לך להתכונן לבדיקה.\n${startLink}`,
