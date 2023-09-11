@@ -6,7 +6,7 @@ import useVideoUrl from "../../hooks/useVideoUrl";
 import { Player as GistPlayer } from "@gistmed/gist-ui";
 import videoThumbnail from "../../assets/videoThumbnail.png";
 
-const PanelVideo = ({ close, item, show }) => {
+export default function PanelVideo({ close, item, show }) {
   const params = useMemo(() => {
     const { Avatar, User, procedureTime, procedureDate, concentrate } = item;
     const { language, Questionnaires } = User;
@@ -42,15 +42,13 @@ const PanelVideo = ({ close, item, show }) => {
       </VideoWrapper>
     </Modal>
   );
-};
+}
 
 PanelVideo.propTypes = {
   close: PropTypes.func,
   item: PropTypes.object,
   show: PropTypes.bool,
 };
-
-export default PanelVideo;
 
 const Modal = styled.div`
   position: fixed;

@@ -3,14 +3,14 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import { GeneralInput } from "./Giser.styled";
 
-const regex = new RegExp("^[0-9]*$");
+const NumberRgx = /(^[0-9]+$|^$)/;
 
 function PhoneInput({ phoneInputRef, onChange }) {
   const [number, setNumber] = useState("");
 
   const handleNumberChange = (e) => {
     const { value } = e.target;
-    if (value && !regex.test(value)) return;
+    if (!NumberRgx.test(value)) return;
     setNumber(value);
     onChange(value);
   };
