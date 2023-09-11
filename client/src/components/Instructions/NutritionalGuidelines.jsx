@@ -59,5 +59,4 @@ const Text = styled.p`
 
 const StyledButton = styled.a`
   ${buttonCSS}
-  text-decoration: none;
 `;
