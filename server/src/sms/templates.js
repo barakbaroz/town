@@ -1,12 +1,21 @@
 module.exports = (type, user) => {
   const { BASIC_URL } = process.env;
   const startLink = `${BASIC_URL}/api/user/entry/${user.id}`;
-
+  const { procedureDate, procedureTime } = user.Case;
+  const date = new Date(procedureDate);
+  const threeDaysBefore = new Date();
+  threeDaysBefore.setDate(date.getDate() - 3);
   const template = {
     key: "type",
-    CaseCreation: `היי, מצורף סרטון הדרכה מותאם אישית שיעזור לך להבין טוב יותר מה זה אי ספיקת לב וכיצד להתמודד עמה בשגרת חייך. הצפייה בסרטון תעזור לך להגביר את המעורבות שלך בטיפול. לצפייה:\n${startLink}`,
-    FirstVideoReminder: `היי, כבר צפית בסרטון ההדרכה שהותאם במיוחד עבורך? כדי לא להפסיד מידע חשוב וכלים שימושיים להתמודדות עם אי ספיקת לב, כל שעליך לעשות הוא לצפות בסרטון בלינק הבא:\n${startLink}`,
-    SecondVideoReminder: `היי, זוהי תזכורת אחרונה לצפות בסרטון ההדרכה שהותאם במיוחד עבורך. מטופלים רבים כבר צפו בסרטון כדי להיות מעורבים יותר בטיפול שלהם. לצפייה:\n${startLink}`,
+    CaseCreation: `שלום, לקראת הבדיקה שנקבעה לך לתאריך ${procedureDate} בשעה ${procedureTime} , חשוב לדעת שההכנה לבדיקה חיונית להצלחתה. הכנה בלתי מספקת עלולה להוביל לצורך בבדיקה חוזרת. בקישור הבא מצורף סרטון הדרכה מותאם אישית שיעזור לך להתכונן לבדיקה.\n${startLink}`,
+    FirstVideoReminder: `שלום, אנו מזכירים לך לצפות בסרטון ההדרכה לקראת הבדיקה שלך ולקבל מידע חשוב שיעזור לך להתכונן לבדיקה בצורה מיטבית.\n${startLink}`,
+    SecondVideoReminder: `שלום, זוהי תזכורת אחרונה לצפות בסרטון ההדרכה ולהגדיל משמעותית את הסיכוי שלך להגיע מוכן לבדיקה ולהימנע מצורך בבדיקה חוזרת.\n${startLink}`,
+    FirstNutritionReminder: `שלום, לקראת הבדיקה שלך בבילינסון בתאריך ${date.getDate()}/${
+      date.getMonth() + 1
+    } ב ${procedureTime} רצינו להזכיר לך שהחל מתאריך ${threeDaysBefore.getDate()}/${
+      threeDaysBefore.getMonth() + 1
+    } עליך לשנות את התזונה שלך ולאכול מזון דל סיבים בלבד לפי הפירוט בסרטון המצורף. הכנה טובה חיונית להצלחת הבדיקה!\n${startLink}`,
+    SecondNutritionReminder: `שלום, לקראת הבדיקה שלך בעוד יומיים בבילינסון, זאת תזכורת ש 24 שעות לפני הבדיקה שלך,  עליך לעבור לתזונה נוזלית בלבד ולהתחיל לקחת מרוקנים לניקוי המעי לפי הנחיית הרופא/ה. הכנה טובה חיונית להצלחת הבדיקה. יש ללחוץ על הקישור לקריאת ההנחיות.\n${startLink}`,
   };
 
   return findMessageByParams(template, {

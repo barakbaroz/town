@@ -10,6 +10,8 @@ function getTimeByUser(timeName, user) {
       return new Date();
     case "creation":
       return user.getDataValue("createdAt");
+    case "procedure":
+      return new Date(user.Case.getDataValue("procedureDate"));
     default:
       throw `timeName ${timeName} not found in getTimeByUser`;
   }

@@ -10,12 +10,12 @@
 //and which reminder should we trigger next after userAction or after cronJob handle (if we need to trigger at all).
 
 const sendTime = [
-  "15:00",
-  "15:00",
-  "15:00",
-  "15:00",
-  "15:00",
-  "10:00",
+  "13:00",
+  "13:00",
+  "13:00",
+  "13:00",
+  "13:00",
+  "13:00",
   "20:50",
 ];
 
@@ -33,7 +33,7 @@ const remindersInfo = {
     text: "FirstVideoReminder",
     sendAt: "1 days after creation",
     sendTime: sendTime,
-    onSend: ["secondVideoReminder"],
+    onSend: [],
     onAction: { "watched-video": [] },
     dependencies: ["creation"],
   },
@@ -46,10 +46,43 @@ const remindersInfo = {
     onAction: { "watched-video": [] },
     dependencies: ["creation"],
   },
+  firstNutritionReminder: {
+    id: "firstNutritionReminder",
+    text: "FirstNutritionReminder",
+    sendAt: "4 days before procedure",
+    sendTime: sendTime,
+    onSend: [],
+    onAction: {},
+    dependencies: ["procedure"],
+  },
+  secondNutritionReminder: {
+    id: "secondNutritionReminder",
+    text: "SecondNutritionReminder",
+    sendAt: "2 days before procedure",
+    sendTime: sendTime,
+    onSend: [],
+    onAction: {},
+    dependencies: ["procedure"],
+  },
 };
 
 const independentAction = {
-  "create-case": ["firstVideoReminder"],
+  "three-to-four-days-pre-procedure": ["secondNutritionReminder"],
+  "five-days-pre-procedure": [
+    "firstNutritionReminder",
+    "secondNutritionReminder",
+  ],
+  "six-days-pre-procedure": [
+    "firstVideoReminder",
+    "firstNutritionReminder",
+    "secondNutritionReminder",
+  ],
+  "seven-plus-days-pre-procedure": [
+    "firstVideoReminder",
+    "secondVideoReminder",
+    "firstNutritionReminder",
+    "secondNutritionReminder",
+  ],
 };
 
 module.exports = { remindersInfo, independentAction };
