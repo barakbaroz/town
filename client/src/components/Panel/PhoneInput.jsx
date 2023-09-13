@@ -114,13 +114,13 @@ const InputWrapper = styled.div`
   align-items: center;
   position: absolute;
   max-width: ${({ open }) => (open ? "20rem" : "100%")};
-  width: auto;
+  height: 100%;
   top: 0;
   bottom: 0;
   border-radius: 99px;
   z-index: 1;
   overflow: hidden;
-  border-color: ${({ error }) => (error ? "#f02a4c" : "transparent")};
+  border-color: ${({ error }) => (error ? "#f02a4c" : "#fff")};
 `;
 
 const PhoneContainer = styled.div`
