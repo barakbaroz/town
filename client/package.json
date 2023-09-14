@@ -11,7 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@gistmed/gist-ui": "^0.1.39",
+    "@gistmed/gist-ui": "^0.1.40",
     "@internationalized/date": "^3.4.0",
     "axios": "^1.4.0",
     "lottie-react": "^2.4.0",
