@@ -32,6 +32,5 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  padding-block: 16px;
   padding-inline: var(--screen-padding-inline);
 `;

@@ -98,6 +98,7 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: 15px 1fr;
   place-items: center;
+  column-gap: 8px;
 `;
 
 const Bullet = styled.div`

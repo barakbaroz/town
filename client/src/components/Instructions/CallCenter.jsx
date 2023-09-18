@@ -51,8 +51,7 @@ const Title = styled.p`
 `;
 
 const Phone = styled.a`
-  text-decoration: none;
-  color: inherit;
+  text-decoration: rgb(122, 157, 253);
 `;
 
 const Wrapper = styled.span`
