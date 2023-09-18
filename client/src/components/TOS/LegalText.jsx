@@ -466,7 +466,7 @@ export default LegalText;
 
 const Wrapper = styled.div`
   direction: rtl;
-  padding-inline: 4.8rem;
+  padding-inline: 2.4rem;
 `;
 const Title = styled.h1`
   margin: 0;
