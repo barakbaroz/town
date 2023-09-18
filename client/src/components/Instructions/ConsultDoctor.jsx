@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { Card, Icon, Title, TopSection } from "./Card.Style";
 import { Translator } from "../Translation";
-import doctor_consult from "../../assets/Icons/doctor_consult.svg";
+import doctorConsult from "../../assets/Icons/doctor_consult.svg";
 import { buttonCSS } from "../general.style";
 import { useUser } from "../../providers/UserProvider";
 import bloodThinnersDiabetesMedicinesPDF from "../../assets/Pdfs/ConsultDoctor/bloodThinners-diabetesMedicines.pdf";
@@ -33,7 +33,7 @@ function ConsultDoctor() {
         <Title>
           <Translator>התייעצות עם הרופא/ה המטפל/ת</Translator>
         </Title>
-        <Icon src={doctor_consult} alt="doctorConsult" />
+        <Icon src={doctorConsult} alt="doctorConsult" />
       </TopSection>
 
       <Text>
