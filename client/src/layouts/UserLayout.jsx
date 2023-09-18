@@ -2,16 +2,17 @@ import { LanguageProvider } from "../components/Translation";
 import { Outlet } from "react-router-dom";
 import UserProvider from "../providers/UserProvider";
 import Header from "../components/User/Header";
+import { AnimatePresence } from "framer-motion";
 
-function UserLayout() {
+export default function UserLayout() {
   return (
-    <LanguageProvider>
-      <UserProvider>
-        <Header />
-        <Outlet />
-      </UserProvider>
-    </LanguageProvider>
+    <AnimatePresence mode="wait">
+      <LanguageProvider>
+        <UserProvider>
+          <Header />
+          <Outlet />
+        </UserProvider>
+      </LanguageProvider>
+    </AnimatePresence>
   );
 }
-
-export default UserLayout;

@@ -7,6 +7,7 @@ import avatarsImg from "../assets/Avatars";
 import { Translator } from "../components/Translation";
 import { postAnalytics } from "../analytics";
 import { useUser } from "../providers/UserProvider";
+import Transition from "../Transition";
 
 export default function CharacterSelection() {
   const navigate = useNavigate();
@@ -44,70 +45,72 @@ export default function CharacterSelection() {
   };
 
   return (
-    <CharacterSelectionContainer id="CharacterSelectionContainer">
-      <Title id="PickYourCharecter">
-        <Translator>Character-Selection-Title</Translator>
-      </Title>
-      <PickerContainer id="PickerContainer">
-        {Object.entries(data).map(([questionKey, questionData]) => (
-          <Fragment key={questionKey}>
-            <QuestionWrapper id="QuestionWrapper">
-              <Question id="Question">
-                <Translator>{questionData.title}</Translator>
-              </Question>
-              <QuestionPickerContainer id="QuestionPickerContainer">
-                {Object.entries(questionData.answers).map(
-                  ([answerKey, answerText]) => (
-                    <Fragment key={answerKey}>
-                      <QuestionPicker
-                        id="QuestionPicker"
-                        selected={answerKey === answers[questionKey]}
-                        onClick={answerQuestion(questionKey, answerKey)}
-                      >
-                        <Translator>{answerText}</Translator>
-                      </QuestionPicker>
-                      <Divider id="Divider" />
-                    </Fragment>
-                  )
-                )}
-              </QuestionPickerContainer>
-            </QuestionWrapper>
-            <Line />
-          </Fragment>
-        ))}
-        <CharacterQuestion id="CharacterQuestion">
-          <Question id="Question">
-            <Translator>
-              Character-Selection-Avatar-
-              {filtersAvatars.length === 1 ? "Single" : "General"}
-            </Translator>
-          </Question>
-          <CharacterQuestionPickerContainer id="CharacterQuestionPickerContainer">
-            {filtersAvatars.map(({ key, avatar, image }) => (
-              <Avatar
-                id="Avatar"
-                key={key}
-                selected={key === avatarKey}
-                onClick={handleAvatar(key, avatar)}
-                src={image}
-              />
-            ))}
-          </CharacterQuestionPickerContainer>
-          <ErrorContainer id="ErrorContainer">
-            <Error id="Error" show={showError}>
-              <Translator>Character-Selection-Error</Translator>
-            </Error>
-          </ErrorContainer>
-        </CharacterQuestion>
-      </PickerContainer>
-      <ConfirmationButton
-        id="Button"
-        onClick={handelNext}
-        avatarKey={avatarKey}
-      >
-        <Translator>Next</Translator>
-      </ConfirmationButton>
-    </CharacterSelectionContainer>
+    <Transition>
+      <CharacterSelectionContainer id="CharacterSelectionContainer">
+        <Title id="PickYourCharecter">
+          <Translator>Character-Selection-Title</Translator>
+        </Title>
+        <PickerContainer id="PickerContainer">
+          {Object.entries(data).map(([questionKey, questionData]) => (
+            <Fragment key={questionKey}>
+              <QuestionWrapper id="QuestionWrapper">
+                <Question id="Question">
+                  <Translator>{questionData.title}</Translator>
+                </Question>
+                <QuestionPickerContainer id="QuestionPickerContainer">
+                  {Object.entries(questionData.answers).map(
+                    ([answerKey, answerText]) => (
+                      <Fragment key={answerKey}>
+                        <QuestionPicker
+                          id="QuestionPicker"
+                          selected={answerKey === answers[questionKey]}
+                          onClick={answerQuestion(questionKey, answerKey)}
+                        >
+                          <Translator>{answerText}</Translator>
+                        </QuestionPicker>
+                        <Divider id="Divider" />
+                      </Fragment>
+                    )
+                  )}
+                </QuestionPickerContainer>
+              </QuestionWrapper>
+              <Line />
+            </Fragment>
+          ))}
+          <QuestionWrapper id="CharacterQuestion">
+            <Question id="Question">
+              <Translator>
+                Character-Selection-Avatar-
+                {filtersAvatars.length === 1 ? "Single" : "General"}
+              </Translator>
+            </Question>
+            <CharacterQuestionPickerContainer id="CharacterQuestionPickerContainer">
+              {filtersAvatars.map(({ key, avatar, image }) => (
+                <Avatar
+                  id="Avatar"
+                  key={key}
+                  selected={key === avatarKey}
+                  onClick={handleAvatar(key, avatar)}
+                  src={image}
+                />
+              ))}
+            </CharacterQuestionPickerContainer>
+            <ErrorContainer id="ErrorContainer">
+              <Error id="Error" show={showError}>
+                <Translator>Character-Selection-Error</Translator>
+              </Error>
+            </ErrorContainer>
+          </QuestionWrapper>
+        </PickerContainer>
+        <ConfirmationButton
+          id="Button"
+          onClick={handelNext}
+          avatarKey={avatarKey}
+        >
+          <Translator>Next</Translator>
+        </ConfirmationButton>
+      </CharacterSelectionContainer>
+    </Transition>
   );
 }
 
@@ -289,11 +292,6 @@ const Avatar = styled.img`
   border: 2px solid ${({ selected }) => (selected ? "#84a4fc" : "transparent")};
   width: 4.688rem;
   height: 4.688rem;
-`;
-
-const CharacterQuestion = styled.div`
-  width: 100%;
-  display: inline-block;
 `;
 
 const ErrorContainer = styled.div`

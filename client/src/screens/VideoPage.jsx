@@ -13,6 +13,7 @@ import CallCenter from "../components/Instructions/CallCenter";
 import arrow_up from "../assets/Icons/arrow_up.svg";
 import nurseLottie from "../assets/Lotties/Nurse_Small.json";
 import Cpap from "../components/Instructions/Cpap";
+import Transition from "../Transition";
 
 const lottieOptions = { animationData: nurseLottie, loop: true };
 
@@ -26,43 +27,45 @@ function VideoPage() {
   };
 
   return (
-    <Container>
-      <StyledLanguageBar>
-        <LanguageBar />
-      </StyledLanguageBar>
-      <Title id="video-title">
-        <Translator>Video-Title</Translator>
-      </Title>
-      <Player setShowFeedback={setShowFeedback} videoRef={videoRef} />
-      <VideoInteraction>
-        <SatisfactionQuestions videoStarted={showFeedback} />
-      </VideoInteraction>
+    <Transition>
+      <Container>
+        <StyledLanguageBar>
+          <LanguageBar />
+        </StyledLanguageBar>
+        <Title id="video-title">
+          <Translator>Video-Title</Translator>
+        </Title>
+        <Player setShowFeedback={setShowFeedback} videoRef={videoRef} />
+        <VideoInteraction>
+          <SatisfactionQuestions videoStarted={showFeedback} />
+        </VideoInteraction>
 
-      <CardsWrapper>
-        <NutritionalGuidelines />
-        <ConsultDoctor />
-        <Cpap />
-        <DontForget />
-        <Consent />
-      </CardsWrapper>
+        <CardsWrapper>
+          <NutritionalGuidelines />
+          <ConsultDoctor />
+          <Cpap />
+          <DontForget />
+          <Consent />
+        </CardsWrapper>
 
-      <ScrollSectionWrapper>
-        <NurseLottie {...lottieOptions} />
-        <ScrollButton href="#video-title" onClick={handleAutoPlay}>
-          <img src={arrow_up} alt="arrowUp" />
-          <Translator>Video-Back-To-Video</Translator>
-          <span></span>
-        </ScrollButton>
-      </ScrollSectionWrapper>
+        <ScrollSectionWrapper>
+          <NurseLottie {...lottieOptions} />
+          <ScrollButton href="#video-title" onClick={handleAutoPlay}>
+            <img src={arrow_up} alt="arrowUp" />
+            <Translator>Video-Back-To-Video</Translator>
+            <span style={{ width: "19px" }} />
+          </ScrollButton>
+        </ScrollSectionWrapper>
 
-      <Divider />
-      <CallCenter />
-      <Divider />
+        <Divider />
+        <CallCenter />
+        <Divider />
 
-      <Footer>
-        <Translator>Footer</Translator>
-      </Footer>
-    </Container>
+        <Footer>
+          <Translator>Footer</Translator>
+        </Footer>
+      </Container>
+    </Transition>
   );
 }
 
@@ -141,11 +144,10 @@ const ScrollButton = styled.a`
 
 const Divider = styled.div`
   height: 1px;
-  width: 100%;
   background-color: #84a4fc;
   margin-block-start: 35px;
   margin-block-end: 41px;
-  margin-inline: 25px;
+  margin-inline: var(--screen-margin);
   opacity: 0.2;
 `;
 

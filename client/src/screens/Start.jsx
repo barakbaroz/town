@@ -5,6 +5,7 @@ import LanguageBar from "../components/User/LanguageBar";
 import Adina_Background from "../assets/Lotties/Adina_Background.json";
 import { Translator } from "../components/Translation";
 import { postAnalytics } from "../analytics";
+import Transition from "../Transition";
 
 const Start = () => {
   const handleLegalLinkClick = () => {
@@ -16,38 +17,40 @@ const Start = () => {
   };
 
   return (
-    <StartContainer>
-      <LanguageBar />
-      <Nurse id="startPageNurse" />
-      <ParagraphWrapper id="ParagraphWrapper">
-        <Title id="HelloTitle">
-          <Translator>Start-Title</Translator>
-        </Title>
-        <Paragraph id="StartParagraph">
-          <Translator>Start-Paragraph</Translator>
-        </Paragraph>
-      </ParagraphWrapper>
-      <BottomContentContainer>
-        <StartButton
-          id="StartButton"
-          to="../CharacterSelection"
-          onClick={handleStartClick}
-        >
-          <Translator>Next</Translator>
-        </StartButton>
-        <LegalTextWrapper>
-          <Translator>Start-Legal-Explain</Translator>
-          &nbsp;
-          <LegalLink
-            id="LegalLink"
-            to="../Legal"
-            onClick={handleLegalLinkClick}
+    <Transition>
+      <StartContainer>
+        <LanguageBar />
+        <Nurse id="startPageNurse" />
+        <ParagraphWrapper id="ParagraphWrapper">
+          <Title id="HelloTitle">
+            <Translator>Start-Title</Translator>
+          </Title>
+          <Paragraph id="StartParagraph">
+            <Translator>Start-Paragraph</Translator>
+          </Paragraph>
+        </ParagraphWrapper>
+        <BottomContentContainer>
+          <StartButton
+            id="StartButton"
+            to="../CharacterSelection"
+            onClick={handleStartClick}
           >
-            <Translator>Start-Legal-Link</Translator>
-          </LegalLink>
-        </LegalTextWrapper>
-      </BottomContentContainer>
-    </StartContainer>
+            <Translator>Next</Translator>
+          </StartButton>
+          <LegalTextWrapper>
+            <Translator>Start-Legal-Explain</Translator>
+            &nbsp;
+            <LegalLink
+              id="LegalLink"
+              to="../Legal"
+              onClick={handleLegalLinkClick}
+            >
+              <Translator>Start-Legal-Link</Translator>
+            </LegalLink>
+          </LegalTextWrapper>
+        </BottomContentContainer>
+      </StartContainer>
+    </Transition>
   );
 };
 export default Start;

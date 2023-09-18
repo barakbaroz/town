@@ -1,6 +1,7 @@
 import { postAnalytics } from "../../analytics";
 import Wrapper from "./Wrapper";
 import LegalText from "./LegalText";
+import Transition from "../../Transition";
 
 function Legal() {
   const BackClick = () => {
@@ -8,9 +9,11 @@ function Legal() {
   };
 
   return (
-    <Wrapper onBack={BackClick} id="LegalWrapper">
-      <LegalText />
-    </Wrapper>
+    <Transition>
+      <Wrapper onBack={BackClick} id="LegalWrapper">
+        <LegalText />
+      </Wrapper>
+    </Transition>
   );
 }
 

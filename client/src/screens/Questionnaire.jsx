@@ -6,6 +6,7 @@ import questionnaireImages from "../assets/Questionnaire";
 import { Button } from "../components/general.style";
 import { questionnaireContext } from "../providers/QuestionnaireProvider";
 import { useContext } from "react";
+import Transition from "../Transition";
 
 const questions = [
   "diabetesMedicines",
@@ -29,21 +30,23 @@ function Questionnaire() {
   };
 
   return (
-    <QuestionContainer>
-      <QuestionImage src={questionnaireImages[questionKey]} />
-      <Navigation index={questionIndex} questionsSize={questionsLength} />
-      <QuestionText>
-        <Translator>{questionKey}</Translator>
-      </QuestionText>
-      <ButtonsContainer>
-        <Answer onClick={handleAnswer("Yes")}>
-          <Translator>Yes</Translator>
-        </Answer>
-        <Answer onClick={handleAnswer("No")}>
-          <Translator>No</Translator>
-        </Answer>
-      </ButtonsContainer>
-    </QuestionContainer>
+    <Transition>
+      <QuestionContainer>
+        <QuestionImage src={questionnaireImages[questionKey]} />
+        <Navigation index={questionIndex} questionsSize={questionsLength} />
+        <QuestionText>
+          <Translator>{questionKey}</Translator>
+        </QuestionText>
+        <ButtonsContainer>
+          <Answer onClick={handleAnswer("Yes")}>
+            <Translator>Yes</Translator>
+          </Answer>
+          <Answer onClick={handleAnswer("No")}>
+            <Translator>No</Translator>
+          </Answer>
+        </ButtonsContainer>
+      </QuestionContainer>
+    </Transition>
   );
 }
 

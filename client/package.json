@@ -14,6 +14,7 @@
     "@gistmed/gist-ui": "^0.1.40",
     "@internationalized/date": "^3.4.0",
     "axios": "^1.4.0",
+    "framer-motion": "^10.16.4",
     "lottie-react": "^2.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
