@@ -7,7 +7,7 @@ function LegalText() {
   };
 
   return (
-    <Wrapper>
+    <Wrapper id="LegalTextWrapper">
       <Title>תנאי שימוש</Title>
       <UpdatedAt>עודכן לאחרונה: 31/07/23</UpdatedAt>
       <Paragraph>
@@ -466,7 +466,7 @@ export default LegalText;
 
 const Wrapper = styled.div`
   direction: rtl;
-  padding-inline: 2.4rem;
+  padding-inline: 4.8rem;
 `;
 const Title = styled.h1`
   margin: 0;
