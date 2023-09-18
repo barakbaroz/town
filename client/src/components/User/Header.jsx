@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <Container id="HeaderContainer">
       <Logo alt="Hospital Logo" src={hospitalLogo} />
-      <Logo alt="Gist Logo" src={gistLogo} />
+      <Logo style={{ height: "30px" }} alt="Gist Logo" src={gistLogo} />
     </Container>
   );
 };

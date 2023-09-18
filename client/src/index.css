@@ -8,9 +8,9 @@
 }
 
 body {
-  --header-logo-height: 1.6875rem;
+  --header-logo-height: 36px;
   --header-block-padding: 16px;
-  --header-inline-padding: 22px;
+  --header-inline-padding: 20px;
   --header-size: calc(
     var(--header-logo-height) + (var(--header-block-padding) * 2)
   );

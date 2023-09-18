@@ -56,7 +56,7 @@ CaseItemButtons.propTypes = {
 };
 
 const Column = styled.div`
-  justify-content: space-around;
+  justify-content: space-between;
   text-align: start;
   display: flex;
   flex-direction: column;

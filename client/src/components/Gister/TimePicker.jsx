@@ -61,6 +61,7 @@ const Sun = styled(SunIcon)`
 `;
 
 const Time = styled.input.attrs({ type: "time" })`
+  padding-inline: 0.563em;
   font-size: 1em;
   font-family: inherit;
   border: none;
