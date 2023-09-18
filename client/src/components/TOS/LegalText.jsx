@@ -7,7 +7,7 @@ function LegalText() {
   };
 
   return (
-    <Wrapper>
+    <Wrapper id="LegalTextWrapper">
       <Title>תנאי שימוש</Title>
       <UpdatedAt>עודכן לאחרונה: 31/07/23</UpdatedAt>
       <Paragraph>

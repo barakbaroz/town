@@ -31,7 +31,6 @@ const Container = styled.div`
   background-image: url(${background});
   background-repeat: no-repeat;
   background-size: cover;
-  padding-inline: 2.4rem;
   box-sizing: border-box;
 `;
 

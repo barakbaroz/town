@@ -8,7 +8,7 @@ function Legal() {
   };
 
   return (
-    <Wrapper onBack={BackClick}>
+    <Wrapper onBack={BackClick} id="LegalWrapper">
       <LegalText />
     </Wrapper>
   );
