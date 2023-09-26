@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Link, useLoaderData } from "react-router-dom";
-import CircleProfile from "../../assets/Panel/circle_profile.svg";
+import CircleProfile from "../../assets/Logos/hospital_logo_profile_image.svg";
 import Plus from "../../assets/Icons/plus.svg";
 import Support from "./Support";
 
