@@ -64,8 +64,12 @@
 
   "Instructions-Steps-Diet": "לעבור לדיאטה דלת סיבים",
   "Instructions-Steps-Liquids": "החל מ 24 שעות לפני הבדיקה- לעבור לשתות נוזלים צלולים בלבד",
-  "Instructions-Steps-FirstPortion": "לקחת את המנה הראשונה של החומר המשלשל",
-  "Instructions-Steps-SecondPortion": "לקחת את המנה השנייה של החומר המשלשל",
+  "Instructions-Steps-FirstPortion-moviprep": "לקחת את המנה הראשונה של מוביפרפ",
+  "Instructions-Steps-SecondPortion-moviprep": "לקחת את המנה השנייה של מוביפרפ",
+  "Instructions-Steps-FirstPortion-meroken": "לקחת את המנה הראשונה של מרוקן",
+  "Instructions-Steps-SecondPortion-meroken": "לקחת את המנה השנייה של מרוקן",
+  "Instructions-Steps-FirstPortion-picolax": "לקחת את המנה הראשונה של פיקולקס",
+  "Instructions-Steps-SecondPortion-picolax": "לקחת את המנה השנייה של פיקולקס",
 
   "Consult-Doctor-Title": "התייעצות עם הרופא/ה המטפל/ת",
   "Consult-Doctor-bloodThinners:Yes-diabetesMedicines:Yes": "עליך לפנות לרופא/ה מטפל/ת לצורך קבלת מרשם לחומרי ההכנה. במידה והינך נוטל תרופות לטיפול בסוכרת ו/או לדילול דם, יש לעקוב אחר ההמלצות הפרטניות ולהביא לרופא/ה את הטופס להורדה המצורף כאן.",
