@@ -22,7 +22,7 @@ const timeOptions = { hour: "2-digit", minute: "2-digit" };
 
 function InstructionsSteps() {
   const { Case } = useUser();
-  const { procedureDate, procedureTime } = Case;
+  const { procedureDate, procedureTime, concentrate } = Case;
   const { firstPortion, secondPortion, dietTime, liquids } = getTimes(
     procedureDate,
     procedureTime
@@ -49,7 +49,11 @@ function InstructionsSteps() {
           </StepDetails>
           <DottetLine last={index === data.length - 1} />
           <DescriptionText>
-            <Translator>{`Instructions-Steps-${content}`}</Translator>
+            <Translator>
+              {content.includes("Portion")
+                ? `Instructions-Steps-${content}-${concentrate}`
+                : `Instructions-Steps-${content}`}
+            </Translator>
           </DescriptionText>
         </Fragment>
       ))}
