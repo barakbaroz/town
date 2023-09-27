@@ -47,7 +47,7 @@ function InstructionsSteps() {
             {dateFormater.format(date)}
             {showTime && " | " + date.toLocaleTimeString("he-IL", timeOptions)}
           </StepDetails>
-          <DottetLine last={index === data.length - 1} />
+          <DottedLine last={index === data.length - 1} />
           <DescriptionText>
             <Translator>
               {content.includes("Portion")
@@ -91,7 +91,7 @@ const getTimes = (procedureDate, procedureTime) => {
   return { firstPortion, secondPortion, dietTime, liquids };
 };
 
-const DottetLine = styled.div`
+const DottedLine = styled.div`
   height: 100%;
   border-right: 1px dotted #7a9dfd;
   visibility: ${({ last }) => (last ? "hidden" : "visible")};
@@ -114,12 +114,12 @@ const Bullet = styled.div`
 
 const StepDetails = styled.div`
   color: #527ffa;
-  font-size: 1.063rem;
+  font-size: 1.188rem;
   place-self: start;
 `;
 
 const DescriptionText = styled.div`
   place-self: start;
-  font-size: 1.063rem;
+  font-size: 1.188rem;
   padding-block-end: 1.063rem;
 `;
