@@ -8,6 +8,7 @@ import { useUser } from "../../providers/UserProvider";
 import merokenPdf from "../../assets/Pdfs/NutritionalInstructions/hebrew/meroken.pdf";
 import moviprepPdf from "../../assets/Pdfs/NutritionalInstructions/hebrew/moviprep.pdf";
 import picolaxPdf from "../../assets/Pdfs/NutritionalInstructions/hebrew/picolax.pdf";
+import { postAnalytics } from "../../analytics";
 
 const pdfs = {
   meroken: merokenPdf,
@@ -23,6 +24,9 @@ function NutritionalGuidelines() {
     timeStyle: "short",
   }).format(new Date(procedureDate));
 
+  const handlePersonalNutritionClick = () => {
+    postAnalytics({ type: "nutrition-instruction-clicked" });
+  };
   return (
     <Card>
       <TopSection>
@@ -42,7 +46,10 @@ function NutritionalGuidelines() {
 
       <InstructionsSteps />
 
-      <StyledButton href={pdfs[concentrate]}>
+      <StyledButton
+        href={pdfs[concentrate]}
+        onClick={handlePersonalNutritionClick}
+      >
         <Translator>Nutritional-Guidelines-Download</Translator>
       </StyledButton>
     </Card>

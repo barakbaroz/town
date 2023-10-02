@@ -14,6 +14,7 @@ import arrow_up from "../assets/Icons/arrow_up.svg";
 import nurseLottie from "../assets/Lotties/Nurse_Small.json";
 import Cpap from "../components/Instructions/Cpap";
 import Transition from "../Transition";
+import { postAnalytics } from "../analytics";
 
 const lottieOptions = { animationData: nurseLottie, loop: true };
 
@@ -23,6 +24,7 @@ function VideoPage() {
 
   const handleAutoPlay = () => {
     if (!videoRef.current) return;
+    postAnalytics({ type: "back-to-top" });
     videoRef.current.play();
   };
 
