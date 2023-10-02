@@ -56,6 +56,6 @@ const StyledButton = styled.a`
 
 const Text = styled.p`
   margin: 0;
-  margin-block-end: 1.125rem;
+  margin-block-end: 2.188rem;
   font-size: 1.188rem;
 `;
