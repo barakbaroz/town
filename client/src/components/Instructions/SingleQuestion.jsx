@@ -79,7 +79,7 @@ const Answer = styled.button`
   font-family: inherit;
   font-size: 1rem;
   font-weight: 400;
-  padding: 0.25rem 1.75rem;
+  padding: 0.2839rem 1.9rem;
   ${({ checked }) =>
     checked &&
     css`
