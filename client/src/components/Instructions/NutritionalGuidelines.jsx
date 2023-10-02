@@ -66,5 +66,6 @@ const Text = styled.p`
 
 const StyledButton = styled.a`
   margin-block-start: 1.125rem;
+  text-align: center;
   ${buttonCSS}
 `;
