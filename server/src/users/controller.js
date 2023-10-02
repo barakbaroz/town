@@ -33,13 +33,14 @@ module.exports.entry = async (req, res) => {
 
 module.exports.verify = async (req, res) => {
   try {
-    const { id, zehutNumber, yearOfBirth, rememberMe } = req.body;
+    const { id, zehutNumber, yearOfBirth, rememberMe, department } = req.body;
     if (!isUUID(id)) return res.status(400).send("Invalid UUID");
     const { user, status } = await userServices.verify({
       id,
       zehutNumber,
       yearOfBirth,
       rememberMe,
+      department,
     });
     if (!user)
       return res.status(403).json({ message: "verification failed", status });

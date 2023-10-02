@@ -45,7 +45,8 @@ module.exports.verify = async ({
     department: "gastroscopy" === department,
     attempts: user.failedAttempts + 1,
   };
-  verifyObj.success = verifyObj.zehutNumber && verifyObj.yearOfBirth;
+  verifyObj.success =
+    verifyObj.zehutNumber && verifyObj.yearOfBirth && verifyObj.department;
   this.userAction({ UserId: id, type: "verify", data: verifyObj });
   if (verifyObj.success) {
     user.update({ failedAttempts: 0 }, { where: { id } });
