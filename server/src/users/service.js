@@ -20,7 +20,10 @@ module.exports.getAuthStatus = async ({ userId }) => {
   return "blocked";
 };
 
-module.exports.lastStep = async (user) => {
+module.exports.lastStep = async ({ id }) => {
+  const user = await Users.findByPk(id, {
+    include: { model: Cases, include: CasesProgress },
+  });
   const { avatarSelection, answeredQuestionnaire } = user.Case.CasesProgress;
   if (answeredQuestionnaire) return "Video";
   if (avatarSelection) return "Questionnaire/diabetesMedicines";
