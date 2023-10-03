@@ -20,7 +20,7 @@ const dateOptions = {
 
 const timeOptions = { hour: "2-digit", minute: "2-digit" };
 
-function InstructionsSteps() {
+export default function InstructionsSteps() {
   const { Case } = useUser();
   const { procedureDate, procedureTime, concentrate } = Case;
   const { firstPortion, secondPortion, dietTime, liquids } = getTimes(
@@ -61,8 +61,6 @@ function InstructionsSteps() {
   );
 }
 
-export default InstructionsSteps;
-
 const getTimes = (procedureDate, procedureTime) => {
   const date = new Date(procedureDate);
   const [hour] = procedureTime.split(":");
@@ -100,7 +98,8 @@ const DottedLine = styled.div`
 const Container = styled.div`
   margin-block-end: 5px;
   display: grid;
-  grid-template-columns: 15px 1fr;
+  grid-template-columns: 15px auto;
+  grid-template-rows: repeat(8, min-content);
   place-items: center;
   column-gap: 8px;
 `;
