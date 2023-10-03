@@ -39,7 +39,7 @@ function SearchBar({ search, setSearch }) {
   return (
     <Container>
       <HospitalLogoContainer>
-        <Logo src={hospitalLogo} alt="Hospital Logo" />
+        <HospitalLogo src={hospitalLogo} alt="Hospital Logo" />
       </HospitalLogoContainer>
       <SearchHeader>
         <GreyWrapper>
@@ -69,7 +69,7 @@ function SearchBar({ search, setSearch }) {
       </SearchHeader>
 
       <GistLogoContainer>
-        <Logo src={gistLogo} alt="Gist Logo" />
+        <GistLogo src={gistLogo} alt="Gist Logo" />
       </GistLogoContainer>
     </Container>
   );
@@ -82,8 +82,12 @@ SearchBar.propTypes = {
 
 export default SearchBar;
 
-const Logo = styled.img`
+const GistLogo = styled.img`
   height: 40px;
+`;
+const HospitalLogo = styled.img`
+  height: 50px;
+  width: 270px;
 `;
 
 const SearchHeader = styled.div`
