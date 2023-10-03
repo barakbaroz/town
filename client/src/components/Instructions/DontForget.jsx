@@ -39,7 +39,7 @@ export default DontForget;
 const ListContainer = styled.ul`
   margin-inline: 0;
   padding-inline-start: 1.5rem;
-  margin-block-end: 0;
+  margin-block: 0;
 `;
 
 const ListItem = styled.li`

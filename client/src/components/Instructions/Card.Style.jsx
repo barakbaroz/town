@@ -20,7 +20,7 @@ export const TopSection = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-block-end: 0.734rem;
+  margin-block-end: 1.25rem;
   gap: 16px;
 `;
 
