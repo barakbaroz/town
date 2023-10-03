@@ -6,9 +6,9 @@ import PropTypes from "prop-types";
 function GisterHeader({ text }) {
   return (
     <Container id="coordinator-header">
-      <Logo src={hospitalLogo} />
+      <HospitalLogo src={hospitalLogo} />
       <Text>{text}</Text>
-      <Logo src={gistLogo} />
+      <GistLogo src={gistLogo} />
     </Container>
   );
 }
@@ -27,8 +27,12 @@ const Container = styled.div`
   justify-content: space-between;
   padding: 1rem;
 `;
-const Logo = styled.img`
+const GistLogo = styled.img`
   height: 40px;
+`;
+const HospitalLogo = styled.img`
+  height: 50px;
+  width: 270px;
 `;
 
 const Text = styled.div`
