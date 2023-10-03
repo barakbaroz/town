@@ -7,6 +7,7 @@ import { Button } from "../components/general.style";
 import { questionnaireContext } from "../providers/QuestionnaireProvider";
 import { useContext } from "react";
 import Transition from "../Transition";
+import white_v from "../assets/Icons/white_v.svg";
 
 const questions = [
   "diabetesMedicines",
@@ -18,7 +19,7 @@ const questions = [
 
 function Questionnaire() {
   const navigate = useNavigate();
-  const { updateAnswer, submit } = useContext(questionnaireContext);
+  const { answers, updateAnswer, submit } = useContext(questionnaireContext);
   const { questionKey } = useParams();
   const questionIndex = questions.indexOf(questionKey);
   const questionsLength = questions.length;
@@ -39,10 +40,18 @@ function Questionnaire() {
         </QuestionText>
         <ButtonsContainer>
           <Answer onClick={handleAnswer("Yes")}>
-            <Translator>Yes</Translator>
+            {answers.current[questionKey] === "Yes" ? (
+              <Vcheck />
+            ) : (
+              <Translator>Yes</Translator>
+            )}
           </Answer>
           <Answer onClick={handleAnswer("No")}>
-            <Translator>No</Translator>
+            {answers.current[questionKey] === "No" ? (
+              <Vcheck />
+            ) : (
+              <Translator>No</Translator>
+            )}
           </Answer>
         </ButtonsContainer>
       </QuestionContainer>
@@ -86,4 +95,10 @@ const Answer = styled(Button)`
   padding-block: 0.5rem;
   width: 8.5rem;
   max-width: 45%;
+`;
+const Vcheck = styled.img.attrs({
+  src: white_v,
+  alt: "V",
+})`
+  width: 1.2rem;
 `;
