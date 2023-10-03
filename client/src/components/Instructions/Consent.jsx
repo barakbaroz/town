@@ -7,7 +7,7 @@ import consents from "../../assets/Pdfs/ConsentForms";
 import { useLanguage } from "../../providers/LanguageProvider";
 import { postAnalytics } from "../../analytics";
 
-function Consent() {
+export default function Consent() {
   const { language } = useLanguage();
 
   const handleConsentClick = () =>
@@ -37,11 +37,9 @@ function Consent() {
   );
 }
 
-export default Consent;
-
 const Text = styled.p`
   margin: 0;
-  margin-block-end: 1.188rem;
+  margin-block-end: 2.188rem;
   font-size: 1.188rem;
 `;
 

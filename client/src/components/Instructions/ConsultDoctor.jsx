@@ -7,6 +7,7 @@ import { useUser } from "../../providers/UserProvider";
 import bloodThinnersDiabetesMedicinesPDF from "../../assets/Pdfs/ConsultDoctor/bloodThinners-diabetesMedicines.pdf";
 import bloodThinnersPDF from "../../assets/Pdfs/ConsultDoctor/bloodThinners.pdf";
 import diabetesMedicinesPDF from "../../assets/Pdfs/ConsultDoctor/diabetesMedicines.pdf";
+import { postAnalytics } from "../../analytics";
 
 const pdfs = {
   "bloodThinners:Yes-diabetesMedicines:Yes": bloodThinnersDiabetesMedicinesPDF,
@@ -27,6 +28,10 @@ function ConsultDoctor() {
     .map(({ questionKey, answerKey }) => `${questionKey}:${answerKey}`)
     .join("-");
 
+  const handleConsultClick = () => {
+    postAnalytics({ type: "consult-doctor-clicked" });
+  };
+
   return (
     <Card>
       <TopSection>
@@ -39,7 +44,11 @@ function ConsultDoctor() {
       <Text>
         <Translator>Consult-Doctor-{key}</Translator>
       </Text>
-      <StyledButton href={pdfs[key]} show={pdfs[key]}>
+      <StyledButton
+        href={pdfs[key]}
+        show={pdfs[key]}
+        onClick={handleConsultClick}
+      >
         <Translator>טופס לרופא/ת משפחה</Translator>
       </StyledButton>
     </Card>
@@ -56,6 +65,6 @@ const StyledButton = styled.a`
 
 const Text = styled.p`
   margin: 0;
-  margin-block-end: 1.125rem;
+  margin-block-end: 2.188rem;
   font-size: 1.188rem;
 `;
