@@ -1,14 +1,14 @@
 import styled from "styled-components";
 import gistLogo from "../../assets/Logos/gist_logo.svg";
-import hospitalLogo from "../../assets/Logos/hospital_logo.png";
+import hospitalLogo from "../../assets/Logos/hospital_logo.svg";
 import PropTypes from "prop-types";
 
 function GisterHeader({ text }) {
   return (
     <Container id="coordinator-header">
-      <Logo src={hospitalLogo} />
+      <HospitalLogo src={hospitalLogo} />
       <Text>{text}</Text>
-      <Logo src={gistLogo} />
+      <GistLogo src={gistLogo} />
     </Container>
   );
 }
@@ -27,8 +27,11 @@ const Container = styled.div`
   justify-content: space-between;
   padding: 1rem;
 `;
-const Logo = styled.img`
+const GistLogo = styled.img`
   height: 40px;
+`;
+const HospitalLogo = styled.img`
+  height: 50px;
 `;
 
 const Text = styled.div`

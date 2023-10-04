@@ -5,7 +5,7 @@ import GuidanceSwitcher from "./GuidanceSwitcher";
 import Black_X from "../../assets/Icons/black_X.svg";
 import searchLogo from "../../assets/Icons/search.svg";
 import gistLogo from "../../assets/Logos/gist_logo.svg";
-import hospitalLogo from "../../assets/Logos/hospital_logo.png";
+import hospitalLogo from "../../assets/Logos/hospital_logo.svg";
 import { ReactComponent as ExitIcon } from "../../assets/Icons/exit.svg";
 import { ReactComponent as Reload } from "../../assets/Icons/reload.svg";
 import axios from "axios";
@@ -39,7 +39,7 @@ function SearchBar({ search, setSearch }) {
   return (
     <Container>
       <HospitalLogoContainer>
-        <Logo src={hospitalLogo} alt="Hospital Logo" />
+        <HospitalLogo src={hospitalLogo} alt="Hospital Logo" />
       </HospitalLogoContainer>
       <SearchHeader>
         <GreyWrapper>
@@ -69,7 +69,7 @@ function SearchBar({ search, setSearch }) {
       </SearchHeader>
 
       <GistLogoContainer>
-        <Logo src={gistLogo} alt="Gist Logo" />
+        <GistLogo src={gistLogo} alt="Gist Logo" />
       </GistLogoContainer>
     </Container>
   );
@@ -82,8 +82,11 @@ SearchBar.propTypes = {
 
 export default SearchBar;
 
-const Logo = styled.img`
+const GistLogo = styled.img`
   height: 40px;
+`;
+const HospitalLogo = styled.img`
+  height: 50px;
 `;
 
 const SearchHeader = styled.div`

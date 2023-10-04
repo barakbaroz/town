@@ -133,8 +133,7 @@ const GistLogo = styled.img.attrs({ src: gistLogo })`
 
 const HopitalLogo = styled.img.attrs({ src: hospitalLogo })`
   position: absolute;
-  width: 227px;
-  height: 66px;
+  height: 71px;
   top: 40px;
   right: 40px;
 `;

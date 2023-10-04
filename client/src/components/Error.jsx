@@ -36,6 +36,7 @@ const Container = styled.div`
 const DescriptionContainer = styled.div`
   margin-block-start: 1.5rem;
   margin-block-end: 2.875rem;
+  text-align: center;
 `;
 
 const Title = styled.h1`
