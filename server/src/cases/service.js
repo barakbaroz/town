@@ -86,7 +86,6 @@ module.exports.search = async ({ creatorId, search }) => {
     },
     order: [["createdAt", "DESC"]],
     offset: 0,
-    limit: 30,
   });
 
   return cases;
