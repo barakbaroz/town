@@ -19,7 +19,7 @@ export default function QuestionnaireProvider() {
     navigate("../Video");
   };
   return (
-    <questionnaireContext.Provider value={{ updateAnswer, submit }}>
+    <questionnaireContext.Provider value={{ updateAnswer, submit, answers }}>
       <Outlet />
     </questionnaireContext.Provider>
   );

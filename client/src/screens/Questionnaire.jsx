@@ -3,10 +3,11 @@ import { Translator } from "../components/Translation";
 import { useNavigate, useParams } from "react-router-dom";
 import Navigation from "../components/Questionnaire/Navigation";
 import questionnaireImages from "../assets/Questionnaire";
-import { Button } from "../components/general.style";
+import { buttonCSS } from "../components/general.style";
 import { questionnaireContext } from "../providers/QuestionnaireProvider";
 import { useContext } from "react";
 import Transition from "../Transition";
+import white_v from "../assets/Icons/white_v.svg";
 
 const questions = [
   "diabetesMedicines",
@@ -18,7 +19,7 @@ const questions = [
 
 function Questionnaire() {
   const navigate = useNavigate();
-  const { updateAnswer, submit } = useContext(questionnaireContext);
+  const { answers, updateAnswer, submit } = useContext(questionnaireContext);
   const { questionKey } = useParams();
   const questionIndex = questions.indexOf(questionKey);
   const questionsLength = questions.length;
@@ -37,12 +38,28 @@ function Questionnaire() {
         <QuestionText>
           <Translator>{questionKey}</Translator>
         </QuestionText>
-        <ButtonsContainer>
+        <ButtonsContainer key={questionKey}>
           <Answer onClick={handleAnswer("Yes")}>
-            <Translator>Yes</Translator>
+            <Input
+              name={questionKey}
+              value="Yes"
+              defaultChecked={answers.current[questionKey] === "Yes"}
+            />
+            <Vcheck />
+            <AnswerText>
+              <Translator>Yes</Translator>
+            </AnswerText>
           </Answer>
           <Answer onClick={handleAnswer("No")}>
-            <Translator>No</Translator>
+            <Input
+              name={questionKey}
+              value="No"
+              defaultChecked={answers.current[questionKey] === "No"}
+            />
+            <Vcheck />
+            <AnswerText>
+              <Translator>No</Translator>
+            </AnswerText>
           </Answer>
         </ButtonsContainer>
       </QuestionContainer>
@@ -82,8 +99,37 @@ const QuestionImage = styled.img`
   max-width: 100%;
 `;
 
-const Answer = styled(Button)`
+const Input = styled.input.attrs({
+  type: "radio",
+  hidden: true,
+})``;
+
+const Vcheck = styled.img.attrs({
+  src: white_v,
+  alt: "V",
+})`
+  display: none;
+  height: 1.5rem;
+  width: 1.2rem;
+`;
+
+const AnswerText = styled.span`
+  line-height: 1.5rem;
+`;
+
+const Answer = styled.label`
+  ${buttonCSS}
+  display: flex;
+  justify-content: center;
   padding-block: 0.5rem;
   width: 8.5rem;
   max-width: 45%;
+  &:has(${Input}:checked) {
+    span {
+      display: none;
+    }
+    ${Vcheck} {
+      display: block;
+    }
+  }
 `;
