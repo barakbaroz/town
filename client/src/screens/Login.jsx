@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import background from "../assets/Backgrounds/login_bg.jpg";
+import background from "../assets/Backgrounds/login.jpg";
 import gistLogo from "../assets/Logos/gist_logo_mask.svg";
 import hospitalLogo from "../assets/Logos/hospital_logo_mask.png";
 
@@ -133,7 +133,6 @@ const GistLogo = styled.img.attrs({ src: gistLogo })`
 
 const HopitalLogo = styled.img.attrs({ src: hospitalLogo })`
   position: absolute;
-  width: 383px;
   height: 71px;
   top: 40px;
   right: 40px;
