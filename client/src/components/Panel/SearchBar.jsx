@@ -87,7 +87,6 @@ const GistLogo = styled.img`
 `;
 const HospitalLogo = styled.img`
   height: 50px;
-  width: 270px;
 `;
 
 const SearchHeader = styled.div`
