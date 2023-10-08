@@ -18,7 +18,7 @@ module.exports.entry = async (req, res) => {
   const authURL = `/Auth/${id}/zehut`;
   try {
     const dbUser = await userServices.getData({ userId: id });
-    if (!dbUser) return res.redirect("notFound");
+    if (!dbUser) return res.redirect("/notFound");
     userServices.userAction({ UserId: id, type: "opened-sms" });
     const token = req.cookies.user_token;
     if (!token) return res.redirect(authURL);
