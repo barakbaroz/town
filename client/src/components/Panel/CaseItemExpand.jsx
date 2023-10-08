@@ -44,7 +44,6 @@ const CaseItemExpand = ({ item, show }) => {
             <DatePicker
               label="date"
               defaultValue={parseDate(item.procedureDate)}
-              minValue={null}
               onChange={handleChangeDate}
             />
           </DateAndTimeWrapper>
