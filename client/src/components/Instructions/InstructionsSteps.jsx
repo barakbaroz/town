@@ -81,10 +81,10 @@ const getTimes = (procedureDate, procedureTime) => {
   } else if (hour >= 12 && hour <= 16) {
     firstPortion.setDate(date.getDate() - 1);
     firstPortion.setHours(21, 0, 0, 0);
-    secondPortion.getHours(hour - 6, 0, 0, 0);
+    secondPortion.setHours(hour - 6, 0, 0, 0);
   } else if (hour >= 17 && hour <= 19) {
     firstPortion.setHours(hour - 11, 0, 0, 0);
-    secondPortion.getHours(hour - 6, 0, 0, 0);
+    secondPortion.setHours(hour - 6, 0, 0, 0);
   }
   return { firstPortion, secondPortion, dietTime, liquids };
 };

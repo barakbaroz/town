@@ -18,11 +18,22 @@ const pdfs = {
 
 function NutritionalGuidelines() {
   const { Case } = useUser();
-  const { procedureDate, concentrate } = Case;
+  const { procedureDate, procedureTime, concentrate } = Case;
+  const procedureDateTime = new Date(procedureDate);
+
+  const [hours, minutes] = procedureTime.split(":").map(Number);
+  const examinationDateAndTime = new Date(
+    procedureDateTime.getFullYear(),
+    procedureDateTime.getMonth(),
+    procedureDateTime.getDate(),
+    hours,
+    minutes
+  );
+
   const examinationDate = new Intl.DateTimeFormat("he-IL", {
     dateStyle: "full",
     timeStyle: "short",
-  }).format(new Date(procedureDate));
+  }).format(new Date(examinationDateAndTime));
 
   const handlePersonalNutritionClick = () => {
     postAnalytics({ type: "nutrition-instruction-clicked" });
