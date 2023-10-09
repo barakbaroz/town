@@ -31,6 +31,9 @@ function DepartmentQuestion() {
           <Option value="" disabled hidden>
             <Translator>לחץ לבחירת תשובה</Translator>
           </Option>
+          <Option value="heart">
+            <Translator>heart</Translator>
+          </Option>
           <Option value="eyes">
             <Translator>eyes</Translator>
           </Option>
