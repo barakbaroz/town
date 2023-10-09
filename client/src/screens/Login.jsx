@@ -34,7 +34,7 @@ const Login = () => {
           <Title>ברוכים הבאים</Title>
           <SubTitle>
             למערכת ליווי והדרכת
-            <br /> מטופלים עם אי ספיקת לב
+            <br /> מטופלים לקולונוסקופיה
           </SubTitle>
         </Titles>
         <Input name="email" type="text" placeholder="Email" />
