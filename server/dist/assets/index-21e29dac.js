@@ -2135,6 +2135,7 @@ to { opacity: 1;}
   display: flex;
   align-items: center;
   justify-content: space-around;
+  gap: 1.75rem;
 `,QuestionImage=styled.img`
   max-width: 100%;
 `,Input=styled.input.attrs({type:"radio",hidden:!0})``,Vcheck=styled.img.attrs({src:white_v,alt:"V"})`
