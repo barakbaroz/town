@@ -93,6 +93,7 @@ const ButtonsContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
+  gap: 1.75rem;
 `;
 
 const QuestionImage = styled.img`
