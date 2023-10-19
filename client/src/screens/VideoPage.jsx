@@ -120,7 +120,7 @@ const VideoInteraction = styled.div`
   flex-direction: column;
   gap: 27px;
   justify-content: end;
-  margin-block-start: 60px;
+  margin-block-start: 40px;
   margin-block-end: 45px;
   margin-inline: var(--screen-margin);
 `;
