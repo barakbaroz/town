@@ -6,7 +6,7 @@ import { useUser } from "../../providers/UserProvider";
 import { useMemo } from "react";
 import useVideoUrl from "../../hooks/useVideoUrl";
 import PropTypes from "prop-types";
-import videoThumbnail from "../../assets/videoThumbnail.png";
+import videoThumbnail from "../../assets/videoThumbnail.jpg";
 import { useLanguage } from "../../providers/LanguageProvider";
 
 function Player({ setShowFeedback, videoRef }) {
