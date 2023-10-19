@@ -4,7 +4,7 @@ import styled from "styled-components";
 import X_Icon from "../../assets/Icons/white_X.svg";
 import useVideoUrl from "../../hooks/useVideoUrl";
 import { Player as GistPlayer } from "@gistmed/gist-ui";
-import videoThumbnail from "../../assets/videoThumbnail.png";
+import videoThumbnail from "../../assets/videoThumbnail.jpg";
 
 export default function PanelVideo({ close, item, show }) {
   const params = useMemo(() => {
