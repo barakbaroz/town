@@ -1912,7 +1912,7 @@ to { opacity: 1;}
   flex-direction: column;
   gap: 27px;
   justify-content: end;
-  margin-block-start: 60px;
+  margin-block-start: 40px;
   margin-block-end: 45px;
   margin-inline: var(--screen-margin);
 `,ScrollButton=styled.a`
@@ -2149,7 +2149,7 @@ to { opacity: 1;}
   display: flex;
   justify-content: center;
   padding-block: 0.5rem;
-  width: 5.125rem;
+  width: 6.7rem;
   max-width: 45%;
   &:has(${Input}:checked) {
     span {
