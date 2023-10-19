@@ -14,11 +14,12 @@ const lottiesMapper = {
   failed: { animationData: failed, loop: false },
   blocked: { animationData: failed, loop: false },
 };
-const navigationRoutes = {
-  success: "/user/start",
-  failed: "zehut",
-};
+
 function Loader({ statusState, setStatusState, reset }) {
+  const navigationRoutes = {
+    success: `/user/${statusState.lastStep} `,
+    failed: "zehut",
+  };
   const navigate = useNavigate();
   const handleComplete = () => {
     const nextRoute = navigationRoutes[statusState.state];
