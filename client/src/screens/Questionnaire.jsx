@@ -123,7 +123,7 @@ const Answer = styled.label`
   display: flex;
   justify-content: center;
   padding-block: 0.5rem;
-  width: 5.125rem;
+  width: 6.7rem;
   max-width: 45%;
   &:has(${Input}:checked) {
     span {
