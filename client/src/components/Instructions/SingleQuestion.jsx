@@ -69,7 +69,7 @@ const FeedbackTitle = styled.div`
 const Answers = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 0.625rem;
+  gap: 0.938rem;
 `;
 const Answer = styled.button`
   border: 1.5px solid #84a4fc;
