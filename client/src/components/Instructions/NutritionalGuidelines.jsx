@@ -8,12 +8,14 @@ import { useUser } from "../../providers/UserProvider";
 import merokenPdf from "../../assets/Pdfs/NutritionalInstructions/hebrew/meroken.pdf";
 import moviprepPdf from "../../assets/Pdfs/NutritionalInstructions/hebrew/moviprep.pdf";
 import picolaxPdf from "../../assets/Pdfs/NutritionalInstructions/hebrew/picolax.pdf";
+import unknownPdf from "../../assets/Pdfs/NutritionalInstructions/hebrew/unknown.pdf";
 import { postAnalytics } from "../../analytics";
 
 const pdfs = {
   meroken: merokenPdf,
   moviprep: moviprepPdf,
   picolax: picolaxPdf,
+  unknown: unknownPdf,
 };
 
 function NutritionalGuidelines() {
