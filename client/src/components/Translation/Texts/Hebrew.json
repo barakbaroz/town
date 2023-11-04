@@ -77,6 +77,8 @@
   "Instructions-Steps-SecondPortion-meroken": "לקחת את המנה השנייה של מרוקן",
   "Instructions-Steps-FirstPortion-picolax": "לקחת את המנה הראשונה של פיקולקס",
   "Instructions-Steps-SecondPortion-picolax": "לקחת את המנה השנייה של פיקולקס",
+  "Instructions-Steps-FirstPortion-unknown": "לקחת את המנה הראשונה של החומר המשלשל",
+  "Instructions-Steps-SecondPortion-unknown": "לקחת את המנה השנייה של החומר המשלשל",
 
   "Consult-Doctor-Title": "התייעצות עם הרופא/ה המטפל/ת",
   "Consult-Doctor-bloodThinners:Yes-diabetesMedicines:Yes": "עליך לפנות לרופא/ה מטפל/ת לצורך קבלת מרשם לחומרי ההכנה. היות ודיווחת כי הינך ֹנוטל תרופות, יש לעקוב אחר ההמלצות הפרטניות ולהביא לרופא/ה את הטופס להורדה המצורף כאן.",
@@ -118,9 +120,8 @@
   "Satisfaction-question-recommend-others-female": "האם תמליצי למכרייך לצפות בסרטון לפני הבדיקה?",
   "Satisfaction-question-all-answered": "תודה על שיתוף הפעולה, רפואה שלמה.",
 
-  "Call-Center-Belinson": "מזכירות בילינסון",
-  "Call-Center-Extension": "שלוחה 8",
-  "Call-Center-Hours": "בין השעות 10:00-14:00",
+  "Call-Center-Belinson": "מזכירות יוספטל",
+  "Call-Center-Hours": "בין השעות 9:00-14:00",
 
   "Footer": "מטופל מעורב הוא מטופל שמחלים טוב יותר"
 }
