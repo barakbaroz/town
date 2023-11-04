@@ -7,10 +7,11 @@ import checkmark from "../../assets/Gister/checkmark.svg";
 import { useState } from "react";
 
 export default function MedicalConcentrate({ casesDataRef }) {
-  const [checkedUnknown, setCheckUnknown] = useState(false);
+  const [checkedUnknown, setCheckedUnknown] = useState(false);
   const handleSelect = (event) => {
-    if (event.target.value === "unknown") setCheckUnknown(true);
-    else setCheckUnknown(false);
+    event.target.value === "unknown"
+      ? setCheckedUnknown(true)
+      : setCheckedUnknown(false);
     casesDataRef.current.concentrate = event.target.value;
   };
 
@@ -32,7 +33,7 @@ export default function MedicalConcentrate({ casesDataRef }) {
       </Wrapper>
       <Label key="unknown">
         <Flex>
-          <Circle id="Circle" redColor={checkedUnknown}>
+          <Circle id="Circle" redBorder={checkedUnknown}>
             <CheckmarkUnknown show={checkedUnknown} />
           </Circle>
           <UnknownText>לא ידוע</UnknownText>
@@ -108,7 +109,7 @@ const Circle = styled.div`
   height: 20px;
   border-radius: 50%;
   transition: border 250ms ease-in;
-  border: 1px solid ${({ redColor }) => (redColor ? "#F02A4C" : "black")};
+  border: 1px solid ${({ redBorder }) => (redBorder ? "#F02A4C" : "black")};
   display: flex;
   align-items: start;
   justify-content: center;
