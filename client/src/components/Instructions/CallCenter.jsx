@@ -10,9 +10,7 @@ function CallCenter() {
           <Translator>Call-Center-Belinson</Translator>
         </Title>
         <Wrapper>
-          <Phone href="tel:03-9377241">03-9377241</Phone>
-          &nbsp;
-          <Translator>Call-Center-Extension</Translator>
+          <Phone href="tel:08-6363015">08-6363015</Phone>
         </Wrapper>
         <Translator>Call-Center-Hours</Translator>
       </TextContent>

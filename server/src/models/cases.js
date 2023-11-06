@@ -14,7 +14,7 @@ const init = (sequelize) =>
       gender: DataTypes.ENUM("male", "female", "other"),
       age: DataTypes.ENUM("20-50", "50-70", "70+"),
       yearOfBirth: DataTypes.STRING(4),
-      concentrate: DataTypes.ENUM("moviprep", "picolax", "meroken"),
+      concentrate: DataTypes.ENUM("moviprep", "picolax", "meroken", "unknown"),
       procedureDate: DataTypes.DATEONLY,
       procedureTime: DataTypes.STRING,
     },

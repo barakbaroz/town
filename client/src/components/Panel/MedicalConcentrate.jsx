@@ -4,26 +4,47 @@ import moviprep from "../../assets/Gister/moviprep.svg";
 import picolax from "../../assets/Gister/picolax.svg";
 import meroken from "../../assets/Gister/meroken.svg";
 import checkmark from "../../assets/Gister/checkmark.svg";
+import { useState } from "react";
 
 export default function MedicalConcentrate({ casesDataRef }) {
+  const [checkedUnknown, setCheckedUnknown] = useState(false);
   const handleSelect = (event) => {
+    event.target.value === "unknown"
+      ? setCheckedUnknown(true)
+      : setCheckedUnknown(false);
     casesDataRef.current.concentrate = event.target.value;
   };
+
   return (
-    <Wrapper id="concentrate">
-      {data.map(({ key, src, name }) => (
-        <Label key={key}>
-          <Img src={src} />
-          <Checkmark />
-          <Text>{name}</Text>
-          <Input
-            name="MedicalConcentrate"
-            value={key}
-            onChange={handleSelect}
-          />
-        </Label>
-      ))}
-    </Wrapper>
+    <Container>
+      <Wrapper id="concentrate">
+        {data.map(({ key, src, name }) => (
+          <Label key={key}>
+            <Img src={src} />
+            <Checkmark />
+            <Text>{name}</Text>
+            <Input
+              name="MedicalConcentrate"
+              value={key}
+              onChange={handleSelect}
+            />
+          </Label>
+        ))}
+      </Wrapper>
+      <Label key="unknown">
+        <Flex>
+          <Circle id="Circle" redBorder={checkedUnknown}>
+            <CheckmarkUnknown show={checkedUnknown} />
+          </Circle>
+          <UnknownText>לא ידוע</UnknownText>
+        </Flex>
+        <Input
+          name="MedicalConcentrate"
+          value="unknown"
+          onChange={handleSelect}
+        />
+      </Label>
+    </Container>
   );
 }
 
@@ -57,10 +78,20 @@ const Checkmark = styled.img.attrs({ src: checkmark })`
     display: none;
   }
 `;
+const CheckmarkUnknown = styled.img.attrs({ src: checkmark })`
+  display: ${({ show }) => (show ? "block" : "none")};
+`;
 
 const Text = styled.p`
   text-align: center;
   font-size: 1.25rem;
+  margin-block-end: 40px;
+  margin-block-start: 0;
+`;
+const UnknownText = styled.p`
+  text-align: start;
+  font-size: 1.25rem;
+  margin: 0;
 `;
 
 const Label = styled.label`
@@ -72,4 +103,26 @@ const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 36px;
+`;
+const Circle = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: border 250ms ease-in;
+  border: 1px solid ${({ redBorder }) => (redBorder ? "#F02A4C" : "black")};
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  margin-bottom: 2px;
+`;
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Flex = styled.div`
+  display: flex;
+  gap: 9px;
+  align-items: center;
 `;

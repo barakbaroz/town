@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import background from "../assets/Backgrounds/login.jpg";
 import gistLogo from "../assets/Logos/gist_logo_mask.svg";
-import hospitalLogo from "../assets/Logos/hospital_logo_mask.png";
+import hospitalLogo from "../assets/Logos/hospital_logo_Login.svg";
 
 const Login = () => {
   const navigate = useNavigate();

@@ -82,6 +82,7 @@ const concentrateMapper = {
   moviprep: "מוביפרפ",
   picolax: "פיקולקס",
   meroken: "מרוקן",
+  unknown: "לא ידוע",
 };
 
 const DateAndTime = styled.div`
