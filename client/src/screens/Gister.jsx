@@ -15,6 +15,12 @@ function Gister() {
   const [loading, setLoading] = useState(false);
   const [showDuplicatePopup, setShowDuplicatePopup] = useState(false);
 
+  const handleDate = () => {
+    if (casesDataRef.current.date.year < 100)
+      casesDataRef.current.date.year += 2000;
+    casesDataRef.current.date = casesDataRef.current.date.toDate();
+  };
+
   const checkMissingFields = (data) => {
     let missing = false;
     for (const [key, test] of Object.entries(validator)) {
@@ -43,6 +49,7 @@ function Gister() {
     const data = casesDataRef.current;
     const missingFields = checkMissingFields(data);
     if (missingFields) return;
+    handleDate();
     setLoading(true);
     axios
       .post("/api/cases/duplicate", data)

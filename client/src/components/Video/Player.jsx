@@ -26,7 +26,7 @@ function Player({ setShowFeedback, videoRef }) {
       procedureDate,
       concentrate,
       questionnaire,
-      hospital: "belinson",
+      hospital: "yoseftal",
     };
   }, [language, userInfo]);
 
