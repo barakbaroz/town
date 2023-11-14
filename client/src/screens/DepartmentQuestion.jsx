@@ -46,9 +46,6 @@ function DepartmentQuestion() {
           <Option value="preSurgery">
             <Translator>preSurgery</Translator>
           </Option>
-          <Option value="anesthesia">
-            <Translator>anesthesia</Translator>
-          </Option>
         </Select>
       </SelectContainer>
     </AuthQuestionLayout>
