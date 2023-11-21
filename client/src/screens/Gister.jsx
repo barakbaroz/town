@@ -14,11 +14,17 @@ function Gister() {
   const casesDataRef = useRef({});
   const [loading, setLoading] = useState(false);
   const [showDuplicatePopup, setShowDuplicatePopup] = useState(false);
+  const [pastDate, setPastDate] = useState(false);
 
   const handleDate = () => {
     if (casesDataRef.current.date.year < 100)
       casesDataRef.current.date.year += 2000;
     casesDataRef.current.date = casesDataRef.current.date.toDate();
+  };
+  const checkDateValidity = () => {
+    const enteredDate = new Date(casesDataRef.current.date);
+    const today = new Date();
+    if (enteredDate < today) setPastDate(true);
   };
 
   const checkMissingFields = (data) => {
@@ -26,6 +32,7 @@ function Gister() {
     for (const [key, test] of Object.entries(validator)) {
       if (test(data)) continue;
       const el = document.getElementById(key);
+      if (key === "date") checkDateValidity();
       if (el) el.classList.add("invalid");
       missing = true;
     }
@@ -47,6 +54,7 @@ function Gister() {
 
   const handleSubmit = () => {
     const data = casesDataRef.current;
+    setPastDate(false);
     const missingFields = checkMissingFields(data);
     if (missingFields) return;
     handleDate();
@@ -79,7 +87,9 @@ function Gister() {
           </GisterStep>
         </CasesDetails>
         <ButtonContainer>
-          <ErrorTitle>* חסרים נתונים להמשך תהליך</ErrorTitle>
+          <ErrorTitle>
+            {pastDate ? errorTitles.pastDate : errorTitles.generic}
+          </ErrorTitle>
           <SubmitButton disabled={loading} onClick={handleSubmit}>
             שליחה
           </SubmitButton>
@@ -96,8 +106,18 @@ const validator = {
   phoneNumber: ({ phoneNumber }) => /^\d{10}$/.test(phoneNumber),
   yearOfBirth: ({ yearOfBirth }) => yearOfBirth?.length === 4,
   concentrate: ({ concentrate }) => Boolean(concentrate),
-  date: ({ date }) => Boolean(date),
+  date: ({ date }) => {
+    // check if the date is not empty and is greater than or equal to today
+    const enteredDate = new Date(date);
+    const today = new Date();
+    return Boolean(date) && enteredDate >= today;
+  },
   time: ({ time }) => Boolean(time),
+};
+
+const errorTitles = {
+  generic: "* חסרים נתונים להמשך תהליך",
+  pastDate: "* חסרים נתונים להמשך תהליך וכן הוזן תאריך עבר",
 };
 
 const GisterContainer = styled.div`
