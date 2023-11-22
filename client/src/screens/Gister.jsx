@@ -21,29 +21,20 @@ function Gister() {
       casesDataRef.current.date.year += 2000;
     casesDataRef.current.date = casesDataRef.current.date.toDate();
   };
-  const checkPastDate = () => {
-    let pastDate = false;
-    const enteredDate = new Date(casesDataRef.current.date);
-    const today = new Date();
-    pastDate = enteredDate < today;
-    const dateEl = document.getElementById("date");
-    if (pastDate) dateEl.classList.add("invalid");
-    return pastDate;
-  };
 
-  const checkMissingFields = (data) => {
+  const checkErrorFields = (data) => {
     let missing = false;
     let pastDate = false;
 
     for (const [key, test] of Object.entries(validator)) {
-      if (test(data)) continue;
+      const validationResult = test(data);
+      if (!validationResult.missing && !validationResult.error) continue;
       const el = document.getElementById(key);
-      if (key === "pastDate") {
-        pastDate = checkPastDate();
-        continue;
-      }
       if (el) el.classList.add("invalid");
-      missing = true;
+      missing = missing || validationResult.missing;
+      if (key == "date") {
+        pastDate = validationResult.error;
+      }
     }
 
     if (missing && pastDate) {
@@ -71,8 +62,8 @@ function Gister() {
 
   const handleSubmit = () => {
     const data = casesDataRef.current;
-    const missingFields = checkMissingFields(data);
-    if (missingFields) return;
+    const errorFields = checkErrorFields(data);
+    if (errorFields) return;
     handleDate();
     setLoading(true);
     axios
@@ -115,19 +106,18 @@ function Gister() {
 
 export default Gister;
 
+const isFutureDate = (date) => {
+  const today = new Date();
+  return new Date(date) >= today;
+};
+
 const validator = {
-  zehutNumber: ({ zehutNumber }) => zehutNumber?.length === 4,
-  phoneNumber: ({ phoneNumber }) => /^\d{10}$/.test(phoneNumber),
-  yearOfBirth: ({ yearOfBirth }) => yearOfBirth?.length === 4,
-  concentrate: ({ concentrate }) => Boolean(concentrate),
-  date: ({ date }) => {
-    // check if the date is not empty and is greater than or equal to today
-    return Boolean(date);
-  },
-  time: ({ time }) => Boolean(time),
-  pastDate: () => {
-    return false;
-  },
+  zehutNumber: ({ zehutNumber }) => { return { missing: zehutNumber?.length !== 4 } },
+  phoneNumber: ({ phoneNumber }) => { return { missing: !(/^\d{10}$/.test(phoneNumber)) } },
+  yearOfBirth: ({ yearOfBirth }) => { return { missing: yearOfBirth?.length !== 4 } },
+  concentrate: ({ concentrate }) => { return { missing: !concentrate } },
+  date: ({ date }) => { return { missing: !date, error: !isFutureDate(date) } },
+  time: ({ time }) => { return { missing: !time } },
 };
 
 const errorTitles = {
