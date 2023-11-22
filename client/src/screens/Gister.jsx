@@ -21,6 +21,15 @@ function Gister() {
       casesDataRef.current.date.year += 2000;
     casesDataRef.current.date = casesDataRef.current.date.toDate();
   };
+  const checkPastDate = () => {
+    let pastDate = false;
+    const enteredDate = new Date(casesDataRef.current.date);
+    const today = new Date();
+    pastDate = enteredDate < today;
+    const dateEl = document.getElementById("date");
+    if (pastDate) dateEl.classList.add("invalid");
+    return pastDate;
+  };
 
   const checkMissingFields = (data) => {
     let missing = false;
@@ -30,11 +39,7 @@ function Gister() {
       if (test(data)) continue;
       const el = document.getElementById(key);
       if (key === "pastDate") {
-        const enteredDate = new Date(casesDataRef.current.date);
-        const today = new Date();
-        pastDate = enteredDate < today;
-        const dateEl = document.getElementById("date");
-        if (pastDate) dateEl.classList.add("invalid");
+        pastDate = checkPastDate();
         continue;
       }
       if (el) el.classList.add("invalid");
