@@ -14,6 +14,7 @@ function Gister() {
   const casesDataRef = useRef({});
   const [loading, setLoading] = useState(false);
   const [showDuplicatePopup, setShowDuplicatePopup] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(errorTitles.missingFields);
 
   const handleDate = () => {
     if (casesDataRef.current.date.year < 100)
@@ -21,17 +22,31 @@ function Gister() {
     casesDataRef.current.date = casesDataRef.current.date.toDate();
   };
 
-  const checkMissingFields = (data) => {
+  const checkErrorFields = (data) => {
     let missing = false;
+    let pastDate = false;
+
     for (const [key, test] of Object.entries(validator)) {
-      if (test(data)) continue;
+      const validationResult = test(data);
+      if (!validationResult.missing && !validationResult.error) continue;
       const el = document.getElementById(key);
       if (el) el.classList.add("invalid");
-      missing = true;
+      missing = missing || validationResult.missing;
+      if (key == "date") {
+        pastDate = validationResult.error;
+      }
     }
-    return missing;
-  };
 
+    if (missing && pastDate) {
+      setErrorMessage(errorTitles.missingFieldsAndPastDate);
+    } else if (pastDate) {
+      setErrorMessage(errorTitles.pastDate);
+    } else if (missing) {
+      setErrorMessage(errorTitles.missingFields);
+    }
+
+    return missing || pastDate;
+  };
   const createCase = () => {
     setLoading(true);
     return axios
@@ -47,8 +62,8 @@ function Gister() {
 
   const handleSubmit = () => {
     const data = casesDataRef.current;
-    const missingFields = checkMissingFields(data);
-    if (missingFields) return;
+    const errorFields = checkErrorFields(data);
+    if (errorFields) return;
     handleDate();
     setLoading(true);
     axios
@@ -79,7 +94,7 @@ function Gister() {
           </GisterStep>
         </CasesDetails>
         <ButtonContainer>
-          <ErrorTitle>* חסרים נתונים להמשך תהליך</ErrorTitle>
+          <ErrorTitle>{errorMessage}</ErrorTitle>
           <SubmitButton disabled={loading} onClick={handleSubmit}>
             שליחה
           </SubmitButton>
@@ -91,13 +106,24 @@ function Gister() {
 
 export default Gister;
 
+const isFutureDate = (date) => {
+  const today = new Date();
+  return new Date(date) >= today;
+};
+
 const validator = {
-  zehutNumber: ({ zehutNumber }) => zehutNumber?.length === 4,
-  phoneNumber: ({ phoneNumber }) => /^\d{10}$/.test(phoneNumber),
-  yearOfBirth: ({ yearOfBirth }) => yearOfBirth?.length === 4,
-  concentrate: ({ concentrate }) => Boolean(concentrate),
-  date: ({ date }) => Boolean(date),
-  time: ({ time }) => Boolean(time),
+  zehutNumber: ({ zehutNumber }) => { return { missing: zehutNumber?.length !== 4 } },
+  phoneNumber: ({ phoneNumber }) => { return { missing: !(/^\d{10}$/.test(phoneNumber)) } },
+  yearOfBirth: ({ yearOfBirth }) => { return { missing: yearOfBirth?.length !== 4 } },
+  concentrate: ({ concentrate }) => { return { missing: !concentrate } },
+  date: ({ date }) => { return { missing: !date, error: !isFutureDate(date) } },
+  time: ({ time }) => { return { missing: !time } },
+};
+
+const errorTitles = {
+  missingFields: "* חסרים נתונים להמשך תהליך",
+  missingFieldsAndPastDate: "* חסרים נתונים להמשך תהליך וכן הוזן תאריך עבר",
+  pastDate: "* הוזן תאריך עבר",
 };
 
 const GisterContainer = styled.div`
