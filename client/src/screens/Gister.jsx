@@ -34,7 +34,7 @@ function Gister() {
         const today = new Date();
         pastDate = enteredDate < today;
         const dateEl = document.getElementById("date");
-        dateEl.classList.add("invalid");
+        if (pastDate) dateEl.classList.add("invalid");
         continue;
       }
       if (el) el.classList.add("invalid");
@@ -45,7 +45,7 @@ function Gister() {
       setErrorMessage(errorTitles.missingFieldsAndPastDate);
     } else if (pastDate) {
       setErrorMessage(errorTitles.pastDate);
-    } else {
+    } else if (missing) {
       setErrorMessage(errorTitles.missingFields);
     }
 
