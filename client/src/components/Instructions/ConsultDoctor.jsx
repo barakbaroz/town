@@ -49,7 +49,7 @@ function ConsultDoctor() {
         show={pdfs[key]}
         onClick={handleConsultClick}
       >
-        <Translator>טופס לרופא/ת משפחה</Translator>
+        <Translator>Consult-Doctor-Download</Translator>
       </StyledButton>
     </Card>
   );
