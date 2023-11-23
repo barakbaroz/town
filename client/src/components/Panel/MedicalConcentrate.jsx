@@ -4,14 +4,9 @@ import moviprep from "../../assets/Gister/moviprep.svg";
 import picolax from "../../assets/Gister/picolax.svg";
 import meroken from "../../assets/Gister/meroken.svg";
 import checkmark from "../../assets/Gister/checkmark.svg";
-import { useState } from "react";
 
 export default function MedicalConcentrate({ casesDataRef }) {
-  const [checkedUnknown, setCheckedUnknown] = useState(false);
   const handleSelect = (event) => {
-    event.target.value === "unknown"
-      ? setCheckedUnknown(true)
-      : setCheckedUnknown(false);
     casesDataRef.current.concentrate = event.target.value;
   };
 
@@ -31,19 +26,6 @@ export default function MedicalConcentrate({ casesDataRef }) {
           </Label>
         ))}
       </Wrapper>
-      <Label key="unknown">
-        <Flex>
-          <Circle id="Circle" redBorder={checkedUnknown}>
-            <CheckmarkUnknown show={checkedUnknown} />
-          </Circle>
-          <UnknownText>לא ידוע</UnknownText>
-        </Flex>
-        <Input
-          name="MedicalConcentrate"
-          value="unknown"
-          onChange={handleSelect}
-        />
-      </Label>
     </Container>
   );
 }
@@ -78,20 +60,12 @@ const Checkmark = styled.img.attrs({ src: checkmark })`
     display: none;
   }
 `;
-const CheckmarkUnknown = styled.img.attrs({ src: checkmark })`
-  display: ${({ show }) => (show ? "block" : "none")};
-`;
 
 const Text = styled.p`
   text-align: center;
   font-size: 1.25rem;
   margin-block-end: 40px;
   margin-block-start: 0;
-`;
-const UnknownText = styled.p`
-  text-align: start;
-  font-size: 1.25rem;
-  margin: 0;
 `;
 
 const Label = styled.label`
