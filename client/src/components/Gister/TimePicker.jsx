@@ -3,16 +3,20 @@ import PropTypes from "prop-types";
 import { ReactComponent as MoonIcon } from "../../assets/Icons/moon.svg";
 import { ReactComponent as SunIcon } from "../../assets/Icons/sun.svg";
 import { useEffect, useState } from "react";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { TimeField } from "@mui/x-date-pickers/TimeField";
 
 export default function TimePicker({ defaultValue, onChange, ...props }) {
   const [highlight, setHighlight] = useState(null);
 
-  const hansleChange = (e) => {
-    const { value } = e.target;
-    if (!value) return setHighlight(null);
-    const [hours] = value.split(":");
+  const handleChange = (e) => {
+    const hours = e.hour();
+    const minutes = e.minute();
+    if (!hours && !minutes) return setHighlight(null);
     setHighlight(hours >= 15 ? "moon" : "sun");
-    if (onChange) onChange(value);
+    const time = `${hours}:${minutes}`;
+    if (onChange) onChange(time);
   };
 
   useEffect(() => {
@@ -24,7 +28,9 @@ export default function TimePicker({ defaultValue, onChange, ...props }) {
 
   return (
     <Container {...props}>
-      <Time onChange={hansleChange} defaultValue={defaultValue} />
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <Time onChange={handleChange} format="HH:mm" placeholder="00:00" />
+      </LocalizationProvider>
       <Sun highlight={highlight} />
       <Moon highlight={highlight} />
     </Container>
@@ -35,8 +41,6 @@ TimePicker.propTypes = {
   onChange: PropTypes.func,
   defaultValue: PropTypes.string,
 };
-
-TimePicker.defaultProps = {};
 
 const highlightCSS = css`
   fill: #7a9dfd;
@@ -60,15 +64,23 @@ const Sun = styled(SunIcon)`
   ${({ highlight }) => highlight === "sun" && highlightCSS}
 `;
 
-const Time = styled.input.attrs({ type: "time" })`
+const Time = styled(TimeField).attrs({
+  type: "text",
+  classes: { notchedOutline: "custom-notched-outline-class" },
+})`
   padding-inline: 0.563em;
   font-size: 1em;
   font-family: inherit;
-  border: none;
   outline: none;
   background-color: transparent;
-  &::-webkit-calendar-picker-indicator {
-    display: none;
+  /* override the specific css attributes */
+  .MuiOutlinedInput-notchedOutline {
+    border: none !important;
+  }
+  && .MuiOutlinedInput-input {
+    padding: 0;
+    text-align: center;
+    width: 130px;
   }
 `;
 
