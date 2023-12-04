@@ -6,6 +6,7 @@ import { DatePicker } from "@gistmed/gist-ui";
 import TimePicker from "../Gister/TimePicker";
 import { parseDate } from "@internationalized/date";
 import axios from "axios";
+import dayjs from "dayjs";
 
 const CaseItemExpand = ({ item, show }) => {
   const handleChangeDate = (data) => {
@@ -20,6 +21,11 @@ const CaseItemExpand = ({ item, show }) => {
       id: item.id,
       procedureTime: time,
     });
+  };
+
+  const formatTime = (timeStr) => {
+    const [hours, minutes] = timeStr.split(":");
+    return dayjs().set("hour", hours).set("minute", minutes).format("HH:mm");
   };
 
   return (
@@ -49,8 +55,11 @@ const CaseItemExpand = ({ item, show }) => {
           </DateAndTimeWrapper>
           <DateAndTimeWrapper>
             <TimePicker
-              defaultValue={item.procedureTime}
+              defaultValue={`${item.procedureDate}T${formatTime(
+                item.procedureTime
+              )}`}
               onChange={handleChangeTime}
+              fromCaseItem={true}
             />
           </DateAndTimeWrapper>
         </DateAndTime>
@@ -82,7 +91,6 @@ const concentrateMapper = {
   moviprep: "מוביפרפ",
   picolax: "פיקולקס",
   meroken: "מרוקן",
-  unknown: "לא ידוע",
 };
 
 const DateAndTime = styled.div`
@@ -95,6 +103,7 @@ const DateAndTimeWrapper = styled.div`
   background-color: #f2f3f7;
   padding-inline: 16px;
   padding-block: 7px;
+  width: 7.8125em;
 `;
 const DateAndTimeTitle = styled.div`
   color: #84a4fc;

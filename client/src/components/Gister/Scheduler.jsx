@@ -24,7 +24,7 @@ export default function Scheduler({ casesDataRef }) {
         />
       </Wrapper>
       <Wrapper id="time">
-        <TimePicker onChange={handleTimeSelect} />
+        <TimePicker fromCaseItem={false} onChange={handleTimeSelect} />
       </Wrapper>
     </Container>
   );

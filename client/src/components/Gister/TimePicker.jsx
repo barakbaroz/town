@@ -6,8 +6,14 @@ import { useEffect, useState } from "react";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { TimeField } from "@mui/x-date-pickers/TimeField";
+import dayjs from "dayjs";
 
-export default function TimePicker({ defaultValue, onChange, ...props }) {
+export default function TimePicker({
+  defaultValue,
+  onChange,
+  fromCaseItem,
+  ...props
+}) {
   const [highlight, setHighlight] = useState(null);
 
   const handleChange = (e) => {
@@ -21,7 +27,7 @@ export default function TimePicker({ defaultValue, onChange, ...props }) {
 
   useEffect(() => {
     if (defaultValue) {
-      const [hours] = defaultValue.split(":");
+      const hours = defaultValue.split("T")[1].split(":")[0];
       setHighlight(hours >= 15 ? "moon" : "sun");
     }
   }, [defaultValue]);
@@ -29,7 +35,13 @@ export default function TimePicker({ defaultValue, onChange, ...props }) {
   return (
     <Container {...props}>
       <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <Time onChange={handleChange} format="HH:mm" placeholder="00:00" />
+        <Time
+          fromCaseItem={fromCaseItem}
+          onChange={handleChange}
+          format="HH:mm"
+          placeholder="00:00"
+          value={defaultValue ? dayjs(defaultValue) : null}
+        />
       </LocalizationProvider>
       <Sun highlight={highlight} />
       <Moon highlight={highlight} />
@@ -40,6 +52,7 @@ export default function TimePicker({ defaultValue, onChange, ...props }) {
 TimePicker.propTypes = {
   onChange: PropTypes.func,
   defaultValue: PropTypes.string,
+  fromCaseItem: PropTypes.bool,
 };
 
 const highlightCSS = css`
@@ -64,10 +77,7 @@ const Sun = styled(SunIcon)`
   ${({ highlight }) => highlight === "sun" && highlightCSS}
 `;
 
-const Time = styled(TimeField).attrs({
-  type: "text",
-  classes: { notchedOutline: "custom-notched-outline-class" },
-})`
+const Time = styled(TimeField).attrs({ type: "text" })`
   padding-inline: 0.563em;
   font-size: 1em;
   font-family: inherit;
@@ -79,8 +89,8 @@ const Time = styled(TimeField).attrs({
   }
   && .MuiOutlinedInput-input {
     padding: 0;
-    text-align: center;
-    width: 130px;
+    text-align: ${({ fromCaseItem }) => (fromCaseItem ? "end" : "center")};
+    width: 8.125em;
   }
 `;
 
