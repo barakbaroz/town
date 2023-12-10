@@ -55,9 +55,9 @@ const CaseItemExpand = ({ item, show }) => {
           </DateAndTimeWrapper>
           <DateAndTimeWrapper>
             <TimePicker
-              defaultValue={`${item.procedureDate}T${formatTime(
-                item.procedureTime
-              )}`}
+              defaultValue={`${item.procedureDate}T${
+                item.procedureTime ? formatTime(item.procedureTime) : null
+              }`}
               onChange={handleChangeTime}
               fromCaseItem={true}
             />
