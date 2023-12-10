@@ -1461,7 +1461,7 @@ to {
   flex-direction: column;
   align-items: center;
   margin-block-end: 49px;
-`,moviprep="/assets/moviprep-61a3b504.svg",picolax="/assets/picolax-1787a50a.svg",meroken="/assets/meroken-909ce557.svg",checkmark="/assets/checkmark-d9c2e3f1.svg";function MedicalConcentrate({casesDataRef:i}){const[a,s]=reactExports.useState(!1),o=et=>{et.target.value==="unknown"?s(!0):s(!1),i.current.concentrate=et.target.value};return jsxRuntimeExports.jsxs(Container$c,{children:[jsxRuntimeExports.jsx(Wrapper$2,{id:"concentrate",children:data$1.map(({key:et,src:tt,name:rt})=>jsxRuntimeExports.jsxs(Label$1,{children:[jsxRuntimeExports.jsx(Img,{src:tt}),jsxRuntimeExports.jsx(Checkmark,{}),jsxRuntimeExports.jsx(Text$5,{children:rt}),jsxRuntimeExports.jsx(Input$2,{name:"MedicalConcentrate",value:et,onChange:o})]},et))}),jsxRuntimeExports.jsxs(Label$1,{children:[jsxRuntimeExports.jsxs(Flex,{children:[jsxRuntimeExports.jsx(Circle,{id:"Circle",redBorder:a,children:jsxRuntimeExports.jsx(CheckmarkUnknown,{show:a})}),jsxRuntimeExports.jsx(UnknownText,{children:"לא ידוע"})]}),jsxRuntimeExports.jsx(Input$2,{name:"MedicalConcentrate",value:"unknown",onChange:o})]},"unknown")]})}MedicalConcentrate.propTypes={casesDataRef:PropTypes.object};const data$1=[{key:"moviprep",name:"מוביפרפ",src:moviprep},{key:"picolax",name:"פיקולקס",src:picolax},{key:"meroken",name:"מרוקן",src:meroken}],Input$2=styled$3.input.attrs({type:"radio"})`
+`,moviprep="/assets/moviprep-61a3b504.svg",picolax="/assets/picolax-1787a50a.svg",meroken="/assets/meroken-909ce557.svg",checkmark="/assets/checkmark-d9c2e3f1.svg";function MedicalConcentrate({casesDataRef:i}){const a=s=>{i.current.concentrate=s.target.value};return jsxRuntimeExports.jsx(Container$c,{children:jsxRuntimeExports.jsx(Wrapper$2,{id:"concentrate",children:data$1.map(({key:s,src:o,name:et})=>jsxRuntimeExports.jsxs(Label$1,{children:[jsxRuntimeExports.jsx(Img,{src:o}),jsxRuntimeExports.jsx(Checkmark,{}),jsxRuntimeExports.jsx(Text$5,{children:et}),jsxRuntimeExports.jsx(Input$2,{name:"MedicalConcentrate",value:s,onChange:a})]},s))})})}MedicalConcentrate.propTypes={casesDataRef:PropTypes.object};const data$1=[{key:"moviprep",name:"מוביפרפ",src:moviprep},{key:"picolax",name:"פיקולקס",src:picolax},{key:"meroken",name:"מרוקן",src:meroken}],Input$2=styled$3.input.attrs({type:"radio"})`
   display: none;
 `,Img=styled$3.img`
   border-radius: 15px;
@@ -1476,17 +1476,11 @@ to {
   &:not(:has(~ ${Input$2}:checked)) {
     display: none;
   }
-`,CheckmarkUnknown=styled$3.img.attrs({src:checkmark})`
-  display: ${({show:i})=>i?"block":"none"};
 `,Text$5=styled$3.p`
   text-align: center;
   font-size: 1.25rem;
   margin-block-end: 40px;
   margin-block-start: 0;
-`,UnknownText=styled$3.p`
-  text-align: start;
-  font-size: 1.25rem;
-  margin: 0;
 `,Label$1=styled$3.label`
   cursor: pointer;
   position: relative;
@@ -1494,23 +1488,9 @@ to {
   display: flex;
   flex-wrap: wrap;
   gap: 36px;
-`,Circle=styled$3.div`
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  transition: border 250ms ease-in;
-  border: 1px solid ${({redBorder:i})=>i?"#F02A4C":"black"};
-  display: flex;
-  align-items: start;
-  justify-content: center;
-  margin-bottom: 2px;
 `,Container$c=styled$3.div`
   display: flex;
   flex-direction: column;
-`,Flex=styled$3.div`
-  display: flex;
-  gap: 9px;
-  align-items: center;
 `;function Scheduler({casesDataRef:i}){const a=o=>{i.current.date=o,document.getElementById("date").classList.remove("invalid")},s=o=>{i.current.time=o,document.getElementById("time").classList.remove("invalid")};return jsxRuntimeExports.jsxs(Container$b,{children:[jsxRuntimeExports.jsx(Wrapper$1,{id:"date",children:jsxRuntimeExports.jsx(DatePicker,{label:"date",defaultValue:null,onChange:a})}),jsxRuntimeExports.jsx(Wrapper$1,{id:"time",children:jsxRuntimeExports.jsx(TimePicker,{fromCaseItem:!1,onChange:s})})]})}Scheduler.propTypes={casesDataRef:PropTypes.object};const Wrapper$1=styled$3.div`
   background-color: #f2f3f7;
   border-radius: 100vh;
