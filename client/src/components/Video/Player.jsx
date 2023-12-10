@@ -26,7 +26,7 @@ function Player({ setShowFeedback, videoRef }) {
       procedureDate,
       concentrate,
       questionnaire,
-      hospital: "yoseftal",
+      hospital: "ichilov",
     };
   }, [language, userInfo]);
 

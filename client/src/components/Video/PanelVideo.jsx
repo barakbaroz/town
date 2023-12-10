@@ -22,7 +22,7 @@ export default function PanelVideo({ close, item, show }) {
       procedureDate,
       concentrate,
       questionnaire,
-      hospital: "belinson",
+      hospital: "ichilov",
     };
   }, [item]);
 
