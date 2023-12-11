@@ -31,7 +31,6 @@ const dontForgetItems = [
   "tofes17",
   "medicalReferral",
   "companion",
-  "driving",
 ];
 
 export default DontForget;

@@ -11,8 +11,8 @@ import white_v from "../assets/Icons/white_v.svg";
 
 const questions = [
   "diabetesMedicines",
+  "bloodPressureMedicines",
   "bloodThinners",
-  "cpap",
   "nutritionalSupplement",
   "colonoscopyBefore",
 ];

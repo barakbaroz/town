@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { Translator } from "../Translation";
-import InstructionsSteps from "./InstructionsSteps";
 import { Card, Icon, Title, TopSection } from "./Card.Style";
 import { buttonCSS } from "../general.style";
 import nutrition from "../../assets/Icons/nutrition.svg";
@@ -20,22 +19,7 @@ const pdfs = {
 
 function NutritionalGuidelines() {
   const { Case } = useUser();
-  const { procedureDate, procedureTime, concentrate } = Case;
-  const procedureDateTime = new Date(procedureDate);
-
-  const [hours, minutes] = procedureTime.split(":").map(Number);
-  const examinationDateAndTime = new Date(
-    procedureDateTime.getFullYear(),
-    procedureDateTime.getMonth(),
-    procedureDateTime.getDate(),
-    hours,
-    minutes
-  );
-
-  const examinationDate = new Intl.DateTimeFormat("he-IL", {
-    dateStyle: "full",
-    timeStyle: "short",
-  }).format(new Date(examinationDateAndTime));
+  const { concentrate } = Case;
 
   const handlePersonalNutritionClick = () => {
     postAnalytics({ type: "nutrition-instruction-clicked" });
@@ -52,12 +36,6 @@ function NutritionalGuidelines() {
       <Text>
         <Translator>Nutritional-Guidelines-Preview</Translator>
       </Text>
-      <Text>
-        <Translator>הבדיקה שלך נקבעה ל</Translator>
-        <span>{examinationDate}</span>
-      </Text>
-
-      <InstructionsSteps />
 
       <StyledButton
         href={pdfs[concentrate]}
@@ -78,7 +56,6 @@ const Text = styled.p`
 `;
 
 const StyledButton = styled.a`
-  margin-block-start: 1.125rem;
   text-align: center;
   ${buttonCSS}
 `;

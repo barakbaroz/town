@@ -9,12 +9,12 @@ import NutritionalGuidelines from "../components/Instructions/NutritionalGuideli
 import ConsultDoctor from "../components/Instructions/ConsultDoctor";
 import DontForget from "../components/Instructions/DontForget";
 import Consent from "../components/Instructions/Consent";
-import CallCenter from "../components/Instructions/CallCenter";
 import arrow_up from "../assets/Icons/arrow_up.svg";
 import nurseLottie from "../assets/Lotties/Nurse_Small.json";
-import Cpap from "../components/Instructions/Cpap";
+import MedicinesChanges from "../components/Instructions/MedicinesChanges";
 import Transition from "../Transition";
 import { postAnalytics } from "../analytics";
+import Share from "../components/Instructions/Share";
 
 const lottieOptions = { animationData: nurseLottie, loop: true };
 
@@ -39,13 +39,19 @@ function VideoPage() {
         </Title>
         <Player setShowFeedback={setShowFeedback} videoRef={videoRef} />
         <VideoInteraction>
+          <ShareWrapper dir="rtl">
+            <Share />
+          </ShareWrapper>
           <SatisfactionQuestions videoStarted={showFeedback} />
         </VideoInteraction>
+        <SubTitle>
+          <Translator>Cards-Title</Translator>
+        </SubTitle>
 
         <CardsWrapper>
           <NutritionalGuidelines />
+          <MedicinesChanges />
           <ConsultDoctor />
-          <Cpap />
           <DontForget />
           <Consent />
         </CardsWrapper>
@@ -59,8 +65,6 @@ function VideoPage() {
           </ScrollButton>
         </ScrollSectionWrapper>
 
-        <Divider />
-        <CallCenter />
         <Divider />
 
         <Footer>
@@ -92,13 +96,21 @@ const StyledLanguageBar = styled.div`
   margin-inline: var(--screen-margin);
 `;
 
-const Title = styled.p`
+const CommonTitleStyles = styled.p`
   text-align: start;
   font-size: 1.5rem;
   font-weight: 500;
+  margin-inline: var(--screen-margin);
+`;
+
+const Title = styled(CommonTitleStyles)`
   margin-block-start: 2.125rem;
   margin-block-end: 1.813rem;
-  margin-inline: var(--screen-margin);
+`;
+
+const SubTitle = styled(CommonTitleStyles)`
+  margin-block-start: 0;
+  margin-block-end: 2rem;
 `;
 
 const ScrollSectionWrapper = styled.div`
@@ -120,8 +132,8 @@ const VideoInteraction = styled.div`
   flex-direction: column;
   gap: 27px;
   justify-content: end;
-  margin-block-start: 40px;
-  margin-block-end: 45px;
+  margin-block-start: 14px;
+  margin-block-end: 54px;
   margin-inline: var(--screen-margin);
 `;
 
@@ -164,4 +176,12 @@ const NurseLottie = styled(Lottie)`
   width: 130px;
   max-width: 100%;
   margin-block-end: 22px;
+`;
+
+const ShareWrapper = styled.div`
+  text-align: end;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin-block-start: 0;
 `;

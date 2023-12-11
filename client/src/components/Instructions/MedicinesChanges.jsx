@@ -4,33 +4,38 @@ import { Translator } from "../Translation";
 import { Icon, Title, TopSection } from "./Card.Style";
 import redFlag from "../../assets/Icons/red_Flag.svg";
 import { useUser } from "../../providers/UserProvider";
+import gist_v from "../../assets/Icons/gist_v.svg";
 
-function Cpap() {
+function MedicinesChanges() {
   const { Questionnaires } = useUser();
-  const cpapAnsweredYes = Questionnaires.find(
+  const yesAnswers = Questionnaires.filter(
     (questionObj) =>
-      questionObj.questionKey === "cpap" && questionObj.answerKey === "Yes"
-  );
+      questionObj.questionKey !== "colonoscopyBefore" &&
+      questionObj.answerKey === "Yes"
+  ).map((questionObj) => questionObj.questionKey);
 
   return (
-    <Container show={cpapAnsweredYes}>
+    <Container show={yesAnswers.length > 0}>
       <TopContent>
         <Title>
-          <Translator>Cpap-Title</Translator>
+          <Translator>MedicinesChanges-Title</Translator>
         </Title>
         <Icon src={redFlag} alt="consentForm" />
       </TopContent>
-
-      <Text>
-        <Translator>Cpap-Information</Translator>
-      </Text>
+      <ListContainer>
+        {yesAnswers.map((answer) => (
+          <ListItem key={answer}>
+            <Translator>MedicinesChanges-{answer}</Translator>
+          </ListItem>
+        ))}
+      </ListContainer>
     </Container>
   );
 }
 
-export default Cpap;
+export default MedicinesChanges;
 
-Cpap.propTypes = {
+MedicinesChanges.propTypes = {
   show: PropTypes.bool,
 };
 
@@ -44,10 +49,14 @@ const Container = styled.div`
   padding-block: 25px;
   background-color: #ffffff40;
 `;
-
-const Text = styled.p`
-  font-size: 1.188rem;
+const ListContainer = styled.ul`
+  padding-inline-start: 1.5rem;
   margin: 0;
+`;
+const ListItem = styled.li`
+  font-size: 1.188rem;
+  margin-block: 0.333rem;
+  list-style-image: url(${gist_v});
 `;
 const TopContent = styled(TopSection)`
   margin-block-end: 1.25rem;

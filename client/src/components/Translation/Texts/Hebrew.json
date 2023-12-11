@@ -23,7 +23,7 @@
   "remember-me": "זכור אותי במכשיר זה לפעם הבאה",
 
   "Start-Title": "שלום!",
-  "Start-Paragraph": "שלום, לקראת בדיקת הקולונוסקופיה שלך, הכנו עבורך סרטון הדרכה מותאם אישית אשר יקל עליך להתכונן לבדיקה",
+  "Start-Paragraph": "לקראת בדיקת הקולונוסקופיה שלך, נבקשך לענות על מספר שאלות ולצפות בסרטון הדרכה מותאם אישית שהכנו עבורך ויקל עליך להתכונן לבדיקה",
   "Start-Legal-Explain": "לחיצה על הכפתור מהווה אישור של",
   "Start-Legal-Link": "תנאי השימוש",
   "Next": "הבא",
@@ -32,9 +32,12 @@
   "No": "לא",
   "send": "שליחה",
   "share": "שיתוף",
-
+  
   "Share-Video-Text": "שלום, אני רוצה לשתף אותך בסרטון הדרכה שקיבלתי מקופת החולים.",
-  "Hospital-Name": "כללית",
+  "Hospital-Name": "איכילוב",
+  "ReWatch-Video-male": "תוכל לחזור ולצפות בסרטון שוב ולשתף אותו עם המלווים אותך בטיפול",
+  "ReWatch-Video-female": "תוכלי לחזור ולצפות בסרטון שוב ולשתף אותו עם המלווים אותך בטיפול.",
+
 
   "Character-Selection-Title": "בחירת הדמות שלך",
   "Character-Selection-Gender": "מה המין שלך?",
@@ -51,8 +54,8 @@
   "diabetesMedicines-female": "האם את נוטלת תרופות לסוכרת?",
   "bloodThinners-male": "האם אתה נוטל מדללי דם? (לדוגמא - אספירין, פלביקס, אליקוויס, קסרלטו, פרדקסה, קומדין או תרופה דומה)",
   "bloodThinners-female": "האם את נוטלת מדללי דם? (לדוגמא - אספירין, פלביקס, אליקוויס, קסרלטו, פרדקסה, קומדין או תרופה דומה)",
-  "cpap-male": "האם הומלץ לך על שימוש במכשיר סיפאפ?",
-  "cpap-female": "האם הומלץ לך על שימוש במכשיר סיפאפ?",
+  "bloodPressureMedicines-male": "האם אתה נוטל תרופות ללחץ דם או מחלת לב?",
+  "bloodPressureMedicines-female": "האם את נוטלת תרופות ללחץ דם או מחלת לב?",
   "nutritionalSupplement-male": "האם אתה נוטל תוספי תזונה המכילים ברזל?",
   "nutritionalSupplement-female": "האם את נוטלת תוספי תזונה המכילים ברזל?",
   "colonoscopyBefore-male": "האם עברת בעבר בדיקת קולונוסקופיה?",
@@ -61,53 +64,37 @@
 
   "Video-Back-To-Video": "חזרה לסרטון",
 
-  "Video-Title-male": "צפה בסרטון מותאם אישית שיסביר לך איך להתכונן לבדיקה שלך",
-  "Video-Title-female": "צפי בסרטון מותאם אישית שיסביר לך איך להתכונן לבדיקה שלך",
+  "Video-Title": "הסרטון הבא הותאם במיוחד עבורך",
+  "Cards-Title":"הנחיות חשובות לקראת הבדיקה שלך",
 
   "Nutritional-Guidelines-Title": "הנחיות תזונתיות",
-  "Nutritional-Guidelines-Preview": "לקראת הבדיקה שלך יש לעשות שינויים תזונתיים על פי הפירוט המופיע כאן  - יש לך תפקיד חשוב בהצלחת הבדיקה!",
-  "Nutritional-Guidelines-Download": "הנחיות תזונתיות להורדה",
-
-  "Instructions-Steps-Diet": "לעבור לדיאטה דלת סיבים",
-  "Instructions-Steps-Liquids": "החל מ 24 שעות לפני הבדיקה- לעבור לשתות נוזלים צלולים בלבד",
-  "Instructions-Steps-FirstPortion-moviprep": "לקחת את המנה הראשונה של מוביפרפ",
-  "Instructions-Steps-SecondPortion-moviprep": "לקחת את המנה השנייה של מוביפרפ",
-  "Instructions-Steps-FirstPortion-meroken": "לקחת את המנה הראשונה של מרוקן",
-  "Instructions-Steps-SecondPortion-meroken": "לקחת את המנה השנייה של מרוקן",
-  "Instructions-Steps-FirstPortion-picolax": "לקחת את המנה הראשונה של פיקולקס",
-  "Instructions-Steps-SecondPortion-picolax": "לקחת את המנה השנייה של פיקולקס",
-  "Instructions-Steps-FirstPortion-unknown": "לקחת את המנה הראשונה של החומר המשלשל",
-  "Instructions-Steps-SecondPortion-unknown": "לקחת את המנה השנייה של החומר המשלשל",
+  "Nutritional-Guidelines-Preview": "לקראת הבדיקה שלך חשוב מאוד להקפיד על הנחיות תזונתיות מותאמות אישית.",
+  "Nutritional-Guidelines-Download": "הנחיות מותאמות אישית להורדה",
 
   "Consult-Doctor-Title": "התייעצות עם הרופא/ה המטפל/ת",
   "Consult-Doctor-bloodThinners:Yes-diabetesMedicines:Yes": "עליך לפנות לרופא/ה מטפל/ת לצורך קבלת מרשם לחומרי ההכנה. היות ודיווחת כי הינך ֹנוטל תרופות, יש לעקוב אחר ההמלצות הפרטניות ולהביא לרופא/ה את הטופס להורדה המצורף כאן.",
   "Consult-Doctor-bloodThinners:No-diabetesMedicines:No": "עליך לפנות לרופא/ה מטפל/ת לצורך קבלת מרשם לחומרי ההכנה.",
   "Consult-Doctor-bloodThinners:No-diabetesMedicines:Yes": "עליך לפנות לרופא/ה מטפל/ת לצורך קבלת מרשם לחומרי ההכנה. היות ודיווחת כי הינך נוטל תרופות לטיפול בסוכרת, יש לעקוב אחר ההמלצות הפרטניות ולהביא לרופא/ה את הטופס להורדה המצורף כאן.",
   "Consult-Doctor-bloodThinners:Yes-diabetesMedicines:No": "עליך לפנות לרופא/ה מטפל/ת לצורך קבלת מרשם לחומרי ההכנה. היות ודיווחת כי הינך נוטל תרופות לדילול דם, יש לעקוב אחר ההמלצות הפרטניות ולהביא לרופא/ה את הטופס להורדה המצורף כאן.",
+  "Consult-Doctor-Download":"הנחיות לרופא/ה להורדה",
 
-  "Cpap-Title-male": "שים לב!",
-  "Cpap-Title-female": "שימי לב!",
-  "Cpap-Information": "במצב של שימוש בסיפאפ (CPAP) יש לפנות למזכירות לבדוק את הצורך בנוכחות רופא מרדים בזמן הפעולה.",
+  "MedicinesChanges-Title": "יש לשים לב לשינויים הנדרשים בתרופות שלך",
+  "MedicinesChanges-bloodThinners" : "יש להיוועץ עם רופא/ת המשפחה לגבי תרופות לדילול דם",
+  "MedicinesChanges-diabetesMedicines" : "בבוקר הבדיקה אין ליטול או להזריק תרופות נגד סוכרת, גם לא אינסולין",
+  "MedicinesChanges-nutritionalSupplement":"יש להפסיק ליטול תרופות המכילות ברזל כולל תוספי תזונה כ-5 ימים לפני הבדיקה",
+  "MedicinesChanges-bloodPressureMedicines":"את התרופות למחלות לב ולחץ דם יש להמשיך לקחת כרגיל",
+
 
   "Dont-Forget-Title": "ביום הבדיקה לא לשכוח להביא:",
   "Dont-Forget-IdentificationCertificate": "תעודה מזהה עם תמונה",
   "Dont-Forget-tofes17": "טופס 17 מתאים",
   "Dont-Forget-medicalReferral": "מכתב הפניה מהרופא/ה שלך בו מפורטות האבחנות הרפואיות, רשימת תרופות עדכנית וסיבת הבדיקה.",
-  "Dont-Forget-companion": "יש להגיע לבדיקה עם מלווה מעל גיל 18",
-  "Dont-Forget-driving": "אין לנהוג לאחר הבדיקה למשך 12 שעות",
+  "Dont-Forget-companion": "יש להגיע לבדיקה עם מלווה (אין לנהוג לאחר הבדיקה)",
 
   "Consent-Title": "הסכמה מדעת",
   "Consent-Information-male": "ביום הבדיקה תתבקש לחתום על טופס הסכמה מדעת. אנו ממליצים לך לקרוא את הטופס בעיון מבעוד מועד.",
   "Consent-Information-female": "ביום הבדיקה תתבקשי לחתום על טופס הסכמה מדעת. אנו ממליצים לך לקרוא את הטופס בעיון מבעוד מועד.",
   "Consent-Download": "טופס הסכמה מדעת להורדה",
-
-  "Instructions-Steps-sunday": "ראשון",
-  "Instructions-Steps-monday": "שני",
-  "Instructions-Steps-tuesday": "שלישי",
-  "Instructions-Steps-wednesday": "רביעי",
-  "Instructions-Steps-thursday": "חמישי",
-  "Instructions-Steps-friday": "שישי",
-  "Instructions-Steps-saturday": "שבת",
 
   "Satisfaction-Answer-Yes": "כן",
   "Satisfaction-Answer-No": "לא",
@@ -118,9 +105,6 @@
   "Satisfaction-question-recommend-others-male": "האם תמליץ למכרייך לצפות בסרטון לפני הבדיקה?",
   "Satisfaction-question-recommend-others-female": "האם תמליצי למכרייך לצפות בסרטון לפני הבדיקה?",
   "Satisfaction-question-all-answered": "תודה על שיתוף הפעולה, רפואה שלמה.",
-
-  "Call-Center-Belinson": "מזכירות יוספטל",
-  "Call-Center-Hours": "בין השעות 9:00-14:00",
 
   "Footer": "מטופל מעורב הוא מטופל שמחלים טוב יותר"
 }
