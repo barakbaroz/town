@@ -1,6 +1,6 @@
 module.exports = (type, user) => {
   const { BASIC_URL } = process.env;
-  const startLink = `${BASIC_URL}/api/user/entry/${user.id}`;
+  const startLink = `${BASIC_URL}/user/start/${user.id}`;
   const { procedureDate, procedureTime } = user.Case;
   const date = new Date(procedureDate);
   const threeDaysBefore = new Date();
