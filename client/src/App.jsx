@@ -21,6 +21,7 @@ import DateOfBirthQuestion from "./screens/DateOfBirthQuestion";
 import DepartmentQuestion from "./screens/DepartmentQuestion";
 import Questionnaire from "./screens/Questionnaire";
 import QuestionnaireProvider from "./providers/QuestionnaireProvider";
+import Privacy from "./components/TOS/Privacy";
 
 const App = () => {
   return <RouterProvider router={router} />;
@@ -53,6 +54,8 @@ const router = createBrowserRouter([
       { path: "Start", element: <Start /> },
       { path: "Video", element: <VideoPage /> },
       { path: "Legal", element: <Legal /> },
+      { path: "Privacy", element: <Privacy /> },
+
       { path: "CharacterSelection", element: <CharacterSelection /> },
       {
         path: "Questionnaire",
