@@ -9,10 +9,9 @@ import { useState } from "react";
 function CaseItemButtons({ item }) {
   const [linkCopied, setLinkCopied] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
-
   const handleCopyLink = () => {
     navigator.clipboard.writeText(
-      `${window.location.origin}/api/user/entry/${item.User.id}`
+      `${window.location.origin}/user/Start/${item.User.id}`
     );
     setLinkCopied(true);
   };
