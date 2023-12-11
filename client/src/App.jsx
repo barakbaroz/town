@@ -15,10 +15,6 @@ import NotFound from "./screens/NotFound";
 import CharacterSelection from "./screens/CharacterSelection";
 import VideoPage from "./screens/VideoPage";
 import panelLoader from "./Loaders/panelLoader";
-import ZehutQuestion from "./screens/ZehutQuestion";
-import AuthenticationLayout from "./layouts/AuthenticationLayout";
-import DateOfBirthQuestion from "./screens/DateOfBirthQuestion";
-import DepartmentQuestion from "./screens/DepartmentQuestion";
 import Questionnaire from "./screens/Questionnaire";
 import QuestionnaireProvider from "./providers/QuestionnaireProvider";
 import Privacy from "./components/TOS/Privacy";
@@ -37,15 +33,6 @@ const router = createBrowserRouter([
     errorElement: <ErrorElement />,
   },
   { path: "Gister", element: <Gister /> },
-  {
-    path: "Auth/:userId",
-    element: <AuthenticationLayout />,
-    children: [
-      { path: "Zehut", element: <ZehutQuestion /> },
-      { path: "DateOfBirth", element: <DateOfBirthQuestion /> },
-      { path: "Department", element: <DepartmentQuestion /> },
-    ],
-  },
   {
     path: "user",
     element: <UserLayout />,
