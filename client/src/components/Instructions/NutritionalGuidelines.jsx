@@ -4,22 +4,32 @@ import { Card, Icon, Title, TopSection } from "./Card.Style";
 import { buttonCSS } from "../general.style";
 import nutrition from "../../assets/Icons/nutrition.svg";
 import { useUser } from "../../providers/UserProvider";
-import merokenPdf from "../../assets/Pdfs/NutritionalInstructions/hebrew/meroken.pdf";
-import moviprepPdf from "../../assets/Pdfs/NutritionalInstructions/hebrew/moviprep.pdf";
-import picolaxPdf from "../../assets/Pdfs/NutritionalInstructions/hebrew/picolax.pdf";
-import unknownPdf from "../../assets/Pdfs/NutritionalInstructions/hebrew/general_instructions.pdf";
+import merokenMorningPdf from "../../assets/Pdfs/NutritionalInstructions/hebrew/morning/meroken.pdf";
+import moviprepMorningPdf from "../../assets/Pdfs/NutritionalInstructions/hebrew/morning/moviprep.pdf";
+import picolaxMorningPdf from "../../assets/Pdfs/NutritionalInstructions/hebrew/morning/picolax.pdf";
+import merokenEveningPdf from "../../assets/Pdfs/NutritionalInstructions/hebrew/evening/meroken.pdf";
+import moviprepEveningPdf from "../../assets/Pdfs/NutritionalInstructions/hebrew/evening/moviprep.pdf";
+import picolaxEveningPdf from "../../assets/Pdfs/NutritionalInstructions/hebrew/evening/picolax.pdf";
 import { postAnalytics } from "../../analytics";
 
 const pdfs = {
-  meroken: merokenPdf,
-  moviprep: moviprepPdf,
-  picolax: picolaxPdf,
-  unknown: unknownPdf,
+  morning: {
+    meroken: merokenMorningPdf,
+    moviprep: moviprepMorningPdf,
+    picolax: picolaxMorningPdf,
+  },
+  evening: {
+    meroken: merokenEveningPdf,
+    moviprep: moviprepEveningPdf,
+    picolax: picolaxEveningPdf,
+  },
 };
 
 function NutritionalGuidelines() {
   const { Case } = useUser();
-  const { concentrate } = Case;
+  const { concentrate, procedureTime } = Case;
+  const hours = procedureTime.split(":")[0];
+  const dayTime = hours >= 15 ? "evening" : "morning";
 
   const handlePersonalNutritionClick = () => {
     postAnalytics({ type: "nutrition-instruction-clicked" });
@@ -38,7 +48,7 @@ function NutritionalGuidelines() {
       </Text>
 
       <StyledButton
-        href={pdfs[concentrate]}
+        href={pdfs[dayTime][concentrate]}
         onClick={handlePersonalNutritionClick}
       >
         <Translator>Nutritional-Guidelines-Download</Translator>
