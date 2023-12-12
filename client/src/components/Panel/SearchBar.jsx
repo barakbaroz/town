@@ -108,7 +108,7 @@ const Container = styled.div`
   font-family: "Assistant";
   position: sticky;
   z-index: 1;
-  padding-block: 1.438rem;
+  padding-block: 0.8rem;
   box-shadow: 0px 3px 6px #0000001f;
 `;
 

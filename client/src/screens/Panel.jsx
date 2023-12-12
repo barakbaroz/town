@@ -29,7 +29,7 @@ const Panel = () => {
 export default Panel;
 
 const Container = styled.div`
-  --header-size: calc(40px + 1.438rem * 2);
+  --header-size: calc(40px + 0.8rem * 2);
   min-height: 100vh;
   min-width: 100vw;
   font-family: "Assistant";
