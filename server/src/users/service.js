@@ -9,54 +9,11 @@ const {
 } = require("../models");
 const sms = require("../sms/service");
 
-const MAX_ATTEMPTS = 2;
-
-module.exports.getAuthStatus = async ({ userId }) => {
-  const user = await Users.findOne({
-    where: { id: userId, failedAttempts: { [Op.lt]: MAX_ATTEMPTS } },
-    attributes: ["id", "failedAttempts"],
-  });
-  if (user) return "idle";
-  return "blocked";
-};
-
 module.exports.lastStep = async (user) => {
   const { avatarSelection, answeredQuestionnaire } = user.Case.CasesProgress;
   if (answeredQuestionnaire) return "Video";
   if (avatarSelection) return "Questionnaire/diabetesMedicines";
   return "Start";
-};
-
-module.exports.verify = async ({
-  id,
-  zehutNumber,
-  yearOfBirth,
-  rememberMe,
-  department,
-}) => {
-  const user = await Users.findByPk(id, {
-    include: { model: Cases, required: true, include: CasesProgress },
-  });
-  if (!user) return { status: "blocked" };
-  const verifyObj = {
-    zehutNumber: user.Case.zehutNumber === zehutNumber,
-    yearOfBirth: user.Case.yearOfBirth === yearOfBirth,
-    rememberMe,
-    department: "gastroscopy" === department,
-    attempts: user.failedAttempts + 1,
-  };
-  verifyObj.success =
-    verifyObj.zehutNumber && verifyObj.yearOfBirth && verifyObj.department;
-  this.userAction({ UserId: id, type: "verify", data: verifyObj });
-  if (verifyObj.success) {
-    user.update({ failedAttempts: 0 }, { where: { id } });
-    return { user };
-  }
-  user.failedAttempts += 1;
-  user.save();
-  return {
-    status: user.failedAttempts >= MAX_ATTEMPTS ? "blocked" : "failed",
-  };
 };
 
 module.exports.getData = async ({ userId }) => {

@@ -1,4 +1,3 @@
-const { isUUID } = require("../validator");
 const userServices = require("./service");
 const jwt = require("jsonwebtoken");
 
@@ -14,52 +13,18 @@ module.exports.getAuthStatus = async (req, res) => {
 };
 
 module.exports.entry = async (req, res) => {
-  const { id } = req.params;
-  const authURL = `/Auth/${id}/zehut`;
   try {
+    const { id } = req.params;
     const dbUser = await userServices.getData({ userId: id });
     if (!dbUser) return res.redirect("/notFound");
     userServices.userAction({ UserId: id, type: "opened-sms" });
-    const token = req.cookies.user_token;
-    if (!token) return res.redirect(authURL);
-    const user = jwt.verify(token, process.env.JWT_KEY_USER);
-    if (user.id != id) return res.redirect(authURL);
+    const token = jwt.sign({ id }, process.env.JWT_KEY_USER);
     const route = await userServices.lastStep(dbUser);
-    return res.redirect(`/user/${route}`);
-  } catch (error) {
-    return res.redirect(authURL);
-  }
-};
-
-module.exports.verify = async (req, res) => {
-  try {
-    const { id, zehutNumber, yearOfBirth, rememberMe, department } = req.body;
-    if (!isUUID(id)) return res.status(400).send("Invalid UUID");
-    const { user, status } = await userServices.verify({
-      id,
-      zehutNumber,
-      yearOfBirth,
-      rememberMe,
-      department,
-    });
-    if (!user)
-      return res.status(403).json({ message: "verification failed", status });
-    const token = jwt.sign(
-      { id },
-      process.env.JWT_KEY_USER,
-      rememberMe ? { expiresIn: "30d" } : {}
-    );
-    const lastStep = await userServices.lastStep(user);
     return res
-      .cookie("user_token", token, {
-        httpOnly: true,
-        maxAge: rememberMe ? 1000 * 60 * 60 * 24 * 30 : undefined,
-      })
-      .status(200)
-      .json({ message: "Successfully verify", lastStep });
+      .cookie("user_token", token, { httpOnly: true })
+      .redirect(`/user/${route}`);
   } catch (error) {
-    console.error(error);
-    return res.status(500).send("Error");
+    return res.redirect("/notFound");
   }
 };
 

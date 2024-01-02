@@ -38,7 +38,7 @@ const router = createBrowserRouter([
     element: <UserLayout />,
     errorElement: <ErrorElement />,
     children: [
-      { path: "Start/:userId", element: <Start /> },
+      { path: "Start", element: <Start /> },
       { path: "Video", element: <VideoPage /> },
       { path: "Legal", element: <Legal /> },
       { path: "Privacy", element: <Privacy /> },
