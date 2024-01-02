@@ -9,12 +9,12 @@ import DuplicatePopUp from "../components/Gister/DuplicatePopUp";
 import MedicalConcentrate from "../components/Panel/MedicalConcentrate";
 import Scheduler from "../components/Gister/Scheduler";
 
-function Gister() {
+export default function Gister() {
   const navigate = useNavigate();
   const casesDataRef = useRef({});
   const [loading, setLoading] = useState(false);
   const [showDuplicatePopup, setShowDuplicatePopup] = useState(false);
-  const [errorMessage, setErrorMessage] = useState(errorTitles.missingFields);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleDate = () => {
     if (casesDataRef.current.date.year < 100)
@@ -22,31 +22,31 @@ function Gister() {
     casesDataRef.current.date = casesDataRef.current.date.toDate();
   };
 
-  const checkErrorFields = (data) => {
-    let missing = false;
-    let pastDate = false;
-
-    for (const [key, test] of Object.entries(validator)) {
-      const validationResult = test(data);
-      if (!validationResult.missing && !validationResult.error) continue;
+  const checkMissingFields = (data) => {
+    let anyMissing = false;
+    for (const [key, test] of Object.entries(validatorFullFeilds)) {
+      const missing = test(data);
+      anyMissing ||= missing;
+      if (!missing) continue;
       const el = document.getElementById(key);
       if (el) el.classList.add("invalid");
-      missing = missing || validationResult.missing;
-      if (key == "date") {
-        pastDate = validationResult.error;
-      }
     }
-
-    if (missing && pastDate) {
-      setErrorMessage(errorTitles.missingFieldsAndPastDate);
-    } else if (pastDate) {
-      setErrorMessage(errorTitles.pastDate);
-    } else if (missing) {
-      setErrorMessage(errorTitles.missingFields);
-    }
-
-    return missing || pastDate;
+    return anyMissing;
   };
+
+  const checkErrorMessage = (data) => {
+    const resultObject = {
+      missing: checkMissingFields(data),
+      pastDate: isPastDate(data),
+    };
+    const message = ["missing", "pastDate"]
+      .filter((name) => resultObject[name])
+      .map((name) => errorTitles[name])
+      .join(" וכן ");
+    setErrorMessage(message);
+    return Boolean(message);
+  };
+
   const createCase = () => {
     setLoading(true);
     return axios
@@ -62,7 +62,7 @@ function Gister() {
 
   const handleSubmit = () => {
     const data = casesDataRef.current;
-    const errorFields = checkErrorFields(data);
+    const errorFields = checkErrorMessage(data);
     if (errorFields) return;
     handleDate();
     setLoading(true);
@@ -104,26 +104,24 @@ function Gister() {
   );
 }
 
-export default Gister;
-
-const isFutureDate = (date) => {
-  const today = new Date();
-  return new Date(date) >= today;
+const isPastDate = ({ date }) => {
+  const result = new Date(date) < new Date();
+  if (result) document.getElementById("date")?.classList.add("invalid");
+  return result;
 };
 
-const validator = {
-  zehutNumber: ({ zehutNumber }) => { return { missing: zehutNumber?.length !== 4 } },
-  phoneNumber: ({ phoneNumber }) => { return { missing: !(/^\d{10}$/.test(phoneNumber)) } },
-  yearOfBirth: ({ yearOfBirth }) => { return { missing: yearOfBirth?.length !== 4 } },
-  concentrate: ({ concentrate }) => { return { missing: !concentrate } },
-  date: ({ date }) => { return { missing: !date, error: !isFutureDate(date) } },
-  time: ({ time }) => { return { missing: !time } },
+const validatorFullFeilds = {
+  zehutNumber: ({ zehutNumber }) => zehutNumber?.length !== 4,
+  phoneNumber: ({ phoneNumber }) => !/^\d{10}$/.test(phoneNumber),
+  yearOfBirth: ({ yearOfBirth }) => yearOfBirth?.length !== 4,
+  concentrate: ({ concentrate }) => !concentrate,
+  date: ({ date }) => !date,
+  time: ({ time }) => !time,
 };
 
 const errorTitles = {
-  missingFields: "* חסרים נתונים להמשך תהליך",
-  missingFieldsAndPastDate: "* חסרים נתונים להמשך תהליך וכן הוזן תאריך עבר",
-  pastDate: "* הוזן תאריך עבר",
+  missing: "חסרים נתונים להמשך תהליך",
+  pastDate: "הוזן תאריך עבר",
 };
 
 const GisterContainer = styled.div`
@@ -138,6 +136,9 @@ const ErrorTitle = styled.p`
   font-size: 1.25rem;
   color: #f02a4c;
   visibility: hidden;
+  &::before {
+    content: "*";
+  }
 `;
 
 const Container = styled.div`
