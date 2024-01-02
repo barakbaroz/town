@@ -55,6 +55,7 @@ function SearchBar({ search, setSearch }) {
             defaultValue={null}
             minValue={null}
             value={search.date || null}
+            label="search"
           />
           <ClearId onClick={clearId} id="ClearId" />
         </GreyWrapper>
