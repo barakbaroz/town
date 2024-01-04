@@ -18,11 +18,6 @@ function PatientInformation({ casesDataRef }) {
     document.getElementById("phoneNumber").classList.remove("invalid");
   };
 
-  const handleYearOfBirth = (yearOfBirth) => {
-    casesDataRef.current.yearOfBirth = yearOfBirth;
-    document.getElementById("yearOfBirth").classList.remove("invalid");
-  };
-
   return (
     <Container>
       <InputContainer>
@@ -39,10 +34,6 @@ function PatientInformation({ casesDataRef }) {
           phoneInputRef={phoneInputRef}
           onChange={handlePhoneNumber}
         />
-      </InputContainer>
-      <InputContainer>
-        <FieldTitle>שנת לידה</FieldTitle>
-        <PinInput onChange={handleYearOfBirth} id="yearOfBirth" />
       </InputContainer>
     </Container>
   );

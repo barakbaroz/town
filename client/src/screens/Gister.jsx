@@ -26,10 +26,9 @@ export default function Gister() {
     let anyMissing = false;
     for (const [key, test] of Object.entries(validatorFullFeilds)) {
       const missing = test(data);
-      anyMissing ||= missing;
       if (!missing) continue;
-      const el = document.getElementById(key);
-      if (el) el.classList.add("invalid");
+      anyMissing ||= missing;
+      document.getElementById(key)?.classList.add("invalid");
     }
     return anyMissing;
   };
@@ -55,7 +54,7 @@ export default function Gister() {
       .finally(() => setLoading(false));
   };
 
-  const duplicate = ({ data }) => {
+  const checkDuplicate = ({ data }) => {
     if (data === "none") return createCase();
     if (data === "duplicate") return setShowDuplicatePopup(true);
   };
@@ -68,7 +67,7 @@ export default function Gister() {
     setLoading(true);
     axios
       .post("/api/cases/duplicate", data)
-      .then(duplicate)
+      .then(checkDuplicate)
       .finally(() => setLoading(false));
   };
 
@@ -113,7 +112,6 @@ const isPastDate = ({ date }) => {
 const validatorFullFeilds = {
   zehutNumber: ({ zehutNumber }) => zehutNumber?.length !== 4,
   phoneNumber: ({ phoneNumber }) => !/^\d{10}$/.test(phoneNumber),
-  yearOfBirth: ({ yearOfBirth }) => yearOfBirth?.length !== 4,
   concentrate: ({ concentrate }) => !concentrate,
   date: ({ date }) => !date,
   time: ({ time }) => !time,
