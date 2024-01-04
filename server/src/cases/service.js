@@ -95,7 +95,6 @@ module.exports.create = async ({
   creatorId,
   phoneNumber,
   zehutNumber,
-  yearOfBirth,
   concentrate,
   date,
   time,
@@ -104,7 +103,6 @@ module.exports.create = async ({
   const newCase = await Cases.create({
     creatorId,
     zehutNumber,
-    yearOfBirth,
     concentrate,
     procedureDate: date,
     procedureTime: time,
