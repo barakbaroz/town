@@ -6,7 +6,6 @@ import { DatePicker } from "@gistmed/gist-ui";
 import TimePicker from "../Gister/TimePicker";
 import { parseDate } from "@internationalized/date";
 import axios from "axios";
-import { Time } from "@internationalized/date";
 
 const CaseItemExpand = ({ item, show }) => {
   const handleChangeDate = (data) => {
@@ -50,7 +49,7 @@ const CaseItemExpand = ({ item, show }) => {
           </DateAndTimeWrapper>
           <DateAndTimeWrapper>
             <TimePicker
-              defaultValue={new Time(...item.procedureTime.split(":"))}
+              defaultValue={item.procedureTime}
               onChange={handleChangeTime}
               fromCaseItem={true}
             />

@@ -4,15 +4,18 @@ import { ReactComponent as MoonIcon } from "../../assets/Icons/moon.svg";
 import { ReactComponent as SunIcon } from "../../assets/Icons/sun.svg";
 import { useEffect, useState } from "react";
 import { TimeField, DateInput, DateSegment } from "react-aria-components";
+import { Time } from "@internationalized/date";
 
 export default function TimePicker({ defaultValue, onChange, ...props }) {
   const [highlight, setHighlight] = useState(null);
+
   const hansleChange = (time) => {
     if (!time) return setHighlight(null);
     const { hour, minute } = time;
     setHighlight(hour >= 15 ? "moon" : "sun");
     if (onChange) onChange(`${hour}:${minute}`);
   };
+
   useEffect(() => {
     if (defaultValue) {
       const [hours] = defaultValue.split(":");
@@ -25,7 +28,7 @@ export default function TimePicker({ defaultValue, onChange, ...props }) {
       <MyTimeField
         hourCycle={24}
         onChange={hansleChange}
-        defaultValue={defaultValue}
+        defaultValue={defaultValue && new Time(...defaultValue.split(":"))}
       />
       <Sun highlight={highlight} />
       <Moon highlight={highlight} />
