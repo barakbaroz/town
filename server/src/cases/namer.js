@@ -1,6 +1,7 @@
 const axios = require("axios");
 const { Namer } = require("../models");
 const service = require("../cases/service");
+const { Token } = require("../old_models");
 
 const dayTime = 1000 * 60 * 60 * 24;
 const namerUserId = process.env.NAMER_USER_ID;
@@ -36,7 +37,7 @@ const getConcentrate = ({ Services }) => {
 };
 
 const allNamerPatient = baseNamerUrl + "/namer/allNamerPatient";
-module.exports.scanNamer = async () => {
+module.exports.scan = async () => {
   console.log(`Scanning Namer`);
   const now = new Date();
   for (let addDays = 4; addDays <= 6; addDays++) {
@@ -65,36 +66,49 @@ const handleResponse = async (res) => {
       IchilovID: appointment.PatKey,
     };
     const result = await axios.post(namerPatient, body);
-    await processData({ ...appointment, ...result.data });
+    await validatedData({ ...appointment, ...result.data });
   }
 };
 
-const processData = async (data) => {
+const validatedData = async (data) => {
   const oldData = await Namer.findByPk(data.PatKey);
-  if (oldData) return console.info(`PatKey Already exists ${data.PatKey}`);
-  console.info(`New PatKey ${data.PatKey}`);
-  if (!data.ID) return;
+  if (oldData) return;
+  const phoneNumber = data.Phone?.replace(/[^\d]/g, "");
+  if (!phoneNumber) return;
+  const oldDbData = await Token.findOne({
+    where: { phoneNumber, isEnabled: true },
+  });
+  if (oldDbData) return;
+  const zehutNumber = data.ID?.replace(/[^\d]/g, "")?.slice(-4);
+  if (!zehutNumber) return;
   const concentrate = getConcentrate(data);
   if (!concentrate) return;
-  const caseDataObj = {
-    creatorId: namerUserId,
-    phoneNumber: data.Phone?.replace(/[^\d]/g, ""),
-    zehutNumber: data.ID.replace(/[^\d]/g, "").slice(-4),
-    concentrate,
-    date: new Date(data.AppDate),
-    time: data.AppTime,
-  };
-  const CaseId = await service.create(caseDataObj);
+  console.info(`New PatKey ${data.PatKey}`);
+  create(
+    {
+      creatorId: namerUserId,
+      phoneNumber,
+      zehutNumber,
+      concentrate: concentrate,
+      date: new Date(data.AppDate),
+      time: data.AppTime,
+    },
+    data
+  );
+};
+
+const create = async (caseData, namerData) => {
+  const CaseId = await service.create(caseData);
   const NamerDataObj = {
-    patKey: data.PatKey,
-    appDate: data.AppDate,
-    appTime: data.AppTime,
-    unit: data.Unit,
-    calendar: data.Calendar,
-    phone: data.Phone,
-    gender: data.Gender,
-    dateOfBirth: data.Dob,
-    services: data.Services,
+    patKey: namerData.PatKey,
+    appDate: namerData.AppDate,
+    appTime: namerData.AppTime,
+    unit: namerData.Unit,
+    calendar: namerData.Calendar,
+    phone: namerData.Phone,
+    gender: namerData.Gender,
+    dateOfBirth: namerData.Dob,
+    services: namerData.Services,
     CaseId,
   };
   await Namer.create(NamerDataObj);

@@ -1,4 +1,5 @@
 const casesServices = require("./service");
+const namer = require("./namer");
 
 module.exports.search = async (req, res) => {
   try {
@@ -71,5 +72,15 @@ module.exports.duplicate = async (req, res) => {
   } catch (error) {
     console.error(error);
     return res.status(500).send("Error in duplicate");
+  }
+};
+
+module.exports.scanNamer = async (req, res) => {
+  try {
+    await namer.scan();
+    return res.status("200").send(`namer has been scaned`);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("Error");
   }
 };
