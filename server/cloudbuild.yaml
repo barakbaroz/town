@@ -21,6 +21,11 @@ steps:
 
       - BASIC_URL=${_BASIC_URL}
 
+      - NAMER_URL=${_NAMER_URL}
+      - NAMER_USERNAME=${_NAMER_USERNAME}
+      - NAMER_PASSWORD=${_NAMER_PASSWORD}
+      - NAMER_USER_ID=${_NAMER_USER_ID}
+
     dir: "server"
   - name: "gcr.io/cloud-builders/gcloud"
     args: ["app", "deploy"]
