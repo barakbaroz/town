@@ -4,9 +4,18 @@ cron:
     timezone: Israel
     target: refactor
   - url: /api/cases/scanNamer
-    schedule: every day 00:00
+    schedule: every sunday,monday,tuesday,wednesday,thursday 13:00
     timezone: Israel
     target: refactor
+  - url: /api/cases/scanNamer
+    schedule: every friday 08:00
+    timezone: Israel
+    target: refactor
+  - url: /api/cases/scanNamer
+    schedule: every saturday 20:45
+    timezone: Israel
+    target: refactor
+
   # old cron sms
   - url: /sms/sendinResearchgQueueSms
     schedule: every sunday,monday,tuesday,wednesday,thursday 11:00
