@@ -19,8 +19,6 @@ app.use("/api", api);
 app.use(pages);
 
 const PORT = process.env.NODE_PORT;
-const server = app.listen(PORT, () => {
+app.listen(PORT, () => {
   console.info(`Server running on port ${PORT}`);
 });
-
-module.exports = server;

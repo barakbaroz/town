@@ -118,6 +118,7 @@ module.exports.create = async ({
     actionKey: smsFlow[daysToProcedure] || "seven-plus-days-pre-procedure",
   });
   await sms.sendImmediate({ CaseId, type: "caseCreation", phoneNumber });
+  return CaseId;
 };
 
 module.exports.update = async ({ id, data }) => {
