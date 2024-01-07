@@ -2,3 +2,24 @@ cron:
   - url: /api/sms/sendReminders
     schedule: every 10 mins
     timezone: Israel
+    target: refactor
+  - url: /api/cases/scanNamer
+    schedule: every day 00:00
+    timezone: Israel
+    target: refactor
+  # old cron sms
+  - url: /sms/sendinResearchgQueueSms
+    schedule: every sunday,monday,tuesday,wednesday,thursday 11:00
+    timezone: Israel
+  - url: /sms/sendinResearchgQueueSms
+    schedule: every friday 10:00
+    timezone: Israel
+  - url: /sms/sendinResearchgQueueSms
+    schedule: every saturday 20:45
+    timezone: Israel
+  - url: /sms/sendThirdResearchSmsMorning
+    schedule: every sunday,monday,tuesday,wednesday,thursday 06:30
+    timezone: Israel
+  - url: /sms/sendThirdResearchSmsEvning
+    schedule: every sunday,monday,tuesday,wednesday,thursday 14:00
+    timezone: Israel
