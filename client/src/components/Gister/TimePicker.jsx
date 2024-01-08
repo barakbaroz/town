@@ -15,9 +15,9 @@ export default function TimePicker({ defaultValue, onChange, ...props }) {
       if (onChange) onChange(null);
       return;
     }
-    const { hour, minute } = time;
+    const { hour } = time;
     setHighlight(hour >= 15 ? "moon" : "sun");
-    if (onChange) onChange(`${hour}:${minute}`);
+    if (onChange) onChange(`${time}`);
   };
 
   useEffect(() => {
