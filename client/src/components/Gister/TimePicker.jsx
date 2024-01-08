@@ -10,7 +10,11 @@ export default function TimePicker({ defaultValue, onChange, ...props }) {
   const [highlight, setHighlight] = useState(null);
 
   const hansleChange = (time) => {
-    if (!time) return setHighlight(null);
+    if (!time) {
+      setHighlight(null);
+      if (onChange) onChange(null);
+      return;
+    }
     const { hour, minute } = time;
     setHighlight(hour >= 15 ? "moon" : "sun");
     if (onChange) onChange(`${hour}:${minute}`);
