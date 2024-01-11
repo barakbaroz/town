@@ -12,12 +12,6 @@ steps:
       - DB_HOST=${_DB_HOST}
       - DB_DIALECT=${_DB_DIALECT}
 
-      - OLD_DB_DATABASE=${_OLD_DB_DATABASE}
-      - OLD_DB_USER_NAME=${_OLD_DB_USER_NAME}
-      - OLD_DB_PASSWORD=${_OLD_DB_PASSWORD}
-      - OLD_DB_HOST=${_OLD_DB_HOST}
-      - OLD_DB_DIALECT=${_OLD_DB_DIALECT}
-
       - JWT_KEY_STAFF_MEMBERS=${_JWT_KEY_STAFF_MEMBERS}
       - JWT_KEY_USER=${_JWT_KEY_USER}
 
@@ -26,11 +20,6 @@ steps:
       - SMS_SENDER_NAME=${_SMS_SENDER_NAME}
 
       - BASIC_URL=${_BASIC_URL}
-
-      - NAMER_URL=${_NAMER_URL}
-      - NAMER_USERNAME=${_NAMER_USERNAME}
-      - NAMER_PASSWORD=${_NAMER_PASSWORD}
-      - NAMER_USER_ID=${_NAMER_USER_ID}
 
     dir: "server"
   - name: "gcr.io/cloud-builders/gcloud"
