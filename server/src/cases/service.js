@@ -32,8 +32,10 @@ const casesProgressFilter = {
 };
 const dateFilter = ({ date }) => (date ? { procedureDate: date } : {});
 
-const zehutFilter = ({ zehutNumber }) =>
-  zehutNumber ? { zehutNumber: { [Op.substring]: zehutNumber } } : {};
+const zehutFilter = ({ socialSecurityNumber }) =>
+  socialSecurityNumber
+    ? { socialSecurityNumber: { [Op.substring]: socialSecurityNumber } }
+    : {};
 
 const myCasesFilter = ({ myCases }, creatorId) =>
   myCases ? { creatorId } : {};
@@ -71,7 +73,7 @@ module.exports.search = async ({ creatorId, search }) => {
     ],
     attributes: [
       "id",
-      "zehutNumber",
+      "socialSecurityNumber",
       "gender",
       "age",
       "concentrate",
@@ -94,7 +96,7 @@ module.exports.search = async ({ creatorId, search }) => {
 module.exports.create = async ({
   creatorId,
   phoneNumber,
-  zehutNumber,
+  socialSecurityNumber,
   concentrate,
   date,
   time,
@@ -102,7 +104,7 @@ module.exports.create = async ({
   console.info(`create case by staff member: ${creatorId}`);
   const newCase = await Cases.create({
     creatorId,
-    zehutNumber,
+    socialSecurityNumber,
     concentrate,
     procedureDate: date,
     procedureTime: time,
@@ -141,9 +143,9 @@ module.exports.CommentCase = async ({ CaseId, comment, creatorId }) => {
 };
 
 module.exports.duplicate = async (data) => {
-  const { phoneNumber, zehutNumber } = data;
+  const { phoneNumber, socialSecurityNumber } = data;
   const caseExists = await Cases.findOne({
-    where: { zehutNumber },
+    where: { socialSecurityNumber },
     include: { model: Users, where: { phoneNumber } },
   });
   if (caseExists) return "duplicate";

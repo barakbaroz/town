@@ -10,7 +10,7 @@ const init = (sequelize) =>
         defaultValue: DataTypes.UUIDV4,
       },
       creatorId: DataTypes.UUID,
-      zehutNumber: DataTypes.STRING(4),
+      socialSecurityNumber: DataTypes.STRING(4),
       gender: DataTypes.ENUM("male", "female", "other"),
       age: DataTypes.ENUM("20-50", "50-70", "70+"),
       concentrate: DataTypes.ENUM("moviprep", "picolax", "meroken", "unknown"),
