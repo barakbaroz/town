@@ -8,8 +8,8 @@ import { FieldTitle } from "./Giser.styled";
 function PatientInformation({ casesDataRef }) {
   const phoneInputRef = useRef(null);
 
-  const handleZehutNumber = (zehut) => {
-    casesDataRef.current.socialSecurityNumber = zehut;
+  const handleSSN = (SSN) => {
+    casesDataRef.current.socialSecurityNumber = SSN;
     document.getElementById("socialSecurityNumber").classList.remove("invalid");
   };
 
@@ -24,7 +24,7 @@ function PatientInformation({ casesDataRef }) {
         <FieldTitle>4 ספרות אחרונות של ת.ז.</FieldTitle>
         <PinInput
           nextInput={phoneInputRef}
-          onChange={handleZehutNumber}
+          onChange={handleSSN}
           id="socialSecurityNumber"
         />
       </InputContainer>

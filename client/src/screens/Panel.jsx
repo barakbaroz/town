@@ -6,7 +6,7 @@ import SearchBar from "../components/Panel/SearchBar";
 import panelBackground from "../assets/Backgrounds/panel_background.svg";
 import useCasesCount from "../hooks/useCasesCount";
 
-const Panel = () => {
+export default function Panel() {
   const [search, setSearch] = useState({
     patientStatus: "all",
     myCases: true,
@@ -22,8 +22,7 @@ const Panel = () => {
       </Wrapper>
     </Container>
   );
-};
-export default Panel;
+}
 
 const Container = styled.div`
   --header-size: calc(40px + 0.8rem * 2);

@@ -32,7 +32,7 @@ const casesProgressFilter = {
 };
 const dateFilter = ({ date }) => (date ? { procedureDate: date } : {});
 
-const zehutFilter = ({ socialSecurityNumber }) =>
+const SSNFilter = ({ socialSecurityNumber }) =>
   socialSecurityNumber
     ? { socialSecurityNumber: { [Op.substring]: socialSecurityNumber } }
     : {};
@@ -82,7 +82,7 @@ module.exports.search = async ({ creatorId, search }) => {
       "createdAt",
     ],
     where: {
-      ...zehutFilter(search),
+      ...SSNFilter(search),
       ...dateFilter(search),
       ...myCasesFilter(search, creatorId),
     },

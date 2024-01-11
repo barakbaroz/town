@@ -16,7 +16,7 @@ const NumbersRgx = /(^[0-9]+$|^$)/;
 
 function SearchBar({ search, setSearch }) {
   const navigate = useNavigate();
-  const handleZehut = (event) => {
+  const handleSSN = (event) => {
     const { value } = event.target;
     if (!NumbersRgx.test(value)) return;
     setSearch((prev) => ({ ...prev, socialSecurityNumber: value }));
@@ -46,7 +46,7 @@ function SearchBar({ search, setSearch }) {
           <SearchIcon src={searchLogo} />
           <Input
             placeholder="0000"
-            onChange={handleZehut}
+            onChange={handleSSN}
             maxLength={4}
             value={search.socialSecurityNumber || ""}
           />
