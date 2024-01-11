@@ -31,16 +31,15 @@ const Login = () => {
       <HopitalLogo />
       <Form onSubmit={handleSubmit}>
         <Titles>
-          <Title>ברוכים הבאים</Title>
+          <Title>Welcome</Title>
           <SubTitle>
-            למערכת ליווי והדרכת
-            <br /> מטופלים לקולונוסקופיה
+            to the Endoscopy Patient’s <br /> Guidance System
           </SubTitle>
         </Titles>
         <Input name="email" type="text" placeholder="Email" />
         <Input name="password" type="password" placeholder="Password" />
         <Submit disabled={loading} type="submit">
-          כניסה
+          Sign In
         </Submit>
       </Form>
     </Container>
@@ -59,7 +58,6 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  direction: rtl;
   font-family: "Abraham";
 `;
 

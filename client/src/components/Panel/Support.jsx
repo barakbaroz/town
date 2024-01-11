@@ -153,7 +153,7 @@ const Phone = styled.input`
 
 const Icon = styled.img`
   position: absolute;
-  left: 3%;
+  right: 3%;
   top: 32%;
   cursor: pointer;
 `;

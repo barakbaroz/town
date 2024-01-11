@@ -114,7 +114,8 @@ const Title = styled.p`
 `;
 
 const Divider = styled.div`
-  border-right: 1px solid #c9c9c9;
+  width: 1px;
+  background-color: #c9c9c9;
   opacity: 1;
   height: 3.3rem;
 `;

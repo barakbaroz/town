@@ -72,7 +72,7 @@ const Close = styled.img`
   cursor: pointer;
   z-index: 1;
   color: white;
-  left: 44px;
+  right: 44px;
   top: 40px;
   position: absolute;
 `;
