@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import moviprep from "../../assets/Gister/moviprep.svg";
-import picolax from "../../assets/Gister/picolax.svg";
-import meroken from "../../assets/Gister/meroken.svg";
+import powder from "../../assets/Gister/powder.svg";
+// import pill from "../../assets/Gister/pill.svg";
+import liquid from "../../assets/Gister/liquid.svg";
 import checkmark from "../../assets/Gister/checkmark.svg";
 
 export default function MedicalConcentrate({ casesDataRef }) {
@@ -35,9 +35,8 @@ MedicalConcentrate.propTypes = {
 };
 
 const data = [
-  { key: "moviprep", name: "מוביפרפ", src: moviprep },
-  { key: "picolax", name: "פיקולקס", src: picolax },
-  { key: "meroken", name: "מרוקן", src: meroken },
+  { key: "moviprep", name: "Moviprep", src: powder },
+  { key: "colyte", name: "Colyte", src: liquid },
 ];
 
 const Input = styled.input.attrs({ type: "radio" })`

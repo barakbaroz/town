@@ -35,6 +35,5 @@ const HospitalLogo = styled.img`
 `;
 
 const Text = styled.div`
-  font-size: 1.5rem;
-  color: #84a4fc;
+  font-size: 1.625rem;
 `;

@@ -80,9 +80,8 @@ CaseItemExpand.propTypes = {
 export default CaseItemExpand;
 
 const concentrateMapper = {
-  moviprep: "מוביפרפ",
-  picolax: "פיקולקס",
-  meroken: "מרוקן",
+  moviprep: "Moviprep",
+  colyte: "Colyte",
 };
 
 const DateAndTime = styled.div`

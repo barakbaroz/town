@@ -40,7 +40,6 @@ export default PhoneInput;
 const Input = styled(GeneralInput)`
   padding-inline: 1.688rem;
   width: 12.5rem;
-  direction: ltr;
 `;
 
 const Utility = styled.div`

@@ -5,7 +5,7 @@ import PhoneInput from "./PhoneInput";
 import PropTypes from "prop-types";
 import { FieldTitle } from "./Giser.styled";
 
-function PatientInformation({ casesDataRef }) {
+export default function PatientInformation({ casesDataRef }) {
   const phoneInputRef = useRef(null);
 
   const handleSSN = (SSN) => {
@@ -21,7 +21,7 @@ function PatientInformation({ casesDataRef }) {
   return (
     <Container>
       <InputContainer>
-        <FieldTitle>4 ספרות אחרונות של ת.ז.</FieldTitle>
+        <FieldTitle>Social Security Number 4 last digits</FieldTitle>
         <PinInput
           nextInput={phoneInputRef}
           onChange={handleSSN}
@@ -29,7 +29,7 @@ function PatientInformation({ casesDataRef }) {
         />
       </InputContainer>
       <InputContainer>
-        <FieldTitle>נייד המטופל</FieldTitle>
+        <FieldTitle>Mobile Number</FieldTitle>
         <PhoneInput
           phoneInputRef={phoneInputRef}
           onChange={handlePhoneNumber}
@@ -57,4 +57,3 @@ const InputContainer = styled.div`
   flex-direction: column;
   text-align: start;
 `;
-export default PatientInformation;

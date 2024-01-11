@@ -74,10 +74,8 @@ const Pin = styled(GeneralInput)`
 
 const PinInputContainer = styled.div`
   border: 1px solid transparent;
-  direction: ltr;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   gap: 6px;
 `;
 

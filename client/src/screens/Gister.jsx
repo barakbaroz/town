@@ -79,16 +79,16 @@ export default function Gister() {
         open={showDuplicatePopup}
         loading={loading}
       />
-      <GisterHeader text="מערכת ליווי והדרכת מטופלים לקולונוסקופיה" />
+      <GisterHeader text="Endoscopy Patient`s Guidance System" />
       <Container>
         <CasesDetails>
-          <GisterStep stepNumber="01" title="פרטי מטופל ויצירת קשר">
+          <GisterStep stepNumber="01" title="Patient’s Personal information">
             <PatientInformation casesDataRef={casesDataRef} />
           </GisterStep>
-          <GisterStep stepNumber="02" title="בחירת סוג התמיסה למטופל">
+          <GisterStep stepNumber="02" title="Type of laxative solution">
             <MedicalConcentrate casesDataRef={casesDataRef} />
           </GisterStep>
-          <GisterStep stepNumber="03" title="קביעת תאריך ושעה לבדיקה">
+          <GisterStep stepNumber="03" title="Procedure details">
             <Scheduler casesDataRef={casesDataRef} />
           </GisterStep>
         </CasesDetails>
