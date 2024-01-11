@@ -34,7 +34,7 @@ const formatOptions = {
   time: { hour: "2-digit", minute: "2-digit" },
 };
 
-const formatDate = (dateObj, type, locales = "he-IL") => {
+const formatDate = (dateObj, type, locales = "en-US") => {
   const options = formatOptions[type];
   return dateObj.toLocaleString(locales, options);
 };

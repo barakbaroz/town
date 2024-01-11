@@ -62,7 +62,7 @@ const CaseItemExpand = ({ item, show }) => {
         />
         <div>
           תאריך יצירת קייס |{" "}
-          {new Date(item.createdAt).toLocaleDateString("he-IL")}
+          {new Date(item.createdAt).toLocaleDateString("en-US")}
         </div>
       </Column>
 

@@ -39,7 +39,7 @@ function VideoPage() {
         </Title>
         <Player setShowFeedback={setShowFeedback} videoRef={videoRef} />
         <VideoInteraction>
-          <ShareWrapper dir="rtl">
+          <ShareWrapper>
             <Share />
           </ShareWrapper>
           <SatisfactionQuestions videoStarted={showFeedback} />

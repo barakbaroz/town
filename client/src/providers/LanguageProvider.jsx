@@ -5,9 +5,9 @@ import { useState, createContext, useCallback } from "react";
 const LanguageContext = createContext();
 
 export default function LanguageProvider({ children }) {
-  const [language, setLocalLanguage] = useState("he");
+  const [language, setLocalLanguage] = useState("en");
   const [gender, setGender] = useState("male");
-  const [direction, setDirection] = useState("rtl");
+  const [direction, setDirection] = useState("ltr");
 
   const setLanguage = useCallback((newLanguage) => {
     setLocalLanguage(newLanguage);
@@ -46,7 +46,6 @@ export function useLanguage() {
 }
 
 const directions = {
-  he: "rtl",
   en: "ltr",
   ru: "ltr",
   ar: "rtl",
@@ -56,9 +55,6 @@ const directions = {
 const styledByLanguage = {
   ru: {
     fontFamily: "Roboto",
-  },
-  he: {
-    fontFamily: "Abraham",
   },
   en: {
     fontFamily: "Abraham",

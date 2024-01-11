@@ -21,7 +21,7 @@ const StepProgress = ({ item }) => {
             <TextContainer id="TextContainer">
               <Name color={color}>{texts[step]}</Name>
               <Time show={isDone}>
-                {new Date(time).toLocaleDateString("he-IL", dateOptions)}
+                {new Date(time).toLocaleDateString("en-US", dateOptions)}
               </Time>
             </TextContainer>
 
@@ -69,7 +69,7 @@ const InnerCircle = styled.div`
 `;
 
 const TextContainer = styled.div`
-  padding-left: 0.5rem;
+  padding-inline-end: 0.5rem;
   text-align: end;
   display: flex;
   flex-direction: column;
@@ -91,7 +91,7 @@ const SingleStepContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-left: 1rem;
+  padding-inline-end: 1rem;
   &:last-of-type > ${Line} {
     display: none;
   }
