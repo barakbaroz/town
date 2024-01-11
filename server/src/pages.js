@@ -4,7 +4,9 @@ const router = express.Router();
 
 router.use(express.static("./dist"));
 router.get("*", function (request, response) {
-  response.sendFile(path.resolve("./dist/index.html"));
+  return response
+    .setHeader("Cache-Control", "no-cache, no-store, must-revalidate")
+    .sendFile(path.resolve("./dist/index.html"));
 });
 
 module.exports = router;
