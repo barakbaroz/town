@@ -9,7 +9,6 @@ const staffMembers = require("./staffMembers");
 const comments = require("./comments");
 const casesProgress = require("./casesProgress");
 const questionnaire = require("./questionnaire");
-const namer = require("./namer");
 
 const sequelize = new Sequelize(
   process.env.DB_DATABASE,
@@ -32,7 +31,6 @@ staffMembers.init(sequelize);
 comments.init(sequelize);
 casesProgress.init(sequelize);
 questionnaire.init(sequelize);
-namer.init(sequelize);
 
 //Associations
 cases.associations(sequelize);
@@ -45,7 +43,6 @@ staffMembers.associations(sequelize);
 comments.associations(sequelize);
 casesProgress.associations(sequelize);
 questionnaire.associations(sequelize);
-namer.associations(sequelize);
 
 //Add Hooks
 staffMembers.hooks(sequelize);

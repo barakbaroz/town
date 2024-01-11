@@ -7,11 +7,8 @@ const {
   duplicate,
   search,
   deleteCase,
-  scanNamer,
 } = require("./controller");
 const { verifyToken } = require("../stuffMembers/authorization");
-
-router.get("/scanNamer", scanNamer);
 
 router.use(verifyToken);
 
