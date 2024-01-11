@@ -110,7 +110,8 @@ const isPastDate = ({ date }) => {
 };
 
 const validatorFullFeilds = {
-  zehutNumber: ({ zehutNumber }) => zehutNumber?.length !== 4,
+  socialSecurityNumber: ({ socialSecurityNumber }) =>
+    socialSecurityNumber?.length !== 4,
   phoneNumber: ({ phoneNumber }) => !/^\d{10}$/.test(phoneNumber),
   concentrate: ({ concentrate }) => !concentrate,
   date: ({ date }) => !date,
@@ -126,7 +127,6 @@ const GisterContainer = styled.div`
   --invalid: #f02a4c;
   width: 100vw;
   min-height: 100vh;
-  direction: rtl;
   font-family: "Abraham";
 `;
 

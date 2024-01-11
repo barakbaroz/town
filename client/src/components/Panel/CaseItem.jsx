@@ -36,13 +36,15 @@ function CaseItem({ item, deleteCase }) {
           <Line />
         </Avatar>
         <Unit>
-          <Heading>ת.ז {item.zehutNumber}</Heading>
-          <SubHeadin>{getLengAndAge(item)}</SubHeadin>
+          <Heading>SSN {item.socialSecurityNumber}</Heading>
+          <SubHeadin>
+            Age Group {item.age}, {languages[item.User.language]}
+          </SubHeadin>
         </Unit>
         <Unit>
-          <Heading>קולונוסקופיה</Heading>
+          <Heading>Colonoscopy</Heading>
           <SubHeadin>
-            {new Date(item.procedureDate).toLocaleDateString("he-IL")},{" "}
+            {new Date(item.procedureDate).toLocaleDateString("en-US")},{" "}
             {item.procedureTime} | {item.StaffMember.name}
           </SubHeadin>
         </Unit>
@@ -79,25 +81,11 @@ const getMaxProgress = (item) => {
   return "";
 };
 
-const genders = {
-  male: "בן",
-  female: "בת",
-  other: "אחר",
-};
-
 const languages = {
   sp: "ספרדית",
   ar: "ערבית",
   en: "אנגלית",
   ru: "רוסית",
-  he: "עברית",
-};
-
-const getLengAndAge = ({ gender, age, User }) => {
-  return [
-    gender && age ? `${genders[gender]} ${age}` : "גיל",
-    languages[User.language],
-  ].join(", ");
 };
 
 export default CaseItem;

@@ -19,7 +19,7 @@ function SearchBar({ search, setSearch }) {
   const handleZehut = (event) => {
     const { value } = event.target;
     if (!NumbersRgx.test(value)) return;
-    setSearch((prev) => ({ ...prev, zehutNumber: value }));
+    setSearch((prev) => ({ ...prev, socialSecurityNumber: value }));
   };
 
   const clearId = () =>
@@ -48,7 +48,7 @@ function SearchBar({ search, setSearch }) {
             placeholder="0000"
             onChange={handleZehut}
             maxLength={4}
-            value={search.zehutNumber || ""}
+            value={search.socialSecurityNumber || ""}
           />
           <DatePickerWrapper
             onChange={handleDateSearch}
@@ -200,5 +200,5 @@ const IconButton = styled.button`
 const DatePickerWrapper = styled(DatePicker)`
   padding-inline-end: 18px;
   padding-inline-start: 107px;
-  border-right: 1px solid #707070;
+  border-inline-start: 1px solid #707070;
 `;

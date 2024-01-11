@@ -9,8 +9,8 @@ function PatientInformation({ casesDataRef }) {
   const phoneInputRef = useRef(null);
 
   const handleZehutNumber = (zehut) => {
-    casesDataRef.current.zehutNumber = zehut;
-    document.getElementById("zehutNumber").classList.remove("invalid");
+    casesDataRef.current.socialSecurityNumber = zehut;
+    document.getElementById("socialSecurityNumber").classList.remove("invalid");
   };
 
   const handlePhoneNumber = (phoneNumber) => {
@@ -25,7 +25,7 @@ function PatientInformation({ casesDataRef }) {
         <PinInput
           nextInput={phoneInputRef}
           onChange={handleZehutNumber}
-          id="zehutNumber"
+          id="socialSecurityNumber"
         />
       </InputContainer>
       <InputContainer>
