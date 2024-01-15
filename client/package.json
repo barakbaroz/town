@@ -1,5 +1,5 @@
 {
-  "name": "colonoscopy-ichilov",
+  "name": "client",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,7 +11,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@gistmed/gist-ui": "^0.1.46",
+    "@gistmed/gist-ui": "^0.1.47",
     "axios": "^1.4.0",
     "framer-motion": "^10.16.4",
     "lottie-react": "^2.4.0",
