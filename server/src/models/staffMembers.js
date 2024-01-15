@@ -23,7 +23,7 @@ const init = (sequelize) =>
 
 const associations = (sequelize) => {
   const { Cases, StaffMembers, Comments } = sequelize.models;
-  StaffMembers.hasMany(Cases, { foreignKey: "creatorId" });
+  StaffMembers.hasMany(Cases, { foreignKey: "creatorId", as: "creator" });
   StaffMembers.hasMany(Comments, { foreignKey: "creatorId" });
 };
 

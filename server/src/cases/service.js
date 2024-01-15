@@ -69,6 +69,7 @@ module.exports.search = async ({ creatorId, search }) => {
       {
         model: StaffMembers,
         attributes: ["name"],
+        as: "creator",
       },
     ],
     attributes: [

@@ -9,11 +9,10 @@ const init = (sequelize) =>
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
       },
-      creatorId: DataTypes.UUID,
       socialSecurityNumber: DataTypes.STRING(4),
       gender: DataTypes.ENUM("male", "female", "other"),
       age: DataTypes.ENUM("20-50", "50-70", "70+"),
-      concentrate: DataTypes.ENUM("moviprep", "picolax", "meroken", "unknown"),
+      concentrate: DataTypes.STRING,
       procedureDate: DataTypes.DATEONLY,
       procedureTime: DataTypes.STRING,
     },
@@ -26,6 +25,7 @@ const associations = (sequelize) => {
   Cases.belongsTo(StaffMembers, {
     foreignKey: "creatorId",
     onDelete: "CASCADE",
+    as: "creator",
   });
   Cases.hasOne(Users, { onDelete: "CASCADE" });
   Cases.hasOne(Comments, { onDelete: "CASCADE" });
