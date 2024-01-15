@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import styled, { css, keyframes } from "styled-components";
 
-const CircularProgress = ({ maxValue, progress, strokeWidth }) => {
+export default function CircularProgress({ maxValue, progress, strokeWidth }) {
   return (
     <Container>
       <SVG>
@@ -32,15 +32,13 @@ const CircularProgress = ({ maxValue, progress, strokeWidth }) => {
       </SVG>
     </Container>
   );
-};
+}
 
 CircularProgress.propTypes = {
   maxValue: PropTypes.number,
   progress: PropTypes.number,
   strokeWidth: PropTypes.string,
 };
-
-export default CircularProgress;
 
 const Container = styled.div`
   height: 60px;

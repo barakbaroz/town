@@ -6,7 +6,7 @@ import CopyLinkIcon from "../../assets/Icons/copy_link.svg";
 import PanelVideo from "../Video/PanelVideo";
 import { useState } from "react";
 
-function CaseItemButtons({ item }) {
+export default function CaseItemButtons({ item }) {
   const [linkCopied, setLinkCopied] = useState(false);
   const [showVideo, setShowVideo] = useState(false);
   const handleCopyLink = () => {
@@ -31,14 +31,14 @@ function CaseItemButtons({ item }) {
         >
           <img src={PlayIcon} />
         </Button>
-        <ActionText>נגן סרטון</ActionText>
+        <ActionText>Play video</ActionText>
       </ButtonContainer>
 
       <ButtonContainer>
         <Button onClick={handleCopyLink}>
           <img src={CopyLinkIcon} />
         </Button>
-        <ActionText>{linkCopied ? "לינק הועתק" : "העתקת לינק"}</ActionText>
+        <ActionText>{linkCopied ? "Copy link" : "link copied"}</ActionText>
       </ButtonContainer>
 
       <ButtonContainer>
@@ -47,8 +47,6 @@ function CaseItemButtons({ item }) {
     </Column>
   );
 }
-
-export default CaseItemButtons;
 
 CaseItemButtons.propTypes = {
   item: PropTypes.object,

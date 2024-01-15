@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import trashIcon from "../../assets/Icons/trash_pop_icon.svg";
 
-const DeletePopup = ({ close, deleteCase }) => {
+export default function DeletePopup({ close, deleteCase }) {
   const handleDeleteClick = () => {
     deleteCase();
     close();
@@ -11,22 +11,20 @@ const DeletePopup = ({ close, deleteCase }) => {
   return (
     <Container id="deletePopUpContent">
       <img alt="alert" src={trashIcon} />
-      <Text>האם את/ה בטוח/ה שברצונך למחוק את המקרה?</Text>
+      <Text>Are you sure you want to delete this case?</Text>
       <ActionButtons>
-        <AcceptButton onClick={handleDeleteClick}>אישור</AcceptButton>
-        <CancelButton onClick={close}>ביטול</CancelButton>
+        <AcceptButton onClick={handleDeleteClick}>Yes </AcceptButton>
+        <CancelButton onClick={close}>No</CancelButton>
       </ActionButtons>
     </Container>
   );
-};
+}
 
 DeletePopup.propTypes = {
   close: PropTypes.func,
   deleteCase: PropTypes.func,
   show: PropTypes.bool,
 };
-
-export default DeletePopup;
 
 const Container = styled.div`
   font-family: "Assistant";

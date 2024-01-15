@@ -24,7 +24,7 @@ const Support = () => {
     <Conatiner expand={expand}>
       <Header onClick={handleExpand}>
         <Avatar src={TechHelp} />
-        <Title> נתקלת בבעיה? </Title>
+        <Title>Need Help?</Title>
         <Icon src={expand ? SmallX : SmallPlus} />
       </Header>
       <SubContainer expand={expand}>

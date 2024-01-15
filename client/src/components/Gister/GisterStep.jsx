@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
 
-function GisterStep({ stepNumber, children, title, subTitle }) {
+export default function GisterStep({ stepNumber, children, title, subTitle }) {
   return (
     <StepContainer>
       <InformationContainer>
@@ -21,7 +21,6 @@ GisterStep.propTypes = {
   subTitle: PropTypes.string,
   stepNumber: PropTypes.string,
 };
-export default GisterStep;
 
 const StepContainer = styled.div`
   height: 100%;

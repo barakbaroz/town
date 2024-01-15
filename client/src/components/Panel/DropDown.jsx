@@ -5,13 +5,13 @@ import arrowIcon from "../../assets/Icons/hollow_arrow.svg";
 
 const dropDownList = ["all", "openSms", "avatarSelection", "watchedVideo"];
 const texts = {
-  all: "סטטוס מטופל / הכל",
-  openSms: "סמס נפתח",
-  avatarSelection: "שאלון נענה",
-  watchedVideo: "סרטון נצפה",
+  all: "Patient Status / All",
+  openSms: "Text message opened",
+  avatarSelection: "Questionnaire Answered",
+  watchedVideo: "Video watched",
 };
 
-const DropDown = ({ setSearch, selectedOne }) => {
+export default function DropDown({ setSearch, selectedOne }) {
   const ref = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -52,14 +52,12 @@ const DropDown = ({ setSearch, selectedOne }) => {
       </List>
     </Wrapper>
   );
-};
+}
 
 DropDown.propTypes = {
   setSearch: PropTypes.func,
   selectedOne: PropTypes.string,
 };
-
-export default DropDown;
 
 const Wrapper = styled.div`
   display: flex;

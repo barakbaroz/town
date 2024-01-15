@@ -8,7 +8,7 @@ import axios from "axios";
 
 const NumberRgx = /(^[0-9]+$|^$)/;
 
-const PhoneInput = ({ item }) => {
+export default function PhoneInput({ item }) {
   const [open, setOpen] = useState(false);
   const [error, setError] = useState(false);
   const [number, setNumber] = useState("");
@@ -55,16 +55,14 @@ const PhoneInput = ({ item }) => {
           <Close open={open} src={xIcon} onClick={handleClose}></Close>
         </InputWrapper>
       </PhoneContainer>
-      <ActionText open={open}>שליחה חוזרת</ActionText>
+      <ActionText open={open}>Resend link</ActionText>
     </PhoneWrapper>
   );
-};
+}
 
 PhoneInput.propTypes = {
   item: PropTypes.object,
 };
-
-export default PhoneInput;
 
 const ActionText = styled.div`
   visibility: ${({ open }) => (open ? "hidden" : "auto")};

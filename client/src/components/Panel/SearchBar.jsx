@@ -14,7 +14,7 @@ import { DatePicker } from "@gistmed/gist-ui";
 
 const NumbersRgx = /(^[0-9]+$|^$)/;
 
-function SearchBar({ search, setSearch }) {
+export default function SearchBar({ search, setSearch }) {
   const navigate = useNavigate();
   const handleSSN = (event) => {
     const { value } = event.target;
@@ -56,6 +56,7 @@ function SearchBar({ search, setSearch }) {
             minValue={null}
             value={search.date || null}
             label="search"
+            locale="en-US"
           />
           <ClearId onClick={clearId} id="ClearId" />
         </GreyWrapper>
@@ -80,8 +81,6 @@ SearchBar.propTypes = {
   search: PropTypes.object,
   setSearch: PropTypes.func,
 };
-
-export default SearchBar;
 
 const GistLogo = styled.img`
   height: 40px;

@@ -3,7 +3,7 @@ import gistLogo from "../../assets/Logos/gist_logo.svg";
 import hospitalLogo from "../../assets/Logos/hospital_logo_headers.svg";
 import PropTypes from "prop-types";
 
-function GisterHeader({ text }) {
+export default function GisterHeader({ text }) {
   return (
     <Container id="coordinator-header">
       <HospitalLogo src={hospitalLogo} />
@@ -17,8 +17,6 @@ GisterHeader.propTypes = {
   children: PropTypes.node,
   text: PropTypes.string,
 };
-
-export default GisterHeader;
 
 const Container = styled.div`
   box-shadow: 0 0 10px 0px grey;

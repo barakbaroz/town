@@ -7,8 +7,15 @@ import DeletePopup from "./DeletePopup";
 import Trash from "../../assets/Icons/trash.svg";
 import Avatars from "../../assets/Avatars";
 import PopUp from "../Popups/PopUp";
+import { StepTexts } from "./StepProgress";
 
-function CaseItem({ item, deleteCase }) {
+const TimeOptions = {
+  hour: "numeric",
+  minute: "numeric",
+  hour12: true,
+};
+
+export default function CaseItem({ item, deleteCase }) {
   const [expand, setExpand] = useState(false);
   const [showDeletePopUp, setShowDeletePopUp] = useState(false);
 
@@ -44,8 +51,11 @@ function CaseItem({ item, deleteCase }) {
         <Unit>
           <Heading>Colonoscopy</Heading>
           <SubHeadin>
-            {new Date(item.procedureDate).toLocaleDateString("en-US")},{" "}
-            {item.procedureTime} | {item.StaffMember.name}
+            {new Date(item.procedureDate).toLocaleDateString("en-US")} |{" "}
+            {new Date("0 " + item.procedureTime).toLocaleTimeString(
+              "en-US",
+              TimeOptions
+            )}
           </SubHeadin>
         </Unit>
         <EndPart>
@@ -75,20 +85,19 @@ CaseItem.propTypes = {
 };
 
 const getMaxProgress = (item) => {
-  if (item.CasesProgress.watchedVideo) return "סרטון נצפה";
-  if (item.CasesProgress.avatarSelection) return "שאלון נענה";
-  if (item.CasesProgress.openSms) return "סמס נפתח";
+  for (const [key, text] of Object.entries(StepTexts)) {
+    if (item.CasesProgress[key]) return text;
+  }
   return "";
 };
 
 const languages = {
-  sp: "ספרדית",
-  ar: "ערבית",
-  en: "אנגלית",
-  ru: "רוסית",
+  sp: "Spanish",
+  ar: "Arabic",
+  en: "English",
+  ru: "Russian",
 };
 
-export default CaseItem;
 const Case = styled.div`
   margin: 30px auto;
   width: 80%;

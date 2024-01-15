@@ -5,7 +5,7 @@ import { GeneralInput } from "./Giser.styled";
 
 const regex = new RegExp("[0-9]");
 
-function PinInput({ nextInput, onChange, ...props }) {
+export default function PinInput({ nextInput, onChange, ...props }) {
   const refs = useRef([]);
 
   const handleChange = (index) => (event) => {
@@ -63,8 +63,6 @@ PinInput.propTypes = {
   nextInput: PropTypes.object,
   onChange: PropTypes.func,
 };
-
-export default PinInput;
 
 const Pin = styled(GeneralInput)`
   padding-inline: var(--field-padding-block);

@@ -5,7 +5,7 @@ import { GeneralInput } from "./Giser.styled";
 
 const NumberRgx = /(^[0-9]+$|^$)/;
 
-function PhoneInput({ phoneInputRef, onChange }) {
+export default function PhoneInput({ phoneInputRef, onChange }) {
   const [number, setNumber] = useState("");
 
   const handleNumberChange = (e) => {
@@ -34,8 +34,6 @@ PhoneInput.propTypes = {
   phoneInputRef: PropTypes.object,
   onChange: PropTypes.func,
 };
-
-export default PhoneInput;
 
 const Input = styled(GeneralInput)`
   padding-inline: 1.688rem;

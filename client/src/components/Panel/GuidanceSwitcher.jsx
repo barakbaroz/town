@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import PropTypes from "prop-types";
 
-const GuidanceSwitcher = ({ search, setSearch }) => {
+export default function GuidanceSwitcher({ search, setSearch }) {
   const changeGuidance = (value) => () => {
     setSearch((prev) => ({ ...prev, myCases: value }));
   };
@@ -11,14 +11,14 @@ const GuidanceSwitcher = ({ search, setSearch }) => {
         selected={!search.myCases}
         onClick={changeGuidance(false)}
       >
-        כל ההדרכות
+        All Cases
       </GuidanceOption>
       <GuidanceOption selected={search.myCases} onClick={changeGuidance(true)}>
-        הדרכות שלי
+        My Cases
       </GuidanceOption>
     </Wrapper>
   );
-};
+}
 
 GuidanceSwitcher.propTypes = {
   search: PropTypes.shape({
@@ -26,8 +26,6 @@ GuidanceSwitcher.propTypes = {
   }),
   setSearch: PropTypes.func,
 };
-
-export default GuidanceSwitcher;
 
 const Wrapper = styled.div`
   display: flex;

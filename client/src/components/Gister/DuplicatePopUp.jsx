@@ -2,26 +2,28 @@ import Lottie from "lottie-react";
 import PropTypes from "prop-types";
 import notificationCopy from "../../assets/Lotties/notificationCopy.json";
 import PopUp from "../Popups/PopUp";
-
 import styled from "styled-components";
 
-function DuplicatePopUp({ onConfirm, onCancel, open, loading }) {
+export default function DuplicatePopUp({ onConfirm, onCancel, open, loading }) {
   return (
     <PopUp isPreviewOpen={open}>
       <Container>
         <Megaphone />
 
         <TextWrapper>
-          <Text>קיים מקרה עם טלפון זהה במערכת.</Text>
+          <Text>
+            A duplicate case associated with the same phone number has been
+            identified in the system. Are you sure you want to resend the video?
+          </Text>
           <Text>האם לשלוח שוב את הסרטון?</Text>
         </TextWrapper>
 
         <ActionButtons>
           <AcceptButton disabled={loading} onClick={onConfirm}>
-            אישור
+            Send
           </AcceptButton>
           <CancelButton disabled={loading} onClick={onCancel}>
-            ביטול
+            Cancel
           </CancelButton>
         </ActionButtons>
       </Container>
@@ -35,8 +37,6 @@ DuplicatePopUp.propTypes = {
   open: PropTypes.bool,
   loading: PropTypes.bool,
 };
-
-export default DuplicatePopUp;
 
 const Container = styled.div`
   font-family: "Assistant";

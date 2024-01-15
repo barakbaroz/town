@@ -2,15 +2,15 @@ import PropTypes from "prop-types";
 import { Fragment } from "react";
 import styled from "styled-components";
 
-const texts = {
-  openSms: "סמס נפתח",
-  avatarSelection: "שאלון נענה",
-  watchedVideo: "סרטון נצפה",
+export const StepTexts = {
+  watchedVideo: "Video watched",
+  avatarSelection: "Questionnaire Answered",
+  openSms: "Text message opened",
 };
 
 const dateOptions = { year: "2-digit", month: "2-digit", day: "2-digit" };
 
-const StepProgress = ({ item }) => {
+export default function StepProgress({ item }) {
   return (
     <StyledStepProgress id="StyledStepProgress">
       {Object.entries(item.CasesProgress).map(([step, time]) => {
@@ -19,7 +19,7 @@ const StepProgress = ({ item }) => {
         return (
           <Fragment key={step}>
             <TextContainer id="TextContainer">
-              <Name color={color}>{texts[step]}</Name>
+              <Name color={color}>{StepTexts[step]}</Name>
               <Time show={isDone}>
                 {new Date(time).toLocaleDateString("en-US", dateOptions)}
               </Time>
@@ -36,13 +36,11 @@ const StepProgress = ({ item }) => {
       })}
     </StyledStepProgress>
   );
-};
+}
 
 StepProgress.propTypes = {
   item: PropTypes.object,
 };
-
-export default StepProgress;
 
 const Line = styled.div`
   background-color: ${({ color }) => color};

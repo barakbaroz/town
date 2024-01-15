@@ -1,9 +1,8 @@
 import styled, { keyframes } from "styled-components";
 
-const SkeletonCaseItem = () => {
+export default function SkeletonCaseItem() {
   return <Case />;
-};
-export default SkeletonCaseItem;
+}
 
 const skeletonLoading = keyframes`
     from {

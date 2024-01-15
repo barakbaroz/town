@@ -7,7 +7,7 @@ import TimePicker from "../Gister/TimePicker";
 import { parseDate } from "@internationalized/date";
 import axios from "axios";
 
-const CaseItemExpand = ({ item, show }) => {
+export default function CaseItemExpand({ item, show }) {
   const handleChangeDate = (data) => {
     axios.put("/api/cases/update", {
       id: item.id,
@@ -28,23 +28,24 @@ const CaseItemExpand = ({ item, show }) => {
 
       <Column>
         <div>
-          <Text show={true}>פרטי קשר</Text>
+          <Text>Contact Info.</Text>
           {item.User.phoneNumber}
         </div>
         <div>
-          <Text show={true}>סוג תמיסה</Text>
+          <Text>Laxative Solution Type</Text>
           {concentrateMapper[item.concentrate]}
         </div>
       </Column>
 
       <Column>
-        <DateAndTimeTitle>עדכון זמן בדיקה</DateAndTimeTitle>
+        <DateAndTimeTitle>Update the procedure date</DateAndTimeTitle>
         <DateAndTime>
           <DateAndTimeWrapper>
             <DatePicker
               label="date"
               defaultValue={parseDate(item.procedureDate)}
               onChange={handleChangeDate}
+              locale="en-US"
             />
           </DateAndTimeWrapper>
           <DateAndTimeWrapper>
@@ -57,11 +58,11 @@ const CaseItemExpand = ({ item, show }) => {
         </DateAndTime>
         <TextArea
           defaultValue={item.Comment?.message}
-          placeholder="הוספת הערה..."
+          placeholder="Add a comment…"
           disabled={true}
         />
         <div>
-          תאריך יצירת קייס |{" "}
+          Case created by | {item.creator.name}
           {new Date(item.createdAt).toLocaleDateString("en-US")}
         </div>
       </Column>
@@ -71,13 +72,11 @@ const CaseItemExpand = ({ item, show }) => {
       </Column>
     </Container>
   );
-};
+}
 CaseItemExpand.propTypes = {
   item: PropTypes.object,
   show: PropTypes.bool,
 };
-
-export default CaseItemExpand;
 
 const concentrateMapper = {
   moviprep: "Moviprep",
@@ -127,7 +126,6 @@ const Text = styled.div`
   line-height: 23px;
   color: #444444;
   margin-bottom: 5px;
-  display: ${({ show }) => (show ? "block" : "none")};
 `;
 
 const TextArea = styled.textarea`

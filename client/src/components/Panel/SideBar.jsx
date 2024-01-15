@@ -5,7 +5,7 @@ import CircleProfile from "../../assets/Logos/hospital_logo_profile_image.svg";
 import Plus from "../../assets/Icons/plus.svg";
 import Support from "./Support";
 
-const SideBar = ({ casesCount }) => {
+export default function SideBar({ casesCount }) {
   const stuffMemberInfo = useLoaderData();
   return (
     <Container>
@@ -13,34 +13,32 @@ const SideBar = ({ casesCount }) => {
         <Content>
           <img src={CircleProfile} style={{ maxWidth: "132px" }} alt="img" />
           <Name>{stuffMemberInfo.name}</Name>
-          <SubName>אחות מרפאה ראשית</SubName>
+          <SubName>Endoscopy Coordinator</SubName>
           <CasesCounters>
             <div>
               <Number>{casesCount.totalCases}</Number>
-              <Title>הדרכות סה&quot;כ</Title>
+              <Title>Total Cases</Title>
             </div>
             <Divider />
             <div>
               <Number>{casesCount.todayCases}</Number>
-              <Title>הדרכות מהיום</Title>
+              <Title>Today&apos;s Cases</Title>
             </div>
           </CasesCounters>
           <AddButton to="/gister">
             <img src={Plus} alt="img" />
           </AddButton>
-          <NewCase>יצירת הדרכה חדשה</NewCase>
+          <NewCase>Create New Case</NewCase>
         </Content>
         <Support />
       </Inner>
     </Container>
   );
-};
+}
 
 SideBar.propTypes = {
   casesCount: PropTypes.object,
 };
-
-export default SideBar;
 
 const Container = styled.div`
   width: 20%;

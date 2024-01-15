@@ -4,7 +4,7 @@ import useCasesSearch from "../../hooks/useCasesSearch";
 import CaseItem from "./CaseItem";
 import SkeletonCaseItem from "./SkeletonCaseItem";
 
-const Cases = ({ search, refetchCasesCount }) => {
+export default function Cases({ search, refetchCasesCount }) {
   const { loading, cases, error, deleteCase } = useCasesSearch(
     search,
     refetchCasesCount
@@ -22,8 +22,7 @@ const Cases = ({ search, refetchCasesCount }) => {
         [...Array(30)].map((_, index) => <SkeletonCaseItem key={index} />)}
     </Container>
   );
-};
-export default Cases;
+}
 
 Cases.propTypes = {
   search: PropTypes.object,

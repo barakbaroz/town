@@ -30,7 +30,6 @@ export default function TimePicker({ defaultValue, onChange, ...props }) {
   return (
     <Container {...props}>
       <MyTimeField
-        hourCycle={24}
         onChange={hansleChange}
         defaultValue={defaultValue && new Time(...defaultValue.split(":"))}
       />

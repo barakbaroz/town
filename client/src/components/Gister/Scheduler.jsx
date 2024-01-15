@@ -21,6 +21,7 @@ export default function Scheduler({ casesDataRef }) {
           label="date"
           defaultValue={null}
           onChange={handleDateSelect}
+          locale="en-US"
         />
       </Wrapper>
       <Wrapper id="time">
