@@ -3,31 +3,9 @@ import { Card, Icon, Title, TopSection } from "./Card.Style";
 import { Translator } from "../Translation";
 import doctorConsult from "../../assets/Icons/doctor_consult.svg";
 import { buttonCSS } from "../general.style";
-import { useUser } from "../../providers/UserProvider";
-import bloodThinnersDiabetesMedicinesPDF from "../../assets/Pdfs/ConsultDoctor/bloodThinners-diabetesMedicines.pdf";
-import bloodThinnersPDF from "../../assets/Pdfs/ConsultDoctor/bloodThinners.pdf";
-import diabetesMedicinesPDF from "../../assets/Pdfs/ConsultDoctor/diabetesMedicines.pdf";
 import { postAnalytics } from "../../analytics";
 
-const pdfs = {
-  "bloodThinners:Yes-diabetesMedicines:Yes": bloodThinnersDiabetesMedicinesPDF,
-  "bloodThinners:Yes-diabetesMedicines:No": bloodThinnersPDF,
-  "bloodThinners:No-diabetesMedicines:Yes": diabetesMedicinesPDF,
-};
-
-const questionsKeys = ["bloodThinners", "diabetesMedicines"];
-
-const inRelevantQuestionsKey = ({ questionKey }) =>
-  questionsKeys.includes(questionKey);
-
-function ConsultDoctor() {
-  const { Questionnaires } = useUser();
-
-  const key = Questionnaires.filter(inRelevantQuestionsKey)
-    .sort((a, b) => a.questionKey.localeCompare(b.questionKey))
-    .map(({ questionKey, answerKey }) => `${questionKey}:${answerKey}`)
-    .join("-");
-
+export default function ConsultDoctor() {
   const handleConsultClick = () => {
     postAnalytics({ type: "consult-doctor-clicked" });
   };
@@ -36,26 +14,20 @@ function ConsultDoctor() {
     <Card>
       <TopSection>
         <Title>
-          <Translator>התייעצות עם הרופא/ה המטפל/ת</Translator>
+          <Translator>Consult-Doctor-Title</Translator>
         </Title>
         <Icon src={doctorConsult} alt="doctorConsult" />
       </TopSection>
 
       <Text>
-        <Translator>Consult-Doctor-{key}</Translator>
+        <Translator>Consult-Doctor-Paragraph</Translator>
       </Text>
-      <StyledButton
-        href={pdfs[key]}
-        show={pdfs[key]}
-        onClick={handleConsultClick}
-      >
+      <StyledButton href="#" show={true} onClick={handleConsultClick}>
         <Translator>Consult-Doctor-Download</Translator>
       </StyledButton>
     </Card>
   );
 }
-
-export default ConsultDoctor;
 
 const StyledButton = styled.a`
   ${buttonCSS}

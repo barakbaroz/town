@@ -62,7 +62,10 @@ export default Player;
 
 Player.propTypes = {
   setShowFeedback: PropTypes.func,
-  videoRef: PropTypes.node,
+  videoRef: PropTypes.oneOfType([
+    PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
+    PropTypes.func,
+  ]),
 };
 
 const VideoContainer = styled.div`

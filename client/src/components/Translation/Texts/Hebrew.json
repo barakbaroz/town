@@ -1,27 +1,4 @@
 {
-  "authentication-success-title": "הזיהוי הצליח",
-  "authentication-success-subtitle": "מיד נעבור למערך ההדרכה!",
-  "authentication-failed-title": "הזיהוי נכשל",
-  "authentication-failed-subtitle": "ניסיון נוסף לזיהוי יתחיל בעוד מספר שניות",
-  "authentication-blocked-title": "הזיהוי נכשל בפעם השנייה",
-  "authentication-blocked-subtitle": "חשוב לפנות למרפאה כדי להתחיל את הליך הזיהוי מחדש",
-  "authentication-loading-title": "רק עוד רגע…",
-  "authentication-loading-subtitle": "העמוד בטעינה",
-
-  "questions-title": "אנא ענה/י על 3 שאלות לצורך מסך זיהוי",
-  "enter-id": "מה הן ארבעת ספרות אחרונות של תעודת הזהות שלך?",
-  "year-of-birth": "מהי שנת הלידה שלך?",
-  "schedule-reason": "מהי הסיבה בגללה זומנת למרפאה?",
-
-  "choose-answer": "בחר/י את התשובה",
-  "eyes": "עיניים",
-  "gastroscopy": "גסטרו",
-  "midwives": "מיילדות או נשים",
-  "preSurgery": "טרום ניתוח והרדמה",
-  "heart": "לב",
-
-  "remember-me": "זכור אותי במכשיר זה לפעם הבאה",
-
   "Start-Title": "שלום!",
   "Start-Paragraph": "לקראת בדיקת הקולונוסקופיה שלך, נבקשך לענות על מספר שאלות ולצפות בסרטון הדרכה מותאם אישית שהכנו עבורך ויקל עליך להתכונן לבדיקה",
   "Start-Legal-Explain": "לחיצה על הכפתור מהווה אישור של",
@@ -30,14 +7,10 @@
 
   "Yes": "כן",
   "No": "לא",
-  "send": "שליחה",
-  "share": "שיתוף",
-  
+  "Share": "שיתוף",
+
   "Share-Video-Text": "שלום, אני רוצה לשתף אותך בסרטון הדרכה שקיבלתי מקופת החולים.",
   "Hospital-Name": "איכילוב",
-  "ReWatch-Video-male": "תוכל לחזור ולצפות בסרטון שוב ולשתף אותו עם המלווים אותך בטיפול",
-  "ReWatch-Video-female": "תוכלי לחזור ולצפות בסרטון שוב ולשתף אותו עם המלווים אותך בטיפול.",
-
 
   "Character-Selection-Title": "בחירת הדמות שלך",
   "Character-Selection-Gender": "מה המין שלך?",
@@ -50,42 +23,36 @@
   "Character-Selection-Avatar-Single": "יש ללחוץ על הדמות שלך",
   "Character-Selection-Error": "עליך למלא תחילה שדות קודמים",
 
-  "diabetesMedicines-male": "האם אתה נוטל תרופות לסוכרת?",
-  "diabetesMedicines-female": "האם את נוטלת תרופות לסוכרת?",
-  "bloodThinners-male": "האם אתה נוטל מדללי דם? (לדוגמא - אספירין, פלביקס, אליקוויס, קסרלטו, פרדקסה, קומדין או תרופה דומה)",
-  "bloodThinners-female": "האם את נוטלת מדללי דם? (לדוגמא - אספירין, פלביקס, אליקוויס, קסרלטו, פרדקסה, קומדין או תרופה דומה)",
-  "bloodPressureMedicines-male": "האם אתה נוטל תרופות ללחץ דם או מחלת לב?",
-  "bloodPressureMedicines-female": "האם את נוטלת תרופות ללחץ דם או מחלת לב?",
-  "nutritionalSupplement-male": "האם אתה נוטל תוספי תזונה המכילים ברזל?",
-  "nutritionalSupplement-female": "האם את נוטלת תוספי תזונה המכילים ברזל?",
-  "colonoscopyBefore-male": "האם עברת בעבר בדיקת קולונוסקופיה?",
-  "colonoscopyBefore-female": "האם עברת בעבר בדיקת קולונוסקופיה?",
-
-
-  "Video-Back-To-Video": "חזרה לסרטון",
+  "Question-diabetesMedicines-male": "האם אתה נוטל תרופות לסוכרת?",
+  "Question-diabetesMedicines-female": "האם את נוטלת תרופות לסוכרת?",
+  "Question-bloodThinners-male": "האם אתה נוטל מדללי דם? (לדוגמא - אספירין, פלביקס, אליקוויס, קסרלטו, פרדקסה, קומדין או תרופה דומה)",
+  "Question-bloodThinners-female": "האם את נוטלת מדללי דם? (לדוגמא - אספירין, פלביקס, אליקוויס, קסרלטו, פרדקסה, קומדין או תרופה דומה)",
+  "Question-bloodPressureMedicines-male": "האם אתה נוטל תרופות ללחץ דם או מחלת לב?",
+  "Question-bloodPressureMedicines-female": "האם את נוטלת תרופות ללחץ דם או מחלת לב?",
+  "Question-nutritionalSupplement-male": "האם אתה נוטל תוספי תזונה המכילים ברזל?",
+  "Question-nutritionalSupplement-female": "האם את נוטלת תוספי תזונה המכילים ברזל?",
+  "Question-colonoscopyBefore-male": "האם עברת בעבר בדיקת קולונוסקופיה?",
+  "Question-colonoscopyBefore-female": "האם עברת בעבר בדיקת קולונוסקופיה?",
 
   "Video-Title-male": "צפה בסרטון מותאם אישית שיסביר לך איך להתכונן לבדיקה שלך",
   "Video-Title-female": "צפי בסרטון מותאם אישית שיסביר לך איך להתכונן לבדיקה שלך",
 
-  "Cards-Title":"הנחיות חשובות לקראת הבדיקה שלך",
-
-  "Nutritional-Guidelines-Title": "הנחיות תזונתיות",
-  "Nutritional-Guidelines-Preview": "לקראת הבדיקה שלך חשוב מאוד להקפיד על הנחיות תזונתיות מותאמות אישית.",
-  "Nutritional-Guidelines-Download": "הנחיות מותאמות אישית להורדה",
+  "Nutritional-Instructions-Title": "הנחיות תזונתיות",
+  "Nutritional-Instructions-Preview": "לקראת הבדיקה שלך חשוב מאוד להקפיד על הנחיות תזונתיות מותאמות אישית.",
+  "Nutritional-Instructions-Download": "הנחיות מותאמות אישית להורדה",
 
   "Consult-Doctor-Title": "התייעצות עם הרופא/ה המטפל/ת",
   "Consult-Doctor-bloodThinners:Yes-diabetesMedicines:Yes": "עליך לפנות לרופא/ה מטפל/ת לצורך קבלת מרשם לחומרי ההכנה. היות ודיווחת כי הינך ֹנוטל תרופות, יש לעקוב אחר ההמלצות הפרטניות ולהביא לרופא/ה את הטופס להורדה המצורף כאן.",
   "Consult-Doctor-bloodThinners:No-diabetesMedicines:No": "עליך לפנות לרופא/ה מטפל/ת לצורך קבלת מרשם לחומרי ההכנה.",
   "Consult-Doctor-bloodThinners:No-diabetesMedicines:Yes": "עליך לפנות לרופא/ה מטפל/ת לצורך קבלת מרשם לחומרי ההכנה. היות ודיווחת כי הינך נוטל תרופות לטיפול בסוכרת, יש לעקוב אחר ההמלצות הפרטניות ולהביא לרופא/ה את הטופס להורדה המצורף כאן.",
   "Consult-Doctor-bloodThinners:Yes-diabetesMedicines:No": "עליך לפנות לרופא/ה מטפל/ת לצורך קבלת מרשם לחומרי ההכנה. היות ודיווחת כי הינך נוטל תרופות לדילול דם, יש לעקוב אחר ההמלצות הפרטניות ולהביא לרופא/ה את הטופס להורדה המצורף כאן.",
-  "Consult-Doctor-Download":"הנחיות לרופא/ה להורדה",
+  "Consult-Doctor-Download": "הנחיות לרופא/ה להורדה",
 
   "MedicinesChanges-Title": "יש לשים לב לשינויים הנדרשים בתרופות שלך",
-  "MedicinesChanges-bloodThinners" : "יש להיוועץ עם רופא/ת המשפחה לגבי תרופות לדילול דם",
-  "MedicinesChanges-diabetesMedicines" : "בבוקר הבדיקה אין ליטול או להזריק תרופות נגד סוכרת, גם לא אינסולין",
-  "MedicinesChanges-nutritionalSupplement":"יש להפסיק ליטול תרופות המכילות ברזל כולל תוספי תזונה כ-5 ימים לפני הבדיקה",
-  "MedicinesChanges-bloodPressureMedicines":"את התרופות למחלות לב ולחץ דם יש להמשיך לקחת כרגיל",
-
+  "MedicinesChanges-bloodThinners": "יש להיוועץ עם רופא/ת המשפחה לגבי תרופות לדילול דם",
+  "MedicinesChanges-diabetesMedicines": "בבוקר הבדיקה אין ליטול או להזריק תרופות נגד סוכרת, גם לא אינסולין",
+  "MedicinesChanges-nutritionalSupplement": "יש להפסיק ליטול תרופות המכילות ברזל כולל תוספי תזונה כ-5 ימים לפני הבדיקה",
+  "MedicinesChanges-bloodPressureMedicines": "את התרופות למחלות לב ולחץ דם יש להמשיך לקחת כרגיל",
 
   "Dont-Forget-Title": "ביום הבדיקה לא לשכוח להביא:",
   "Dont-Forget-IdentificationCertificate": "תעודה מזהה עם תמונה",
@@ -102,11 +69,13 @@
   "Satisfaction-Answer-No": "לא",
   "Satisfaction-question-video-helpful": "האם הסרטון עזר לך?",
   "Satisfaction-Response": "תודה! תשובתך חשובה לנו",
-  "Satisfaction-question-reduce-worries": "האם הסרטון עזר לך להפיג חששות, במידה והיו לך?",
+  "Satisfaction-question-allay": "האם הסרטון עזר לך להפיג חששות, במידה והיו לך?",
   "Satisfaction-question-helped-understand": "האם הסרטון עזר לך להבין מה נדרש ממך לעשות לקראת הבדיקה? ",
   "Satisfaction-question-recommend-others-male": "האם תמליץ למכרייך לצפות בסרטון לפני הבדיקה?",
   "Satisfaction-question-recommend-others-female": "האם תמליצי למכרייך לצפות בסרטון לפני הבדיקה?",
   "Satisfaction-question-all-answered": "תודה על שיתוף הפעולה, רפואה שלמה.",
+
+  "Video-Back-To-Video": "חזרה לסרטון",
 
   "Footer": "מטופל מעורב הוא מטופל שמחלים טוב יותר"
 }

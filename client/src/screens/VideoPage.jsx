@@ -18,7 +18,7 @@ import Share from "../components/Instructions/Share";
 
 const lottieOptions = { animationData: nurseLottie, loop: true };
 
-function VideoPage() {
+export default function VideoPage() {
   const [showFeedback, setShowFeedback] = useState(false);
   const videoRef = useRef(null);
 
@@ -44,9 +44,6 @@ function VideoPage() {
           </ShareWrapper>
           <SatisfactionQuestions videoStarted={showFeedback} />
         </VideoInteraction>
-        <SubTitle>
-          <Translator>Cards-Title</Translator>
-        </SubTitle>
 
         <CardsWrapper>
           <NutritionalGuidelines />
@@ -74,8 +71,6 @@ function VideoPage() {
     </Transition>
   );
 }
-
-export default VideoPage;
 
 const Container = styled.div`
   --screen-margin: 23px;
@@ -106,11 +101,6 @@ const CommonTitleStyles = styled.p`
 const Title = styled(CommonTitleStyles)`
   margin-block-start: 2.125rem;
   margin-block-end: 1.813rem;
-`;
-
-const SubTitle = styled(CommonTitleStyles)`
-  margin-block-start: 0;
-  margin-block-end: 2rem;
 `;
 
 const ScrollSectionWrapper = styled.div`

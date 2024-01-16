@@ -6,7 +6,7 @@ function IconButton({ children, ...props }) {
   return (
     <Container {...props}>
       <Label>
-        <Translator>share</Translator>
+        <Translator>Share</Translator>
       </Label>
       {children}
     </Container>

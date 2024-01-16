@@ -36,6 +36,10 @@ export default function useUserInfo() {
     axios
       .get("/api/user/getData")
       .then((res) => {
+        const { procedureDate, procedureTime } = res.data.Case;
+        res.data.Case.procedureDateAndTime = new Date(
+          `${procedureDate} ${procedureTime}`
+        );
         setLanguage(res.data.language);
         setGender(res.data.Case.Avatar.gender);
         setUserInfo(res.data);

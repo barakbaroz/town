@@ -1,11 +1,10 @@
 import styled from "styled-components";
 import { Card, Icon, Title, TopSection } from "./Card.Style";
-
 import { Translator } from "../Translation";
 import gist_v from "../../assets/Icons/gist_v.svg";
 import dont_forget from "../../assets/Icons/dont_forget.svg";
 
-function DontForget() {
+export default function DontForget() {
   return (
     <Card>
       <TopSection>
@@ -18,7 +17,7 @@ function DontForget() {
       <ListContainer>
         {dontForgetItems.map((dontForgetItem) => (
           <ListItem key={dontForgetItem}>
-            <Translator>{`Dont-Forget-${dontForgetItem}`}</Translator>
+            <Translator>Dont-Forget-{dontForgetItem}</Translator>
           </ListItem>
         ))}
       </ListContainer>
@@ -27,13 +26,12 @@ function DontForget() {
 }
 
 const dontForgetItems = [
-  "IdentificationCertificate",
-  "tofes17",
+  "identification",
+  "form-17",
   "medicalReferral",
+  "bloodCounting",
   "companion",
 ];
-
-export default DontForget;
 
 const ListContainer = styled.ul`
   padding-inline-start: 1.5rem;

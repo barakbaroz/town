@@ -9,7 +9,7 @@ import { useUser } from "../../providers/UserProvider";
 const SatisfactionQuestions = ({ videoStarted }) => {
   // Ref to object that represent the question keys possible in order to check if everything answered.
   const answersRef = useRef({
-    "reduce-worries": false,
+    allay: false,
     "helped-understand": false,
     "recommend-others": false,
   });
@@ -49,9 +49,9 @@ const SatisfactionQuestions = ({ videoStarted }) => {
 
         <ExtraQuestionsContainer>
           <SingleQuestion
-            questionKey="reduce-worries"
+            questionKey="allay"
             show={state === "firstAnswered"}
-            onAnswer={onSecondaryAnswer("reduce-worries")}
+            onAnswer={onSecondaryAnswer("allay")}
           />
 
           <SingleQuestion

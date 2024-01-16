@@ -3,13 +3,9 @@ import { Card, Icon, Title, TopSection } from "./Card.Style";
 import { Translator } from "../Translation";
 import consentForm from "../../assets/Icons/consent_form.svg";
 import { buttonCSS } from "../general.style";
-import consents from "../../assets/Pdfs/ConsentForms";
-import { useLanguage } from "../../providers/LanguageProvider";
 import { postAnalytics } from "../../analytics";
 
 export default function Consent() {
-  const { language } = useLanguage();
-
   const handleConsentClick = () =>
     postAnalytics({ type: `instructions-consent-clicked` });
 
@@ -23,14 +19,10 @@ export default function Consent() {
       </TopSection>
 
       <Text>
-        <Translator>Consent-Information</Translator>
+        <Translator>Consent-Paragraph</Translator>
       </Text>
 
-      <ConsentLink
-        href={consents[language]}
-        target="_blank"
-        onClick={handleConsentClick}
-      >
+      <ConsentLink href="#" onClick={handleConsentClick}>
         <Translator>Consent-Download</Translator>
       </ConsentLink>
     </Card>

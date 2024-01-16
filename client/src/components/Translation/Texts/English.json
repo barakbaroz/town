@@ -1,1 +1,71 @@
-{}
+{
+  "Next": "Next",
+  "Share": "Share",
+
+  "Start-Title": "Hello!",
+  "Start-Paragraph": " Ahead of your colonoscopy examination, we’d like you to answer a few questions and to watch the personalized video, that will greatly ease the preparation process.",
+  "Start-Legal-Explain": "By clicking here you accept our",
+  "Start-Legal-Link": "Terms of Use",
+  "Hospital-Name": "Hospital Name",
+
+  "Character-Selection-Title": "Create your avatar",
+  "Character-Selection-Gender": "Choose your sex:",
+  "Character-Selection-female": "Female",
+  "Character-Selection-male": "Male",
+  "Character-Selection-other": "Other",
+  "Character-Selection-Age": "Choose your age:",
+
+  "Character-Selection-Avatar-General": "Choose your preferred avatar",
+  "Character-Selection-Avatar-Single": "Click your avatar",
+  "Character-Selection-Error": "Please enter your age and sex before continuing",
+
+  "Question-diabetesMedicines": "Do you take medication for diabetes?",
+  "Question-bloodThinners": "Do you take medication for blood pressure or heart disease?",
+  "Question-bloodPressureMedicines": "Do you take anticoagulants? (Such as aspirin, Plavix, Eliquis, Xarelto, Pradaxa, Coumadin, or other similar medication) ",
+  "Question-nutritionalSupplement": "Do you take dietary supplements containing iron?",
+  "Question-colonoscopyBefore": "Have you undergone a colonoscopy examination previously?",
+
+  "Video-Title": "Watch Your Personalized Video for Step-by-Step Preparation Instructions",
+
+  "Satisfaction-question-video-helpful": "Did you find the video helpful?",
+  "Satisfaction-Answer-Yes": "Yes",
+  "Satisfaction-Answer-No": "No",
+  "Satisfaction-Response": "Thank you! We value your feedback and would like to know more:",
+  "Satisfaction-question-allay": "Did the video help you allay any concerns you had about the examination?",
+  "Satisfaction-question-helped-understand": "Did the video help you understand how to prepare for the examination? ",
+  "Satisfaction-question-recommend-others": "Would you recommend the video to your acquaintances undergoing the examination?",
+
+  "Nutritional-Instructions-Title": "Nutritional instructions",
+  "Nutritional-Instructions-Preview": "Ahead of your examination, you should follow the dietary recommendations indicated here; you have an important role in the examination’s success.",
+  "Nutritional-Instructions-scheduled": "Your examination has been scheduled for",
+  "Instructions-Steps-Diet": "Switch to a low-fiber diet",
+  "Instructions-Steps-Liquids": "Starting 24 hours before your examination, start drinking clear fluids only",
+  "Instructions-Steps-FirstPortion": "Take the first dosage of the laxative solution",
+  "Instructions-Steps-SecondPortion": "take the second dosage of the laxative solution",
+  "Nutritional-Instructions-Download": "Download Instructions",
+
+  "MedicinesChanges-Title": "Pay attention to the required modifications in your prescribed medications",
+  "MedicinesChanges-diabetesMedicines": "Do not take or inject medications for diabetes, including insulin, in the morning before your examination",
+  "MedicinesChanges-bloodPressureMedicines": "Keep taking your prescribed medications for heart and blood pressure as usual",
+  "MedicinesChanges-bloodThinners": "Consult with your personal physician regarding (Anticoagulant) blood thinners ",
+  "MedicinesChanges-nutritionalSupplement": "Avoid the use of iron-containing medications and supplements for at least 5 days before undergoing the examination",
+
+  "Consult-Doctor-Title": "Consulting your personal physician",
+  "Consult-Doctor-Paragraph": "Please ask your personal physician for laxative solution prescriptions and instructions on the changes you need to make to your medications, ahead of the examination",
+  "Consent-Doctor-Download": "download a note to your physician",
+
+  "Dont-Forget-Title": "On the day of your examination don’t forget to bring the following documents:",
+  "Dont-Forget-identification": "Photo ID",
+  "Dont-Forget-form-17": "?",
+  "Dont-Forget-medicalReferral": "A referral letter from your physician detailing your diagnosis, your medications, and the reason the examination is required.",
+  "Dont-Forget-BloodCounting": "Results of a blood count and blood coagulation test from the past two weeks.",
+  "Dont-Forget-companion": "Please come to the hospital with a companion. You should not drive after the examination.",
+
+  "Consent-Title": "Informed consent form",
+  "Consent-Paragraph": "On the day of the examination, a physician will ask you to sign an informed consent form. We recommend you download and read the form carefully at home",
+  "Consent-Download": "Download informed consent",
+
+  "Video-Back-To-Video": "Back to video",
+
+  "Footer": "Engaged patients recover better"
+}

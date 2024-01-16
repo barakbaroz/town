@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Translator } from "../Translation";
-import { Icon, Title, TopSection } from "./Card.Style";
+import { Card, Icon, Title, TopSection } from "./Card.Style";
 import redFlag from "../../assets/Icons/red_Flag.svg";
 import { useUser } from "../../providers/UserProvider";
 import gist_v from "../../assets/Icons/gist_v.svg";
 
-function MedicinesChanges() {
+export default function MedicinesChanges() {
   const { Questionnaires } = useUser();
   const yesAnswers = Questionnaires.filter(
     (questionObj) =>
@@ -33,13 +33,11 @@ function MedicinesChanges() {
   );
 }
 
-export default MedicinesChanges;
-
 MedicinesChanges.propTypes = {
   show: PropTypes.bool,
 };
 
-const Container = styled.div`
+const Container = styled(Card)`
   display: ${({ show }) => (show ? "flex" : "none")};
   flex-direction: column;
   margin-inline: var(--screen-margin);

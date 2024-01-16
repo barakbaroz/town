@@ -36,7 +36,7 @@ function Questionnaire() {
         <QuestionImage src={questionnaireImages[questionKey]} />
         <Navigation index={questionIndex} questionsSize={questionsLength} />
         <QuestionText>
-          <Translator>{questionKey}</Translator>
+          <Translator>Question-{questionKey}</Translator>
         </QuestionText>
         <ButtonsContainer key={questionKey}>
           <Answer onClick={handleAnswer("Yes")}>
