@@ -18,3 +18,10 @@ export const buttonCSS = css`
 export const Button = styled.button`
   ${buttonCSS}
 `;
+
+export const desktopCss = css`
+  max-width: 700px;
+  margin-inline: auto;
+  min-height: calc(min(800px, 100vh)- var(--header-size));
+  min-height: calc(min(800px, 100dvh) - var(--header-size));
+`;

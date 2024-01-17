@@ -31,42 +31,44 @@ export default function VideoPage() {
   return (
     <Transition>
       <Container>
-        <StyledLanguageBar>
-          <LanguageBar />
-        </StyledLanguageBar>
-        <Title id="video-title">
-          <Translator>Video-Title</Translator>
-        </Title>
-        <Player setShowFeedback={setShowFeedback} videoRef={videoRef} />
-        <VideoInteraction>
-          <ShareWrapper>
-            <Share />
-          </ShareWrapper>
-          <SatisfactionQuestions videoStarted={showFeedback} />
-        </VideoInteraction>
+        <Desktop>
+          <StyledLanguageBar>
+            <LanguageBar />
+          </StyledLanguageBar>
+          <Title id="video-title">
+            <Translator>Video-Title</Translator>
+          </Title>
+          <Player setShowFeedback={setShowFeedback} videoRef={videoRef} />
+          <VideoInteraction>
+            <ShareWrapper>
+              <Share />
+            </ShareWrapper>
+            <SatisfactionQuestions videoStarted={showFeedback} />
+          </VideoInteraction>
 
-        <CardsWrapper>
-          <NutritionalGuidelines />
-          <MedicinesChanges />
-          <ConsultDoctor />
-          <DontForget />
-          <Consent />
-        </CardsWrapper>
+          <CardsWrapper>
+            <NutritionalGuidelines />
+            <MedicinesChanges />
+            <ConsultDoctor />
+            <DontForget />
+            <Consent />
+          </CardsWrapper>
 
-        <ScrollSectionWrapper>
-          <NurseLottie {...lottieOptions} />
-          <ScrollButton href="#video-title" onClick={handleAutoPlay}>
-            <img src={arrow_up} alt="arrowUp" />
-            <Translator>Video-Back-To-Video</Translator>
-            <span style={{ width: "19px" }} />
-          </ScrollButton>
-        </ScrollSectionWrapper>
+          <ScrollSectionWrapper>
+            <NurseLottie {...lottieOptions} />
+            <ScrollButton href="#video-title" onClick={handleAutoPlay}>
+              <img src={arrow_up} alt="arrowUp" />
+              <Translator>Video-Back-To-Video</Translator>
+              <span style={{ width: "19px" }} />
+            </ScrollButton>
+          </ScrollSectionWrapper>
 
-        <Divider />
+          <Divider />
 
-        <Footer>
-          <Translator>Footer</Translator>
-        </Footer>
+          <Footer>
+            <Translator>Footer</Translator>
+          </Footer>
+        </Desktop>
       </Container>
     </Transition>
   );
@@ -85,6 +87,11 @@ const Container = styled.div`
     )
     0% 0% no-repeat padding-box;
   padding-block-end: 35px;
+`;
+
+const Desktop = styled.div`
+  max-width: 800px;
+  margin-inline: auto;
 `;
 
 const StyledLanguageBar = styled.div`

@@ -8,6 +8,7 @@ import { Translator } from "../components/Translation";
 import { postAnalytics } from "../analytics";
 import { useUser } from "../providers/UserProvider";
 import Transition from "../Transition";
+import { desktopCss } from "../components/general.style";
 
 export default function CharacterSelection() {
   const navigate = useNavigate();
@@ -47,68 +48,70 @@ export default function CharacterSelection() {
   return (
     <Transition>
       <CharacterSelectionContainer id="CharacterSelectionContainer">
-        <Title id="PickYourCharecter">
-          <Translator>Character-Selection-Title</Translator>
-        </Title>
-        <PickerContainer id="PickerContainer">
-          {Object.entries(data).map(([questionKey, questionData]) => (
-            <Fragment key={questionKey}>
-              <QuestionWrapper id="QuestionWrapper">
-                <Question id="Question">
-                  <Translator>{questionData.title}</Translator>
-                </Question>
-                <QuestionPickerContainer id="QuestionPickerContainer">
-                  {Object.entries(questionData.answers).map(
-                    ([answerKey, answerText]) => (
-                      <Fragment key={answerKey}>
-                        <QuestionPicker
-                          id="QuestionPicker"
-                          selected={answerKey === answers[questionKey]}
-                          onClick={answerQuestion(questionKey, answerKey)}
-                        >
-                          <Translator>{answerText}</Translator>
-                        </QuestionPicker>
-                        <Divider id="Divider" />
-                      </Fragment>
-                    )
-                  )}
-                </QuestionPickerContainer>
-              </QuestionWrapper>
-              <Line />
-            </Fragment>
-          ))}
-          <QuestionWrapper id="CharacterQuestion">
-            <Question id="Question">
-              <Translator>
-                Character-Selection-Avatar-
-                {filtersAvatars.length === 1 ? "Single" : "General"}
-              </Translator>
-            </Question>
-            <CharacterQuestionPickerContainer id="CharacterQuestionPickerContainer">
-              {filtersAvatars.map(({ key, avatar, image }) => (
-                <Avatar
-                  id="Avatar"
-                  key={key}
-                  selected={key === avatarKey}
-                  onClick={handleAvatar(key, avatar)}
-                  src={image}
-                />
-              ))}
-            </CharacterQuestionPickerContainer>
-            <ErrorContainer id="ErrorContainer">
-              <Error id="Error" show={showError}>
-                <Translator>Character-Selection-Error</Translator>
-              </Error>
-            </ErrorContainer>
-          </QuestionWrapper>
-        </PickerContainer>
-        <ConfirmationButton
-          id="Button"
-          onClick={handelNext}
-          avatarKey={avatarKey}
-        >
-          <Translator>Next</Translator>
-        </ConfirmationButton>
+        <Desktop>
+          <Title id="PickYourCharecter">
+            <Translator>Character-Selection-Title</Translator>
+          </Title>
+          <PickerContainer id="PickerContainer">
+            {Object.entries(data).map(([questionKey, questionData]) => (
+              <Fragment key={questionKey}>
+                <QuestionWrapper id="QuestionWrapper">
+                  <Question id="Question">
+                    <Translator>{questionData.title}</Translator>
+                  </Question>
+                  <QuestionPickerContainer id="QuestionPickerContainer">
+                    {Object.entries(questionData.answers).map(
+                      ([answerKey, answerText]) => (
+                        <Fragment key={answerKey}>
+                          <QuestionPicker
+                            id="QuestionPicker"
+                            selected={answerKey === answers[questionKey]}
+                            onClick={answerQuestion(questionKey, answerKey)}
+                          >
+                            <Translator>{answerText}</Translator>
+                          </QuestionPicker>
+                          <Divider id="Divider" />
+                        </Fragment>
+                      )
+                    )}
+                  </QuestionPickerContainer>
+                </QuestionWrapper>
+                <Line />
+              </Fragment>
+            ))}
+            <QuestionWrapper id="CharacterQuestion">
+              <Question id="Question">
+                <Translator>
+                  Character-Selection-Avatar-
+                  {filtersAvatars.length === 1 ? "Single" : "General"}
+                </Translator>
+              </Question>
+              <CharacterQuestionPickerContainer id="CharacterQuestionPickerContainer">
+                {filtersAvatars.map(({ key, avatar, image }) => (
+                  <Avatar
+                    id="Avatar"
+                    key={key}
+                    selected={key === avatarKey}
+                    onClick={handleAvatar(key, avatar)}
+                    src={image}
+                  />
+                ))}
+              </CharacterQuestionPickerContainer>
+              <ErrorContainer id="ErrorContainer">
+                <Error id="Error" show={showError}>
+                  <Translator>Character-Selection-Error</Translator>
+                </Error>
+              </ErrorContainer>
+            </QuestionWrapper>
+          </PickerContainer>
+          <ConfirmationButton
+            id="Button"
+            onClick={handelNext}
+            avatarKey={avatarKey}
+          >
+            <Translator>Next</Translator>
+          </ConfirmationButton>
+        </Desktop>
       </CharacterSelectionContainer>
     </Transition>
   );
@@ -199,6 +202,10 @@ const CharacterSelectionContainer = styled.div`
   padding-inline: 17px;
   box-sizing: border-box;
   --inner-padding-inline: 18px;
+`;
+
+const Desktop = styled.div`
+  ${desktopCss}
 `;
 
 const Title = styled.p`

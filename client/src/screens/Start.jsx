@@ -6,6 +6,7 @@ import Adina_Background from "../assets/Lotties/Adina_Background.json";
 import { Translator } from "../components/Translation";
 import { postAnalytics } from "../analytics";
 import Transition from "../Transition";
+import { desktopCss } from "../components/general.style";
 
 const Start = () => {
   const handleLegalLinkClick = () => {
@@ -56,10 +57,10 @@ const Start = () => {
 export default Start;
 
 const StartContainer = styled.div`
+  ${desktopCss}
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: calc(100dvh - var(--header-size));
   width: 100vw;
   padding-inline: 22px;
   padding-block-end: 1.2rem;

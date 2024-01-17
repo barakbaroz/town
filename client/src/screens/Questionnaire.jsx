@@ -3,7 +3,7 @@ import { Translator } from "../components/Translation";
 import { useNavigate, useParams } from "react-router-dom";
 import Navigation from "../components/Questionnaire/Navigation";
 import questionnaireImages from "../assets/Questionnaire";
-import { buttonCSS } from "../components/general.style";
+import { buttonCSS, desktopCss } from "../components/general.style";
 import { questionnaireContext } from "../providers/QuestionnaireProvider";
 import { useContext } from "react";
 import Transition from "../Transition";
@@ -70,8 +70,8 @@ function Questionnaire() {
 export default Questionnaire;
 
 const QuestionContainer = styled.div`
-  min-height: calc(100vh- var(--header-size));
-  min-height: calc(100dvh - var(--header-size));
+  ${desktopCss}
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -92,11 +92,12 @@ const ButtonsContainer = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   gap: 1.75rem;
 `;
 
 const QuestionImage = styled.img`
+  width: 400px;
   max-width: 100%;
 `;
 
