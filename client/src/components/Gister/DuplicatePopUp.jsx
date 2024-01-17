@@ -12,10 +12,12 @@ export default function DuplicatePopUp({ onConfirm, onCancel, open, loading }) {
 
         <TextWrapper>
           <Text>
-            A duplicate case associated with the same phone number has been
-            identified in the system. Are you sure you want to resend the video?
+            A duplicate case associated with the same phone number <br /> has
+            been identified in the system.
           </Text>
-          <Text>האם לשלוח שוב את הסרטון?</Text>
+          <Text style={{ fontWeight: "Bold" }}>
+            Are you sure you want to resend the video?
+          </Text>
         </TextWrapper>
 
         <ActionButtons>
@@ -53,6 +55,7 @@ const Text = styled.p`
   margin: 0;
   font-family: inherit;
   font-size: 1.25rem;
+  text-align: center;
 `;
 
 const ActionButtons = styled.div`
