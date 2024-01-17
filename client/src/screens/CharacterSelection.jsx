@@ -194,7 +194,7 @@ const avatars = [
 ];
 
 const CharacterSelectionContainer = styled.div`
-  height: calc(100dvh - var(--header-size));
+  min-height: calc(100dvh - var(--header-size));
   width: 100vw;
   background-image: url(${background});
   background-repeat: no-repeat;
@@ -254,6 +254,11 @@ const CharacterQuestionPickerContainer = styled(QuestionPickerContainer)`
   width: calc(100% + (var(--inner-padding-inline) * 2));
   margin-inline-start: calc(var(--inner-padding-inline) * -1);
   cursor: pointer;
+  @media (width > 700px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
 `;
 
 const Divider = styled.div`
