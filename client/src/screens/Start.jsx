@@ -8,7 +8,7 @@ import { postAnalytics } from "../analytics";
 import Transition from "../Transition";
 import { desktopCss } from "../components/general.style";
 
-const Start = () => {
+export default function Start() {
   const handleLegalLinkClick = () => {
     postAnalytics({ type: "opened-tos" });
   };
@@ -53,8 +53,8 @@ const Start = () => {
       </StartContainer>
     </Transition>
   );
-};
-export default Start;
+}
+Start;
 
 const StartContainer = styled.div`
   ${desktopCss}

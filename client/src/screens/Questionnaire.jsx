@@ -17,7 +17,7 @@ const questions = [
   "colonoscopyBefore",
 ];
 
-function Questionnaire() {
+export default function Questionnaire() {
   const navigate = useNavigate();
   const { answers, updateAnswer, submit } = useContext(questionnaireContext);
   const { questionKey } = useParams();
@@ -66,8 +66,6 @@ function Questionnaire() {
     </Transition>
   );
 }
-
-export default Questionnaire;
 
 const QuestionContainer = styled.div`
   ${desktopCss}
