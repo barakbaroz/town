@@ -95,7 +95,7 @@ export default function Gister() {
         <ButtonContainer>
           <ErrorTitle>{errorMessage}</ErrorTitle>
           <SubmitButton disabled={loading} onClick={handleSubmit}>
-            שליחה
+            Send
           </SubmitButton>
         </ButtonContainer>
       </Container>
