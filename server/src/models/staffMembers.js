@@ -17,14 +17,17 @@ const init = (sequelize) =>
       },
       name: DataTypes.STRING,
       password: DataTypes.STRING,
+      phoneNumber: { type: DataTypes.STRING(15), allowNull: false },
+      FailedLoginAttempts: { type: DataTypes.INTEGER, defaultValue: 0 },
     },
     { underscored: true }
   );
 
 const associations = (sequelize) => {
-  const { Cases, StaffMembers, Comments } = sequelize.models;
+  const { Cases, StaffMembers, Comments, Otp } = sequelize.models;
   StaffMembers.hasMany(Cases, { foreignKey: "creatorId", as: "creator" });
   StaffMembers.hasMany(Comments, { foreignKey: "creatorId" });
+  StaffMembers.hasOne(Otp);
 };
 
 const hashPassword = async (user) => {
@@ -37,7 +40,6 @@ const hashPassword = async (user) => {
 
 const hooks = (sequelize) => {
   const { StaffMembers } = sequelize.models;
-
   StaffMembers.beforeCreate(hashPassword);
   StaffMembers.beforeUpdate(hashPassword);
 };
