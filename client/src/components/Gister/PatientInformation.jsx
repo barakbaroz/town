@@ -1,9 +1,9 @@
 import { useRef } from "react";
 import styled from "styled-components";
-import PinInput from "./PinInput";
 import PhoneInput from "./PhoneInput";
 import PropTypes from "prop-types";
 import { FieldTitle } from "./Giser.styled";
+import { PinInput } from "@gistmed/gist-ui";
 
 export default function PatientInformation({ casesDataRef }) {
   const phoneInputRef = useRef(null);
