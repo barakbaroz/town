@@ -1,5 +1,6 @@
-const { Cases, StaffMembers } = require("../models");
+const { Cases, StaffMembers, Otp } = require("../models");
 const { Op, fn, col } = require("sequelize");
+const jwt = require("jsonwebtoken");
 
 module.exports.info = async ({ staffMembersId }) => {
   const stuffmemberData = await StaffMembers.findOne({
@@ -34,4 +35,25 @@ module.exports.casesCount = async ({ staffMembersId, search }) => {
     totalCases: totalCount.dataValues.count,
     todayCases: todayCount.dataValues.count,
   };
+};
+
+const digits = Object.keys([...Array(10)]);
+const generateOTP = () =>
+  Array.from(
+    { length: 6 },
+    () => digits[Math.floor(Math.random() * digits.length)]
+  ).join("");
+
+module.exports.sendOTP = async (StaffMemberId) => {
+  await Otp.destroy({ where: { StaffMemberId } });
+  const code = generateOTP();
+  await Otp.create({ StaffMemberId, code });
+  console.log({ code });
+};
+
+const { BASIC_URL, JWT_KEY_STAFF_MEMBERS } = process.env;
+module.exports.sendResetPassword = async ({ id }) => {
+  const token = jwt.sign({ id }, JWT_KEY_STAFF_MEMBERS, { expiresIn: "15m" });
+  const link = `${BASIC_URL}/ResetPassword?token=${token}`;
+  console.log({ link });
 };

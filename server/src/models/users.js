@@ -11,7 +11,6 @@ const init = (sequelize) =>
       },
       phoneNumber: DataTypes.STRING(15),
       language: { type: DataTypes.STRING, defaultValue: "en" },
-      failedAttempts: { type: DataTypes.INTEGER, defaultValue: 0 },
     },
     { underscored: true, paranoid: true }
   );

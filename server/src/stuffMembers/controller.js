@@ -1,4 +1,4 @@
-const { StaffMembers } = require("../models");
+const { StaffMembers, Otp } = require("../models");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const service = require("./service");
@@ -26,15 +26,34 @@ module.exports.casesCount = async (req, res) => {
   }
 };
 
-module.exports.login = async (req, res) => {
+module.exports.credentials = async (req, res) => {
   try {
     const { email, password } = req.body;
     const staffMembers = await StaffMembers.findOne({
       where: { email: email.toLocaleLowerCase() },
     });
     if (!staffMembers) return res.status(403).end();
-
     if (bcrypt.compareSync(password, staffMembers.password)) {
+      const { id } = staffMembers;
+      await service.sendOTP(id);
+      return res.status(200).send("OTP sended");
+    }
+    return res.status(403).end();
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("Error");
+  }
+};
+
+module.exports.otp = async (req, res) => {
+  try {
+    const { email, code } = req.body;
+    const staffMembers = await StaffMembers.findOne({
+      where: { email: email.toLocaleLowerCase() },
+      include: Otp,
+    });
+    if (!staffMembers) return res.status(403).end();
+    if (bcrypt.compareSync(code, staffMembers.Otp.code)) {
       const { id } = staffMembers;
       const token = jwt.sign({ id }, process.env.JWT_KEY_STAFF_MEMBERS);
       return res
@@ -43,6 +62,35 @@ module.exports.login = async (req, res) => {
         .send("Successfully login");
     }
     return res.status(403).end();
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("Error");
+  }
+};
+
+module.exports.forgotPassword = async (req, res) => {
+  try {
+    const { email } = req.body;
+    const staffMembers = await StaffMembers.findOne({
+      where: { email: email.toLocaleLowerCase() },
+    });
+    if (!staffMembers) return res.status(400).end();
+    await service.sendResetPassword(staffMembers);
+    return res.status(200).end("email sended");
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("Error");
+  }
+};
+
+module.exports.resetPassword = async (req, res) => {
+  try {
+    const { newPassword } = req.body;
+    const { id } = req.staffMembers;
+    const staffMembers = await StaffMembers.findByPk(id);
+    if (!staffMembers) return res.status(400).end();
+    await staffMembers.update({ password: newPassword });
+    return res.status(200).end("email sended");
   } catch (error) {
     console.error(error);
     return res.status(500).send("Error");
