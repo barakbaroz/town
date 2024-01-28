@@ -45,14 +45,18 @@ module.exports.credentials = async (req, res) => {
   }
 };
 
+const OtpExpires = 1000 * 60 * 15;
 module.exports.otp = async (req, res) => {
   try {
     const { email, code } = req.body;
     const staffMembers = await StaffMembers.findOne({
       where: { email: email.toLocaleLowerCase() },
-      include: Otp,
+      include: {
+        model: Otp,
+        where: { createdAt: { [Op.gt]: new Date() - OtpExpires } },
+      },
     });
-    if (!staffMembers) return res.status(403).end();
+    if (!staffMembers) return res.status(400).send("");
     if (bcrypt.compareSync(code, staffMembers.Otp.code)) {
       const { id } = staffMembers;
       const token = jwt.sign({ id }, process.env.JWT_KEY_STAFF_MEMBERS);
