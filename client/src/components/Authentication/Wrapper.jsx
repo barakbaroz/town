@@ -1,15 +1,15 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import background from "../assets/Backgrounds/login.jpg";
-import gistLogo from "../assets/Logos/gist_logo_mask.svg";
-import hospitalLogo from "../assets/Logos/hospital_logo_Login.svg";
+import background from "../../assets/Backgrounds/login.jpg";
+import gistLogo from "../../assets/Logos/gist_logo_mask.svg";
+import hospitalLogo from "../../assets/Logos/hospital_logo_Login.svg";
 
-export const Wrapper = ({ children, formRef, ...props }) => {
+export const Wrapper = ({ children, ...props }) => {
   return (
     <Container>
       <GistLogo />
       <HopitalLogo />
-      <Form {...props} ref={formRef}>
+      <Box {...props}>
         <div>
           <Title>Welcome</Title>
           <SubTitle>
@@ -17,7 +17,7 @@ export const Wrapper = ({ children, formRef, ...props }) => {
           </SubTitle>
         </div>
         {children}
-      </Form>
+      </Box>
     </Container>
   );
 };
@@ -33,8 +33,8 @@ const Container = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position-x: center;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  min-width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,7 +42,7 @@ const Container = styled.div`
   font-family: "Abraham";
 `;
 
-const Form = styled.form`
+const Box = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -57,49 +57,6 @@ const Form = styled.form`
   transform: translateX(-60%);
   width: 600px;
   box-sizing: border-box;
-`;
-
-export const Part = styled.div`
-  flex-direction: column;
-  gap: 1.5rem;
-  width: fit-content;
-  align-items: center;
-  display: ${({ show }) => (show ? "flex" : "none")};
-`;
-
-export const Submit = styled.button`
-  border-radius: 3rem;
-  border: none;
-  background-color: #f02a4c;
-  padding: 0.7rem;
-  min-width: 170px;
-  color: white;
-  font-size: 1.188rem;
-  cursor: pointer;
-  font-family: inherit;
-  transition: all 200ms linear;
-  &:hover {
-    box-shadow: 3px 3px 6px rgba(122, 122, 122, 0.5);
-  }
-  &:disabled {
-    opacity: 0.3;
-    cursor: progress;
-  }
-`;
-
-export const Input = styled.input`
-  background: none;
-  border: none;
-  outline: none;
-  font-family: inherit;
-  border-radius: 2rem;
-  padding-block: 15px;
-  padding-inline: 28px;
-  background-color: #fff;
-  width: 16rem;
-  text-align: start;
-  font-size: 1.125rem;
-  line-height: 1.5rem;
 `;
 
 const Title = styled.h1`
@@ -123,8 +80,4 @@ const HopitalLogo = styled.img.attrs({ src: hospitalLogo })`
   height: 61px;
   top: 40px;
   left: 40px;
-`;
-
-export const Error = styled.span`
-  color: #f02a4c;
 `;

@@ -9,6 +9,8 @@ import Legal from "./components/TOS/Legal";
 import Panel from "./screens/Panel";
 import Gister from "./screens/Gister";
 import Login from "./screens/Login";
+import ResetPassword from "./screens/ResetPassword";
+import ForgotPassword from "./screens/ForgotPassword";
 import UserLayout from "./layouts/UserLayout";
 import ErrorElement from "./screens/ErrorElement";
 import NotFound from "./screens/NotFound";
@@ -26,6 +28,8 @@ const App = () => {
 const router = createBrowserRouter([
   { path: "", element: <Navigate to="/Panel" /> },
   { path: "Login", element: <Login /> },
+  { path: "ForgotPassword", element: <ForgotPassword /> },
+  { path: "ResetPassword", element: <ResetPassword /> },
   {
     path: "Panel",
     element: <Panel />,
@@ -34,7 +38,7 @@ const router = createBrowserRouter([
   },
   { path: "Gister", element: <Gister /> },
   {
-    path: "user",
+    path: "User",
     element: <UserLayout />,
     errorElement: <ErrorElement />,
     children: [

@@ -5,11 +5,12 @@ import { PinInput } from "@gistmed/gist-ui";
 import {
   Error,
   Input,
+  Instructions,
   Part,
   Submit,
-  Wrapper,
-} from "../components/authentication";
+} from "../components/Authentication/style";
 import styled from "styled-components";
+import { Wrapper } from "../components/Authentication/Wrapper";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -17,6 +18,7 @@ export default function Login() {
   const [stage, setStage] = useState("credentials");
   const [errorMessage, setErrorMessage] = useState("");
   const [code, setCode] = useState("");
+  const [email, setEmail] = useState("");
 
   const handleCredentialsSubmit = (event) => {
     setLoading(true);
@@ -25,7 +27,10 @@ export default function Login() {
     const body = Object.fromEntries(formData.entries());
     axios
       .post("/api/stuffMembers/credentials", body)
-      .then(() => setStage("OTP"))
+      .then(() => {
+        setStage("OTP");
+        setEmail(body.email);
+      })
       .catch((error) => {
         if (error.response.status === 403)
           setErrorMessage("password or username incorrect");
@@ -36,10 +41,8 @@ export default function Login() {
   const handleOTPSubmit = (event) => {
     setLoading(true);
     event.preventDefault();
-    const formData = new FormData(event.target);
-    const body = Object.fromEntries(formData.entries());
     axios
-      .post("/api/stuffMembers/otp", { ...body, code })
+      .post("/api/stuffMembers/otp", { email, code })
       .then(() => navigate("/panel"))
       .catch((error) => {
         if (error.response.status === 403)
@@ -48,32 +51,28 @@ export default function Login() {
       .finally(() => setLoading(false));
   };
 
-  const handleSubmitStage = {
-    credentials: handleCredentialsSubmit,
-    OTP: handleOTPSubmit,
-  };
-
-  const handleSubmit = handleSubmitStage[stage];
-
   return (
-    <Wrapper onSubmit={handleSubmit}>
-      <Part show={stage === "credentials"}>
-        <Input name="email" type="text" placeholder="Email" />
+    <Wrapper>
+      <Part show={stage === "credentials"} onSubmit={handleCredentialsSubmit}>
+        <Input name="email" type="text" placeholder="E-mail" />
         <Input name="password" type="password" placeholder="Password" />
+        <Link href="/ForgotPassword">Forgot Password?</Link>
+        <Error>{errorMessage}</Error>
+        <Submit disabled={loading}>Sign In</Submit>
       </Part>
-      <Part show={stage === "OTP"}>
-        <p>Please enter the security code we sent you via text message:</p>
+      <Part show={stage === "OTP"} onSubmit={handleOTPSubmit}>
+        <Instructions>
+          Please enter the security code we sent you via text message:
+        </Instructions>
+        <input value={email} hidden />
         <PinInput name="code" length={6} onChange={setCode} fontSize="2rem" />
+        <Link>Resend code</Link>
+        <Submit disabled={loading}>Continue</Submit>
       </Part>
-      <Error>{errorMessage}</Error>
-      <ForgotPassword href="/ForgotPassword">Forgot Password?</ForgotPassword>
-      <Submit disabled={loading} type="submit">
-        Sign In
-      </Submit>
     </Wrapper>
   );
 }
 
-const ForgotPassword = styled.a`
+const Link = styled.a`
   color: inherit;
 `;

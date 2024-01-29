@@ -23,9 +23,11 @@ export default function PatientInformation({ casesDataRef }) {
       <InputContainer>
         <FieldTitle>Social Security Number - 4 last digits</FieldTitle>
         <PinInput
+          length={4}
           nextInput={phoneInputRef}
           onChange={handleSSN}
           id="socialSecurityNumber"
+          nextfocus={phoneInputRef}
         />
       </InputContainer>
       <InputContainer>

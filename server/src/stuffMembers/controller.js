@@ -2,6 +2,7 @@ const { StaffMembers, Otp } = require("../models");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const service = require("./service");
+const { Op } = require("sequelize");
 
 module.exports.info = async (req, res) => {
   try {
@@ -45,7 +46,7 @@ module.exports.credentials = async (req, res) => {
   }
 };
 
-const OtpExpires = 1000 * 60 * 15;
+const OtpExpires = 1000 * 60 * 5;
 module.exports.otp = async (req, res) => {
   try {
     const { email, code } = req.body;
