@@ -1,10 +1,15 @@
 const { Op } = require("sequelize");
 const { independentAction, remindersInfo } = require("./config");
 const getMessageTemplate = require("./templates");
-const { SmsTracking, SmsQueue, Users, Cases } = require("../models");
+const {
+  RemindersTracking,
+  RemindersQueue,
+  Users,
+  Cases,
+} = require("../models");
 const {
   send,
-  insertSmsQueueRecords,
+  insertRemindersQueueRecords,
   sendSms,
   performAction,
 } = require("./utils");
@@ -14,14 +19,19 @@ module.exports.sendImmediate = async ({ CaseId, type, phoneNumber }) => {
     include: Cases,
     where: { CaseId },
   });
-  const {text} = remindersInfo[type];
+  const { text } = remindersInfo[type];
   const message = getMessageTemplate(text, user);
   await sendSms({ message, phoneNumber });
-  await SmsTracking.create({ UserId: user.id, type, phoneNumber, message });
+  await RemindersTracking.create({
+    UserId: user.id,
+    type,
+    phoneNumber,
+    message,
+  });
 };
 
 module.exports.sendReminders = async () => {
-  const reminders = await SmsQueue.findAll({
+  const reminders = await RemindersQueue.findAll({
     include: { model: Users, required: true, include: Cases },
     where: { sentReminderTime: { [Op.lt]: new Date() } },
     limit: 100,
@@ -30,7 +40,7 @@ module.exports.sendReminders = async () => {
 };
 
 module.exports.action = async ({ UserId, actionKey }) => {
-  const reminders = await SmsQueue.findAll({
+  const reminders = await RemindersQueue.findAll({
     include: { model: Users, include: Cases },
     where: { UserId },
   });
@@ -41,5 +51,5 @@ module.exports.action = async ({ UserId, actionKey }) => {
   if (!reminderKeys) return;
   const user = await Users.findByPk(UserId, { include: Cases });
   if (!user) throw `user id ${UserId} not in Users`;
-  await insertSmsQueueRecords(reminderKeys, user);
+  await insertRemindersQueueRecords(reminderKeys, user);
 };

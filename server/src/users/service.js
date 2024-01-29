@@ -7,7 +7,7 @@ const {
   Avatar,
   Questionnaire,
 } = require("../models");
-const sms = require("../sms/service");
+const reminders = require("../reminders/service");
 
 module.exports.lastStep = async (user) => {
   const { avatarSelection, answeredQuestionnaire } = user.Case.CasesProgress;
@@ -48,7 +48,7 @@ module.exports.update = async ({ id, data }) => {
 };
 
 const typeToColumn = {
-  "opened-sms": "openSms",
+  "opened-link": "openLink",
   "general-information-answered": "avatarSelection",
   "submit-questionnaire": "answeredQuestionnaire",
   "watched-video": "watchedVideo",
@@ -75,7 +75,7 @@ const updateCasesProgress = async ({ UserId, type }) => {
 
 module.exports.userAction = async ({ UserId, type, data }) => {
   await UserActions.create({ UserId, type, data });
-  await sms.action({ UserId, actionKey: type });
+  await reminders.action({ UserId, actionKey: type });
   await updateCasesProgress({ UserId, type });
 };
 
@@ -95,7 +95,7 @@ module.exports.userVideoAction = async ({ UserId, type, data }) => {
 
   if (actionRecord.data.percentage >= 75 && oldPercentage < 75) {
     await updateCasesProgress({ UserId, type });
-    await sms.action({ UserId, actionKey: type });
+    await reminders.action({ UserId, actionKey: type });
   }
 };
 

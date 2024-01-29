@@ -3,18 +3,18 @@ const {
   Comments,
   Users,
   CasesProgress,
-  SmsQueue,
+  RemindersQueue,
   Avatar,
   StaffMembers,
   Questionnaire,
 } = require("../models");
 const { Op } = require("sequelize");
-const sms = require("../sms/service");
+const reminders = require("../reminders/service");
 
 const casesProgressFilter = {
-  openSms: {
+  openLink: {
     where: {
-      openSms: { [Op.ne]: null },
+      openLink: { [Op.ne]: null },
       avatarSelection: { [Op.eq]: null },
     },
   },
@@ -42,7 +42,7 @@ const myCasesFilter = ({ myCases }, creatorId) =>
 
 const dayTime = 1000 * 60 * 60 * 24;
 
-const smsFlow = [
+const remindersFlow = [
   "noReminders",
   "noReminders",
   "three-to-four-days-pre-procedure",
@@ -62,7 +62,7 @@ module.exports.search = async ({ creatorId, search }) => {
       { model: Comments },
       {
         model: CasesProgress,
-        attributes: ["openSms", "avatarSelection", "watchedVideo"],
+        attributes: ["openLink", "avatarSelection", "watchedVideo"],
         ...casesProgressFilter[search.patientStatus],
       },
       Avatar,
@@ -116,11 +116,12 @@ module.exports.create = async ({
   const today = new Date().setHours(0, 0, 0, 0);
   const daysToProcedure = Math.floor((procedureDate - today) / dayTime);
 
-  await sms.action({
+  await reminders.action({
     UserId: user.id,
-    actionKey: smsFlow[daysToProcedure] || "seven-plus-days-pre-procedure",
+    actionKey:
+      remindersFlow[daysToProcedure] || "seven-plus-days-pre-procedure",
   });
-  await sms.sendImmediate({ CaseId, type: "caseCreation", phoneNumber });
+  await reminders.sendImmediate({ CaseId, type: "caseCreation", phoneNumber });
   return CaseId;
 };
 
@@ -132,7 +133,7 @@ module.exports.deleteCase = async ({ CaseId, staffMembersId }) => {
   console.info(`Delete ${CaseId} by ${staffMembersId}`);
   await Cases.destroy({ where: { id: CaseId } });
   await Users.destroy({ where: { CaseId } });
-  const reminders = await SmsQueue.findAll({
+  const reminders = await RemindersQueue.findAll({
     include: { model: Users, where: { CaseId }, paranoid: false },
   });
   reminders.forEach((reminder) => reminder.destroy());

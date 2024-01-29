@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize");
 
 const init = (sequelize) =>
   sequelize.define(
-    "SmsQueue",
+    "RemindersQueue",
     {
       UserId: { primaryKey: true, type: DataTypes.UUID, allowNull: false },
       type: { primaryKey: true, type: DataTypes.STRING, allowNull: false },
@@ -12,8 +12,8 @@ const init = (sequelize) =>
   );
 
 const associations = (sequelize) => {
-  const { Users, SmsQueue } = sequelize.models;
-  SmsQueue.belongsTo(Users);
+  const { Users, RemindersQueue } = sequelize.models;
+  RemindersQueue.belongsTo(Users);
 };
 
 module.exports = { init, associations };

@@ -17,7 +17,7 @@ module.exports.entry = async (req, res) => {
     const { id } = req.params;
     const dbUser = await userServices.getData({ userId: id });
     if (!dbUser) return res.redirect("/notFound");
-    userServices.userAction({ UserId: id, type: "opened-sms" });
+    userServices.userAction({ UserId: id, type: "opened-link" });
     const token = jwt.sign({ id }, process.env.JWT_KEY_USER);
     const route = await userServices.lastStep(dbUser);
     return res

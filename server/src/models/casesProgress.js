@@ -8,7 +8,7 @@ const init = (sequelize) =>
         primaryKey: true,
         type: DataTypes.UUID,
       },
-      openSms: DataTypes.DATE,
+      openLink: DataTypes.DATE,
       avatarSelection: DataTypes.DATE,
       answeredQuestionnaire: DataTypes.DATE,
       watchedVideo: DataTypes.DATE,

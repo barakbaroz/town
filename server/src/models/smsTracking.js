@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize");
 
 const init = (sequelize) =>
   sequelize.define(
-    "SmsTracking",
+    "RemindersTracking",
     {
       type: DataTypes.STRING,
       phoneNumber: DataTypes.STRING,
@@ -12,8 +12,8 @@ const init = (sequelize) =>
   );
 
 const associations = (sequelize) => {
-  const { Users, SmsTracking } = sequelize.models;
-  SmsTracking.belongsTo(Users);
+  const { Users, RemindersTracking } = sequelize.models;
+  RemindersTracking.belongsTo(Users);
 };
 
 module.exports = { init, associations };

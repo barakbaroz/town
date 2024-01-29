@@ -23,7 +23,7 @@ export default function PhoneInput({ item }) {
     if (!open) return setOpen(true);
     if (number.length != 10) return setError(true);
 
-    axios.post("/api/sms/sendImmediate", {
+    axios.post("/api/reminders/sendImmediate", {
       phoneNumber: number,
       CaseId: item.id,
       type: "caseCreation",

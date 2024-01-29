@@ -1,5 +1,5 @@
 const { remindersInfo } = require("./config");
-const { SmsQueue, SmsTracking } = require("../models");
+const { RemindersQueue, RemindersTracking } = require("../models");
 const getMessageTemplate = require("./templates");
 const axios = require("axios");
 
@@ -17,7 +17,7 @@ function getTimeByUser(timeName, user) {
   }
 }
 
-module.exports.insertSmsQueueRecords = async (list, user) => {
+module.exports.insertRemindersQueueRecords = async (list, user) => {
   const toCreate = list.map((type) => ({
     type,
     UserId: user.id,
@@ -27,19 +27,19 @@ module.exports.insertSmsQueueRecords = async (list, user) => {
       remindersInfo[type].sendTime
     ),
   }));
-  await SmsQueue.bulkCreate(toCreate);
+  await RemindersQueue.bulkCreate(toCreate);
 };
 
-module.exports.send = async (sms) => {
+module.exports.send = async (reminder) => {
   try {
-    const { UserId, type, User } = sms;
+    const { UserId, type, User } = reminder;
     const { phoneNumber } = User;
     const { onSend, text } = remindersInfo[type];
     const message = getMessageTemplate(text, User);
     await this.sendSms({ message, phoneNumber });
-    await SmsTracking.create({ UserId, type, phoneNumber, message });
-    await this.insertSmsQueueRecords(onSend, User);
-    await sms.destroy();
+    await RemindersTracking.create({ UserId, type, phoneNumber, message });
+    await this.insertRemindersQueueRecords(onSend, User);
+    await reminder.destroy();
   } catch (error) {
     console.error(error);
   }
@@ -96,6 +96,6 @@ module.exports.performAction = async (reminder, actionType) => {
   const { type } = reminder;
   const onAction = remindersInfo[type].onAction[actionType];
   if (!onAction) return;
-  await this.insertSmsQueueRecords(onAction, reminder.User);
+  await this.insertRemindersQueueRecords(onAction, reminder.User);
   await reminder.destroy();
 };

@@ -16,12 +16,18 @@ const init = (sequelize) =>
   );
 
 const associations = (sequelize) => {
-  const { Users, SmsTracking, Cases, UserActions, SmsQueue, Questionnaire } =
-    sequelize.models;
+  const {
+    Users,
+    RemindersTracking,
+    Cases,
+    UserActions,
+    RemindersQueue,
+    Questionnaire,
+  } = sequelize.models;
   Users.belongsTo(Cases);
   Users.hasMany(UserActions);
-  Users.hasMany(SmsTracking);
-  Users.hasMany(SmsQueue, { onDelete: "CASCADE" });
+  Users.hasMany(RemindersTracking);
+  Users.hasMany(RemindersQueue, { onDelete: "CASCADE" });
   Users.hasMany(Questionnaire, { onDelete: "CASCADE" });
 };
 

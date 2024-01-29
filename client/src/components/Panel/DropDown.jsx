@@ -3,10 +3,10 @@ import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import arrowIcon from "../../assets/Icons/hollow_arrow.svg";
 
-const dropDownList = ["all", "openSms", "avatarSelection", "watchedVideo"];
+const dropDownList = ["all", "openLink", "avatarSelection", "watchedVideo"];
 const texts = {
   all: "Patient Status / All",
-  openSms: "Text message opened",
+  openLink: "Text message opened",
   avatarSelection: "Questionnaire Answered",
   watchedVideo: "Video watched",
 };

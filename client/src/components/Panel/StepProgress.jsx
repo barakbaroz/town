@@ -5,7 +5,7 @@ import styled from "styled-components";
 export const StepTexts = {
   watchedVideo: "Video watched",
   avatarSelection: "Questionnaire Answered",
-  openSms: "Text message opened",
+  openLink: "Text message opened",
 };
 
 const dateOptions = { year: "2-digit", month: "2-digit", day: "2-digit" };
