@@ -7,12 +7,8 @@ const {
   Users,
   Cases,
 } = require("../models");
-const {
-  send,
-  insertRemindersQueueRecords,
-  sendSms,
-  performAction,
-} = require("./utils");
+const { send, insertRemindersQueueRecords, performAction } = require("./utils");
+const sms = require("./sms");
 
 module.exports.sendImmediate = async ({ CaseId, type, phoneNumber }) => {
   const user = await Users.findOne({
@@ -21,7 +17,7 @@ module.exports.sendImmediate = async ({ CaseId, type, phoneNumber }) => {
   });
   const { text } = remindersInfo[type];
   const message = getMessageTemplate(text, user);
-  await sendSms({ message, phoneNumber });
+  await sms.send({ message, phoneNumber });
   await RemindersTracking.create({
     UserId: user.id,
     type,

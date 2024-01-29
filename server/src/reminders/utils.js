@@ -1,7 +1,7 @@
 const { remindersInfo } = require("./config");
 const { RemindersQueue, RemindersTracking } = require("../models");
 const getMessageTemplate = require("./templates");
-const axios = require("axios");
+const sms = require("./sms");
 
 function getTimeByUser(timeName, user) {
   switch (timeName) {
@@ -36,7 +36,7 @@ module.exports.send = async (reminder) => {
     const { phoneNumber } = User;
     const { onSend, text } = remindersInfo[type];
     const message = getMessageTemplate(text, User);
-    await this.sendSms({ message, phoneNumber });
+    await sms.send({ message, phoneNumber });
     await RemindersTracking.create({ UserId, type, phoneNumber, message });
     await this.insertRemindersQueueRecords(onSend, User);
     await reminder.destroy();
@@ -69,28 +69,6 @@ function calculateDate(string, user, sendTimeInweek) {
   const hourSplited = hour.split(":");
   return new Date(result.setHours(...hourSplited, ...Array(4).fill("0")));
 }
-
-const { SMS_ACCOUNT_SID, SMS_AUTH_TOKEN, SMS_SENDER_NAME } = process.env;
-const defaultSmsObj = {
-  UserName: SMS_ACCOUNT_SID,
-  Password: SMS_AUTH_TOKEN,
-  senderName: SMS_SENDER_NAME,
-};
-
-module.exports.sendSms = async ({ message, phoneNumber }) => {
-  if (!phoneNumber) return console.warn("No phone number provided to sendSms");
-  if (!message) return console.warn("No message provided to sendSms");
-  const smsObj = {
-    ...defaultSmsObj,
-    BodyMessage: message,
-    Recipients: [{ Cellphone: phoneNumber }],
-  };
-  const res = await axios.post("https://restapi.soprano.co.il/api/sms", smsObj);
-  if (res.status != 200 || res.data.StatusCode !== 0)
-    throw `Sms API response with ${res.data.StatusCode}`;
-
-  console.info(`successfully sent the sms to ${phoneNumber}`);
-};
 
 module.exports.performAction = async (reminder, actionType) => {
   const { type } = reminder;
