@@ -27,21 +27,26 @@ module.exports.casesCount = async (req, res) => {
   }
 };
 
+const MaxLoginAttempts = 10;
 module.exports.credentials = async (req, res) => {
   try {
     const { email, password } = req.body;
     const staffMembers = await StaffMembers.findOne({
       where: { email: email.toLocaleLowerCase() },
     });
-    if (!staffMembers) return res.status(403).end();
+    if (!staffMembers)
+      return res.status(403).send("password or username incorrect");
+    if (staffMembers.FailedLoginAttempts >= MaxLoginAttempts)
+      return res.status(403).send("User Blocked");
     if (bcrypt.compareSync(password, staffMembers.password)) {
       await service.sendOTP(staffMembers);
       return res.status(200).send("OTP sended");
     }
-    return res.status(403).end();
+    await staffMembers.increment("FailedLoginAttempts", { by: 1 });
+    return res.status(403).send("password or username incorrect");
   } catch (error) {
     console.error(error);
-    return res.status(500).send("Error");
+    return res.status(500).send("Server Error");
   }
 };
 
