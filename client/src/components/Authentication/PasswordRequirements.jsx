@@ -21,7 +21,9 @@ export default function PasswordRequirements({ children, password }) {
                   regex.test(password)
                 ).length >= 3
               }
-            />
+            >
+              <StyledMark />
+            </Circle>
             Password must contain 3 of the following:
           </Row>
           <Row>
@@ -58,6 +60,7 @@ const conditions = {
 const StyledMark = styled(Mark)`
   height: 7px;
   margin-left: 1px;
+  display: none;
 `;
 
 const Row = styled.div`
@@ -83,9 +86,10 @@ const Circle = styled.div`
     css`
       border-color: #1fc95a;
       background-color: #1fc95a;
+      ${StyledMark} {
+        display: block;
+      }
     `}
-  border-color: #1fc95a;
-  background-color: #1fc95a;
 `;
 
 const ConditionText = styled.span`

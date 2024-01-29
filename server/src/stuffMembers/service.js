@@ -1,6 +1,8 @@
 const { Cases, StaffMembers, Otp } = require("../models");
 const { Op, fn, col } = require("sequelize");
 const jwt = require("jsonwebtoken");
+const Email = require("../reminders/email");
+const emailTemplates = require("../reminders/EmailTemplates");
 
 module.exports.info = async ({ staffMembersId }) => {
   const stuffmemberData = await StaffMembers.findOne({
@@ -52,8 +54,11 @@ module.exports.sendOTP = async (StaffMemberId) => {
 };
 
 const { BASIC_URL, JWT_KEY_STAFF_MEMBERS } = process.env;
-module.exports.sendResetPassword = async ({ id }) => {
+module.exports.sendResetPassword = async ({ id, email, name }) => {
   const token = jwt.sign({ id }, JWT_KEY_STAFF_MEMBERS, { expiresIn: "15m" });
   const link = `${BASIC_URL}/ResetPassword?token=${token}`;
-  console.log({ link });
+  const body = emailTemplates.resetPassword
+    .replace("@name@", name)
+    .replace("@link@", link);
+  Email.send({ to: email, subject: "subject", body });
 };
