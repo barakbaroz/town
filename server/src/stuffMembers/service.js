@@ -3,6 +3,7 @@ const { Op, fn, col } = require("sequelize");
 const jwt = require("jsonwebtoken");
 const Email = require("../reminders/email");
 const emailTemplates = require("../reminders/EmailTemplates");
+const sms = require("../reminders/sms");
 
 module.exports.info = async ({ staffMembersId }) => {
   const stuffmemberData = await StaffMembers.findOne({
@@ -46,11 +47,13 @@ const generateOTP = () =>
     () => digits[Math.floor(Math.random() * digits.length)]
   ).join("");
 
-module.exports.sendOTP = async (StaffMemberId) => {
-  await Otp.destroy({ where: { StaffMemberId } });
+const OtpText =
+  "Your verification code is: @code@ \nThis code will be valid for 5 minutes.";
+module.exports.sendOTP = async ({ id, phoneNumber }) => {
+  await Otp.destroy({ where: { StaffMemberId: id } });
   const code = generateOTP();
-  await Otp.create({ StaffMemberId, code });
-  console.log({ code });
+  await Otp.create({ StaffMemberId: id, code });
+  await sms.send({ message: OtpText.replace("@code@", code), phoneNumber });
 };
 
 const { BASIC_URL, JWT_KEY_STAFF_MEMBERS } = process.env;
@@ -60,5 +63,5 @@ module.exports.sendResetPassword = async ({ id, email, name }) => {
   const body = emailTemplates.resetPassword
     .replace("@name@", name)
     .replace("@link@", link);
-  Email.send({ to: email, subject: "subject", body });
+  await Email.send({ to: email, subject: "subject", body });
 };

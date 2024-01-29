@@ -35,8 +35,7 @@ module.exports.credentials = async (req, res) => {
     });
     if (!staffMembers) return res.status(403).end();
     if (bcrypt.compareSync(password, staffMembers.password)) {
-      const { id } = staffMembers;
-      await service.sendOTP(id);
+      await service.sendOTP(staffMembers);
       return res.status(200).send("OTP sended");
     }
     return res.status(403).end();

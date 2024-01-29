@@ -1,3 +1,4 @@
+const axios = require("axios");
 const { SMS_ACCOUNT_SID, SMS_AUTH_TOKEN, SMS_SENDER_NAME } = process.env;
 const defaultSmsObj = {
   UserName: SMS_ACCOUNT_SID,
