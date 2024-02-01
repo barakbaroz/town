@@ -1,10 +1,31 @@
 steps:
   - name: bash
+    id: create npmrc
+    dir: client
+    script: |
+      #!/usr/bin/env bash
+      echo echo "@gistmed:registry=https://npm.pkg.github.com" > .npmrc
+      echo echo "//npm.pkg.github.com/:_authToken=${_GITHUB_TOKEN}" >> .npmrc
+      echo echo "registry=https://registry.npmjs.org" >> .npmrc
+
+  - name: node:20.10.0
+    id: install client
+    dir: "client"
+    entrypoint: "npm"
+    args: ["install"]
+
+  - name: node:20.10.0
+    id: build client
+    dir: "client"
+    entrypoint: "npm"
+    args: ["run", "build"]
+
+  - name: bash
     id: create env
+    dir: "server"
     script: |
       #!/usr/bin/env bash
       printenv > .env
-    dir: "server"
     env:
       - NODE_PORT=${_NODE_PORT}
       - TZ=${_TZ}

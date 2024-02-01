@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src",
-    "dev": "nodemon src",
-    "create-env": "printenv > .env"
+    "dev": "nodemon src"
   },
   "author": "Gist",
   "license": "ISC",
