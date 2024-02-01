@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Part = styled.form`
+export const Stage = styled.form`
   flex-direction: column;
   gap: 2rem;
   width: fit-content;
@@ -51,4 +51,9 @@ export const Instructions = styled.p`
 
 export const Error = styled.span`
   color: #f02a4c;
+`;
+
+export const Massage = styled.p`
+  font-size: 1.75rem;
+  font-weight: 500;
 `;

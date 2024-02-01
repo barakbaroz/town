@@ -45,7 +45,7 @@ export default function PhoneInput({ item }) {
             <img src={open ? SendIcon : Phone} alt="icon" />
           </Icon>
           <Input
-            placeholder="הזן/י מספר נייד"
+            placeholder="Enter your mobile number"
             type="tel"
             value={number}
             maxLength={10}

@@ -49,14 +49,13 @@ const Box = styled.div`
   width: fit-content;
   align-items: center;
   text-align: center;
-  padding-block: 85px;
-  padding-inline: 95px;
+  padding-inline: 30px;
+  padding-block: 70px;
   border-radius: 70px;
   backdrop-filter: blur(30px);
   background-color: rgba(255, 255, 255, 0.25);
   transform: translateX(-60%);
-  width: 600px;
-  box-sizing: border-box;
+  width: 500px;
 `;
 
 const Title = styled.h1`
@@ -65,7 +64,7 @@ const Title = styled.h1`
 `;
 
 const SubTitle = styled.p`
-  font-size: 2.25rem;
+  font-size: 2rem;
   margin-top: 0.5rem;
 `;
 

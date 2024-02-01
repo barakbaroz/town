@@ -1,6 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
-import { Error, Input, Part, Submit } from "../components/Authentication/style";
+import {
+  Error,
+  Input,
+  Stage,
+  Submit,
+} from "../components/Authentication/style";
 import { useNavigate } from "react-router-dom";
 import { useSearchParams } from "react-router-dom";
 import PasswordRequirements from "../components/Authentication/PasswordRequirements";
@@ -22,15 +27,16 @@ export default function ResetPassword() {
       .post("/api/stuffMembers/resetPassword", body)
       .then(() => navigate("/login"))
       .catch((error) => {
-        if (error.response.status === 401) setErrorMessage("Link expired");
-        if (error.response.status === 400) setErrorMessage("Error Message");
+        const data = error.response?.data;
+        if (data === "Invalid Token") return setErrorMessage("Link expired");
+        return setErrorMessage(data);
       })
       .finally(() => setLoading(false));
   };
 
   return (
     <Wrapper>
-      <Part onSubmit={handleSubmit} show>
+      <Stage onSubmit={handleSubmit} show>
         <input
           type="password"
           value={searchParams.get("token")}
@@ -47,15 +53,13 @@ export default function ResetPassword() {
           />
         </PasswordRequirements>
         <Input
-          name="ConfirmPassword"
+          name="confirmPassword"
           type="password"
           placeholder="Confirm New Password"
         />
         <Error>{errorMessage}</Error>
-        <Submit disabled={loading} type="submit">
-          Reset
-        </Submit>
-      </Part>
+        <Submit disabled={loading}>Reset</Submit>
+      </Stage>
     </Wrapper>
   );
 }

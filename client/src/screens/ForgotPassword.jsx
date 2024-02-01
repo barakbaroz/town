@@ -5,7 +5,8 @@ import {
   Error,
   Input,
   Instructions,
-  Part,
+  Massage,
+  Stage,
   Submit,
 } from "../components/Authentication/style";
 import { Wrapper } from "../components/Authentication/Wrapper";
@@ -27,24 +28,24 @@ export default function ForgotPassword() {
     const body = Object.fromEntries(formData.entries());
     axios
       .post("/api/stuffMembers/ForgotPassword", body)
-      .then(() => setStage("scented"))
+      .then(() => setStage("sent"))
       .catch((error) => {
-        if (error.response.status === 400)
-          setErrorMessage("password or username incorrect");
+        const data = error.response?.data;
+        setErrorMessage(data);
       })
       .finally(() => setLoading(false));
   };
 
   return (
     <Wrapper>
-      <Part show={stage === "email"} onSubmit={handleSubmit}>
+      <Stage show={stage === "email"} onSubmit={handleSubmit} ref={formRef}>
         <Instructions>Please enter your E-mail address:</Instructions>
         <Input name="email" type="text" placeholder="E-mail" />
         <Error>{errorMessage}</Error>
         <Submit disabled={loading}>Send</Submit>
-      </Part>
-      <Part show={stage === "scented"}>
-        <Scented>We emailed you a link to reset your password</Scented>
+      </Stage>
+      <Stage show={stage === "sent"}>
+        <Massage>We emailed you a link to reset your password</Massage>
         <Resend>
           Didn’t receive an email? <br />
           Check your spam or{" "}
@@ -53,15 +54,10 @@ export default function ForgotPassword() {
           </ResendLink>{" "}
           to resend
         </Resend>
-      </Part>
+      </Stage>
     </Wrapper>
   );
 }
-
-const Scented = styled.p`
-  font-size: 1.75rem;
-  font-weight: 500;
-`;
 
 const Resend = styled.p`
   font-size: 1.125rem;

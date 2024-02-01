@@ -30,12 +30,12 @@ const Support = () => {
       <SubContainer expand={expand}>
         <InputsContainer>
           <Body
-            placeholder="נשמח לעזור לך"
+            placeholder="We'll be happy to assist you"
             onChange={(e) => setBody(e.target.value)}
             value={body}
           />
           <Phone
-            placeholder="נייד"
+            placeholder="Mobile Number"
             onChange={(e) => {
               setPhone(e.target.value);
             }}
@@ -49,7 +49,7 @@ const Support = () => {
             <PhoneLabel>052-3394834</PhoneLabel>
           </PhoneWrapper>
           <SubmitButton onClick={handleSubmit}>
-            <SubmitLabel>שלח</SubmitLabel>
+            <SubmitLabel>Send</SubmitLabel>
             <img src={SendIcon} />
           </SubmitButton>
         </SubmitSection>
