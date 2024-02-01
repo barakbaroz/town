@@ -1,5 +1,4 @@
 const fs = require("fs");
-const path = require("path");
 
 const resetPassword = fs.readFileSync(
   __dirname + "/resetPassword.html",

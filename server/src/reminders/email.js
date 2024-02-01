@@ -1,40 +1,41 @@
+const nodemailer = require("nodemailer");
 const { google } = require("googleapis");
+const OAuth2 = google.auth.OAuth2;
 
-const oAuth2Client = new google.auth.OAuth2(
-  process.env.EMAIL_CLIENT_ID,
-  process.env.EMAIL_CLIENT_SECRET,
-  process.env.EMAIL_REDIRECT_URI
-);
-oAuth2Client.setCredentials({
-  refresh_token: process.env.EMAIL_REFRESH_TOKEN,
-});
+async function createTransporter() {
+  const oauth2Client = new OAuth2(
+    process.env.EMAIL_CLIENT_ID,
+    process.env.EMAIL_CLIENT_SECRET,
+    process.env.EMAIL_REDIRECT_URI
+  );
 
-const gmail = google.gmail({ version: "v1", auth: oAuth2Client });
+  oauth2Client.setCredentials({
+    refresh_token: process.env.EMAIL_REFRESH_TOKEN,
+  });
 
-module.exports.send = async ({ to, subject, body }) => {
-  const utf8Subject = `=?utf-8?B?${Buffer.from(subject).toString("base64")}?=`;
+  const accessToken = await new Promise((resolve, reject) => {
+    oauth2Client.getAccessToken((err, token) => {
+      if (err) reject(err);
+      resolve(token);
+    });
+  });
 
-  const message = [
-    `From: ${process.env.EMAIL_FROM}`,
-    `To: ${to}`,
-    "Content-Type: text/html; charset=utf-8",
-    "Content-Transfer-Encoding: base64",
-    "MIME-Version: 1.0",
-    `Subject: ${utf8Subject}`,
-    "",
-    body,
-  ].join("\n");
-
-  const encodedMessage = Buffer.from(message)
-    .toString("base64")
-    .replace(/\+/g, "-")
-    .replace(/\//g, "_")
-    .replace(/=+$/, "");
-
-  await gmail.users.messages.send({
-    userId: "me",
-    requestBody: {
-      raw: encodedMessage,
+  return nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+      type: "OAuth2",
+      user: process.env.EMAIL_FROM,
+      accessToken,
+      clientId: process.env.EMAIL_CLIENT_ID,
+      clientSecret: process.env.EMAIL_CLIENT_SECRET,
+      refreshToken: process.env.EMAIL_REFRESH_TOKEN,
     },
   });
+}
+
+const from = process.env.EMAIL_FROM;
+module.exports.send = async ({ to, subject, html }) => {
+  const mailOptions = { from, to, subject, html };
+  const emailTransporter = await createTransporter();
+  await emailTransporter.sendMail(mailOptions);
 };
