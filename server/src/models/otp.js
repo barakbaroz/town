@@ -4,8 +4,11 @@ const bcrypt = require("bcrypt");
 const init = (sequelize) =>
   sequelize.define(
     "Otp",
-    { code: { type: DataTypes.STRING, allowNull: false } },
-    { underscored: true, updatedAt: false }
+    {
+      StaffMemberId: { type: DataTypes.UUID, primaryKey: true },
+      code: { type: DataTypes.STRING, allowNull: false },
+    },
+    { underscored: true, createdAt: false }
   );
 
 const associations = (sequelize) => {
