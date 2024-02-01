@@ -41,7 +41,6 @@ const hashPassword = async (user) => {
 const hooks = (sequelize) => {
   const { StaffMembers } = sequelize.models;
   StaffMembers.beforeCreate(hashPassword);
-  StaffMembers.beforeUpdate(hashPassword);
 };
 
 module.exports = { init, associations, hooks };

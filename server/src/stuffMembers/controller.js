@@ -40,8 +40,7 @@ module.exports.credentials = async (req, res) => {
       return res.status(401).send("User Blocked");
     if (bcrypt.compareSync(password, staffMembers.password)) {
       await service.sendOTP(staffMembers);
-      staffMembers.failedLoginAttempts = 0;
-      staffMembers.save();
+      staffMembers.update({ failedLoginAttempts: 0 });
       return res.status(200).send("OTP sended");
     }
     await staffMembers.increment("failedLoginAttempts", { by: 1 });
@@ -113,7 +112,9 @@ module.exports.resetPassword = async (req, res) => {
       return res
         .status(400)
         .send("The password does not meet the password policy requirements");
-    await staffMembers.update({ password: newPassword });
+    const salt = bcrypt.genSaltSync(10, "a");
+    const password = bcrypt.hashSync(user.password, salt);
+    await staffMembers.update({ password });
     return res.status(200).send("email sended");
   } catch (error) {
     console.error(error);
