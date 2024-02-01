@@ -60,8 +60,15 @@ const { BASIC_URL, JWT_KEY_STAFF_MEMBERS } = process.env;
 module.exports.sendResetPassword = async ({ id, email, name }) => {
   const token = jwt.sign({ id }, JWT_KEY_STAFF_MEMBERS, { expiresIn: "15m" });
   const link = `${BASIC_URL}/ResetPassword?token=${token}`;
-  const body = emailTemplates.resetPassword
+  const html = emailTemplates.resetPassword
     .replace("@name@", name)
     .replace("@link@", link);
-  await Email.send({ to: email, subject: "subject", body });
+  await Email.send({ to: email, subject: "subject", html });
+};
+
+const conditions = [/[A-Z]/, /[a-z]/, /[0-9]/, /[^A-Za-z0-9]/];
+module.exports.ValidatePasswordRequirements = (password) => {
+  if (password.length < 8) return false;
+  const pass = conditions.filter((regex) => regex.test(password));
+  return pass.length >= 3;
 };

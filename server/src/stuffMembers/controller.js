@@ -11,7 +11,7 @@ module.exports.info = async (req, res) => {
     return res.status(200).json(result);
   } catch (error) {
     console.error(error);
-    return res.status(500).send("Error");
+    return res.status(500).send("Server Error");
   }
 };
 
@@ -23,7 +23,7 @@ module.exports.casesCount = async (req, res) => {
     return res.status(200).json(result);
   } catch (error) {
     console.error(error);
-    return res.status(500).send("Error");
+    return res.status(500).send("Server Error");
   }
 };
 
@@ -35,15 +35,17 @@ module.exports.credentials = async (req, res) => {
       where: { email: email.toLocaleLowerCase() },
     });
     if (!staffMembers)
-      return res.status(403).send("password or username incorrect");
-    if (staffMembers.FailedLoginAttempts >= MaxLoginAttempts)
-      return res.status(403).send("User Blocked");
+      return res.status(403).send("Email address or password are incorrect.");
+    if (staffMembers.failedLoginAttempts >= MaxLoginAttempts)
+      return res.status(401).send("User Blocked");
     if (bcrypt.compareSync(password, staffMembers.password)) {
       await service.sendOTP(staffMembers);
+      staffMembers.failedLoginAttempts = 0;
+      staffMembers.save();
       return res.status(200).send("OTP sended");
     }
-    await staffMembers.increment("FailedLoginAttempts", { by: 1 });
-    return res.status(403).send("password or username incorrect");
+    await staffMembers.increment("failedLoginAttempts", { by: 1 });
+    return res.status(403).send("Email address or password are incorrect.");
   } catch (error) {
     console.error(error);
     return res.status(500).send("Server Error");
@@ -58,22 +60,23 @@ module.exports.otp = async (req, res) => {
       where: { email: email.toLocaleLowerCase() },
       include: {
         model: Otp,
-        where: { createdAt: { [Op.gt]: new Date() - OtpExpires } },
+        where: { updatedAt: { [Op.gt]: new Date() - OtpExpires } },
       },
     });
-    if (!staffMembers) return res.status(400).send("");
+    if (!staffMembers) return res.status(400).send("Otp expired");
     if (bcrypt.compareSync(code, staffMembers.Otp.code)) {
       const { id } = staffMembers;
       const token = jwt.sign({ id }, process.env.JWT_KEY_STAFF_MEMBERS);
+      staffMembers.Otp.destroy();
       return res
         .cookie("access_token", token, { httpOnly: true })
         .status(200)
         .send("Successfully login");
     }
-    return res.status(403).end();
+    return res.status(403).send("incorrect code");
   } catch (error) {
     console.error(error);
-    return res.status(500).send("Error");
+    return res.status(500).send("Server Error");
   }
 };
 
@@ -83,26 +86,38 @@ module.exports.forgotPassword = async (req, res) => {
     const staffMembers = await StaffMembers.findOne({
       where: { email: email.toLocaleLowerCase() },
     });
-    if (!staffMembers) return res.status(400).end();
+    if (!staffMembers)
+      return res
+        .status(400)
+        .send("This email is not associated with an account");
     await service.sendResetPassword(staffMembers);
     return res.status(200).end("email sended");
   } catch (error) {
     console.error(error);
-    return res.status(500).send("Error");
+    return res.status(500).send("Server Error");
   }
 };
 
 module.exports.resetPassword = async (req, res) => {
   try {
-    const { newPassword } = req.body;
+    const { newPassword, confirmPassword } = req.body;
     const { id } = req.staffMembers;
     const staffMembers = await StaffMembers.findByPk(id);
-    if (!staffMembers) return res.status(400).end();
+    if (!staffMembers)
+      return res
+        .status(400)
+        .send("This email is not associated with an account");
+    if (newPassword != confirmPassword)
+      return res.status(400).send("Password confirmation failed");
+    if (!service.ValidatePasswordRequirements(newPassword))
+      return res
+        .status(400)
+        .send("The password does not meet the password policy requirements");
     await staffMembers.update({ password: newPassword });
-    return res.status(200).end("email sended");
+    return res.status(200).send("email sended");
   } catch (error) {
     console.error(error);
-    return res.status(500).send("Error");
+    return res.status(500).send("Server Error");
   }
 };
 
@@ -114,6 +129,6 @@ module.exports.logout = async (req, res) => {
       .send("Successfully logged");
   } catch (error) {
     console.error(error);
-    return res.status(500).send("Error");
+    return res.status(500).send("Server Error");
   }
 };
