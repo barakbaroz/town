@@ -1,7 +1,10 @@
 steps:
-  - name: node:20.10.0
-    entrypoint: npm
-    args: ["run", "create-env"]
+  - name: bash
+    id: create env
+    script: |
+      #!/usr/bin/env bash
+      printenv > .env
+    dir: "server"
     env:
       - NODE_PORT=${_NODE_PORT}
       - TZ=${_TZ}
@@ -19,9 +22,15 @@ steps:
       - SMS_AUTH_TOKEN=${_SMS_AUTH_TOKEN}
       - SMS_SENDER_NAME=${_SMS_SENDER_NAME}
 
+      - EMAIL_CLIENT_ID=${_EMAIL_CLIENT_ID}
+      - EMAIL_CLIENT_SECRET=${_EMAIL_CLIENT_SECRET}
+      - EMAIL_REDIRECT_URI=${_EMAIL_REDIRECT_URI}
+      - EMAIL_ACCESS_TOKEN=${_EMAIL_ACCESS_TOKEN}
+      - EMAIL_REFRESH_TOKEN=${_EMAIL_REFRESH_TOKEN}
+      - EMAIL_FROM=${_EMAIL_FROM}
+
       - BASIC_URL=${_BASIC_URL}
 
-    dir: "server"
   - name: "gcr.io/cloud-builders/gcloud"
     args: ["app", "deploy"]
     dir: "server"
