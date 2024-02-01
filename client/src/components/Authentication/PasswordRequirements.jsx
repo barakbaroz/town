@@ -8,34 +8,28 @@ export default function PasswordRequirements({ children, password }) {
       {children}
       <Pop>
         <Inner>
-          <Row>
-            <Circle chenkd={password.length >= 8}>
-              <StyledMark />
-            </Circle>{" "}
-            Password must contain at least 8 digits:
-          </Row>
-          <Row>
-            <Circle
-              chenkd={
-                Object.values(conditions).filter(({ regex }) =>
-                  regex.test(password)
-                ).length >= 3
-              }
-            >
-              <StyledMark />
-            </Circle>
-            Password must contain 3 of the following:
-          </Row>
-          <Row>
-            <Circle style={{ visibility: "hidden" }} />
-            <div>
-              {Object.entries(conditions).map(([key, { text, regex }]) => (
-                <ConditionText key={key} chenkd={regex.test(password)}>
-                  {text}
-                </ConditionText>
-              ))}
-            </div>
-          </Row>
+          <Circle chenkd={password.length >= 8}>
+            <StyledMark />
+          </Circle>
+          <span>Password must contain at least 8 digits:</span>
+          <Circle
+            chenkd={
+              Object.values(conditions).filter(({ regex }) =>
+                regex.test(password)
+              ).length >= 3
+            }
+          >
+            <StyledMark />
+          </Circle>
+          <span>Password must contain 3 of the following:</span>
+          <span />
+          <div>
+            {Object.entries(conditions).map(([key, { text, regex }]) => (
+              <ConditionText key={key} chenkd={regex.test(password)}>
+                {text}
+              </ConditionText>
+            ))}
+          </div>
         </Inner>
       </Pop>
     </Container>
@@ -51,23 +45,16 @@ const conditions = {
   UpperCase: { text: "Upper case letters", regex: /[A-Z]/ },
   LowerCase: { text: "Lower case letters", regex: /[a-z]/ },
   SpecialCharacters: {
-    text: "Non-alphanumeric characters",
-    regex: /[!|@|#|$|%|^|&|*]/,
+    text: "Special characters",
+    regex: /[^A-Za-z0-9]/,
   },
-  Digits: { text: "Numeric digits", regex: /\d/ },
+  Digits: { text: "Numeric digits", regex: /[0-9]/ },
 };
 
 const StyledMark = styled(Mark)`
   height: 7px;
   margin-left: 1px;
   display: none;
-`;
-
-const Row = styled.div`
-  display: flex;
-  font-size: 1rem;
-  text-align: start;
-  align-items: center;
 `;
 
 const Circle = styled.div`
@@ -77,10 +64,11 @@ const Circle = styled.div`
   width: 17px;
   min-width: 17px;
   height: 17px;
+  min-height: 17px;
   border: 1px solid;
   border-radius: 50%;
   margin-inline: 9px;
-
+  box-sizing: border-box;
   ${({ chenkd }) =>
     chenkd &&
     css`
@@ -112,10 +100,14 @@ const ConditionText = styled.span`
 `;
 
 const Inner = styled.div`
-  gap: 12px;
   padding: 16px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-columns: auto auto;
+  justify-items: start;
+  align-items: center;
+  text-align: start;
+  row-gap: 5px;
 `;
 
 const Pop = styled.div`
