@@ -58,6 +58,7 @@ const Column = styled.div`
   display: flex;
   flex-direction: column;
   margin: 2rem 0;
+  gap: 30px;
 `;
 
 const Button = styled.button`

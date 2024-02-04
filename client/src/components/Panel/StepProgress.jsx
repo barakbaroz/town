@@ -18,19 +18,19 @@ export default function StepProgress({ item }) {
         const color = isDone ? "#84a4fc" : "#dddddd";
         return (
           <Fragment key={step}>
-            <TextContainer id="TextContainer">
-              <Name color={color}>{StepTexts[step]}</Name>
-              <Time show={isDone}>
-                {new Date(time).toLocaleDateString("en-US", dateOptions)}
-              </Time>
-            </TextContainer>
-
             <SingleStepContainer id="SingleStepContainer">
               <OuterCircle color={color}>
                 <InnerCircle show={isDone} />
               </OuterCircle>
               <Line color={color} />
             </SingleStepContainer>
+
+            <TextContainer id="TextContainer">
+              <Name color={color}>{StepTexts[step]}</Name>
+              <Time show={isDone}>
+                {new Date(time).toLocaleDateString("en-US", dateOptions)}
+              </Time>
+            </TextContainer>
           </Fragment>
         );
       })}
@@ -68,7 +68,7 @@ const InnerCircle = styled.div`
 
 const TextContainer = styled.div`
   padding-inline-end: 0.5rem;
-  text-align: end;
+  text-align: start;
   display: flex;
   flex-direction: column;
   gap: 2%;
@@ -89,15 +89,15 @@ const SingleStepContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
-  padding-inline-end: 1rem;
-  &:last-of-type > ${Line} {
+  padding-inline-start: 1rem;
+  &:nth-last-of-type(2) > ${Line} {
     display: none;
   }
 `;
 
 const StyledStepProgress = styled.div`
   display: grid;
-  grid-template-columns: auto 75px;
+  grid-template-columns: 75px auto;
   width: 100%;
   height: 100%;
   grid-column-gap: 5%;

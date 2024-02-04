@@ -60,7 +60,6 @@ export default function CaseItem({ item, deleteCase }) {
         </Unit>
         <EndPart>
           <Progress>
-            <ProgressText>{getMaxProgress(item)}</ProgressText>
             <CircularProgress
               maxValue={3}
               progress={
@@ -68,6 +67,7 @@ export default function CaseItem({ item, deleteCase }) {
                   .length
               }
             />
+            <ProgressText>{getMaxProgress(item)}</ProgressText>
           </Progress>
           <TrashContainer onClick={() => setShowDeletePopUp(true)}>
             <img alt="trash" src={Trash} />
@@ -161,7 +161,7 @@ const Progress = styled.div`
   height: 100%;
   column-gap: 5%;
   width: 90%;
-  justify-content: flex-end;
+  justify-content: flex-start;
 `;
 
 const TrashContainer = styled.div`
@@ -179,7 +179,6 @@ const ProgressText = styled.div`
   color: #84a4fc;
   text-align: end;
   width: max-content;
-  padding: 0 0.5rem;
 `;
 
 const EndPart = styled.div`

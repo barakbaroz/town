@@ -44,7 +44,7 @@ const Container = styled.div`
   height: 60px;
   width: 60px;
   aspect-ratio: 1;
-  padding-inline-end: 1rem;
+  padding-inline-start: 1rem;
 `;
 
 const BackCircle = styled.circle`
