@@ -1,6 +1,6 @@
 const { Op } = require("sequelize");
 const { independentAction, remindersInfo } = require("./config");
-const getMessageTemplate = require("./templates");
+const { getMessage } = require("./templates");
 const {
   RemindersTracking,
   RemindersQueue,
@@ -8,16 +8,22 @@ const {
   Cases,
 } = require("../models");
 const { send, insertRemindersQueueRecords, performAction } = require("./utils");
-const sms = require("./sms");
+const Sms = require("./sms");
+const Email = require("./email");
 
-module.exports.sendImmediate = async ({ CaseId, type, phoneNumber }) => {
+module.exports.sendImmediate = async ({ CaseId, type, phoneNumber, email }) => {
   const user = await Users.findOne({
     include: Cases,
     where: { CaseId },
   });
-  const { text } = remindersInfo[type];
-  const message = getMessageTemplate(text, user);
-  await sms.send({ message, phoneNumber });
+  const { textKey } = remindersInfo[type];
+  const message = getMessage(textKey, user);
+  await Sms.send({ message, phoneNumber });
+  await Email.send({
+    to: email,
+    subject: "Personalized videos for proper bowel preparation",
+    text: message,
+  });
   await RemindersTracking.create({
     UserId: user.id,
     type,
@@ -32,7 +38,8 @@ module.exports.sendReminders = async () => {
     where: { sentReminderTime: { [Op.lt]: new Date() } },
     limit: 100,
   });
-  reminders.forEach(send);
+  const promiseArray = reminders.map(send);
+  await Promise.all(promiseArray);
 };
 
 module.exports.action = async ({ UserId, actionKey }) => {
@@ -48,4 +55,11 @@ module.exports.action = async ({ UserId, actionKey }) => {
   const user = await Users.findByPk(UserId, { include: Cases });
   if (!user) throw `user id ${UserId} not in Users`;
   await insertRemindersQueueRecords(reminderKeys, user);
+};
+
+module.exports.RemoveAllCaseReminders = async (CaseId) => {
+  const reminders = await RemindersQueue.findAll({
+    include: { model: Users, where: { CaseId }, paranoid: false },
+  });
+  reminders.forEach((reminder) => reminder.destroy());
 };

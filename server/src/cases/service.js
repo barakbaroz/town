@@ -3,7 +3,6 @@ const {
   Comments,
   Users,
   CasesProgress,
-  RemindersQueue,
   Avatar,
   StaffMembers,
   Questionnaire,
@@ -42,14 +41,26 @@ const myCasesFilter = ({ myCases }, creatorId) =>
 
 const dayTime = 1000 * 60 * 60 * 24;
 
-const remindersFlow = [
-  "noReminders",
-  "noReminders",
-  "three-to-four-days-pre-procedure",
-  "three-to-four-days-pre-procedure",
-  "five-days-pre-procedure",
-  "six-days-pre-procedure",
-];
+function getRemindersFlow(date) {
+  const procedureDate = new Date(date);
+  const today = new Date().setHours(0, 0, 0, 0);
+  const daysToProcedure = Math.floor((procedureDate - today) / dayTime);
+  switch (daysToProcedure) {
+    case 0:
+    case 1:
+      return "noReminders";
+    case 2:
+    case 3:
+      return "three-to-four-days-pre-procedure";
+    case 4:
+      return "five-days-pre-procedure";
+    case 5:
+      return "six-days-pre-procedure";
+    default:
+      return "seven-plus-days-pre-procedure";
+  }
+}
+
 module.exports.search = async ({ creatorId, search }) => {
   console.info(`search ${search} by ${creatorId}`);
   const cases = await Cases.findAll({
@@ -101,6 +112,7 @@ module.exports.create = async ({
   concentrate,
   date,
   time,
+  email,
 }) => {
   console.info(`create case by staff member: ${creatorId}`);
   const newCase = await Cases.create({
@@ -111,17 +123,15 @@ module.exports.create = async ({
     procedureTime: time,
   });
   const CaseId = newCase.dataValues.id;
-  const user = await Users.create({ CaseId, phoneNumber });
-  const procedureDate = new Date(date);
-  const today = new Date().setHours(0, 0, 0, 0);
-  const daysToProcedure = Math.floor((procedureDate - today) / dayTime);
-
-  await reminders.action({
-    UserId: user.id,
-    actionKey:
-      remindersFlow[daysToProcedure] || "seven-plus-days-pre-procedure",
+  const user = await Users.create({ CaseId, phoneNumber, email });
+  const actionKey = getRemindersFlow(date);
+  await reminders.action({ UserId: user.id, actionKey });
+  await reminders.sendImmediate({
+    CaseId,
+    type: "caseCreation",
+    phoneNumber,
+    email,
   });
-  await reminders.sendImmediate({ CaseId, type: "caseCreation", phoneNumber });
   return CaseId;
 };
 
@@ -131,12 +141,9 @@ module.exports.update = async ({ id, data }) => {
 
 module.exports.deleteCase = async ({ CaseId, staffMembersId }) => {
   console.info(`Delete ${CaseId} by ${staffMembersId}`);
+  await reminders.RemoveAllCaseReminders(CaseId);
   await Cases.destroy({ where: { id: CaseId } });
   await Users.destroy({ where: { CaseId } });
-  const reminders = await RemindersQueue.findAll({
-    include: { model: Users, where: { CaseId }, paranoid: false },
-  });
-  reminders.forEach((reminder) => reminder.destroy());
 };
 
 module.exports.CommentCase = async ({ CaseId, comment, creatorId }) => {

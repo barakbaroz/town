@@ -1,7 +1,8 @@
 const { remindersInfo } = require("./config");
 const { RemindersQueue, RemindersTracking } = require("../models");
-const getMessageTemplate = require("./templates");
-const sms = require("./sms");
+const { getMessage, getSubject } = require("./templates");
+const Sms = require("./sms");
+const Email = require("./email");
 
 function getTimeByUser(timeName, user) {
   switch (timeName) {
@@ -32,18 +33,36 @@ module.exports.insertRemindersQueueRecords = async (list, user) => {
 
 module.exports.send = async (reminder) => {
   try {
-    const { UserId, type, User } = reminder;
-    const { phoneNumber } = User;
-    const { onSend, text } = remindersInfo[type];
-    const message = getMessageTemplate(text, User);
-    await sms.send({ message, phoneNumber });
-    await RemindersTracking.create({ UserId, type, phoneNumber, message });
+    const { type, User } = reminder;
+    const { onSend } = remindersInfo[type];
+    await sendSMS(reminder);
+    await sendEmail(reminder);
     await this.insertRemindersQueueRecords(onSend, User);
     await reminder.destroy();
   } catch (error) {
     console.error(error);
   }
 };
+
+async function sendSMS(reminder) {
+  const { UserId, type, User } = reminder;
+  const { phoneNumber } = User;
+  if (!phoneNumber) return;
+  const { textKey } = remindersInfo[type];
+  const message = getMessage(textKey, User);
+  await Sms.send({ message, phoneNumber });
+  await RemindersTracking.create({ UserId, type, phoneNumber, message });
+}
+
+async function sendEmail(reminder) {
+  const { type, User } = reminder;
+  const { email } = User;
+  if (!email) return;
+  const { textKey } = remindersInfo[type];
+  const text = getMessage(textKey, User);
+  const subject = getSubject(textKey);
+  await Email.send({ to: email, subject, text });
+}
 
 function getUnitsFormat(units) {
   switch (units) {
