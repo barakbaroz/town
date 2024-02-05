@@ -3,7 +3,7 @@ const router = express.Router();
 const {
   create,
   update,
-  CommentCase,
+  comment,
   duplicate,
   search,
   deleteCase,
@@ -14,7 +14,7 @@ router.use(verifyToken);
 
 router.post("/create", create);
 router.put("/update", update);
-router.post("/CommentCase", CommentCase);
+router.post("/comment", comment);
 router.post("/duplicate", duplicate);
 
 router.post("/search", search);

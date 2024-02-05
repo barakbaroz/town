@@ -2,6 +2,8 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import StepProgress from "./StepProgress";
 import CaseItemButtons from "./CaseItemButtons";
+import { useState } from "react";
+import axios from "axios";
 
 const DateOptions = {
   year: "numeric",
@@ -12,6 +14,11 @@ const DateOptions = {
 };
 
 export default function CaseItemExpand({ item, show }) {
+  const [comment, setComment] = useState(item.Comment?.text || "");
+
+  const sendComment = () =>
+    axios.post("/api/cases/comment", { CaseId: item.id, comment });
+
   return (
     <Container show={show}>
       <CaseItemButtons item={item} />
@@ -29,9 +36,13 @@ export default function CaseItemExpand({ item, show }) {
       <Column>
         <TextArea
           defaultValue={item.Comment?.message}
+          value={comment}
+          onChange={(e) => setComment(e.target.value)}
           placeholder="Add a comment…"
-          disabled={true}
         />
+        <SaveComment onClick={sendComment}>
+          {item.Comment?.text ? "Update" : "Save"}
+        </SaveComment>
         <span>
           Case created by | {item.creator.name},{" "}
           {new Date(item.createdAt).toLocaleString("en-US", DateOptions)}
@@ -85,7 +96,6 @@ const TextArea = styled.textarea`
   border: none;
   font-size: 16px;
   line-height: 21px;
-  color: #444444;
   resize: none;
   outline: none;
   font-family: "Assistant";
@@ -93,6 +103,17 @@ const TextArea = styled.textarea`
   border-radius: 15px;
   padding: 15px;
   height: 6rem;
-  cursor: not-allowed;
   box-sizing: border-box;
+`;
+
+const SaveComment = styled.button`
+  background-color: #84a4fc;
+  color: #fcfafa;
+  padding-inline: 25px;
+  padding-block: 7px;
+  border-radius: 20px;
+  border: none;
+  width: fit-content;
+  font-weight: 600;
+  cursor: pointer;
 `;

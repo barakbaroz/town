@@ -24,9 +24,8 @@ const init = (sequelize) =>
   );
 
 const associations = (sequelize) => {
-  const { Cases, StaffMembers, Comments, Otp } = sequelize.models;
+  const { Cases, StaffMembers, Otp } = sequelize.models;
   StaffMembers.hasMany(Cases, { foreignKey: "creatorId", as: "creator" });
-  StaffMembers.hasMany(Comments, { foreignKey: "creatorId" });
   StaffMembers.hasOne(Otp);
 };
 

@@ -146,9 +146,9 @@ module.exports.deleteCase = async ({ CaseId, staffMembersId }) => {
   await Users.destroy({ where: { CaseId } });
 };
 
-module.exports.CommentCase = async ({ CaseId, comment, creatorId }) => {
-  console.info(`Post comment  case:${CaseId}  comment:${comment}`);
-  await Comments.create({ CaseId, creatorId, message: comment });
+module.exports.CommentCase = async ({ CaseId, text }) => {
+  console.info(`Post comment  case:${CaseId}  comment:${text}`);
+  await Comments.upsert({ CaseId, text });
 };
 
 module.exports.duplicate = async (data) => {
