@@ -17,9 +17,9 @@ export default function Gister() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleDate = () => {
-    if (casesDataRef.current.date.year < 100)
-      casesDataRef.current.date.year += 2000;
-    casesDataRef.current.date = casesDataRef.current.date.toDate();
+    if (casesDataRef.current.datePicker.year < 100)
+      casesDataRef.current.datePicker.year += 2000;
+    casesDataRef.current.date = casesDataRef.current.datePicker.toDate();
   };
 
   const checkMissingFields = (data) => {
@@ -61,9 +61,9 @@ export default function Gister() {
 
   const handleSubmit = () => {
     const data = casesDataRef.current;
+    handleDate();
     const errorFields = checkErrorMessage(data);
     if (errorFields) return;
-    handleDate();
     setLoading(true);
     axios
       .post("/api/cases/duplicate", data)
@@ -112,15 +112,20 @@ const isPastDate = ({ date }) => {
 const validatorFullFeilds = {
   socialSecurityNumber: ({ socialSecurityNumber }) =>
     socialSecurityNumber?.length !== 4,
-  phoneNumber: ({ phoneNumber }) => !/^\d{10}$/.test(phoneNumber),
   concentrate: ({ concentrate }) => !concentrate,
   date: ({ date }) => !date,
   time: ({ time }) => !time,
+  contacts: ({ phoneNumber, email }) => {
+    if (!phoneNumber && !email) return true;
+    if (phoneNumber && !/^\d{10}$/.test(phoneNumber)) return true;
+    if (email && !/^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) return true;
+    return false;
+  },
 };
 
 const errorTitles = {
-  missing: "חסרים נתונים להמשך תהליך",
-  pastDate: "הוזן תאריך עבר",
+  missing: "Data is missing to proceed",
+  pastDate: "Please enter a future date",
 };
 
 const GisterContainer = styled.div`
