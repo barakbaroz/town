@@ -16,7 +16,7 @@ const sendTime = [
   "13:00",
   "13:00",
   "13:00",
-  "20:50",
+  "13:00",
 ];
 
 const remindersInfo = {
