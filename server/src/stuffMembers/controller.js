@@ -113,7 +113,7 @@ module.exports.resetPassword = async (req, res) => {
         .status(400)
         .send("The password does not meet the password policy requirements");
     const salt = bcrypt.genSaltSync(10, "a");
-    const password = bcrypt.hashSync(user.password, salt);
+    const password = bcrypt.hashSync(newPassword, salt);
     await staffMembers.update({ password });
     return res.status(200).send("email sended");
   } catch (error) {
