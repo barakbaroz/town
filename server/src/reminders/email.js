@@ -39,5 +39,4 @@ module.exports.send = async (options) => {
   const mailOptions = { from, ...options };
   const emailTransporter = await createTransporter();
   await emailTransporter.sendMail(mailOptions);
-  console.info(`successfully sent the email to ${options.to}`);
 };

@@ -1,6 +1,7 @@
 const { remindersInfo } = require("./config");
 const { RemindersQueue, RemindersTracking } = require("../models");
-const { getMessage, getSubject } = require("./templates");
+const SmsTemplates = require("./SmsTemplates");
+const EmailTemplates = require("./EmailTemplates");
 const Sms = require("./sms");
 const Email = require("./email");
 
@@ -35,8 +36,8 @@ module.exports.send = async (reminder) => {
   try {
     const { type, User } = reminder;
     const { onSend } = remindersInfo[type];
-    await sendSMS(reminder);
-    await sendEmail(reminder);
+    await this.sendSMS(reminder);
+    await this.sendEmail(reminder);
     await this.insertRemindersQueueRecords(onSend, User);
     await reminder.destroy();
   } catch (error) {
@@ -44,25 +45,32 @@ module.exports.send = async (reminder) => {
   }
 };
 
-async function sendSMS(reminder) {
-  const { UserId, type, User } = reminder;
-  const { phoneNumber } = User;
+module.exports.sendSMS = async (reminder, input) => {
+  const { type, User } = reminder;
+  const { phoneNumber: userphoneNumber, id } = User;
+  const phoneNumber = input || userphoneNumber;
   if (!phoneNumber) return;
   const { textKey } = remindersInfo[type];
-  const message = getMessage(textKey, User);
+  const data = { type: textKey, ...User.Case.dataValues, ...User.dataValues };
+  const rawMessage = findTemplate(SmsTemplates, data);
+  const message = formatMessage(rawMessage, User);
   await Sms.send({ message, phoneNumber });
-  await RemindersTracking.create({ UserId, type, phoneNumber, message });
-}
+  await RemindersTracking.create({ UserId: id, type, phoneNumber, message });
+  console.info(`successfully sent the sms to ${phoneNumber}`);
+};
 
-async function sendEmail(reminder) {
+module.exports.sendEmail = async (reminder, input) => {
   const { type, User } = reminder;
-  const { email } = User;
+  const { email: userEmail } = User;
+  const email = input || userEmail;
   if (!email) return;
   const { textKey } = remindersInfo[type];
-  const text = getMessage(textKey, User);
-  const subject = getSubject(textKey);
-  await Email.send({ to: email, subject, text });
-}
+  const data = { type: textKey, ...User.Case.dataValues, ...User.dataValues };
+  const { html: rawHtml, subject } = findTemplate(EmailTemplates, data);
+  const html = formatMessage(rawHtml, User);
+  await Email.send({ to: email, subject, html });
+  console.info(`successfully sent the email to ${email}`);
+};
 
 function getUnitsFormat(units) {
   switch (units) {
@@ -95,4 +103,30 @@ module.exports.performAction = async (reminder, actionType) => {
   if (!onAction) return;
   await this.insertRemindersQueueRecords(onAction, reminder.User);
   await reminder.destroy();
+};
+
+const findTemplate = (template, data) => {
+  if (template instanceof Object && "key" in template)
+    return findTemplate(template[data[template.key]], data);
+  return template;
+};
+
+module.exports.stringFormat = (string, obj) => {
+  console.log({ string, obj });
+  return Object.entries(obj).reduce(
+    (prev, [key, value]) => prev.replace(`{${key}}`, value),
+    string
+  );
+};
+
+const { BASIC_URL } = process.env;
+const dateOptions = { year: "numeric", month: "numeric", day: "numeric" };
+const formatMessage = (message, user) => {
+  const link = `${BASIC_URL}/api/user/entry/${user.id}`;
+  const procedureDate = new Date(user.Case.procedureDate).toLocaleString(
+    "en-US",
+    dateOptions
+  );
+  const obj = { link, procedureDate };
+  return this.stringFormat(message, obj);
 };

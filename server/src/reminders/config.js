@@ -22,7 +22,7 @@ const sendTime = [
 const remindersInfo = {
   caseCreation: {
     id: "caseCreation",
-    textKey: "CaseCreation",
+    textKey: "caseCreation",
     sendAt: "immediate",
     onSend: [],
     onAction: {},
@@ -30,7 +30,7 @@ const remindersInfo = {
   },
   firstVideoReminder: {
     id: "firstVideoReminder",
-    textKey: "FirstVideoReminder",
+    textKey: "firstVideoReminder",
     sendAt: "1 days after creation",
     sendTime: sendTime,
     onSend: [],
@@ -39,7 +39,7 @@ const remindersInfo = {
   },
   secondVideoReminder: {
     id: "secondVideoReminder",
-    textKey: "SecondVideoReminder",
+    textKey: "secondVideoReminder",
     sendAt: "2 days after creation",
     sendTime: sendTime,
     onSend: [],
@@ -48,7 +48,7 @@ const remindersInfo = {
   },
   firstNutritionReminder: {
     id: "firstNutritionReminder",
-    textKey: "FirstNutritionReminder",
+    textKey: "firstNutritionReminder",
     sendAt: "4 days before procedure",
     sendTime: sendTime,
     onSend: [],
@@ -57,7 +57,7 @@ const remindersInfo = {
   },
   secondNutritionReminder: {
     id: "secondNutritionReminder",
-    textKey: "SecondNutritionReminder",
+    textKey: "secondNutritionReminder",
     sendAt: "2 days before procedure",
     sendTime: sendTime,
     onSend: [],

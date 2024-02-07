@@ -1,15 +1,13 @@
 const { Op } = require("sequelize");
 const { independentAction, remindersInfo } = require("./config");
-const { getMessage } = require("./templates");
+const { RemindersQueue, Users, Cases } = require("../models");
 const {
-  RemindersTracking,
-  RemindersQueue,
-  Users,
-  Cases,
-} = require("../models");
-const { send, insertRemindersQueueRecords, performAction } = require("./utils");
-const Sms = require("./sms");
-const Email = require("./email");
+  send,
+  insertRemindersQueueRecords,
+  performAction,
+  sendSMS,
+  sendEmail,
+} = require("./utils");
 
 module.exports.sendImmediate = async ({ CaseId, type, phoneNumber, email }) => {
   const user = await Users.findOne({
@@ -17,19 +15,11 @@ module.exports.sendImmediate = async ({ CaseId, type, phoneNumber, email }) => {
     where: { CaseId },
   });
   const { textKey } = remindersInfo[type];
-  const message = getMessage(textKey, user);
-  await Sms.send({ message, phoneNumber });
-  await Email.send({
-    to: email,
-    subject: "Personalized videos for proper bowel preparation",
-    text: message,
-  });
-  await RemindersTracking.create({
-    UserId: user.id,
-    type,
-    phoneNumber,
-    message,
-  });
+
+  const data = { type: textKey, User: user };
+  const SmsPromise = sendSMS(data, phoneNumber);
+  const EmailPromise = sendEmail(data, email);
+  await Promise.all([SmsPromise, EmailPromise]);
 };
 
 module.exports.sendReminders = async () => {

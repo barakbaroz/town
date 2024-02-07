@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const Email = require("../reminders/email");
 const emailTemplates = require("../reminders/EmailTemplates");
 const sms = require("../reminders/sms");
+const { stringFormat } = require("../reminders/utils");
 
 module.exports.info = async ({ staffMembersId }) => {
   const stuffmemberData = await StaffMembers.findOne({
@@ -60,10 +61,9 @@ const { BASIC_URL, JWT_KEY_STAFF_MEMBERS } = process.env;
 module.exports.sendResetPassword = async ({ id, email, name }) => {
   const token = jwt.sign({ id }, JWT_KEY_STAFF_MEMBERS, { expiresIn: "15m" });
   const link = `${BASIC_URL}/ResetPassword?token=${token}`;
-  const html = emailTemplates.resetPassword
-    .replace("@name@", name)
-    .replace("@link@", link);
-  await Email.send({ to: email, subject: "subject", html });
+  const { html: htmlRaw, subject } = emailTemplates.ResetPassword;
+  const html = stringFormat(htmlRaw, { name, link });
+  await Email.send({ to: email, subject, html });
 };
 
 const conditions = [/[A-Z]/, /[a-z]/, /[0-9]/, /[^A-Za-z0-9]/];

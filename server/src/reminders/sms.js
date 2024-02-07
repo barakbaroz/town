@@ -17,6 +17,4 @@ module.exports.send = async ({ message, phoneNumber }) => {
   const res = await axios.post("https://restapi.soprano.co.il/api/sms", smsObj);
   if (res.status != 200 || res.data.StatusCode !== 0)
     throw `Sms API response with ${res.data.StatusCode}`;
-
-  console.info(`successfully sent the sms to ${phoneNumber}`);
 };
