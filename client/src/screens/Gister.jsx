@@ -33,19 +33,6 @@ export default function Gister() {
     return anyMissing;
   };
 
-  const checkErrorMessage = (data) => {
-    const resultObject = {
-      missing: checkMissingFields(data),
-      pastDate: isPastDate(data),
-    };
-    const message = ["missing", "pastDate"]
-      .filter((name) => resultObject[name])
-      .map((name) => errorTitles[name])
-      .join(" וכן ");
-    setErrorMessage(message);
-    return Boolean(message);
-  };
-
   const createCase = () => {
     setLoading(true);
     return axios
@@ -62,8 +49,8 @@ export default function Gister() {
   const handleSubmit = () => {
     const data = casesDataRef.current;
     handleDate();
-    const errorFields = checkErrorMessage(data);
-    if (errorFields) return;
+    const errorFields = checkMissingFields(data);
+    if (errorFields) return setErrorMessage("missing field or incorrect.");
     setLoading(true);
     axios
       .post("/api/cases/duplicate", data)
@@ -103,17 +90,11 @@ export default function Gister() {
   );
 }
 
-const isPastDate = ({ date }) => {
-  const result = new Date(date) < new Date();
-  if (result) document.getElementById("date")?.classList.add("invalid");
-  return result;
-};
-
 const validatorFullFeilds = {
   socialSecurityNumber: ({ socialSecurityNumber }) =>
     socialSecurityNumber?.length !== 4,
   concentrate: ({ concentrate }) => !concentrate,
-  date: ({ date }) => !date,
+  date: ({ date }) => !date || new Date(date) < new Date(),
   time: ({ time }) => !time,
   contacts: ({ phoneNumber, email }) => {
     if (!phoneNumber && !email) return true;
@@ -121,11 +102,6 @@ const validatorFullFeilds = {
     if (email && !/^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) return true;
     return false;
   },
-};
-
-const errorTitles = {
-  missing: "Data is missing to proceed",
-  pastDate: "Please enter a future date",
 };
 
 const GisterContainer = styled.div`
