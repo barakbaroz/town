@@ -47,7 +47,7 @@ export default function useUserInfo() {
       })
       .catch((error) => {
         if (error.response?.status === 404) return navigate("/NotFound");
-        console.log(error);
+        console.error(error);
         setError(true);
         setLoading(false);
       });
