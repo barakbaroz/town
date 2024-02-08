@@ -61,7 +61,7 @@ const { BASIC_URL, JWT_KEY_STAFF_MEMBERS } = process.env;
 module.exports.sendResetPassword = async ({ id, email, name }) => {
   const token = jwt.sign({ id }, JWT_KEY_STAFF_MEMBERS, { expiresIn: "15m" });
   const link = `${BASIC_URL}/ResetPassword?token=${token}`;
-  const { html: htmlRaw, subject } = emailTemplates.ResetPassword;
+  const { html: htmlRaw, subject } = emailTemplates.resetPassword;
   const html = stringFormat(htmlRaw, { name, link });
   await Email.send({ to: email, subject, html });
 };

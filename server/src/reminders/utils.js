@@ -112,7 +112,6 @@ const findTemplate = (template, data) => {
 };
 
 module.exports.stringFormat = (string, obj) => {
-  console.log({ string, obj });
   return Object.entries(obj).reduce(
     (prev, [key, value]) => prev.replace(`{${key}}`, value),
     string
