@@ -95,7 +95,7 @@ export default function Login() {
         <Submit
           type="button"
           disabled={loading}
-          onClick={() => setStage("credentials")}
+          onClick={() => window.location.reload()}
         >
           Re-enter
         </Submit>
@@ -115,4 +115,5 @@ export default function Login() {
 
 const Link = styled.a`
   color: inherit;
+  cursor: pointer;
 `;
