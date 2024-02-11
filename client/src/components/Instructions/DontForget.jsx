@@ -27,7 +27,6 @@ export default function DontForget() {
 
 const dontForgetItems = [
   "identification",
-  "form-17",
   "medicalReferral",
   "bloodCounting",
   "companion",
