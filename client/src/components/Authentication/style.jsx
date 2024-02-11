@@ -54,6 +54,6 @@ export const Error = styled.span`
 `;
 
 export const Massage = styled.p`
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 500;
 `;
