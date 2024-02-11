@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import background from "../../assets/Backgrounds/login.jpg";
-import gistLogo from "../../assets/Logos/gist_logo_mask.svg";
-import hospitalLogo from "../../assets/Logos/hospital_logo_Login.svg";
+import gistLogo from "../../assets/Logos/gist_logo_login.svg";
+import hospitalLogo from "../../assets/Logos/hospital_logo_login.svg";
 
 export const Wrapper = ({ children, ...props }) => {
   return (
