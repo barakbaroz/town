@@ -14,6 +14,7 @@ export const Card = styled.div`
 export const Icon = styled.img`
   max-width: 70px;
   max-height: 70px;
+  align-self: flex-start;
 `;
 
 export const TopSection = styled.div`
