@@ -46,6 +46,7 @@ const Container = styled(Card)`
   padding-inline: 25px;
   padding-block: 25px;
   background-color: #ffffff40;
+  box-shadow: none;
 `;
 const ListContainer = styled.ul`
   padding-inline-start: 1.5rem;
