@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
 
 export const buttonCSS = css`
-  --content-height: 1.625rem;
   font-size: 1.125rem;
   cursor: pointer;
   color: #ffffff;
@@ -9,10 +8,13 @@ export const buttonCSS = css`
   border: none;
   padding-block: 0.688rem;
   padding-inline: 27px;
-  border-radius: 50px;
+  border-radius: 100px;
   align-self: center;
   font-family: inherit;
   text-decoration: none;
+  &:hover {
+    background-color: #bf213c;
+  }
 `;
 
 export const Button = styled.button`

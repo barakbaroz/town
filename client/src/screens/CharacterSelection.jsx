@@ -8,7 +8,7 @@ import { Translator } from "../components/Translation";
 import { postAnalytics } from "../analytics";
 import { useUser } from "../providers/UserProvider";
 import Transition from "../Transition";
-import { desktopCss } from "../components/general.style";
+import { buttonCSS, desktopCss } from "../components/general.style";
 
 export default function CharacterSelection() {
   const navigate = useNavigate();
@@ -284,16 +284,10 @@ const Line = styled.div`
 `;
 
 const ConfirmationButton = styled.button`
-  text-decoration: none;
-  padding: 0.5rem 3rem;
-  background-color: #f02a4c;
-  border-radius: 200px;
-  border: none;
-  color: #ffffff;
+  ${buttonCSS}
   font-size: 1.063rem;
-  font-family: inherit;
-  opacity: 0.6;
-  opacity: ${({ avatarKey }) => avatarKey && 1};
+  padding: 0.5rem 3rem;
+  opacity: ${({ avatarKey }) => (avatarKey ? 1 : 0.6)};
   margin-top: 2.125rem;
   display: block;
   margin-inline: auto;

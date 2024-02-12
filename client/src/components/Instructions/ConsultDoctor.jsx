@@ -31,7 +31,6 @@ export default function ConsultDoctor() {
 
 const StyledButton = styled.a`
   ${buttonCSS}
-  text-decoration: none;
   display: ${({ show }) => (show ? "block" : "none")};
 `;
 

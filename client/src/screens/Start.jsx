@@ -6,7 +6,7 @@ import Adina_Background from "../assets/Lotties/Adina_Background.json";
 import { Translator } from "../components/Translation";
 import { postAnalytics } from "../analytics";
 import Transition from "../Transition";
-import { desktopCss } from "../components/general.style";
+import { buttonCSS, desktopCss } from "../components/general.style";
 
 export default function Start() {
   const handleLegalLinkClick = () => {
@@ -97,13 +97,7 @@ const Paragraph = styled.p`
 `;
 
 const StartButton = styled(Link)`
-  text-decoration: none;
-  background-color: #f02a4c;
-  border-radius: 1.813rem;
-  border: none;
-  color: #ffffff;
-  font-size: 1.125rem;
-  font-family: inherit;
+  ${buttonCSS}
   padding-block: 0.594rem;
   padding-inline: 4.563rem;
   box-shadow: 0px 3px 6px #00000029;

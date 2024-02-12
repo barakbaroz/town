@@ -46,7 +46,6 @@ const router = createBrowserRouter([
       { path: "Video", element: <VideoPage /> },
       { path: "Legal", element: <Legal /> },
       { path: "Privacy", element: <Privacy /> },
-
       { path: "CharacterSelection", element: <CharacterSelection /> },
       {
         path: "Questionnaire",
