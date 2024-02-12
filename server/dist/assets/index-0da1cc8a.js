@@ -332,7 +332,6 @@ browserWorkerPolyFill(self);
   background-color: white;
   transform-origin: bottom;
 `,buttonCSS=Ae`
-  --content-height: 1.625rem;
   font-size: 1.125rem;
   cursor: pointer;
   color: #ffffff;
@@ -340,10 +339,13 @@ browserWorkerPolyFill(self);
   border: none;
   padding-block: 0.688rem;
   padding-inline: 27px;
-  border-radius: 50px;
+  border-radius: 100px;
   align-self: center;
   font-family: inherit;
   text-decoration: none;
+  &:hover {
+    background-color: #bf213c;
+  }
 `;styled.button`
   ${buttonCSS}
 `;const desktopCss=Ae`
@@ -363,8 +365,7 @@ browserWorkerPolyFill(self);
   box-sizing: border-box;
   justify-content: space-between;
 `,Nurse=styled(Lottie).attrs({animationData:Adina_Background})`
-  width: 270px;
-  height: 186px;
+  width: 400px;
   max-width: 100%;
 `,Title$b=styled.h1`
   font-size: 1.75rem;
@@ -382,13 +383,7 @@ browserWorkerPolyFill(self);
   text-align: center;
   margin-inline: 25px;
 `,StartButton=styled(Link$1)`
-  text-decoration: none;
-  background-color: #f02a4c;
-  border-radius: 1.813rem;
-  border: none;
-  color: #ffffff;
-  font-size: 1.125rem;
-  font-family: inherit;
+  ${buttonCSS}
   padding-block: 0.594rem;
   padding-inline: 4.563rem;
   box-shadow: 0px 3px 6px #00000029;
@@ -777,7 +772,7 @@ to {
   &:hover ${ActionText$1} {
     color: #bf213c;
   }
-`,PlayIcon="/assets/gist_play-4cbb2cc5.svg",CopyLinkIcon="/assets/copy_link-819ebd99.svg",X_Icon="/assets/white_X-273b65d8.svg";function useVideoUrl(i){const[a,s]=reactExports.useState(""),o=it=>new Date(it).toLocaleString("en-US",{weekday:"long"}),et=it=>{const[nt]=it.procedureTime.split(":"),at=nt>=15?"evening":"morning";return`${it.concentrate} ${at}`},tt=it=>({...it,pharmacy:it.concentrate,calender:o(it.procedureDate),firstMedicinTimeTake:et(it),drinking:it.concentrate,secondServingHoursBefore:et(it)}),rt=reactExports.useCallback(()=>{i&&axios$1.post("https://gist-player-backend.ew.r.appspot.com/v2/requestLink",{params:tt(i),procedure:"colo-prep-new"}).then(it=>s(it.data.url))},[i]);return reactExports.useEffect(()=>{rt()},[rt]),{videoUrl:a}}const videoThumbnail$1="/assets/Thumbnail_panel-85fae036.jpg";function PanelVideo({close:i,item:a,show:s}){const o=reactExports.useMemo(()=>{const{Avatar:tt,User:rt,procedureTime:it,procedureDate:nt,concentrate:at}=a,{language:st,Questionnaires:ot}=rt,lt=ot.filter(({answerKey:ct})=>ct==="Yes").map(({questionKey:ct})=>ct);return{...tt,language:st,procedureTime:it,procedureDate:nt,concentrate:at,questionnaire:lt,hospital:"ichilov"}},[a]),{videoUrl:et}=useVideoUrl(s?o:null);return s?jsxRuntimeExports.jsxs(Modal,{children:[jsxRuntimeExports.jsx(Close,{src:X_Icon,onClick:i}),jsxRuntimeExports.jsx(VideoWrapper,{children:jsxRuntimeExports.jsx(Player$1,{src:et,audioStartDelay:3,thumbnail:videoThumbnail$1})})]}):jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment,{})}PanelVideo.propTypes={close:PropTypes.func,item:PropTypes.object,show:PropTypes.bool};const Modal=styled.div`
+`,PlayIcon="/assets/gist_play-4cbb2cc5.svg",CopyLinkIcon="/assets/copy_link-819ebd99.svg",X_Icon="/assets/white_X-273b65d8.svg";function useVideoUrl(i){const[a,s]=reactExports.useState(""),o=it=>new Date(it).toLocaleString("en-US",{weekday:"long"}),et=it=>{const[nt]=it.procedureTime.split(":"),at=nt>=15?"evening":"morning";return`${it.concentrate} ${at}`},tt=it=>({...it,pharmacy:it.concentrate,calender:o(it.procedureDate),firstMedicinTimeTake:et(it),drinking:it.concentrate,secondServingHoursBefore:et(it)}),rt=reactExports.useCallback(()=>{i&&axios$1.post("https://gist-player-backend.ew.r.appspot.com/v2/requestLink",{params:tt(i),procedure:"colo-prep-new"}).then(it=>s(it.data.url))},[i]);return reactExports.useEffect(()=>{rt()},[rt]),{videoUrl:a}}const thumbnail="/assets/thumbnail-85fae036.jpg";function PanelVideo({close:i,item:a,show:s}){const o=reactExports.useMemo(()=>{const{Avatar:tt,User:rt,procedureTime:it,procedureDate:nt,concentrate:at}=a,{language:st,Questionnaires:ot}=rt,lt=ot.filter(({answerKey:ct})=>ct==="Yes").map(({questionKey:ct})=>ct);return{...tt,language:st,procedureTime:it,procedureDate:nt,concentrate:at,questionnaire:lt,hospital:"ichilov"}},[a]),{videoUrl:et}=useVideoUrl(s?o:null);return s?jsxRuntimeExports.jsxs(Modal,{children:[jsxRuntimeExports.jsx(Close,{src:X_Icon,onClick:i}),jsxRuntimeExports.jsx(VideoWrapper,{children:jsxRuntimeExports.jsx(Player$1,{src:et,audioStartDelay:3,thumbnail})})]}):jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment,{})}PanelVideo.propTypes={close:PropTypes.func,item:PropTypes.object,show:PropTypes.bool};const Modal=styled.div`
   position: fixed;
   display: flex;
   inset: 0;
@@ -1688,7 +1683,7 @@ to {
   padding-inline: var(--header-inline-padding);
 `,Logo=styled.img`
   height: var(--header-logo-height);
-`;function UserLayout(){return jsxRuntimeExports.jsx(AnimatePresence,{mode:"wait",children:jsxRuntimeExports.jsx(LanguageProvider,{children:jsxRuntimeExports.jsxs(UserProvider,{children:[jsxRuntimeExports.jsx(Header,{}),jsxRuntimeExports.jsx(Outlet,{})]})})})}function ErrorElement(){var a,s;const i=useRouteError();return console.error(i),((a=i.response)==null?void 0:a.status)===403?jsxRuntimeExports.jsx(Navigate,{to:"/login"}):((s=i.response)==null?void 0:s.status)===404?jsxRuntimeExports.jsx(Navigate,{to:"/NotFound"}):jsxRuntimeExports.jsx(Error$2,{})}const NotFound=()=>jsxRuntimeExports.jsxs(Container$5,{children:[jsxRuntimeExports.jsx("img",{src:NotFoundLogo,alt:"not-found"}),jsxRuntimeExports.jsx(Title$3,{children:"404"}),jsxRuntimeExports.jsx(SubTitle,{children:"Page not found"}),jsxRuntimeExports.jsxs(Text$3,{children:["The page you were looking for doesn't exist.",jsxRuntimeExports.jsx("br",{})," You may have mistyped the address or the page may have moved."]})]}),Container$5=styled.div`
+`;function UserLayout(){return jsxRuntimeExports.jsx(AnimatePresence,{mode:"wait",children:jsxRuntimeExports.jsx(LanguageProvider,{children:jsxRuntimeExports.jsxs(UserProvider,{children:[jsxRuntimeExports.jsx(Header,{}),jsxRuntimeExports.jsx(Outlet,{})]})})})}function ErrorElement(){var a,s,o;const i=useRouteError();return console.error(i),((a=i.response)==null?void 0:a.status)===401?jsxRuntimeExports.jsx(Navigate,{to:"/login"}):((s=i.response)==null?void 0:s.status)===403?jsxRuntimeExports.jsx(Navigate,{to:"/login"}):((o=i.response)==null?void 0:o.status)===404?jsxRuntimeExports.jsx(Navigate,{to:"/NotFound"}):jsxRuntimeExports.jsx(Error$2,{})}const NotFound=()=>jsxRuntimeExports.jsxs(Container$5,{children:[jsxRuntimeExports.jsx("img",{src:NotFoundLogo,alt:"not-found"}),jsxRuntimeExports.jsx(Title$3,{children:"404"}),jsxRuntimeExports.jsx(SubTitle,{children:"Page not found"}),jsxRuntimeExports.jsxs(Text$3,{children:["The page you were looking for doesn't exist.",jsxRuntimeExports.jsx("br",{})," You may have mistyped the address or the page may have moved."]})]}),Container$5=styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1781,16 +1776,10 @@ to {
   width: 100%;
   background: #eaeaea;
 `,ConfirmationButton=styled.button`
-  text-decoration: none;
-  padding: 0.5rem 3rem;
-  background-color: #f02a4c;
-  border-radius: 200px;
-  border: none;
-  color: #ffffff;
+  ${buttonCSS}
   font-size: 1.063rem;
-  font-family: inherit;
-  opacity: 0.6;
-  opacity: ${({avatarKey:i})=>i&&1};
+  padding: 0.5rem 3rem;
+  opacity: ${({avatarKey:i})=>i?1:.6};
   margin-top: 2.125rem;
   display: block;
   margin-inline: auto;
@@ -1810,7 +1799,7 @@ to {
   ::before {
     content: "*";
   }
-`,videoThumbnail="/assets/videoThumbnail-38ce0cfc.jpg";function Player({setShowFeedback:i,videoRef:a}){const s=useUser(),{language:o}=useLanguage(),et=reactExports.useMemo(()=>{const{Case:nt,Questionnaires:at}=s,{Avatar:st,procedureTime:ot,procedureDate:lt,concentrate:ct}=nt,ut=at.filter(({answerKey:ht})=>ht==="Yes").map(({questionKey:ht})=>ht);return{...st,language:o,procedureTime:ot,procedureDate:lt,concentrate:ct,questionnaire:ut,hospital:"ichilov"}},[o,s]),{videoUrl:tt}=useVideoUrl(et),rt=reactExports.useCallback((nt,at)=>{axios$1.post("/api/user/userVideoAction",{type:"watched-video",data:{percentage:nt,location:at}})},[]),it=reactExports.useCallback(()=>{i(!0)},[i]);return jsxRuntimeExports.jsx(VideoContainer,{children:jsxRuntimeExports.jsx(Player$1,{src:tt,autoFullScreen:!1,audioStartDelay:3,onLocationUpdate:rt,onPlayerPlaying:it,thumbnail:videoThumbnail,passedRef:a})})}Player.propTypes={setShowFeedback:PropTypes.func,videoRef:PropTypes.oneOfType([PropTypes.shape({current:PropTypes.instanceOf(Element)}),PropTypes.func])};const VideoContainer=styled.div`
+`;function Player({setShowFeedback:i,videoRef:a}){const s=useUser(),{language:o}=useLanguage(),et=reactExports.useMemo(()=>{const{Case:nt,Questionnaires:at}=s,{Avatar:st,procedureTime:ot,procedureDate:lt,concentrate:ct}=nt,ut=at.filter(({answerKey:ht})=>ht==="Yes").map(({questionKey:ht})=>ht);return{...st,language:o,procedureTime:ot,procedureDate:lt,concentrate:ct,questionnaire:ut,hospital:"ichilov"}},[o,s]),{videoUrl:tt}=useVideoUrl(et),rt=reactExports.useCallback((nt,at)=>{axios$1.post("/api/user/userVideoAction",{type:"watched-video",data:{percentage:nt,location:at}})},[]),it=reactExports.useCallback(()=>{i(!0)},[i]);return jsxRuntimeExports.jsx(VideoContainer,{children:jsxRuntimeExports.jsx(Player$1,{src:tt,autoFullScreen:!1,audioStartDelay:3,onLocationUpdate:rt,onPlayerPlaying:it,thumbnail,passedRef:a})})}Player.propTypes={setShowFeedback:PropTypes.func,videoRef:PropTypes.oneOfType([PropTypes.shape({current:PropTypes.instanceOf(Element)}),PropTypes.func])};const VideoContainer=styled.div`
   margin-inline: 15px;
 `;function SingleQuestion({questionKey:i,onAnswer:a,show:s}){const[o,et]=reactExports.useState(""),tt=rt=>()=>{postAnalytics({type:`satisfaction-question-${i}`,data:rt}),et(rt),a&&a()};return jsxRuntimeExports.jsxs(FeedBackWrapper,{id:"FeedBackWrapper",show:s,children:[jsxRuntimeExports.jsx(FeedbackTitle,{id:"FeedbackTitle",children:jsxRuntimeExports.jsxs(Translator,{children:["Satisfaction-question-",i]})}),jsxRuntimeExports.jsxs(Answers,{id:"Answers",children:[jsxRuntimeExports.jsx(Answer$1,{id:"AnswerYes",onClick:tt("Yes"),checked:o==="Yes",children:jsxRuntimeExports.jsx(Translator,{children:"Yes"})}),jsxRuntimeExports.jsx(Answer$1,{id:"AnswerNo",onClick:tt("No"),checked:o==="No",children:jsxRuntimeExports.jsx(Translator,{children:"No"})})]})]})}SingleQuestion.propTypes={questionKey:PropTypes.string.isRequired,onAnswer:PropTypes.func,show:PropTypes.bool};const FeedBackWrapper=styled.div`
   display: flex;
@@ -1866,6 +1855,7 @@ to { opacity: 1;}
 `,Icon=styled.img`
   max-width: 70px;
   max-height: 70px;
+  align-self: flex-start;
 `,TopSection=styled.div`
   display: flex;
   align-items: center;
@@ -1901,14 +1891,13 @@ to { opacity: 1;}
   padding-block-end: 1.063rem;
 `,FullLongDateAndTime={dateStyle:"full",timeStyle:"short"};function NutritionalGuidelines(){const{Case:i}=useUser(),{procedureDateAndTime:a}=i,{language:s}=useLanguage(),o=()=>{postAnalytics({type:"nutrition-instruction-clicked"})};return jsxRuntimeExports.jsxs(Card,{children:[jsxRuntimeExports.jsxs(TopSection,{children:[jsxRuntimeExports.jsx(Title$1,{children:jsxRuntimeExports.jsx(Translator,{children:"Nutritional-Instructions-Title"})}),jsxRuntimeExports.jsx(Icon,{src:nutrition,alt:"nutrition"})]}),jsxRuntimeExports.jsx(Text$2,{children:jsxRuntimeExports.jsx(Translator,{children:"Nutritional-Instructions-Preview"})}),jsxRuntimeExports.jsxs(Text$2,{children:[jsxRuntimeExports.jsx(Translator,{children:"Nutritional-Instructions-scheduled"})," ",a.toLocaleString(`${s}-US`,FullLongDateAndTime)]}),jsxRuntimeExports.jsx(InstructionsSteps,{}),jsxRuntimeExports.jsx(StyledButton$1,{href:"#",onClick:o,children:jsxRuntimeExports.jsx(Translator,{children:"Nutritional-Instructions-Download"})})]})}const Text$2=styled.p`
   margin: 0;
-  margin-block-end: 1.125rem;
   font-size: 1.188rem;
 `,StyledButton$1=styled.a`
+  margin-block-start: 1.125rem;
   text-align: center;
   ${buttonCSS}
 `,doctorConsult="/assets/doctor_consult-b36e9f24.svg";function ConsultDoctor(){const i=()=>{postAnalytics({type:"consult-doctor-clicked"})};return jsxRuntimeExports.jsxs(Card,{children:[jsxRuntimeExports.jsxs(TopSection,{children:[jsxRuntimeExports.jsx(Title$1,{children:jsxRuntimeExports.jsx(Translator,{children:"Consult-Doctor-Title"})}),jsxRuntimeExports.jsx(Icon,{src:doctorConsult,alt:"doctorConsult"})]}),jsxRuntimeExports.jsx(Text$1,{children:jsxRuntimeExports.jsx(Translator,{children:"Consult-Doctor-Paragraph"})}),jsxRuntimeExports.jsx(StyledButton,{href:"#",show:!0,onClick:i,children:jsxRuntimeExports.jsx(Translator,{children:"Consult-Doctor-Download"})})]})}const StyledButton=styled.a`
   ${buttonCSS}
-  text-decoration: none;
   display: ${({show:i})=>i?"block":"none"};
 `,Text$1=styled.p`
   margin: 0;
@@ -1935,6 +1924,7 @@ to { opacity: 1;}
   padding-inline: 25px;
   padding-block: 25px;
   background-color: #ffffff40;
+  box-shadow: none;
 `,ListContainer=styled.ul`
   padding-inline-start: 1.5rem;
   margin: 0;
