@@ -53,6 +53,7 @@ export default function NutritionalGuidelines() {
 
 const Text = styled.p`
   margin: 0;
+  margin-block-end: 1.125rem;
   font-size: 1.188rem;
 `;
 
