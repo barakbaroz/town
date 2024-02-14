@@ -42,7 +42,9 @@ export default function TimePicker({ defaultValue, onChange, ...props }) {
 function MyTimeField(props) {
   return (
     <TimeField aria-label="date" {...props}>
-      <DateInput>{(segment) => <DateSegment segment={segment} />}</DateInput>
+      <StyledDateInput>
+        {(segment) => <DateSegment segment={segment} />}
+      </StyledDateInput>
     </TimeField>
   );
 }
@@ -52,7 +54,14 @@ TimePicker.propTypes = {
   defaultValue: PropTypes.string,
 };
 
-TimePicker.defaultProps = {};
+const StyledDateInput = styled(DateInput)`
+  display: grid;
+  grid-template-columns: auto auto auto 5px auto;
+  & > div {
+    display: grid;
+  }
+`;
+
 const highlightCSS = css`
   fill: #7a9dfd;
 `;
@@ -60,7 +69,7 @@ const highlightCSS = css`
 const iconCSS = css`
   width: 1em;
   height: 1em;
-  padding-inline: 0.563em;
+  padding-inline: 9px;
   border-radius: 50%;
   fill: #b7b7b7;
 `;
@@ -81,7 +90,4 @@ const Container = styled.div`
   flex-wrap: nowrap;
   width: fit-content;
   align-items: center;
-  & > .react-aria-TimeField > div {
-    display: flex;
-  }
 `;

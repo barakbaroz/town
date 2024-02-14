@@ -56,11 +56,10 @@ export default function PatientInformation({ casesDataRef }) {
           />
         </InputContainer>
       </Contacts>
-      <ContactsError>
-        Please enter the patient’s mobile number
-        <br />
-        or Email address. You can add both.
-      </ContactsError>
+      <Info>
+        Please enter one of the following - <br />
+        Patient’s mobile number or Email
+      </Info>
     </Container>
   );
 }
@@ -86,9 +85,9 @@ const Contacts = styled.div`
   }
 `;
 
-const ContactsError = styled.p`
-  display: none;
-  color: var(--invalid);
+const Info = styled.p`
+  color: #6081da;
+  margin: 0;
 `;
 
 const Container = styled.div`
@@ -99,9 +98,4 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 22px;
-  &:has(${Contacts}.invalid) {
-    ${ContactsError} {
-      display: block;
-    }
-  }
 `;

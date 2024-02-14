@@ -37,15 +37,10 @@ Scheduler.propTypes = {
 
 const Wrapper = styled.div`
   background-color: #f2f3f7;
-  border-radius: 100vh;
+  border-radius: 200px;
   border: 1px solid transparent;
-  width: fit-content;
   padding-inline: 30px;
   padding-block: 10px;
-  width: 90%;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
 `;
 
 const Container = styled.div`
