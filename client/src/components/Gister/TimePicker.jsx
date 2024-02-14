@@ -56,10 +56,7 @@ TimePicker.propTypes = {
 
 const StyledDateInput = styled(DateInput)`
   display: grid;
-  grid-template-columns: auto auto auto 5px auto;
-  & > div {
-    display: grid;
-  }
+  grid-template-columns: auto auto auto 15px auto;
 `;
 
 const highlightCSS = css`
@@ -69,7 +66,6 @@ const highlightCSS = css`
 const iconCSS = css`
   width: 1em;
   height: 1em;
-  padding-inline: 9px;
   border-radius: 50%;
   fill: #b7b7b7;
 `;
@@ -88,6 +84,7 @@ const Container = styled.div`
   direction: ltr;
   display: flex;
   flex-wrap: nowrap;
-  width: fit-content;
+  width: 100%;
+  justify-content: space-between;
   align-items: center;
 `;

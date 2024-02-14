@@ -45,7 +45,7 @@ export default function PhoneInput({ item }) {
             <img src={open ? SendIcon : Phone} alt="icon" />
           </Icon>
           <Input
-            placeholder="Enter your mobile number"
+            placeholder="Mobile Number"
             type="tel"
             value={number}
             maxLength={10}
@@ -82,6 +82,9 @@ const Input = styled.input`
   margin-inline-start: 0.688rem;
   margin-inline-end: 16px;
   font-size: 1rem;
+  &::placeholder {
+    font-size: 0.875rem;
+  }
 `;
 
 const Icon = styled.div`
