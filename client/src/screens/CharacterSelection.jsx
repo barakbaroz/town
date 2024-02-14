@@ -47,62 +47,54 @@ export default function CharacterSelection() {
 
   return (
     <Transition>
-      <CharacterSelectionContainer id="CharacterSelectionContainer">
+      <Page>
         <Desktop>
-          <Title id="PickYourCharecter">
+          <Title>
             <Translator>Character-Selection-Title</Translator>
           </Title>
           <PickerContainer id="PickerContainer">
             {Object.entries(data).map(([questionKey, questionData]) => (
               <Fragment key={questionKey}>
-                <QuestionWrapper id="QuestionWrapper">
-                  <Question id="Question">
-                    <Translator>{questionData.title}</Translator>
-                  </Question>
-                  <QuestionPickerContainer id="QuestionPickerContainer">
-                    {Object.entries(questionData.answers).map(
-                      ([answerKey, answerText]) => (
-                        <Fragment key={answerKey}>
-                          <QuestionPicker
-                            id="QuestionPicker"
-                            selected={answerKey === answers[questionKey]}
-                            onClick={answerQuestion(questionKey, answerKey)}
-                          >
-                            <Translator>{answerText}</Translator>
-                          </QuestionPicker>
-                          <Divider id="Divider" />
-                        </Fragment>
-                      )
-                    )}
-                  </QuestionPickerContainer>
-                </QuestionWrapper>
+                <Question id="Question">
+                  <Translator>{questionData.title}</Translator>
+                </Question>
+                <Options>
+                  {Object.entries(questionData.answers).map(
+                    ([answerKey, answerText]) => (
+                      <Fragment key={answerKey}>
+                        <Option
+                          selected={answerKey === answers[questionKey]}
+                          onClick={answerQuestion(questionKey, answerKey)}
+                        >
+                          <Translator>{answerText}</Translator>
+                        </Option>
+                        <Divider />
+                      </Fragment>
+                    )
+                  )}
+                </Options>
                 <Line />
               </Fragment>
             ))}
-            <QuestionWrapper id="CharacterQuestion">
-              <Question id="Question">
-                <Translator>
-                  Character-Selection-Avatar-
-                  {filtersAvatars.length === 1 ? "Single" : "General"}
-                </Translator>
-              </Question>
-              <CharacterQuestionPickerContainer id="CharacterQuestionPickerContainer">
-                {filtersAvatars.map(({ key, avatar, image }) => (
-                  <Avatar
-                    id="Avatar"
-                    key={key}
-                    selected={key === avatarKey}
-                    onClick={handleAvatar(key, avatar)}
-                    src={image}
-                  />
-                ))}
-              </CharacterQuestionPickerContainer>
-              <ErrorContainer id="ErrorContainer">
-                <Error id="Error" show={showError}>
-                  <Translator>Character-Selection-Error</Translator>
-                </Error>
-              </ErrorContainer>
-            </QuestionWrapper>
+            <Question id="Question">
+              <Translator>
+                Character-Selection-Avatar-
+                {filtersAvatars.length === 1 ? "Single" : "General"}
+              </Translator>
+            </Question>
+            <AvatarOptions>
+              {filtersAvatars.map(({ key, avatar, image }) => (
+                <Avatar
+                  key={key}
+                  selected={key === avatarKey}
+                  onClick={handleAvatar(key, avatar)}
+                  src={image}
+                />
+              ))}
+            </AvatarOptions>
+            <Error id="Error" show={showError}>
+              <Translator>Character-Selection-Error</Translator>
+            </Error>
           </PickerContainer>
           <ConfirmationButton
             id="Button"
@@ -112,7 +104,7 @@ export default function CharacterSelection() {
             <Translator>Next</Translator>
           </ConfirmationButton>
         </Desktop>
-      </CharacterSelectionContainer>
+      </Page>
     </Transition>
   );
 }
@@ -193,7 +185,7 @@ const avatars = [
   },
 ];
 
-const CharacterSelectionContainer = styled.div`
+const Page = styled.div`
   min-height: calc(100dvh - var(--header-size));
   width: 100vw;
   background-image: url(${background});
@@ -219,68 +211,78 @@ const Title = styled.p`
 `;
 
 const PickerContainer = styled.div`
+  display: grid;
+  grid-template-columns:
+    [full-start]
+    var(--inner-padding-inline)
+    [content-start] 1fr [content-end]
+    var(--inner-padding-inline)
+    [full-end];
   background-color: #ffffff;
   border-radius: 15px;
-  padding-inline: var(--inner-padding-inline);
-  padding-block-start: 1.75rem;
-  padding-block-end: 1.875rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  padding-block: 1.75rem 1.875rem;
   box-shadow: 0px 3px 10px 0px #0000000d;
+  row-gap: 12px;
 `;
 
 const Question = styled.p`
   font-size: 1.1875rem;
   text-align: start;
   margin: 0rem;
+  grid-column: content;
 `;
 
-const QuestionPicker = styled.div`
-  color: ${({ selected }) => (selected ? "#84A4FC" : "#A7A7A7")};
-  font-size: 1.1875rem;
-`;
-
-const QuestionPickerContainer = styled.div`
+const Options = styled.div`
   display: flex;
   overflow-x: auto;
+  grid-column: content;
+  cursor: pointer;
   &::-webkit-scrollbar {
     display: none;
   }
-  cursor: pointer;
-`;
-
-const CharacterQuestionPickerContainer = styled(QuestionPickerContainer)`
-  width: calc(100% + (var(--inner-padding-inline) * 2));
-  margin-inline-start: calc(var(--inner-padding-inline) * -1);
-  cursor: pointer;
   @media (width > 700px) {
-    display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
   }
+`;
+
+const AvatarOptions = styled(Options)`
+  --avatar-border-width: 2px;
+  grid-column: full;
+  padding-inline: calc(
+    var(--inner-padding-inline) - var(--avatar-border-width)
+  );
+`;
+
+const Option = styled.div`
+  color: ${({ selected }) => (selected ? "#84A4FC" : "#A7A7A7")};
+  font-size: 1.1875rem;
+  white-space: nowrap;
+`;
+
+const Avatar = styled.img`
+  border-radius: 50%;
+  border: var(--avatar-border-width) solid
+    ${({ selected }) => (selected ? "#84a4fc" : "transparent")};
+  width: 4.688rem;
+  height: 4.688rem;
 `;
 
 const Divider = styled.div`
   margin: 0 1rem;
   width: 1px;
-  background-color: #d1dcfc;
+  background-color: #eaeaea;
   border-radius: 10px;
   :last-child {
     display: none;
   }
 `;
 
-const QuestionWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-`;
-
 const Line = styled.div`
   height: 1px;
   width: 100%;
   background: #eaeaea;
+  grid-column: content;
+  margin-block: 6px;
 `;
 
 const ConfirmationButton = styled.button`
@@ -293,19 +295,8 @@ const ConfirmationButton = styled.button`
   margin-inline: auto;
 `;
 
-const Avatar = styled.img`
-  margin: 0.5rem;
-  border-radius: 50%;
-  border: 2px solid ${({ selected }) => (selected ? "#84a4fc" : "transparent")};
-  width: 4.688rem;
-  height: 4.688rem;
-`;
-
-const ErrorContainer = styled.div`
-  display: flex;
-`;
-
 const Error = styled.p`
+  grid-column: content;
   color: #f02a4c;
   font-size: 0.875rem;
   margin: 0rem;
