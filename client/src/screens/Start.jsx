@@ -54,7 +54,6 @@ export default function Start() {
     </Transition>
   );
 }
-Start;
 
 const StartContainer = styled.div`
   ${desktopCss}
@@ -72,6 +71,8 @@ const StartContainer = styled.div`
 const Nurse = styled(Lottie).attrs({ animationData: Adina_Background })`
   width: 400px;
   max-width: 100%;
+  padding-inline: 20px;
+  box-sizing: border-box;
 `;
 
 const Title = styled.h1`
