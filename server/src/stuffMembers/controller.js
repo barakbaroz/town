@@ -52,6 +52,7 @@ module.exports.credentials = async (req, res) => {
 };
 
 const OtpExpires = 1000 * 60 * 5;
+const maxAge = 1000 * 60 * 60 * 24 * 30;
 module.exports.otp = async (req, res) => {
   try {
     const { email, code } = req.body;
@@ -68,7 +69,7 @@ module.exports.otp = async (req, res) => {
       const token = jwt.sign({ id }, process.env.JWT_KEY_STAFF_MEMBERS);
       staffMembers.Otp.destroy();
       return res
-        .cookie("access_token", token, { httpOnly: true })
+        .cookie("access_token", token, { httpOnly: true, maxAge })
         .status(200)
         .send("Successfully login");
     }
