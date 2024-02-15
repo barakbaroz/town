@@ -2,8 +2,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import StepProgress from "./StepProgress";
 import CaseItemButtons from "./CaseItemButtons";
-import { useState } from "react";
-import axios from "axios";
+import CommentBox from "./CommentBox";
 
 const DateOptions = {
   year: "numeric",
@@ -14,11 +13,6 @@ const DateOptions = {
 };
 
 export default function CaseItemExpand({ item, show }) {
-  const [comment, setComment] = useState(item.Comment?.text || "");
-
-  const sendComment = () =>
-    axios.post("/api/cases/comment", { CaseId: item.id, comment });
-
   return (
     <Container show={show}>
       <CaseItemButtons item={item} />
@@ -34,19 +28,11 @@ export default function CaseItemExpand({ item, show }) {
         </div>
       </Column>
       <Column>
-        <TextArea
-          defaultValue={item.Comment?.message}
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-          placeholder="Add a comment…"
-        />
-        <SaveComment onClick={sendComment}>
-          {item.Comment?.text ? "Update" : "Save"}
-        </SaveComment>
-        <span>
-          Case created by | {item.creator.name},{" "}
+        <CommentBox CaseId={item.id} defaultValue={item.Comment?.text} />
+        <CreatedBy>
+          Created by | {item.creator.name},{" "}
           {new Date(item.createdAt).toLocaleString("en-US", DateOptions)}
-        </span>
+        </CreatedBy>
       </Column>
       <Column>
         <StepProgress item={item} />
@@ -91,29 +77,6 @@ const Text = styled.div`
   margin-bottom: 5px;
 `;
 
-const TextArea = styled.textarea`
-  overflow: auto;
-  border: none;
-  font-size: 16px;
-  line-height: 21px;
-  resize: none;
-  outline: none;
-  font-family: "Assistant";
-  border: 1px #dfdfdf solid;
-  border-radius: 15px;
-  padding: 15px;
-  height: 6rem;
-  box-sizing: border-box;
-`;
-
-const SaveComment = styled.button`
-  background-color: #84a4fc;
-  color: #fcfafa;
-  padding-inline: 25px;
-  padding-block: 7px;
-  border-radius: 20px;
-  border: none;
-  width: fit-content;
-  font-weight: 600;
-  cursor: pointer;
+const CreatedBy = styled.span`
+  font-size: 0.875rem;
 `;

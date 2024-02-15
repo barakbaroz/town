@@ -31,7 +31,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   font-size: 0.938rem;
-  border-radius: var(--field-height);
+  border-radius: 100vh;
   background: #f4f4f4;
   padding: 0.4rem 0.4rem;
   height: var(--field-height);
@@ -48,7 +48,6 @@ const GuidanceOption = styled.div`
   width: fit-content;
   cursor: pointer;
   background-color: #f4f4f4;
-  font-weight: 600;
   ${({ selected }) =>
     selected &&
     css`

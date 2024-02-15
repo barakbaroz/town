@@ -43,7 +43,7 @@ function MyTimeField(props) {
   return (
     <TimeField aria-label="date" {...props}>
       <StyledDateInput>
-        {(segment) => <DateSegment segment={segment} />}
+        {(segment) => <StyledDateSegment segment={segment} />}
       </StyledDateInput>
     </TimeField>
   );
@@ -57,6 +57,16 @@ TimePicker.propTypes = {
 const StyledDateInput = styled(DateInput)`
   display: grid;
   grid-template-columns: auto auto auto 15px auto;
+`;
+
+const StyledDateSegment = styled(DateSegment)`
+  ${({ segment }) => {
+    if (!segment.placeholder) return;
+    return css`
+      min-width: ${segment.placeholder.length}ch;
+      text-align: center;
+    `;
+  }}
 `;
 
 const highlightCSS = css`

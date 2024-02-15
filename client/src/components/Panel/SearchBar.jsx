@@ -16,6 +16,7 @@ const NumbersRgx = /(^[0-9]+$|^$)/;
 
 export default function SearchBar({ search, setSearch }) {
   const navigate = useNavigate();
+
   const handleSSN = (event) => {
     const { value } = event.target;
     if (!NumbersRgx.test(value)) return;
@@ -30,9 +31,8 @@ export default function SearchBar({ search, setSearch }) {
 
   const clearSearch = () => setSearch({ patientStatus: "all", myCases: true });
 
-  const handleLogout = () => {
+  const handleLogout = () =>
     axios.get("/api/stuffMembers/logout").then(() => navigate("/login"));
-  };
 
   const handleDateSearch = (date) => setSearch((prev) => ({ ...prev, date }));
 
@@ -197,7 +197,6 @@ const IconButton = styled.button`
   }
 `;
 const DatePickerWrapper = styled(DatePicker)`
-  padding-inline-end: 18px;
-  padding-inline-start: 107px;
+  padding-inline: 18px 107px;
   border-inline-start: 1px solid #707070;
 `;
