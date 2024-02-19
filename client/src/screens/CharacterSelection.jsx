@@ -248,6 +248,7 @@ const Options = styled.div`
 const AvatarOptions = styled(Options)`
   --avatar-border-width: 2px;
   grid-column: full;
+  gap: calc(17px - (var(--avatar-border-width) * 2));
   padding-inline: calc(
     var(--inner-padding-inline) - var(--avatar-border-width)
   );
