@@ -6,7 +6,7 @@ import CommentBox from "./CommentBox";
 
 const DateOptions = {
   year: "numeric",
-  month: "long",
+  month: "short",
   day: "numeric",
   hour: "numeric",
   minute: "numeric",
