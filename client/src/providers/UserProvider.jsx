@@ -4,7 +4,7 @@ import Loader from "../components/Loader";
 import PropTypes from "prop-types";
 import Error from "../components/Error";
 
-export const userContext = createContext();
+const userContext = createContext();
 
 export default function UserProvider({ children }) {
   const { loading, error, userInfo, updateCase, updateQuestionaireAnswers } =

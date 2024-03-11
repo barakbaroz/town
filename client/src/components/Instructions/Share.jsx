@@ -1,13 +1,12 @@
-import { useContext } from "react";
 import { RWebShare } from "react-web-share";
 import IconButton from "./IconButton";
 import ShareIcon from "../../assets/Icons/share.svg";
-import { userContext } from "../../providers/UserProvider";
+import { useUser } from "../../providers/UserProvider";
 import { Translate } from "../Translation";
 import { postAnalytics } from "../../analytics";
 
 function Share() {
-  const { id: userId } = useContext(userContext);
+  const { id: userId } = useUser();
   const handleAnalytic = () => {
     postAnalytics({ userId, type: "VideoShare" });
   };
