@@ -47,25 +47,27 @@ module.exports.send = async (reminder) => {
 
 module.exports.sendSMS = async (reminder, input) => {
   const { type, User } = reminder;
-  const { phoneNumber: userphoneNumber, id } = User;
-  const phoneNumber = input || userphoneNumber;
+  const phoneNumber = input || User.phoneNumber;
   if (!phoneNumber) return;
   const { textKey } = remindersInfo[type];
   const data = { type: textKey, ...User.Case.dataValues, ...User.dataValues };
   const rawMessage = findTemplate(SmsTemplates, data);
   const message = formatMessage(rawMessage, User);
   await Sms.send({ message, phoneNumber });
-  await RemindersTracking.create({ UserId: id, type, phoneNumber, message });
+  await RemindersTracking.create({
+    UserId: User.id,
+    type,
+    phoneNumber,
+    message,
+  });
   console.info(`successfully sent the sms to ${phoneNumber}`);
 };
 
 module.exports.sendEmail = async (reminder, input) => {
   const { type, User } = reminder;
-  const { email: userEmail } = User;
-  const email = input || userEmail;
+  const email = input || User.email;
   if (!email) return;
-  const { textKey } = remindersInfo[type];
-  const data = { type: textKey, ...User.Case.dataValues, ...User.dataValues };
+  const data = { type, ...User.Case.dataValues, ...User.dataValues };
   const { html: rawHtml, subject } = findTemplate(EmailTemplates, data);
   const html = formatMessage(rawHtml, User);
   await Email.send({ to: email, subject, html });

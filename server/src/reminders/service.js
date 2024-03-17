@@ -1,5 +1,5 @@
 const { Op } = require("sequelize");
-const { independentAction, remindersInfo } = require("./config");
+const { independentAction } = require("./config");
 const { RemindersQueue, Users, Cases } = require("../models");
 const {
   send,
@@ -14,9 +14,7 @@ module.exports.sendImmediate = async ({ CaseId, type, phoneNumber, email }) => {
     include: Cases,
     where: { CaseId },
   });
-  const { textKey } = remindersInfo[type];
-
-  const data = { type: textKey, User: user };
+  const data = { type, User: user };
   const SmsPromise = sendSMS(data, phoneNumber);
   const EmailPromise = sendEmail(data, email);
   await Promise.all([SmsPromise, EmailPromise]);
