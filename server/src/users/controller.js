@@ -1,17 +1,6 @@
 const userServices = require("./service");
 const jwt = require("jsonwebtoken");
 
-module.exports.getAuthStatus = async (req, res) => {
-  try {
-    const { userId } = req.body;
-    const status = await userServices.getAuthStatus({ userId });
-    return res.status(200).send(status);
-  } catch (error) {
-    console.error(error);
-    return res.status(500).send("Error");
-  }
-};
-
 module.exports.entry = async (req, res) => {
   try {
     const { id } = req.params;

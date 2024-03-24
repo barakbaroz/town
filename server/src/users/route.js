@@ -4,7 +4,6 @@ const controller = require("./controller");
 const { verifyToken } = require("./authorization");
 
 router.get("/entry/:id", controller.entry);
-router.post("/getAuthStatus", controller.getAuthStatus);
 
 router.use(verifyToken);
 router.get("/getData", controller.getData);
