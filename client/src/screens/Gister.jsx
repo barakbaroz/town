@@ -21,7 +21,7 @@ export default function Gister() {
     let anyMissing = false;
     for (const [key, test] of Object.entries(validatorFullFeilds)) {
       if (!test(data)) continue;
-      anyMissing ||= true;
+      anyMissing = true;
       document.getElementById(key)?.classList.add("invalid");
     }
     return anyMissing;
@@ -73,7 +73,7 @@ export default function Gister() {
           </GisterStep>
         </CasesDetails>
         <ButtonContainer>
-          <ErrorTitle>{errorMessage}</ErrorTitle>
+          <Error>{errorMessage}</Error>
           <SubmitButton disabled={loading} onClick={handleSubmit}>
             Send
           </SubmitButton>
@@ -104,7 +104,7 @@ const GisterContainer = styled.div`
   font-family: "Abraham";
 `;
 
-const ErrorTitle = styled.p`
+const Error = styled.p`
   font-size: 1.25rem;
   color: #f02a4c;
   visibility: hidden;
@@ -121,7 +121,7 @@ const Container = styled.div`
   justify-content: space-between;
   margin-block-start: 55px;
   &:has(.invalid) {
-    ${ErrorTitle} {
+    ${Error} {
       visibility: visible;
     }
   }

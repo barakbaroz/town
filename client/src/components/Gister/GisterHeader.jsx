@@ -14,7 +14,6 @@ export default function GisterHeader({ text }) {
 }
 
 GisterHeader.propTypes = {
-  children: PropTypes.node,
   text: PropTypes.string,
 };
 

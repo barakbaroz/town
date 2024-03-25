@@ -68,7 +68,7 @@ module.exports.search = async ({ creatorId, search }) => {
       {
         model: Users,
         include: Questionnaire,
-        attributes: ["id", "language", "phoneNumber"],
+        attributes: ["id", "language", "phoneNumber", "email"],
       },
       { model: Comments },
       {
