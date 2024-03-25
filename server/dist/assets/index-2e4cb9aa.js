@@ -864,7 +864,7 @@ to {
     cursor: not-allowed;
     opacity: 0.45;
   }
-`,DateOptions={year:"numeric",month:"short",day:"numeric",hour:"numeric",minute:"numeric"};function CaseItemExpand({item:i,show:a}){var s;return jsxRuntimeExports.jsxs(Container$m,{show:a,children:[jsxRuntimeExports.jsx(CaseItemButtons,{item:i}),jsxRuntimeExports.jsxs(Column,{children:[jsxRuntimeExports.jsxs("div",{children:[jsxRuntimeExports.jsx(Text$9,{children:"Contact Info."}),i.User.phoneNumber]}),jsxRuntimeExports.jsxs("div",{children:[jsxRuntimeExports.jsx(Text$9,{children:"Laxative Solution Type"}),concentrateMapper[i.concentrate]]})]}),jsxRuntimeExports.jsxs(Column,{children:[jsxRuntimeExports.jsx(CommentBox,{CaseId:i.id,defaultValue:(s=i.Comment)==null?void 0:s.text}),jsxRuntimeExports.jsxs(CreatedBy,{children:["Created by | ",i.creator.name,","," ",new Date(i.createdAt).toLocaleString("en-US",DateOptions)]})]}),jsxRuntimeExports.jsx(Column,{children:jsxRuntimeExports.jsx(StepProgress,{item:i})})]})}CaseItemExpand.propTypes={item:PropTypes.object,show:PropTypes.bool};const concentrateMapper={moviprep:"Moviprep",colyte:"Colyte"},ItemGrid=styled.div`
+`,DateOptions={year:"numeric",month:"short",day:"numeric",hour:"numeric",minute:"numeric"};function CaseItemExpand({item:i,show:a}){var s;return jsxRuntimeExports.jsxs(Container$m,{show:a,children:[jsxRuntimeExports.jsx(CaseItemButtons,{item:i}),jsxRuntimeExports.jsxs(Column,{children:[jsxRuntimeExports.jsxs("div",{children:[jsxRuntimeExports.jsx(Text$9,{children:"Contact Info."}),jsxRuntimeExports.jsx("div",{children:i.User.phoneNumber}),jsxRuntimeExports.jsx("div",{children:i.User.email})]}),jsxRuntimeExports.jsxs("div",{children:[jsxRuntimeExports.jsx(Text$9,{children:"Laxative Solution Type"}),concentrateMapper[i.concentrate]]})]}),jsxRuntimeExports.jsxs(Column,{children:[jsxRuntimeExports.jsx(CommentBox,{CaseId:i.id,defaultValue:(s=i.Comment)==null?void 0:s.text}),jsxRuntimeExports.jsxs(CreatedBy,{children:["Created by | ",i.creator.name,","," ",new Date(i.createdAt).toLocaleString("en-US",DateOptions)]})]}),jsxRuntimeExports.jsx(Column,{children:jsxRuntimeExports.jsx(StepProgress,{item:i})})]})}CaseItemExpand.propTypes={item:PropTypes.object,show:PropTypes.bool};const concentrateMapper={moviprep:"Moviprep",colyte:"Colyte"},ItemGrid=styled.div`
   display: grid;
   grid-template-columns: 10% 24.5% 29% 29%;
   grid-column-gap: 2.5%;
@@ -1205,7 +1205,7 @@ to {
   background-repeat: no-repeat;
   background-size: cover;
   flex: 1;
-`;function GisterHeader({text:i}){return jsxRuntimeExports.jsxs(Container$g,{id:"coordinator-header",children:[jsxRuntimeExports.jsx(HospitalLogo,{src:hospitalLogo$1}),jsxRuntimeExports.jsx(Text$7,{children:i}),jsxRuntimeExports.jsx(GistLogo$1,{src:gistLogo$1})]})}GisterHeader.propTypes={children:PropTypes.node,text:PropTypes.string};const Container$g=styled.div`
+`;function GisterHeader({text:i}){return jsxRuntimeExports.jsxs(Container$g,{id:"coordinator-header",children:[jsxRuntimeExports.jsx(HospitalLogo,{src:hospitalLogo$1}),jsxRuntimeExports.jsx(Text$7,{children:i}),jsxRuntimeExports.jsx(GistLogo$1,{src:gistLogo$1})]})}GisterHeader.propTypes={text:PropTypes.string};const Container$g=styled.div`
   box-shadow: 0 0 10px 0px grey;
   display: flex;
   align-items: center;
@@ -1426,12 +1426,12 @@ to {
   .invalid {
     border-color: var(--invalid);
   }
-`;function Gister(){const i=useNavigate(),a=reactExports.useRef({}),[s,o]=reactExports.useState(!1),[et,tt]=reactExports.useState(!1),[rt,it]=reactExports.useState(""),nt=lt=>{var ut;let ct=!1;for(const[ht,yt]of Object.entries(validatorFullFeilds))yt(lt)&&(ct||(ct=!0),(ut=document.getElementById(ht))==null||ut.classList.add("invalid"));return ct},at=()=>(o(!0),axios$1.post("/api/cases/create",a.current).then(()=>i("/panel")).finally(()=>o(!1))),st=({data:lt})=>{if(lt==="none")return at();if(lt==="duplicate")return tt(!0)},ot=()=>{const lt=a.current;if(nt(lt))return it("missing field or incorrect.");o(!0),axios$1.post("/api/cases/duplicate",lt).then(st).finally(()=>o(!1))};return jsxRuntimeExports.jsxs(GisterContainer,{children:[jsxRuntimeExports.jsx(DuplicatePopUp,{onConfirm:at,onCancel:()=>tt(!1),open:et,loading:s}),jsxRuntimeExports.jsx(GisterHeader,{text:"Endoscopy Patient`s Guidance System"}),jsxRuntimeExports.jsxs(Container$a,{children:[jsxRuntimeExports.jsxs(CasesDetails,{children:[jsxRuntimeExports.jsx(GisterStep,{stepNumber:"01",title:"Patient’s Personal information",children:jsxRuntimeExports.jsx(PatientInformation,{casesDataRef:a})}),jsxRuntimeExports.jsx(GisterStep,{stepNumber:"02",title:"Type of laxative solution",children:jsxRuntimeExports.jsx(MedicalConcentrate,{casesDataRef:a})}),jsxRuntimeExports.jsx(GisterStep,{stepNumber:"03",title:"Procedure details",children:jsxRuntimeExports.jsx(Scheduler,{casesDataRef:a})})]}),jsxRuntimeExports.jsxs(ButtonContainer,{children:[jsxRuntimeExports.jsx(ErrorTitle,{children:rt}),jsxRuntimeExports.jsx(SubmitButton,{disabled:s,onClick:ot,children:"Send"})]})]})]})}const validatorFullFeilds={socialSecurityNumber:({socialSecurityNumber:i})=>(i==null?void 0:i.length)!==4,concentrate:({concentrate:i})=>!i,date:({date:i})=>!i||i<$14e0f24ef4ac5c92$export$d0bdf45af03a6ea3().toDate(),time:({time:i})=>!i,contacts:({phoneNumber:i,email:a})=>!!(!i&&!a||i&&!/^\d{10}$/.test(i)||a&&!/^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(a))},GisterContainer=styled.div`
+`;function Gister(){const i=useNavigate(),a=reactExports.useRef({}),[s,o]=reactExports.useState(!1),[et,tt]=reactExports.useState(!1),[rt,it]=reactExports.useState(""),nt=lt=>{var ut;let ct=!1;for(const[ht,yt]of Object.entries(validatorFullFeilds))yt(lt)&&(ct=!0,(ut=document.getElementById(ht))==null||ut.classList.add("invalid"));return ct},at=()=>(o(!0),axios$1.post("/api/cases/create",a.current).then(()=>i("/panel")).finally(()=>o(!1))),st=({data:lt})=>{if(lt==="none")return at();if(lt==="duplicate")return tt(!0)},ot=()=>{const lt=a.current;if(nt(lt))return it("missing field or incorrect.");o(!0),axios$1.post("/api/cases/duplicate",lt).then(st).finally(()=>o(!1))};return jsxRuntimeExports.jsxs(GisterContainer,{children:[jsxRuntimeExports.jsx(DuplicatePopUp,{onConfirm:at,onCancel:()=>tt(!1),open:et,loading:s}),jsxRuntimeExports.jsx(GisterHeader,{text:"Endoscopy Patient`s Guidance System"}),jsxRuntimeExports.jsxs(Container$a,{children:[jsxRuntimeExports.jsxs(CasesDetails,{children:[jsxRuntimeExports.jsx(GisterStep,{stepNumber:"01",title:"Patient’s Personal information",children:jsxRuntimeExports.jsx(PatientInformation,{casesDataRef:a})}),jsxRuntimeExports.jsx(GisterStep,{stepNumber:"02",title:"Type of laxative solution",children:jsxRuntimeExports.jsx(MedicalConcentrate,{casesDataRef:a})}),jsxRuntimeExports.jsx(GisterStep,{stepNumber:"03",title:"Procedure details",children:jsxRuntimeExports.jsx(Scheduler,{casesDataRef:a})})]}),jsxRuntimeExports.jsxs(ButtonContainer,{children:[jsxRuntimeExports.jsx(Error$4,{children:rt}),jsxRuntimeExports.jsx(SubmitButton,{disabled:s,onClick:ot,children:"Send"})]})]})]})}const validatorFullFeilds={socialSecurityNumber:({socialSecurityNumber:i})=>(i==null?void 0:i.length)!==4,concentrate:({concentrate:i})=>!i,date:({date:i})=>!i||i<$14e0f24ef4ac5c92$export$d0bdf45af03a6ea3().toDate(),time:({time:i})=>!i,contacts:({phoneNumber:i,email:a})=>!!(!i&&!a||i&&!/^\d{10}$/.test(i)||a&&!/^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(a))},GisterContainer=styled.div`
   --invalid: #f02a4c;
   width: 100vw;
   min-height: 100vh;
   font-family: "Abraham";
-`,ErrorTitle=styled.p`
+`,Error$4=styled.p`
   font-size: 1.25rem;
   color: #f02a4c;
   visibility: hidden;
@@ -1446,7 +1446,7 @@ to {
   justify-content: space-between;
   margin-block-start: 55px;
   &:has(.invalid) {
-    ${ErrorTitle} {
+    ${Error$4} {
       visibility: visible;
     }
   }
