@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import DuplicatePopUp from "../components/Gister/DuplicatePopUp";
 import MedicalConcentrate from "../components/Panel/MedicalConcentrate";
 import Scheduler from "../components/Gister/Scheduler";
+import { today } from "@internationalized/date";
 
 export default function Gister() {
   const navigate = useNavigate();
@@ -16,18 +17,11 @@ export default function Gister() {
   const [showDuplicatePopup, setShowDuplicatePopup] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleDate = () => {
-    if (casesDataRef.current.datePicker.year < 100)
-      casesDataRef.current.datePicker.year += 2000;
-    casesDataRef.current.date = casesDataRef.current.datePicker.toDate();
-  };
-
   const checkMissingFields = (data) => {
     let anyMissing = false;
     for (const [key, test] of Object.entries(validatorFullFeilds)) {
-      const missing = test(data);
-      if (!missing) continue;
-      anyMissing ||= missing;
+      if (!test(data)) continue;
+      anyMissing ||= true;
       document.getElementById(key)?.classList.add("invalid");
     }
     return anyMissing;
@@ -48,7 +42,6 @@ export default function Gister() {
 
   const handleSubmit = () => {
     const data = casesDataRef.current;
-    handleDate();
     const errorFields = checkMissingFields(data);
     if (errorFields) return setErrorMessage("missing field or incorrect.");
     setLoading(true);
@@ -94,7 +87,7 @@ const validatorFullFeilds = {
   socialSecurityNumber: ({ socialSecurityNumber }) =>
     socialSecurityNumber?.length !== 4,
   concentrate: ({ concentrate }) => !concentrate,
-  date: ({ date }) => !date || new Date(date) < new Date(),
+  date: ({ date }) => !date || date < today().toDate(),
   time: ({ time }) => !time,
   contacts: ({ phoneNumber, email }) => {
     if (!phoneNumber && !email) return true;

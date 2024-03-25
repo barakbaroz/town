@@ -5,7 +5,7 @@ import TimePicker from "./TimePicker";
 
 export default function Scheduler({ casesDataRef }) {
   const handleDateSelect = (date) => {
-    casesDataRef.current.datePicker = date;
+    casesDataRef.current.date = date.toDate();
     document.getElementById("date").classList.remove("invalid");
   };
 
