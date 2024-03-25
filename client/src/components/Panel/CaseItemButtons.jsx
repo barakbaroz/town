@@ -38,7 +38,7 @@ export default function CaseItemButtons({ item }) {
         <Button onClick={handleCopyLink}>
           <img src={CopyLinkIcon} />
         </Button>
-        <ActionText>{linkCopied ? "Copy link" : "link copied"}</ActionText>
+        <ActionText>{linkCopied ? "link copied" : "Copy link"}</ActionText>
       </ButtonContainer>
 
       <ButtonContainer>
