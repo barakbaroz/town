@@ -152,10 +152,10 @@ module.exports.CommentCase = async ({ CaseId, text }) => {
 };
 
 module.exports.duplicate = async (data) => {
-  const { phoneNumber, socialSecurityNumber } = data;
+  const { socialSecurityNumber, ...userData } = data;
   const caseExists = await Cases.findOne({
     where: { socialSecurityNumber },
-    include: { model: Users, where: { phoneNumber } },
+    include: { model: Users, where: userData },
   });
   if (caseExists) return "duplicate";
   return "none";

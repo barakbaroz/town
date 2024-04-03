@@ -64,8 +64,11 @@ module.exports.comment = async (req, res) => {
 
 module.exports.duplicate = async (req, res) => {
   try {
-    const { body } = req;
-    const duplicateStatus = await casesServices.duplicate(body);
+    const { socialSecurityNumber, email, phoneNumber } = req.body;
+    const information = { socialSecurityNumber };
+    if (email) information.email = email;
+    if (phoneNumber) information.phoneNumber = phoneNumber;
+    const duplicateStatus = await casesServices.duplicate(information);
     return res.status(200).send(duplicateStatus);
   } catch (error) {
     console.error(error);
