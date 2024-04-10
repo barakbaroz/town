@@ -35,8 +35,8 @@ MedicalConcentrate.propTypes = {
 };
 
 const data = [
-  { key: "moviprep", name: "Moviprep", src: powder },
-  { key: "colyte", name: "Colyte", src: liquid },
+  { key: "golytely", name: "Golytely", src: liquid },
+  { key: "suprep", name: "Suprep", src: powder },
 ];
 
 const Input = styled.input.attrs({ type: "radio" })`
