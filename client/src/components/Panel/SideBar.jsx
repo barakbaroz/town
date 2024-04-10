@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Link, useLoaderData } from "react-router-dom";
-import CircleProfile from "../../assets/Panel/circle_profile.svg";
+import circleProfile from "../../assets/Panel/circle_profile.png";
 import Plus from "../../assets/Icons/plus.svg";
 import Support from "./Support";
 
@@ -11,7 +11,7 @@ export default function SideBar({ casesCount }) {
     <Container>
       <Inner>
         <Content>
-          <img src={CircleProfile} style={{ maxWidth: "132px" }} alt="img" />
+          <img src={circleProfile} style={{ maxWidth: "132px" }} alt="img" />
           <Name>{stuffMemberInfo.name}</Name>
           <SubName>Endoscopy Coordinator</SubName>
           <CasesCounters>

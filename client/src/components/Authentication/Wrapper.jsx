@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import background from "../../assets/Backgrounds/login.jpg";
 import gistLogo from "../../assets/Logos/gist_logo_login.svg";
-import hospitalLogo from "../../assets/Logos/hospital_logo_login.svg";
+import hospitalLogo from "../../assets/Logos/hospital_logo.png";
 
 export const Wrapper = ({ children, ...props }) => {
   return (
@@ -76,7 +76,7 @@ const GistLogo = styled.img.attrs({ src: gistLogo })`
 
 const HopitalLogo = styled.img.attrs({ src: hospitalLogo })`
   position: absolute;
-  height: 61px;
-  top: 40px;
+  height: 84px;
+  top: 33px;
   left: 40px;
 `;
