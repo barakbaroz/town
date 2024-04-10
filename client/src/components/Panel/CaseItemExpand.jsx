@@ -47,8 +47,8 @@ CaseItemExpand.propTypes = {
 };
 
 const concentrateMapper = {
-  moviprep: "Moviprep",
-  colyte: "Colyte",
+  golytely: "Golytely",
+  suprep: "Suprep",
 };
 
 export const ItemGrid = styled.div`
