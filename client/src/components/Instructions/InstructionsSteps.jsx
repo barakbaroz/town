@@ -23,26 +23,14 @@ const DateAndTime = {
 export default function InstructionsSteps() {
   const { Case } = useUser();
   const { language } = useLanguage();
-  const { procedureDate, procedureTime } = Case;
-  const { firstPortion, secondPortion, dietTime, liquids } = getTimes(
-    procedureDate,
-    procedureTime
-  );
-
-  const data = [
-    { date: dietTime, content: "Diet", options: DateOnly },
-    { date: liquids, content: "Liquids", options: DateOnly },
-    { date: firstPortion, content: "FirstPortion", options: DateAndTime },
-    { date: secondPortion, content: "SecondPortion", options: DateAndTime },
-  ];
-
+  window.Case = Case;
   return (
     <Container>
-      {data.map(({ date, content, options }, index) => (
+      {data[Case.concentrate].map(({ getDate, content, options }, index) => (
         <Fragment key={content}>
           <Bullet />
           <StepDetails>
-            {date
+            {getDate(Case)
               .toLocaleString(`${language}-US`, options)
               .replaceAll(",", " |")}
           </StepDetails>
@@ -56,32 +44,80 @@ export default function InstructionsSteps() {
   );
 }
 
-const getTimes = (procedureDate, procedureTime) => {
-  const date = new Date(procedureDate);
-  const [hour] = procedureTime.split(":");
+const instructions = {
+  fiberDiet: {
+    content: "fiber-diet",
+    options: DateOnly,
+    getDate: (Case) => {
+      const result = new Date(Case.procedureDateAndTime);
+      result.setDate(result.getDate() - 2);
+      return result;
+    },
+  },
+  fluidsOnly: {
+    content: "fluids-only",
+    options: DateAndTime,
+    getDate: (Case) => {
+      const result = new Date(Case.procedureDateAndTime);
+      result.setDate(result.getDate() - 1);
+      return result;
+    },
+  },
+  firstDosage: {
+    content: "first-dosage",
+    options: DateAndTime,
+    getDate: (Case) => {
+      const result = new Date(Case.procedureDateAndTime);
+      result.setDate(result.getDate() - 1);
+      result.setHours(18, 0);
+      return result;
+    },
+  },
+  secondDosage: {
+    content: "second-dosage",
+    options: DateAndTime,
+    getDate: (Case) => {
+      const result = new Date(Case.procedureDateAndTime);
+      result.setDate(result.getDate() - 1);
+      result.setHours(20, 0);
+      return result;
+    },
+  },
+  oneDosage: {
+    content: "one-dosage",
+    options: DateAndTime,
+    getDate: (Case) => {
+      const result = new Date(Case.procedureDateAndTime);
+      result.setDate(result.getDate() - 1);
+      result.setHours(18, 0);
+      return result;
+    },
+  },
+  fastInstructions: {
+    content: "fast-instructions",
+    options: DateAndTime,
+    getDate: (Case) => {
+      const result = new Date(Case.procedureDateAndTime);
+      result.setHours(0, 0);
+      return result;
+    },
+  },
+};
 
-  const dietTime = new Date(date);
-  dietTime.setDate(date.getDate() - 3);
-  const liquids = new Date(date);
-  liquids.setDate(date.getDate() - 1);
-
-  const firstPortion = new Date(date);
-  const secondPortion = new Date(date);
-
-  if (hour >= 7 && hour <= 11) {
-    firstPortion.setDate(date.getDate() - 1);
-    firstPortion.setHours(16, 0, 0, 0);
-    secondPortion.setDate(date.getDate() - 1);
-    secondPortion.setHours(21, 0, 0, 0);
-  } else if (hour >= 12 && hour <= 16) {
-    firstPortion.setDate(date.getDate() - 1);
-    firstPortion.setHours(21, 0, 0, 0);
-    secondPortion.setHours(hour - 6, 0, 0, 0);
-  } else if (hour >= 17 && hour <= 19) {
-    firstPortion.setHours(hour - 11, 0, 0, 0);
-    secondPortion.setHours(hour - 6, 0, 0, 0);
-  }
-  return { firstPortion, secondPortion, dietTime, liquids };
+const data = {
+  golytely: [
+    instructions.fiberDiet,
+    instructions.fluidsOnly,
+    instructions.oneDosage,
+    instructions.fastInstructions,
+  ],
+  suprep: [
+    instructions.fiberDiet,
+    instructions.fluidsOnly,
+    instructions.firstDosage,
+    instructions.secondDosage,
+    instructions.fastInstructions,
+  ],
 };
 
 const DottedLine = styled.div`

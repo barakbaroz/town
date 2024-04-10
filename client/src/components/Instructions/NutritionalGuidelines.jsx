@@ -30,7 +30,6 @@ export default function NutritionalGuidelines() {
         </Title>
         <Icon src={nutrition} alt="nutrition" />
       </TopSection>
-
       <Text>
         <Translator>Nutritional-Instructions-Preview</Translator>
       </Text>
@@ -41,9 +40,7 @@ export default function NutritionalGuidelines() {
           FullLongDateAndTime
         )}
       </Text>
-
       <InstructionsSteps />
-
       <StyledButton href="#" onClick={handlePersonalNutritionClick}>
         <Translator>Nutritional-Instructions-Download</Translator>
       </StyledButton>
