@@ -8,7 +8,7 @@ const { stringFormat } = require("../reminders/utils");
 
 module.exports.info = async ({ staffMembersId }) => {
   const stuffmemberData = await StaffMembers.findOne({
-    attributes: ["name"],
+    attributes: ["name", "title"],
     where: { id: staffMembersId },
   });
   return stuffmemberData;

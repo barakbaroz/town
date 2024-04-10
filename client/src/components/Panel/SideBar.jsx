@@ -7,13 +7,14 @@ import Support from "./Support";
 
 export default function SideBar({ casesCount }) {
   const stuffMemberInfo = useLoaderData();
+
   return (
     <Container>
       <Inner>
         <Content>
           <img src={circleProfile} style={{ maxWidth: "132px" }} alt="img" />
           <Name>{stuffMemberInfo.name}</Name>
-          <SubName>Endoscopy Coordinator</SubName>
+          <SubName>{stuffMemberInfo.title}</SubName>
           <CasesCounters>
             <div>
               <Number>{casesCount.totalCases}</Number>

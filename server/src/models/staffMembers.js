@@ -16,6 +16,7 @@ const init = (sequelize) =>
         unique: true,
       },
       name: DataTypes.STRING,
+      title: DataTypes.STRING,
       password: DataTypes.STRING,
       phoneNumber: { type: DataTypes.STRING(15), allowNull: false },
       failedLoginAttempts: { type: DataTypes.INTEGER, defaultValue: 0 },
