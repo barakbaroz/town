@@ -15,6 +15,12 @@ const TimeOptions = {
   hour12: true,
 };
 
+const DateOptions = {
+  year: "numeric",
+  month: "short",
+  day: "numeric",
+};
+
 export default function CaseItem({ item, deleteCase }) {
   const [expand, setExpand] = useState(false);
   const [showDeletePopUp, setShowDeletePopUp] = useState(false);
@@ -51,10 +57,14 @@ export default function CaseItem({ item, deleteCase }) {
         <Unit>
           <Heading>Colonoscopy</Heading>
           <SubHeadin>
-            {new Date(item.procedureDate).toLocaleDateString("en-US")} |{" "}
             {new Date("0 " + item.procedureTime).toLocaleTimeString(
               "en-US",
               TimeOptions
+            )}{" "}
+            |{" "}
+            {new Date(item.procedureDate).toLocaleDateString(
+              "en-US",
+              DateOptions
             )}
           </SubHeadin>
         </Unit>
