@@ -9,9 +9,9 @@ export default function PatientInformation({ casesDataRef }) {
   const phoneInputRef = useRef(null);
   const emailInputRef = useRef(null);
 
-  const handleSSN = (SSN) => {
-    casesDataRef.current.socialSecurityNumber = SSN;
-    document.getElementById("socialSecurityNumber").classList.remove("invalid");
+  const handleYearOfBirth = (yearOfBirth) => {
+    casesDataRef.current.yearOfBirth = yearOfBirth;
+    document.getElementById("yearOfBirth").classList.remove("invalid");
   };
 
   const handlePhoneNumber = (phoneNumber) => {
@@ -27,11 +27,11 @@ export default function PatientInformation({ casesDataRef }) {
   return (
     <Container>
       <InputContainer>
-        <FieldTitle>Social Security Number - 4 last digits</FieldTitle>
+        <FieldTitle>Year of birth</FieldTitle>
         <PinInput
           length={4}
-          onChange={handleSSN}
-          id="socialSecurityNumber"
+          onChange={handleYearOfBirth}
+          id="yearOfBirth"
           nextfocus={phoneInputRef}
         />
       </InputContainer>

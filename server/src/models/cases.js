@@ -9,7 +9,7 @@ const init = (sequelize) =>
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
       },
-      socialSecurityNumber: DataTypes.STRING(4),
+      yearOfBirth: DataTypes.STRING(4),
       gender: DataTypes.ENUM("male", "female", "other"),
       age: DataTypes.ENUM("20-50", "50-70", "70+"),
       concentrate: DataTypes.STRING,

@@ -84,8 +84,7 @@ export default function Gister() {
 }
 
 const validatorFullFeilds = {
-  socialSecurityNumber: ({ socialSecurityNumber }) =>
-    socialSecurityNumber?.length !== 4,
+  yearOfBirth: ({ yearOfBirth }) => yearOfBirth?.length !== 4,
   concentrate: ({ concentrate }) => !concentrate,
   date: ({ date }) => !date || date < today().toDate(),
   time: ({ time }) => !time,

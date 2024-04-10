@@ -17,10 +17,10 @@ const NumbersRgx = /(^[0-9]+$|^$)/;
 export default function SearchBar({ search, setSearch }) {
   const navigate = useNavigate();
 
-  const handleSSN = (event) => {
+  const handleYearOfBirth = (event) => {
     const { value } = event.target;
     if (!NumbersRgx.test(value)) return;
-    setSearch((prev) => ({ ...prev, socialSecurityNumber: value }));
+    setSearch((prev) => ({ ...prev, yearOfBirth: value }));
   };
 
   const clearId = () =>
@@ -46,9 +46,9 @@ export default function SearchBar({ search, setSearch }) {
           <SearchIcon src={searchLogo} />
           <Input
             placeholder="0000"
-            onChange={handleSSN}
+            onChange={handleYearOfBirth}
             maxLength={4}
-            value={search.socialSecurityNumber || ""}
+            value={search.yearOfBirth || ""}
           />
           <DatePickerWrapper
             onChange={handleDateSearch}

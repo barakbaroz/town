@@ -31,10 +31,8 @@ const casesProgressFilter = {
 };
 const dateFilter = ({ date }) => (date ? { procedureDate: date } : {});
 
-const SSNFilter = ({ socialSecurityNumber }) =>
-  socialSecurityNumber
-    ? { socialSecurityNumber: { [Op.substring]: socialSecurityNumber } }
-    : {};
+const yearOfBirthFilter = ({ yearOfBirth }) =>
+  yearOfBirth ? { yearOfBirth: { [Op.substring]: yearOfBirth } } : {};
 
 const myCasesFilter = ({ myCases }, creatorId) =>
   myCases ? { creatorId } : {};
@@ -85,7 +83,7 @@ module.exports.search = async ({ creatorId, search }) => {
     ],
     attributes: [
       "id",
-      "socialSecurityNumber",
+      "yearOfBirth",
       "gender",
       "age",
       "concentrate",
@@ -94,7 +92,7 @@ module.exports.search = async ({ creatorId, search }) => {
       "createdAt",
     ],
     where: {
-      ...SSNFilter(search),
+      ...yearOfBirthFilter(search),
       ...dateFilter(search),
       ...myCasesFilter(search, creatorId),
     },
@@ -108,7 +106,7 @@ module.exports.search = async ({ creatorId, search }) => {
 module.exports.create = async ({
   creatorId,
   phoneNumber,
-  socialSecurityNumber,
+  yearOfBirth,
   concentrate,
   date,
   time,
@@ -117,7 +115,7 @@ module.exports.create = async ({
   console.info(`create case by staff member: ${creatorId}`);
   const newCase = await Cases.create({
     creatorId,
-    socialSecurityNumber,
+    yearOfBirth,
     concentrate,
     procedureDate: date,
     procedureTime: time,
@@ -152,9 +150,9 @@ module.exports.CommentCase = async ({ CaseId, text }) => {
 };
 
 module.exports.duplicate = async (data) => {
-  const { socialSecurityNumber, ...userData } = data;
+  const { yearOfBirth, ...userData } = data;
   const caseExists = await Cases.findOne({
-    where: { socialSecurityNumber },
+    where: { yearOfBirth },
     include: { model: Users, where: userData },
   });
   if (caseExists) return "duplicate";

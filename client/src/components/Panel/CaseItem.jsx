@@ -43,7 +43,7 @@ export default function CaseItem({ item, deleteCase }) {
           <Line />
         </Avatar>
         <Unit>
-          <Heading>SSN {item.socialSecurityNumber}</Heading>
+          <Heading>DOB {item.yearOfBirth}</Heading>
           <SubHeadin>
             Age Group {item.age}, {languages[item.User.language]}
           </SubHeadin>
