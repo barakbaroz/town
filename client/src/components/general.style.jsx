@@ -6,6 +6,7 @@ export const buttonCSS = css`
   color: #ffffff;
   background-color: #f02a4c;
   border: none;
+  text-align: center;
   padding-block: 0.688rem;
   padding-inline: 27px;
   border-radius: 100px;
