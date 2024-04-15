@@ -44,6 +44,7 @@ export default function NutritionalGuidelines() {
       <StyledButton
         href={`/PDF/nutritional-instructions/${concentrate}_am.pdf`}
         onClick={handlePersonalNutritionClick}
+        target="_blank"
       >
         <Translator>Nutritional-Instructions-Download</Translator>
       </StyledButton>

@@ -22,7 +22,11 @@ export default function Consent() {
         <Translator>Consent-Paragraph</Translator>
       </Text>
 
-      <ConsentLink href="#" onClick={handleConsentClick}>
+      <ConsentLink
+        href="/PDF/procedure_consent.pdf"
+        onClick={handleConsentClick}
+        target="_blank"
+      >
         <Translator>Consent-Download</Translator>
       </ConsentLink>
     </Card>
