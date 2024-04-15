@@ -25,12 +25,7 @@ export default function DontForget() {
   );
 }
 
-const dontForgetItems = [
-  "identification",
-  "medical-referral",
-  "blood-counting",
-  "companion",
-];
+const dontForgetItems = ["identification", "companion"];
 
 const ListContainer = styled.ul`
   padding-inline-start: 1.5rem;
@@ -40,4 +35,5 @@ const ListContainer = styled.ul`
 const ListItem = styled.li`
   list-style-image: url(${gist_v});
   font-size: 1.1875rem;
+  margin-block: 17px;
 `;
