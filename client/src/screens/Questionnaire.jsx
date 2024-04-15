@@ -22,7 +22,6 @@ export default function Questionnaire() {
   const { answers, updateAnswer, submit } = useContext(questionnaireContext);
   const { questionKey } = useParams();
   const questionIndex = questions.indexOf(questionKey);
-  const questionsLength = questions.length;
   const nextQuestionKey = questions[questionIndex + 1];
   const handleAnswer = (answerKey) => () => {
     updateAnswer({ questionKey, answerKey });
@@ -34,7 +33,7 @@ export default function Questionnaire() {
     <Transition>
       <QuestionContainer>
         <QuestionImage src={questionnaireImages[questionKey]} />
-        <Navigation index={questionIndex} questionsSize={questionsLength} />
+        <Navigation index={questionIndex} questionsSize={questions.length} />
         <QuestionText>
           <Translator>Question-{questionKey}</Translator>
         </QuestionText>

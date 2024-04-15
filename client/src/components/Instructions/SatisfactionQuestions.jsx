@@ -50,19 +50,19 @@ const SatisfactionQuestions = ({ videoStarted }) => {
         <ExtraQuestionsContainer>
           <SingleQuestion
             questionKey="allay"
-            show={state === "firstAnswered"}
+            show={true}
             onAnswer={onSecondaryAnswer("allay")}
           />
 
           <SingleQuestion
             questionKey="helped-understand"
-            show={state === "firstAnswered"}
+            show={true}
             onAnswer={onSecondaryAnswer("helped-understand")}
           />
 
           <SingleQuestion
             questionKey="recommend-others"
-            show={state === "firstAnswered"}
+            show={true}
             onAnswer={onSecondaryAnswer("recommend-others")}
           />
         </ExtraQuestionsContainer>
