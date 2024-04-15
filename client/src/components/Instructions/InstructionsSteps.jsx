@@ -146,6 +146,7 @@ const StepDetails = styled.div`
   color: #527ffa;
   font-size: 1.188rem;
   place-self: start;
+  font-weight: 500;
 `;
 
 const DescriptionText = styled.div`
