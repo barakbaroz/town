@@ -15,7 +15,7 @@ const FullLongDateAndTime = {
 
 export default function NutritionalGuidelines() {
   const { Case } = useUser();
-  const { procedureDateAndTime } = Case;
+  const { procedureDateAndTime, concentrate } = Case;
   const { language } = useLanguage();
 
   const handlePersonalNutritionClick = () => {
@@ -41,7 +41,10 @@ export default function NutritionalGuidelines() {
         )}
       </Text>
       <InstructionsSteps />
-      <StyledButton href="#" onClick={handlePersonalNutritionClick}>
+      <StyledButton
+        href={`/PDF/nutritional-instructions/${concentrate}_am.pdf`}
+        onClick={handlePersonalNutritionClick}
+      >
         <Translator>Nutritional-Instructions-Download</Translator>
       </StyledButton>
     </Card>
