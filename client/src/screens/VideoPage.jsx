@@ -6,7 +6,6 @@ import SatisfactionQuestions from "../components/Instructions/SatisfactionQuesti
 import LanguageBar from "../components/User/LanguageBar";
 import { Translator } from "../components/Translation";
 import NutritionalGuidelines from "../components/Instructions/NutritionalGuidelines";
-import ConsultDoctor from "../components/Instructions/ConsultDoctor";
 import DontForget from "../components/Instructions/DontForget";
 import Consent from "../components/Instructions/Consent";
 import arrow_up from "../assets/Icons/arrow_up.svg";
@@ -49,7 +48,6 @@ export default function VideoPage() {
           <CardsWrapper>
             <NutritionalGuidelines />
             <MedicinesChanges />
-            <ConsultDoctor />
             <DontForget />
             <Consent />
           </CardsWrapper>
