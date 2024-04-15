@@ -6,26 +6,32 @@ import redFlag from "../../assets/Icons/red_Flag.svg";
 import { useUser } from "../../providers/UserProvider";
 import gist_v from "../../assets/Icons/gist_v.svg";
 
+const questionKeys = [
+  "diabetesMedicines",
+  "bloodPressureMedicines",
+  "bloodThinners",
+  "nutritionalSupplement",
+];
+
 export default function MedicinesChanges() {
   const { Questionnaires } = useUser();
   const yesAnswers = Questionnaires.filter(
-    (questionObj) =>
-      questionObj.questionKey !== "colonoscopyBefore" &&
-      questionObj.answerKey === "Yes"
+    ({ questionKey, answerKey }) =>
+      questionKeys.includes(questionKey) && answerKey === "Yes"
   ).map((questionObj) => questionObj.questionKey);
 
   return (
     <Container show={yesAnswers.length > 0}>
       <TopContent>
         <Title>
-          <Translator>MedicinesChanges-Title</Translator>
+          <Translator>Medicines-Changes-Title</Translator>
         </Title>
-        <Icon src={redFlag} alt="consentForm" />
+        <Icon src={redFlag} alt="red flag" />
       </TopContent>
       <ListContainer>
         {yesAnswers.map((answer) => (
           <ListItem key={answer}>
-            <Translator>MedicinesChanges-{answer}</Translator>
+            <Translator>Medicines-Changes-{answer}</Translator>
           </ListItem>
         ))}
       </ListContainer>

@@ -11,7 +11,7 @@ export default function DontForget() {
         <Title>
           <Translator>Dont-Forget-Title</Translator>
         </Title>
-        <Icon src={dont_forget} alt="dontForget" />
+        <Icon src={dont_forget} alt="dont forget" />
       </TopSection>
 
       <ListContainer>
@@ -27,8 +27,8 @@ export default function DontForget() {
 
 const dontForgetItems = [
   "identification",
-  "medicalReferral",
-  "bloodCounting",
+  "medical-referral",
+  "blood-counting",
   "companion",
 ];
 

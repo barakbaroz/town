@@ -47,11 +47,11 @@
   "Instructions-Steps-fast-instructions": "Start fasting - no more drinking clear liquids or water. ",
   "Nutritional-Instructions-Download": "Download Instructions",
 
-  "MedicinesChanges-Title": "Pay attention to the required modifications in your prescribed medications",
-  "MedicinesChanges-diabetesMedicines": "Do not take or inject medications for diabetes, including insulin, in the morning before your examination",
-  "MedicinesChanges-bloodPressureMedicines": "Keep taking your prescribed medications for heart and blood pressure as usual",
-  "MedicinesChanges-bloodThinners": "Consult with your personal physician regarding (Anticoagulant) blood thinners ",
-  "MedicinesChanges-nutritionalSupplement": "Avoid the use of iron-containing medications and supplements for at least 5 days before undergoing the examination",
+  "Medicines-Changes-Title": "Pay attention to the required modifications in your prescribed medications",
+  "Medicines-Changes-diabetesMedicines": "Do not take or inject medications for diabetes, including insulin, in the morning before your examination",
+  "Medicines-Changes-bloodPressureMedicines": "Keep taking your prescribed medications for heart and blood pressure as usual",
+  "Medicines-Changes-bloodThinners": "Consult with your personal physician regarding (Anticoagulant) blood thinners ",
+  "Medicines-Changes-nutritionalSupplement": "Avoid the use of iron-containing medications and supplements for at least 5 days before undergoing the examination",
 
   "Consult-Doctor-Title": "Consulting your personal physician",
   "Consult-Doctor-Paragraph": "Please ask your personal physician for laxative solution prescriptions and instructions on the changes you need to make to your medications, ahead of the examination",
@@ -59,9 +59,8 @@
 
   "Dont-Forget-Title": "On the day of your examination don’t forget to bring the following documents:",
   "Dont-Forget-identification": "Photo ID",
-  "Dont-Forget-form-17": "?",
-  "Dont-Forget-medicalReferral": "A referral letter from your physician detailing your diagnosis, your medications, and the reason the examination is required.",
-  "Dont-Forget-bloodCounting": "Results of a blood count and blood coagulation test from the past two weeks.",
+  "Dont-Forget-medical-referral": "A referral letter from your physician detailing your diagnosis, your medications, and the reason the examination is required.",
+  "Dont-Forget-blood-counting": "Results of a blood count and blood coagulation test from the past two weeks.",
   "Dont-Forget-companion": "Please come to the hospital with a companion. You should not drive after the examination.",
 
   "Consent-Title": "Informed consent form",
