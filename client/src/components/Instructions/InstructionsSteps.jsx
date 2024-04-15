@@ -23,7 +23,7 @@ const DateAndTime = {
 export default function InstructionsSteps() {
   const { Case } = useUser();
   const { language } = useLanguage();
-  window.Case = Case;
+
   return (
     <Container>
       {data[Case.concentrate].map(({ getDate, content, options }, index) => (
@@ -34,9 +34,9 @@ export default function InstructionsSteps() {
               .toLocaleString(`${language}-US`, options)
               .replaceAll(",", " |")}
           </StepDetails>
-          <DottedLine last={index === data.length - 1} />
+          <DottedLine last={index === data[Case.concentrate].length - 1} />
           <DescriptionText>
-            <Translator>{`Instructions-Steps-${content}`}</Translator>
+            <Translator>Instructions-Steps-{content}</Translator>
           </DescriptionText>
         </Fragment>
       ))}
