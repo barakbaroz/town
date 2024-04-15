@@ -15,9 +15,9 @@ function Share() {
     <IconButton id="Share-iconButton" label="Share" onClick={handleAnalytic}>
       <RWebShare
         data={{
-          text: Translate("Share-Video-Text"),
+          text: Translate("Share-Text"),
           url: window.location.href,
-          title: Translate("Hospital-Name"),
+          title: Translate("Share-Title"),
         }}
       >
         <img id="ShareButton" src={ShareIcon} alt="Share" />
