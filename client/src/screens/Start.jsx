@@ -60,7 +60,6 @@ const StartContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
   padding-inline: 22px;
   padding-block-end: 1.2rem;
   padding-block-start: 4px;

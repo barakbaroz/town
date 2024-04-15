@@ -50,7 +50,6 @@ const Modal = styled.div`
   position: fixed;
   display: flex;
   inset: 0;
-  width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.8);
   align-items: center;

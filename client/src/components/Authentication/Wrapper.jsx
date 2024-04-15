@@ -34,7 +34,6 @@ const Container = styled.div`
   background-size: cover;
   background-position-x: center;
   min-height: 100vh;
-  min-width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -187,7 +187,6 @@ const avatars = [
 
 const Page = styled.div`
   min-height: calc(100dvh - var(--header-size));
-  width: 100vw;
   background-image: url(${background});
   background-repeat: no-repeat;
   background-size: cover;

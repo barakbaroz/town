@@ -98,7 +98,6 @@ const validatorFullFeilds = {
 
 const GisterContainer = styled.div`
   --invalid: #f02a4c;
-  width: 100vw;
   min-height: 100vh;
   font-family: "Abraham";
 `;

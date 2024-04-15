@@ -30,7 +30,6 @@ const Spinner = styled.div`
 
 const Load = styled.div`
   height: 100vh;
-  width: 100vw;
   display: flex;
   align-items: center;
 `;
