@@ -3,25 +3,30 @@ import ShareIcon from "../../assets/Icons/share.svg";
 import { Translate, Translator } from "../Translation";
 import { postAnalytics } from "../../analytics";
 import styled from "styled-components";
+import { useUser } from "../../providers/UserProvider";
 
-export default function Share(props) {
-  const handleAnalytic = () => postAnalytics({ type: "video-share" });
+export default function Share() {
+  const user = useUser();
+  const handleAnalytic = () => {
+    postAnalytics({ type: "video-share" });
+  };
 
   return (
-    <Container onClick={handleAnalytic} {...props}>
-      <Label>
-        <Translator>Share</Translator>
-      </Label>
-      <RWebShare
-        data={{
-          text: Translate("Share-Text"),
-          url: window.location.href,
-          title: Translate("Share-Title"),
-        }}
-      >
+    <RWebShare
+      onClick={handleAnalytic}
+      data={{
+        text: Translate("Share-Text"),
+        url: `${window.location.origin}/api/user/entry/${user.id}`,
+        title: Translate("Share-Title"),
+      }}
+    >
+      <Container>
+        <Label>
+          <Translator>Share</Translator>
+        </Label>
         <img id="ShareButton" src={ShareIcon} alt="Share" />
-      </RWebShare>
-    </Container>
+      </Container>
+    </RWebShare>
   );
 }
 
