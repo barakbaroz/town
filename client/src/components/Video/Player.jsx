@@ -9,7 +9,7 @@ import PropTypes from "prop-types";
 import thumbnail from "../../assets/thumbnail.jpg";
 import { useLanguage } from "../../providers/LanguageProvider";
 
-function Player({ setShowFeedback, videoRef }) {
+function Player({ onPlayerPlaying, videoRef }) {
   const userInfo = useUser();
   const { language } = useLanguage();
   const params = useMemo(() => {
@@ -39,10 +39,6 @@ function Player({ setShowFeedback, videoRef }) {
     });
   }, []);
 
-  const onPlayerPlaying = useCallback(() => {
-    setShowFeedback(true);
-  }, [setShowFeedback]);
-
   return (
     <VideoContainer>
       <GistPlayer
@@ -61,7 +57,7 @@ function Player({ setShowFeedback, videoRef }) {
 export default Player;
 
 Player.propTypes = {
-  setShowFeedback: PropTypes.func,
+  onPlayerPlaying: PropTypes.func,
   videoRef: PropTypes.oneOfType([
     PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
     PropTypes.func,

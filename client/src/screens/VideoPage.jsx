@@ -33,7 +33,10 @@ export default function VideoPage() {
           <Title id="video-title">
             <Translator>Video-Title</Translator>
           </Title>
-          <Player setShowFeedback={setShowFeedback} videoRef={videoRef} />
+          <Player
+            onPlayerPlaying={() => setShowFeedback(true)}
+            videoRef={videoRef}
+          />
           <VideoInteraction>
             <Share />
             <SatisfactionQuestions videoStarted={showFeedback} />

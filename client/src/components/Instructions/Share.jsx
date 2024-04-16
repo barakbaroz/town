@@ -35,6 +35,7 @@ const Container = styled.div`
   justify-content: flex-end;
   align-items: center;
   gap: 0.4rem;
+  cursor: pointer;
 `;
 
 const Label = styled.p`
