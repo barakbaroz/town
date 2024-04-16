@@ -35,6 +35,7 @@
   "Satisfaction-question-allay": "Did the video help you allay any concerns you had about the examination?",
   "Satisfaction-question-helped-understand": "Did the video help you understand how to prepare for the examination? ",
   "Satisfaction-question-recommend-others": "Would you recommend the video to your acquaintances undergoing the examination?",
+  "Satisfaction-question-all-answered": "Thank you for your cooperation, take care and get well soon.",
 
   "Nutritional-Instructions-Title": "Nutritional instructions",
   "Nutritional-Instructions-Preview": "Ahead of your examination, you should follow the dietary recommendations indicated here; you have an important role in the examination’s success.",
@@ -48,10 +49,10 @@
   "Nutritional-Instructions-Download": "Download Instructions",
 
   "Medicines-Changes-Title": "Pay attention to the required modifications in your prescribed medications",
-  "Medicines-Changes-diabetesMedicines": "Do not take or inject medications for diabetes, including insulin, in the morning before your examination",
-  "Medicines-Changes-bloodPressureMedicines": "Keep taking your prescribed medications for heart and blood pressure as usual",
-  "Medicines-Changes-bloodThinners": "Consult with your personal physician regarding (Anticoagulant) blood thinners ",
-  "Medicines-Changes-nutritionalSupplement": "Avoid the use of iron-containing medications and supplements for at least 5 days before undergoing the examination",
+  "Medicines-Changes-diabetesMedicines": "Because you are taking diabetes medication you might need to make some adjustments in your prescribed dosage or stop taking them prior to the examination. Please consult your personal physician about that.",
+  "Medicines-Changes-bloodPressureMedicines": "You can continue taking your heart and blood pressure medications as prescribed.",
+  "Medicines-Changes-bloodThinners": "Unless your doctor instructed you otherwise, 2-5 days before the procedure, you’ll have to stop taking anticoagulants or antiplatelets",
+  "Medicines-Changes-nutritionalSupplement": "Pain Medications and Dietary Supplements - About 5 days before the procedure, you’ll have to stop taking any kind of pain medications and dietary supplements containing iron. Please consult your personal physician about that.",
 
   "Dont-Forget-Title": "On the day of your examination don’t forget to bring the following documents:",
   "Dont-Forget-identification": "Photo ID",
