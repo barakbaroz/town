@@ -2,7 +2,7 @@ import { languages } from "../Translation";
 import { LanguageBar as GistLanguageBar } from "@gistmed/gist-ui";
 import { useLanguage } from "../../providers/LanguageProvider";
 
-function LanguageBar() {
+function LanguageBar(props) {
   const { updateLanguage, language } = useLanguage();
   //disable language bar
   return <span></span>;
@@ -13,6 +13,7 @@ function LanguageBar() {
       selectedLanguage={language}
       handleSelect={updateLanguage}
       languages={languages}
+      {...props}
     />
   );
 }

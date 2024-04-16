@@ -15,8 +15,6 @@ import Transition from "../Transition";
 import { postAnalytics } from "../analytics";
 import Share from "../components/Instructions/Share";
 
-const lottieOptions = { animationData: nurseLottie, loop: true };
-
 export default function VideoPage() {
   const [showFeedback, setShowFeedback] = useState(false);
   const videoRef = useRef(null);
@@ -31,35 +29,27 @@ export default function VideoPage() {
     <Transition>
       <Container>
         <Desktop>
-          <StyledLanguageBar>
-            <LanguageBar />
-          </StyledLanguageBar>
+          <StyledLanguageBar />
           <Title id="video-title">
             <Translator>Video-Title</Translator>
           </Title>
           <Player setShowFeedback={setShowFeedback} videoRef={videoRef} />
           <VideoInteraction>
-            <ShareWrapper>
-              <Share />
-            </ShareWrapper>
+            <Share />
             <SatisfactionQuestions videoStarted={showFeedback} />
           </VideoInteraction>
 
-          <CardsWrapper>
-            <NutritionalGuidelines />
-            <MedicinesChanges />
-            <DontForget />
-            <Consent />
-          </CardsWrapper>
+          <NutritionalGuidelines />
+          <MedicinesChanges />
+          <DontForget />
+          <Consent />
 
-          <ScrollSectionWrapper>
-            <NurseLottie {...lottieOptions} />
-            <ScrollButton href="#video-title" onClick={handleAutoPlay}>
-              <img src={arrow_up} alt="arrowUp" />
-              <Translator>Video-Back-To-Video</Translator>
-              <span style={{ width: "19px" }} />
-            </ScrollButton>
-          </ScrollSectionWrapper>
+          <NurseLottie animationData={nurseLottie} loop />
+          <ScrollButton href="#video-title" onClick={handleAutoPlay}>
+            <img src={arrow_up} alt="arrowUp" />
+            <Translator>Video-Back-To-Video</Translator>
+            <span style={{ width: "19px" }} />
+          </ScrollButton>
 
           <Divider />
 
@@ -92,34 +82,15 @@ const Desktop = styled.div`
   margin-inline: auto;
 `;
 
-const StyledLanguageBar = styled.div`
+const StyledLanguageBar = styled(LanguageBar)`
   margin-inline: var(--screen-margin);
 `;
 
-const CommonTitleStyles = styled.p`
-  text-align: start;
+const Title = styled.h1`
+  margin-block: 2.125rem 1.813rem;
   font-size: 1.5rem;
   font-weight: 500;
   margin-inline: var(--screen-margin);
-`;
-
-const Title = styled(CommonTitleStyles)`
-  margin-block-start: 2.125rem;
-  margin-block-end: 1.813rem;
-`;
-
-const ScrollSectionWrapper = styled.div`
-  margin-inline: var(--screen-margin);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-block: 35px;
-`;
-
-const CardsWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 35px;
 `;
 
 const VideoInteraction = styled.div`
@@ -149,6 +120,7 @@ const ScrollButton = styled.a`
   border-radius: 50px;
   align-self: center;
   font-family: inherit;
+  margin-inline: auto;
 `;
 
 const Divider = styled.div`
@@ -171,12 +143,5 @@ const NurseLottie = styled(Lottie)`
   width: 130px;
   max-width: 100%;
   margin-block-end: 22px;
-`;
-
-const ShareWrapper = styled.div`
-  text-align: end;
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
-  margin-block-start: 0;
+  margin-inline: auto;
 `;

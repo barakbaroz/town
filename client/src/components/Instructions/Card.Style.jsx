@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Card = styled.div`
   margin-inline: var(--screen-margin);
+  margin-block: 35px;
   display: flex;
   flex-direction: column;
   background-color: white;
