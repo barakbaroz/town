@@ -3,34 +3,16 @@ import axios from "axios";
 import { Player as GistPlayer } from "@gistmed/gist-ui";
 import styled from "styled-components";
 import { useUser } from "../../providers/UserProvider";
-import { useMemo } from "react";
-import useVideoUrl from "../../hooks/useVideoUrl";
+import useVideo from "../../hooks/useVideo";
 import PropTypes from "prop-types";
 import thumbnail from "../../assets/thumbnail.jpg";
 import { useLanguage } from "../../providers/LanguageProvider";
 
 function Player({ onPlayerPlaying, videoRef }) {
-  const userInfo = useUser();
+  const { Case, Questionnaires } = useUser();
   const { language } = useLanguage();
-  const params = useMemo(() => {
-    const { Case, Questionnaires } = userInfo;
-    const { Avatar, procedureTime, procedureDate, concentrate } = Case;
-    const questionnaire = Questionnaires.filter(
-      ({ answerKey }) => answerKey === "Yes"
-    ).map(({ questionKey }) => questionKey);
 
-    return {
-      ...Avatar,
-      language,
-      procedureTime,
-      procedureDate,
-      concentrate,
-      questionnaire,
-      hospital: "ichilov",
-    };
-  }, [language, userInfo]);
-
-  const { videoUrl } = useVideoUrl(params);
+  const { video } = useVideo({ language, Case, Questionnaires });
 
   const onLocationUpdate = useCallback((percentage, location) => {
     axios.post("/api/user/userVideoAction", {
@@ -42,7 +24,7 @@ function Player({ onPlayerPlaying, videoRef }) {
   return (
     <VideoContainer>
       <GistPlayer
-        src={videoUrl}
+        src={video.src}
         autoFullScreen={false}
         audioStartDelay={3}
         onLocationUpdate={onLocationUpdate}

@@ -1,32 +1,16 @@
 import PropTypes from "prop-types";
-import { useMemo } from "react";
 import styled from "styled-components";
 import X_Icon from "../../assets/Icons/white_X.svg";
-import useVideoUrl from "../../hooks/useVideoUrl";
+import useVideo from "../../hooks/useVideo";
 import { Player as GistPlayer } from "@gistmed/gist-ui";
 import thumbnail from "../../assets/thumbnail.jpg";
 
 export default function PanelVideo({ close, item, show }) {
-  const params = useMemo(() => {
-    const { Avatar, User, procedureTime, procedureDate, concentrate } = item;
-    const { language, Questionnaires } = User;
-
-    const questionnaire = Questionnaires.filter(
-      ({ answerKey }) => answerKey === "Yes"
-    ).map(({ questionKey }) => questionKey);
-
-    return {
-      ...Avatar,
-      language,
-      procedureTime,
-      procedureDate,
-      concentrate,
-      questionnaire,
-      hospital: "ichilov",
-    };
-  }, [item]);
-
-  const { videoUrl } = useVideoUrl(show ? params : null);
+  const { video } = useVideo({
+    language: item.User.language,
+    Case: item,
+    Questionnaires: item.User.Questionnaires,
+  });
 
   if (!show) return <></>;
 
@@ -34,7 +18,7 @@ export default function PanelVideo({ close, item, show }) {
     <Modal>
       <Close src={X_Icon} onClick={close}></Close>
       <VideoWrapper>
-        <GistPlayer src={videoUrl} audioStartDelay={3} thumbnail={thumbnail} />
+        <GistPlayer src={video.src} audioStartDelay={3} thumbnail={thumbnail} />
       </VideoWrapper>
     </Modal>
   );
