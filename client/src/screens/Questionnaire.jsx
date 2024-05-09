@@ -124,7 +124,7 @@ const Answer = styled.label`
   width: 6.7rem;
   max-width: 45%;
   &:hover {
-    background-color: #f02a4c;
+    background-color: #bf213c;
   }
   &:has(${Input}:checked) {
     span {
