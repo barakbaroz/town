@@ -23,7 +23,7 @@
   "Question-diabetesMedicines": "Do you take medication for diabetes?",
   "Question-bloodPressureMedicines": "Do you take medication for blood pressure or heart disease?",
   "Question-bloodThinners": "Do you take anticoagulants? (Such as aspirin, Plavix, Eliquis, Xarelto, Pradaxa, Coumadin, or other similar medication)",
-  "Question-nutritionalSupplement": "Do you take dietary supplements containing iron?",
+  "Question-nutritionalSupplement": "Do you take dietary supplements containing iron or any kind of pain medications?",
   "Question-colonoscopyBefore": "Have you undergone a colonoscopy examination previously?",
 
   "Video-Title": "Watch Your Personalized Video for Step-by-Step Preparation Instructions",
@@ -54,8 +54,8 @@
   "Medicines-Changes-bloodThinners": "Unless your doctor instructed you otherwise, 2-5 days before the procedure, you’ll have to stop taking anticoagulants or antiplatelets",
   "Medicines-Changes-nutritionalSupplement": "Pain Medications and Dietary Supplements - About 5 days before the procedure, you’ll have to stop taking any kind of pain medications and dietary supplements containing iron. Please consult your personal physician about that.",
 
-  "Dont-Forget-Title": "On the day of your examination don’t forget to bring the following documents:",
-  "Dont-Forget-identification": "Photo ID",
+  "Dont-Forget-Title": "On the day of your examination:",
+  "Dont-Forget-identification": "Remember to bring a photo ID with you.",
   "Dont-Forget-companion": "Please come to the hospital with a companion. You should not drive after the examination.",
 
   "Consent-Title": "Informed consent form",
