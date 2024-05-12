@@ -21,8 +21,8 @@
   "Character-Selection-Error": "Please enter your age and sex before continuing",
 
   "Question-diabetesMedicines": "Do you take medication for diabetes?",
-  "Question-bloodPressureMedicines": "Do you take anticoagulants? (Such as aspirin, Plavix, Eliquis, Xarelto, Pradaxa, Coumadin, or other similar medication)",
-  "Question-bloodThinners": "Do you take medication for blood pressure or heart disease?",
+  "Question-bloodPressureMedicines": "Do you take medication for blood pressure or heart disease?",
+  "Question-bloodThinners": "Do you take anticoagulants? (Such as aspirin, Plavix, Eliquis, Xarelto, Pradaxa, Coumadin, or other similar medication)",
   "Question-nutritionalSupplement": "Do you take dietary supplements containing iron?",
   "Question-colonoscopyBefore": "Have you undergone a colonoscopy examination previously?",
 
