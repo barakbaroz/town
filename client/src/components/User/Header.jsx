@@ -6,7 +6,7 @@ const Header = () => {
   return (
     <Container id="HeaderContainer">
       <Logo alt="Hospital Logo" src={hospitalLogo} />
-      <Logo style={{ height: "30px" }} alt="Gist Logo" src={gistLogo} />
+      <Logo alt="Gist Logo" src={gistLogo} />
     </Container>
   );
 };
@@ -24,4 +24,7 @@ const Container = styled.div`
 
 const Logo = styled.img`
   height: var(--header-logo-height);
+  @media (min-width: 1024px) {
+    height: 60px;
+  }
 `;
