@@ -183,6 +183,42 @@ const avatars = [
     avatar: { gender: "female", age: "old", ethnicity: "black" },
     image: avatarsImg.female_old_black,
   },
+  {
+    key: "male_young_asian",
+    fields: ["male", "20-50", "50-70", "other"],
+    avatar: { gender: "male", age: "young", ethnicity: "asian" },
+    image: avatarsImg.male_young_asian,
+  },
+  {
+    key: "female_young_asian",
+    fields: ["female", "20-50", "50-70", "other"],
+    avatar: { gender: "female", age: "young", ethnicity: "asian" },
+    image: avatarsImg.female_young_asian,
+  },
+  {
+    key: "male_middle_asian",
+    fields: ["male", "50-70", "70+", "other"],
+    avatar: { gender: "male", age: "middle", ethnicity: "asian" },
+    image: avatarsImg.male_middle_asian,
+  },
+  {
+    key: "female_middle_asian",
+    fields: ["female", "50-70", "70+", "other"],
+    avatar: { gender: "female", age: "middle", ethnicity: "asian" },
+    image: avatarsImg.female_middle_asian,
+  },
+  {
+    key: "male_old_asian",
+    fields: ["male", "70+", "other"],
+    avatar: { gender: "male", age: "old", ethnicity: "asian" },
+    image: avatarsImg.male_old_asian,
+  },
+  {
+    key: "female_old_asian",
+    fields: ["female", "70+", "other"],
+    avatar: { gender: "female", age: "old", ethnicity: "asian" },
+    image: avatarsImg.female_old_asian,
+  },
 ];
 
 const Page = styled.div`
