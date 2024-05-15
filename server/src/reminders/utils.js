@@ -5,6 +5,7 @@ const EmailTemplates = require("./EmailTemplates");
 const Sms = require("./sms");
 const Email = require("./email");
 
+const twoDays = 1000 * 60 * 60 * 24 * 2;
 function getTimeByUser(timeName, user) {
   switch (timeName) {
     case "today":
@@ -49,6 +50,8 @@ module.exports.sendSMS = async (reminder, input) => {
   const { type, User } = reminder;
   const phoneNumber = input || User.phoneNumber;
   if (!phoneNumber) return;
+  if (!createdInAcceptedHours(User.Case.createdAt)) return;
+  if (!twoDaysOrLess(User.Case.createdAt, User.Case.procedureDate)) return;
   const { textKey } = remindersInfo[type];
   const data = { type: textKey, ...User.Case.dataValues, ...User.dataValues };
   const rawMessage = findTemplate(SmsTemplates, data);
@@ -111,6 +114,21 @@ const findTemplate = (template, data) => {
   if (template instanceof Object && "key" in template)
     return findTemplate(template[data[template.key]], data);
   return template;
+};
+
+//checks if the creationDate is BEFORE 17.00(GMT-4)
+const createdInAcceptedHours = (creationDate) => {
+  const hours = creationDate.getUTCHours() - 4; // Convert GMT to GMT-4
+  return hours < 17;
+};
+
+//checks if the procedureDate is at least 3 days after the creationDate (by resetting the hours of each date)
+const twoDaysOrLess = (creationDate, procedureDate) => {
+  return (
+    new Date(procedureDate).setHours(0, 0, 0, 0) -
+      creationDate.setHours(0, 0, 0, 0) >
+    twoDays
+  );
 };
 
 module.exports.stringFormat = (string, obj) => {
