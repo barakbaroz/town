@@ -10,7 +10,7 @@ const init = (sequelize) =>
       },
       gender: DataTypes.ENUM("male", "female"),
       age: DataTypes.ENUM("young", "middle", "old"),
-      ethnicity: DataTypes.ENUM("white", "black"),
+      ethnicity: DataTypes.ENUM("white", "black", "asian"),
     },
     { underscored: true }
   );

@@ -72,6 +72,9 @@ const Nurse = styled(Lottie).attrs({ animationData: Adina_Background })`
   max-width: 100%;
   padding-inline: 20px;
   box-sizing: border-box;
+  @media (min-width: 1024px) {
+    width: 500px;
+  }
 `;
 
 const Title = styled.h1`

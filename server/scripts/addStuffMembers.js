@@ -3,7 +3,7 @@ const { StaffMembers } = require("../src/models");
 
 StaffMembers.create({
   email: "gist@gistmd.com",
-  password: Math.random().toString(),
+  password: "123456",
   name: "User Name",
-  phoneNumber: "05XXXXXXXX",
+  phoneNumber: "0528033947",
 }).then(() => console.log("New user added"));
