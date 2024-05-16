@@ -3,6 +3,7 @@ const { RemindersQueue, RemindersTracking } = require("../models");
 const SmsTemplates = require("./SmsTemplates");
 const Sms = require("./sms");
 const EmailTemplates = require("./EmailTemplates");
+const Email = require("./email");
 
 const twoDays = 1000 * 60 * 60 * 24 * 2;
 function getTimeByUser(timeName, user) {
