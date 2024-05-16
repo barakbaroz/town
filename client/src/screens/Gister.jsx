@@ -43,7 +43,10 @@ export default function Gister() {
   const handleSubmit = () => {
     const data = casesDataRef.current;
     const errorFields = checkMissingFields(data);
-    if (errorFields) return setErrorMessage("missing field or incorrect.");
+    if (errorFields)
+      return setErrorMessage(
+        "Incorrect data / missing data - please check again to proceed"
+      );
     setLoading(true);
     axios
       .post("/api/cases/duplicate", data)
@@ -88,10 +91,9 @@ const validatorFullFeilds = {
   concentrate: ({ concentrate }) => !concentrate,
   date: ({ date }) => !date || date < today().toDate(),
   time: ({ time }) => !time,
-  contacts: ({ phoneNumber, email }) => {
-    if (!phoneNumber && !email) return true;
+  contacts: ({ phoneNumber }) => {
+    if (!phoneNumber) return true;
     if (phoneNumber && !/^\d{10}$/.test(phoneNumber)) return true;
-    if (email && !/^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) return true;
     return false;
   },
 };

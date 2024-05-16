@@ -6,18 +6,16 @@ const {
   insertRemindersQueueRecords,
   performAction,
   sendSMS,
-  sendEmail,
 } = require("./utils");
 
-module.exports.sendImmediate = async ({ CaseId, type, phoneNumber, email }) => {
+module.exports.sendImmediate = async ({ CaseId, type, phoneNumber }) => {
   const user = await Users.findOne({
     include: Cases,
     where: { CaseId },
   });
   const data = { type, User: user };
   const SmsPromise = sendSMS(data, phoneNumber);
-  const EmailPromise = sendEmail(data, email);
-  await Promise.all([SmsPromise, EmailPromise]);
+  await Promise.all([SmsPromise]);
 };
 
 module.exports.sendReminders = async () => {

@@ -7,7 +7,6 @@ import { PinInput } from "@gistmed/gist-ui";
 
 export default function PatientInformation({ casesDataRef }) {
   const phoneInputRef = useRef(null);
-  const emailInputRef = useRef(null);
 
   const handleYearOfBirth = (yearOfBirth) => {
     casesDataRef.current.yearOfBirth = yearOfBirth;
@@ -16,11 +15,6 @@ export default function PatientInformation({ casesDataRef }) {
 
   const handlePhoneNumber = (phoneNumber) => {
     casesDataRef.current.phoneNumber = phoneNumber;
-    document.getElementById("contacts").classList.remove("invalid");
-  };
-
-  const handleEmailInput = (email) => {
-    casesDataRef.current.email = email;
     document.getElementById("contacts").classList.remove("invalid");
   };
 
@@ -44,22 +38,9 @@ export default function PatientInformation({ casesDataRef }) {
             validate={/(^[0-9]+$|^$)/}
             inputRef={phoneInputRef}
             onChange={handlePhoneNumber}
-            nextfocus={emailInputRef}
-          />
-        </InputContainer>
-        <InputContainer>
-          <FieldTitle>E-mail address</FieldTitle>
-          <GisterInput
-            type="email"
-            inputRef={emailInputRef}
-            onChange={handleEmailInput}
           />
         </InputContainer>
       </Contacts>
-      <Info>
-        Please enter one of the following - <br />
-        Patient’s mobile number or Email
-      </Info>
     </Container>
   );
 }
@@ -83,11 +64,6 @@ const Contacts = styled.div`
     padding: 15px;
     border-radius: 15px;
   }
-`;
-
-const Info = styled.p`
-  color: #6081da;
-  margin: 0;
 `;
 
 const Container = styled.div`
