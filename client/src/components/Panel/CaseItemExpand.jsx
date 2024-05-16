@@ -21,6 +21,7 @@ export default function CaseItemExpand({ item, show }) {
         <div>
           <Text>Contact Info.</Text>
           <div>{item.User.phoneNumber}</div>
+          <div>{item.User.email}</div>
         </div>
         <div>
           <Text>Laxative Solution Type</Text>

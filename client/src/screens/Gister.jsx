@@ -91,9 +91,10 @@ const validatorFullFeilds = {
   concentrate: ({ concentrate }) => !concentrate,
   date: ({ date }) => !date || date < today().toDate(),
   time: ({ time }) => !time,
-  contacts: ({ phoneNumber }) => {
-    if (!phoneNumber) return true;
+  contacts: ({ phoneNumber, email }) => {
+    if (!phoneNumber && !email) return true;
     if (phoneNumber && !/^\d{10}$/.test(phoneNumber)) return true;
+    if (email && !/^[\w-\\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) return true;
     return false;
   },
 };
