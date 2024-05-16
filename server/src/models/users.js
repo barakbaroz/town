@@ -10,7 +10,6 @@ const init = (sequelize) =>
         defaultValue: DataTypes.UUIDV4,
       },
       phoneNumber: DataTypes.STRING(15),
-      email: DataTypes.STRING,
       language: { type: DataTypes.STRING, defaultValue: "en" },
     },
     { underscored: true, paranoid: true }

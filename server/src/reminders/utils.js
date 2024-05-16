@@ -1,9 +1,7 @@
 const { remindersInfo } = require("./config");
 const { RemindersQueue, RemindersTracking } = require("../models");
 const SmsTemplates = require("./SmsTemplates");
-const EmailTemplates = require("./EmailTemplates");
 const Sms = require("./sms");
-const Email = require("./email");
 
 const twoDays = 1000 * 60 * 60 * 24 * 2;
 function getTimeByUser(timeName, user) {
@@ -38,7 +36,6 @@ module.exports.send = async (reminder) => {
     const { type, User } = reminder;
     const { onSend } = remindersInfo[type];
     await this.sendSMS(reminder);
-    await this.sendEmail(reminder);
     await this.insertRemindersQueueRecords(onSend, User);
     await reminder.destroy();
   } catch (error) {
@@ -64,17 +61,6 @@ module.exports.sendSMS = async (reminder, input) => {
     message,
   });
   console.info(`successfully sent the sms to ${phoneNumber}`);
-};
-
-module.exports.sendEmail = async (reminder, input) => {
-  const { type, User } = reminder;
-  const email = input || User.email;
-  if (!email) return;
-  const data = { type, ...User.Case.dataValues, ...User.dataValues };
-  const { html: rawHtml, subject } = findTemplate(EmailTemplates, data);
-  const html = formatMessage(rawHtml, User);
-  await Email.send({ to: email, subject, html });
-  console.info(`successfully sent the email to ${email}`);
 };
 
 function getUnitsFormat(units) {

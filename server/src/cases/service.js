@@ -66,7 +66,7 @@ module.exports.search = async ({ creatorId, search }) => {
       {
         model: Users,
         include: Questionnaire,
-        attributes: ["id", "language", "phoneNumber", "email"],
+        attributes: ["id", "language", "phoneNumber"],
       },
       { model: Comments },
       {
@@ -110,7 +110,6 @@ module.exports.create = async ({
   concentrate,
   date,
   time,
-  email,
 }) => {
   console.info(`create case by staff member: ${creatorId}`);
   const newCase = await Cases.create({
@@ -121,14 +120,13 @@ module.exports.create = async ({
     procedureTime: time,
   });
   const CaseId = newCase.dataValues.id;
-  const user = await Users.create({ CaseId, phoneNumber, email });
+  const user = await Users.create({ CaseId, phoneNumber });
   const actionKey = getRemindersFlow(date);
   await reminders.action({ UserId: user.id, actionKey });
   await reminders.sendImmediate({
     CaseId,
     type: "caseCreation",
     phoneNumber,
-    email,
   });
   return CaseId;
 };
