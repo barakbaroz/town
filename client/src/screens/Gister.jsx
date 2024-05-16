@@ -43,7 +43,10 @@ export default function Gister() {
   const handleSubmit = () => {
     const data = casesDataRef.current;
     const errorFields = checkMissingFields(data);
-    if (errorFields) return setErrorMessage("missing field or incorrect.");
+    if (errorFields)
+      return setErrorMessage(
+        "Incorrect data / missing data - please check again to proceed"
+      );
     setLoading(true);
     axios
       .post("/api/cases/duplicate", data)
