@@ -5,8 +5,8 @@ import hospitalLogo from "../../assets/Logos/hospital_logo.png";
 const Header = () => {
   return (
     <Container id="HeaderContainer">
-      <Logo alt="Hospital Logo" src={hospitalLogo} />
-      <Logo alt="Gist Logo" src={gistLogo} />
+      <HospitalLogo alt="Hospital Logo" src={hospitalLogo} />
+      <GistLogo alt="Gist Logo" src={gistLogo} />
     </Container>
   );
 };
@@ -22,9 +22,15 @@ const Container = styled.div`
   padding-inline: var(--header-inline-padding);
 `;
 
-const Logo = styled.img`
-  height: var(--header-logo-height);
+const HospitalLogo = styled.img`
+  height: 39px;
   @media (min-width: 1024px) {
     height: 60px;
+  }
+`;
+const GistLogo = styled.img`
+  height: 26px;
+  @media (min-width: 1024px) {
+    height: 50px;
   }
 `;
