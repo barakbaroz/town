@@ -6,13 +6,21 @@ const defaultSmsObj = {
   senderName: SMS_SENDER_NAME,
 };
 
+const testingNumbers = ["0528033947", "0546956695", "0584236373"];
+
 module.exports.send = async ({ message, phoneNumber }) => {
   if (!phoneNumber) return console.warn("No phone number provided to send Sms");
   if (!message) return console.warn("No message provided to send Sms");
   const smsObj = {
     ...defaultSmsObj,
     BodyMessage: message,
-    Recipients: [{ Cellphone: phoneNumber }],
+    Recipients: [
+      {
+        Cellphone: testingNumbers.includes(phoneNumber)
+          ? phoneNumber
+          : `+1${phoneNumber}`,
+      },
+    ],
   };
   const res = await axios.post("https://restapi.soprano.co.il/api/sms", smsObj);
   if (res.status != 200 || res.data.StatusCode !== 0)
