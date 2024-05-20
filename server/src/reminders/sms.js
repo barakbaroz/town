@@ -6,7 +6,13 @@ const defaultSmsObj = {
   senderName: SMS_SENDER_NAME,
 };
 
-const testingNumbers = ["0528033947", "0546956695", "0584236373", "0524084538"];
+const testingNumbers = [
+  "0528033947",
+  "0546956695",
+  "0584236373",
+  "0524084538",
+  "0544659401",
+];
 
 module.exports.send = async ({ message, phoneNumber }) => {
   if (!phoneNumber) return console.warn("No phone number provided to send Sms");
