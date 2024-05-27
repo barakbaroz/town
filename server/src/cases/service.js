@@ -40,23 +40,15 @@ const myCasesFilter = ({ myCases }, creatorId) =>
 const dayTime = 1000 * 60 * 60 * 24;
 
 function getRemindersFlow(date) {
-  const procedureDate = new Date(date);
-  const today = new Date().setHours(0, 0, 0, 0);
-  const daysToProcedure = Math.floor((procedureDate - today) / dayTime);
-  switch (daysToProcedure) {
-    case 0:
-    case 1:
-      return "noReminders";
-    case 2:
-    case 3:
-      return "three-to-four-days-pre-procedure";
-    case 4:
-      return "five-days-pre-procedure";
-    case 5:
-      return "six-days-pre-procedure";
-    default:
-      return "seven-plus-days-pre-procedure";
-  }
+  const procedureDate = new Date(date).setHours(0, 0, 0, 0);
+  const createAfter5PM = new Date().getHours() > 17;
+  const today = createAfter5PM
+    ? new Date(new Date().getTime() + dayTime)
+    : new Date();
+  today.setHours(0, 0, 0, 0);
+  const daysToProcedure = (procedureDate - today) / dayTime;
+  if (daysToProcedure < 3) return "noReminders";
+  return "three-days-pre-procedure";
 }
 
 module.exports.search = async ({ creatorId, search }) => {
@@ -124,12 +116,6 @@ module.exports.create = async ({
   const user = await Users.create({ CaseId, phoneNumber, email });
   const actionKey = getRemindersFlow(date);
   await reminders.action({ UserId: user.id, actionKey });
-  await reminders.sendImmediate({
-    CaseId,
-    type: "caseCreation",
-    phoneNumber,
-    email,
-  });
   return CaseId;
 };
 
