@@ -29,7 +29,7 @@ export default function useVideo({ language, Case, Questionnaires }) {
             concentrate,
             Questionnaires,
           },
-          project: { value: "colonoscopy-preperation" },
+          project: { value: "colonoscopy-preparation-usa" },
         }
       )
       .then((res) => setVideo(res.data));
