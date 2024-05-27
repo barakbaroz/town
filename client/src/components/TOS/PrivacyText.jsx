@@ -4,61 +4,65 @@ import styled from "styled-components";
 function PrivacyText() {
   return (
     <Wrapper>
-      <p dir="rtl">מדיניות פרטיות &ndash;GISTMD</p>
-      <p dir="rtl">עודכן לאחרונה:11/08/2022</p>
-      <p dir="rtl">
-        אנו,&nbsp;המרכז הרפואי ת&quot;א&nbsp;(ביחד, &quot;המוסד הרפואי&quot; או
-        &quot;אנחנו&quot;), מכבדים את הפרטיות של המשתמשים (להלן:
-        &quot;המשתמש(ים)&quot;, &quot;אתם&quot; או &quot;אתה&quot;) בפלטפורמה
-        שלנו (כהגדרת מונח זה בתנאי השימוש שלנו), ומחויבים להגן על המידע האישי
-        שנאסף במסגרת שימושם בפלטפורמה. אנו מאמינים כי למשתמשים שלנו הזכות להכיר
-        את המדיניות שלנו בנוגע לאיסוף ושימוש במידע המתקבל על ידינו בזמן השימוש
-        בפלטפורמה.&nbsp;
+      <p>Privacy Policy - GistMD</p>
+      <p>Last Updated - 25/04/24</p>
+      <p>
+        Gist MED Ltd. (hereinafter: “GistMD”, “we” or “us”), respects the
+        privacy of its users (hereinafter: “user(s)” or “you”) on our platform
+        (as defined in our Terms of Use), and is committed to protecting the
+        Personal Information collected as part of your use of the platform. We
+        believe that our users have the right to be informed about our policies
+        regarding the collection and use of information received by us during
+        the use of the platform.
       </p>
-      <p dir="rtl">
-        מדיניות פרטיות זו (להלן: &quot;מדיניות הפרטיות&quot;) הינה חלק בלתי נפרד
-        מהשירותים ומתנאי השימוש, ולמונחים המופיעים במדיניות הפרטיות תהא המשמעות
-        הנודעת להם בתנאי השימוש, הזמינים בקישורית:{" "}
-        <Link to="../Legal">כאן</Link> (להלן: &quot;תנאי השימוש&quot;), אלא אם
-        נאמר במפורש אחרת במדיניות פרטיות זו. מדיניות הפרטיות מנוסחת בלשון זכר
-        לצרכי נוחות בלבד, והיא מתייחסת, כמובן, גם לנשים.
+      <p>
+        This Privacy Policy (hereinafter: “the Privacy Policy”) is an integral
+        part of the services and the Terms of Use, and the terms appearing in
+        the Privacy Policy shall have the meanings assigned to them in the Terms
+        of Use, available at the following link: [please add link] (hereinafter:
+        “the Terms of Use”), unless explicitly stated otherwise in this Privacy
+        Policy. The Privacy Policy is written in masculine form for convenience
+        only, and it naturally refers to women as well.
       </p>
-      <div align="left" dir="rtl">
+      <div>
         <table>
           <tbody>
             <tr>
               <td>
-                <p dir="rtl">שים לב:&nbsp;</p>
-                <p dir="rtl">
-                  בעצם הכניסה, ההתחברות, הגישה והשימוש בפלטפורמה ובשירותיה, אתה
-                  מביע את הסכמתך לתנאים המופיעים במדיניות הפרטיות שלנו, לרבות
-                  הסכמתך לאיסוף המידע האישי שלך (כהגדרתו להלן), לעיבודו ולשמירתו
-                  במאגרי המידע שלנו (בארץ ו/או בחו&quot;ל). המידע האישי שלך ישמש
-                  לצורך מתן השירותים כמפורט במסמך זה. אם אינך מסכים לתנאי
-                  מדיניות הפרטיות, אינך מורשה להשתמש בשירותינו. מדיניות הפרטיות
-                  שלנו עשויה להתעדכן בעתיד, ולכן הנך מתבקש להתעדכן מפעם לפעם
-                  במדיניות המעודכנת.
+                <p>Please note:</p>
+                <p>
+                  By entering, connecting, accessing, and using the platform and
+                  its services, you express your agreement to the terms set
+                  forth in our Privacy Policy, including your consent to the
+                  collection of your Personal Information (as defined below),
+                  its processing, and its storage in our databases (domestically
+                  and/or abroad). Your Personal Information will be used for the
+                  purpose of providing the services as detailed in this
+                  document. If you do not agree to the terms of the Privacy
+                  Policy, you are not authorized to use our services. Our
+                  Privacy Policy may be updated in the future, and you are
+                  therefore requested to periodically review the updated policy.
                 </p>
-                <p dir="rtl">
-                  יובהר כי לצורך שימושך בפלטפורמה ושירותיה, אתה עשוי לספק לנו
-                  מידע אישי (כמפורט בהמשך) (&quot;מידע אישי&quot;). הנך מסכים
-                  ומצהיר בזאת שהמידע האישי שהנך מספק לנו נמסר מרצונך החופשי, על
-                  מנת שנוכל לספק עבורך את השירותים ובהתאם למטרות המפורטות
-                  במדיניות פרטיות זו. כמו כן, הנך מסכים בזאת לקבל מאיתנו הודעות,
-                  לרבות הודעות SMS (לרבות, הודעות באמצעות יישומון מסרים של צד
-                  ג&apos;), לפי פרטי הקשר שסיפקת לנו.
+                <p>
+                  It should be noted that for your use of the platform and its
+                  services, you may provide us with Personal Information (as
+                  detailed below) ("Personal Information"). You agree and hereby
+                  declare that the Personal Information you provide to us is
+                  given of your free will, in order for us to provide you with
+                  the services and in accordance with the purposes outlined in
+                  this Privacy Policy. Furthermore, you hereby agree to receive
+                  messages from us, including SMS messages (including messages
+                  via third-party messaging applications), according to the
+                  contact details you have provided us.
                 </p>
-                <p dir="rtl">
-                  שים לב שהתכנים הכלולים בפלטפורמה, לרבות תכני ההדרכה, מותאמים
-                  לך אישית ומיועדים לשימושך בלבד. כל ייצוא של תכנים אל מחוץ
-                  לפלטפורמה עשוי לחשוף מידע אישי על אודותיך, ועל כן כל ייצוא של
-                  תכנים כאמור מחוץ לפלטפורמה ייעשה על אחריותך בלבד, לרבות באשר
-                  להסתמכות צדדים שלישיים עליו, אבטחתו וכיו&quot;ב.
-                </p>
-                <p dir="rtl">
-                  למען הסר ספק, יובהר כי ג&apos;יסטמד משמשת כספק שירות של המוסד
-                  הרפואי לצורך תפעול הפלטפורמה והיא אינה צד למדיניות פרטיות
-                  זו.&nbsp;
+                <p>
+                  Please note that the contents included on the platform,
+                  including educational content, are tailored specifically for
+                  you and are intended for your use only. Any export of content
+                  from the platform may expose Personal Information about you,
+                  and therefore any such export of content from the platform is
+                  done at your sole responsibility, including with respect to
+                  third parties’ reliance on it, its security, etc.
                 </p>
               </td>
             </tr>
@@ -66,486 +70,533 @@ function PrivacyText() {
         </table>
       </div>
       <ol>
-        <li dir="rtl">
-          <p dir="rtl">איזה מידע אנו עשויים לאסוף אודותיך?&nbsp;</p>
+        <li>
+          <p>What information might we collect about you?</p>
         </li>
       </ol>
-      <p dir="rtl">
-        השימוש בשירותינו כולל איסוף של מידע אישי אשר מאפשר לנו לזהות אותך באופן
-        אישי, ובדרך כלל נושא אופי פרטי או רגיש. כאשר אתה משתמש בשירותים, אנו
-        עשויים לאסוף ולעבד אודותיך אחד או יותר מסוגי המידע הבאים:
+      <p>
+        Using our services involves the collection of Personal Information that
+        allows us to identify you personally, and generally carries a private or
+        sensitive nature. When you use the services, we may collect and process
+        one or more of the following types of information about you:
       </p>
       <ul>
-        <li dir="rtl">
-          <p dir="rtl">מידע הנאסף באופן ישיר:&nbsp;</p>
+        <li>
+          <BoldParagraph>Directly Collected Information:</BoldParagraph>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            מידע הנאסף במסגרת ההליך הרפואי: אנו אוספים מידע במסגרת פגישתך עם
-            רופאים ו/או גורמים אחרים במוסד הרפואי בקשר עם ההליך הרפואי, לרבות
-            מידע מתוך תיקך הרפואי במוסד הרפואי, ועושים בו שימוש במסגרת הפלטפורמה
-            ככל שנדרש לצורך הענקת השירותים הרלוונטיים, לרבות לצורך התאמת תכני
-            ההדרכה הכלולים בפלטפורמה.&nbsp;
+        <li>
+          <p>
+            <u>
+              using the Information collected during the medical process using
+              the :
+            </u>
+            We collect information during your meetings with doctors and/or
+            other parties at the medical institution related to the medical
+            procedure, including information from your medical record at the
+            institution, and use it within the platform as needed to provide the
+            relevant services, including for tailoring the educational content
+            included in the platform.
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            מידע הנאסף במסגרת השימוש בשירותים: אנו אוספים מידע רפואי הנמסר על
-            ידי משתמשים באופן מודע ומרצונם החופשי בעת המענה לטופס שאלון בכניסתם
-            לפלטפורמה.
+        <li>
+          <p>
+            <u>Information collected through the use of services:</u> We collect
+            medical information provided consciously and voluntarily by users
+            when responding to a questionnaire upon entering the platform.
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            התקשרויות: אנו נאסוף כל מידע אישי אודותיך אשר תמסור לנו כחלק
-            מההתקשרויות בינך ובינינו (לרבות לצרכי סיוע טכני, מתן משוב וכיוצא
-            בזאת), ובין היתר, מידע אשר עשוי להימסר על ידך כחלק מההתכתבויות עמנו
-            באמצעות הדואר האלקטרוני, בטלפון, באמצעות יישומון מסרים של צד ג&apos;
-            או בכל אמצעי תקשורת אחר.&nbsp;
+        <li>
+          <p>
+            <u>Communications:</u> We will collect any Personal Information
+            about you that you provide to us as part of the communications
+            between you and us (including for technical support, providing
+            feedback, etc.), including, among others, information that may be
+            provided by you as part of correspondence with us via email,
+            telephone, through a third-party messaging application, or any other
+            communication means.
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            מספר הטלפון הנייד: על מנת להשתמש בשירותינו, תידרש לספק את מספר
-            הטלפון הנייד שלך.
+        <li>
+          <p>
+            <u>Mobile phone number:</u> In order to use our services, you will
+            be required to provide your mobile phone number.
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">מידע שנאסף באמצעות טכנולוגיה</p>
+        <li>
+          <p>Information collected through technology:</p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            מזהים: כאשר אתה משתמש בפלטפורמה, אתה מספק לנו באופן אוטומטי את כתובת
-            ה-IP &nbsp;שלך (או כתובת ה-MAC, לפי המקרה), בהתאם לרשת או למכשיר בו
-            אתה משתמש. מידע זה נאסף על ידינו על מנת לשפר את חוויית המשתמש שלך,
-            כדי לקבוע את מיקומך הגיאוגרפי ולמטרות אבטחה. כמו כן, אנו עשויים
-            לאסוף מזהים נוספים, לרבות מזהי פרסום המצויים במכשיר ממנו אתה גולש
-            (למשל Google&apos;s Advertiser Identification &nbsp;או Apple&apos;s
-            Identifier for Advertisers) לצרכים דומים ולצרכי פרסום ממוקד.&nbsp;
+        <li>
+          <p>
+            <u>Identifiers:</u> When you use the platform, you automatically
+            provide us with your IP address (or MAC address, as applicable),
+            depending on the network or device you are using. This information
+            is collected by us to improve your user experience, to determine
+            your geographical location, and for security purposes. Additionally,
+            we may collect other identifiers, including advertising identifiers
+            found on your device (e.g., Google's Advertiser Identification or
+            Apple's Identifier for Advertisers) for similar purposes and for
+            targeted advertising.
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            נתוני מיקום גיאוגרפי: בעת השימוש שלך בפלטפורמה, אנו עשויים לאסוף
-            נתונים אודות מיקומך הגיאוגרפי, לרבות באמצעות ניתוח של כתובות IP,
-            סימני GPS ומידע דומה אחר.
+        <li>
+          <p>
+            <u>Geographic location data:</u> When you use the platform, we may
+            collect data about your geographical location, including through the
+            analysis of IP addresses, GPS signals, and other similar
+            information.
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            מידע טכני והתנהגותי: כמו מרבית האתרים והשירותים המקוונים, אנו אוספים
-            באופן אוטומטי ופסיבי מידע אנונימי ואינו מזהה מהמכשירים שלך כאשר אתה
-            ניגש ומשתמש בפלטפורמה, לרבות (i) מידע טכני כגון סוג והגרסה של המכשיר
-            שלך ומערכת ההפעלה שלו, סוג הדפדפן, רזולוציית המסך, שפת המקלדת,
-            קישוריות Wi-Fi וכו&apos;; ו- (ii) מידע התנהגותי שיכול לכלול מידע לא
-            אישי, כולל מידע אנונימי, טכני וכן מידע שנאסף אודות התנהגותך, אשר
-            עשוי לכלול, בין היתר, תיעוד של פעילותך בשירותים, זרם הקשות
-            (click-stream) ומידע נוסף בעל אופי דומה (להלן, ביחד: &quot;מידע טכני
-            והתנהגותי&quot;).&nbsp;
+        <li>
+          <p>
+            <u> Technical and behavioral information:</u> Like most websites and
+            online services, we automatically and passively collect anonymous
+            and non-identifying information from your devices when you access
+            and use the platform, including (i) technical information such as
+            the type and version of your device and its operating system,
+            browser type, screen resolution, keyboard language, Wi-Fi
+            connectivity, etc.; and (ii) behavioral information that may include
+            non-Personal Information, including anonymous, technical information
+            and other information collected about your behavior, which may
+            include, among other things, documentation of your activity on the
+            services, click-stream data, and other similar information
+            (collectively, "Technical and Behavioral Information").
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            דואר אלקטרוני: כאשר אנו שולחים לך דואר אלקטרוני, אנו אוספים באמצעות
-            טכנולוגיות מעקב, מידע אודות עצם מסירת דבר הדואר והאם דבר הדואר נקרא
-            על ידך.&nbsp;
+        <li>
+          <p>
+            <u> Email:</u> When we send you an email, we collect information
+            using tracking technologies about the delivery of the email and
+            whether it was read by you.
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            סטטיסטיקות ומדידות: אנו עשויים, בעצמנו או באמצעות ספקי שירותים כגון
-            Google Analytics,&nbsp;להפיק מדידות, סטטיסטיקות וניתוחים מפורטים על
-            התנהגותך באתר באופן כללי.
+        <li>
+          <p>
+            <u> Statistics and measurements:</u> We may, ourselves or through
+            service providers such as Google Analytics, generate measurements,
+            statistics, and detailed analyses of your behavior on the site in
+            general.
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            לתשומת ליבך, אנו עשויים לאסוף את המידע האמור בפרק זה בעצמנו או
-            באמצעות ספקי השירות שלנו, ובין היתר באמצעות שימוש בטכנולוגיות כגון
-            קבצי עוגיות וטכנולוגיות מעקב דומות (ראה הגדרה ופירוט נוסף בסעיף
-            &lrm;9 להלן).&nbsp;
+        <li>
+          <p>
+            Please note, we may collect the information mentioned in this
+            section ourselves or through our service providers, including
+            through the use of technologies such as cookies and similar tracking
+            technologies (see further definition and details in Section 9
+            below).
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            למען הסר ספק, כל מידע לא אישי אשר קשור או מקושר למידע אישי, ייחשב
-            למידע אישי, כל עוד זיקה זו מתקיימת.
+        <li>
+          <p>
+            For the avoidance of doubt, all non-Personal Information that is
+            related or linked to Personal Information will be considered
+            Personal Information as long as this link exists.
           </p>
         </li>
       </ul>
       <ol start="2">
-        <li dir="rtl">
-          <p dir="rtl">כיצד אנו משתמשים במידע אודותיך?</p>
+        <li>
+          <p>How do we use the information about you?</p>
         </li>
       </ol>
       <ul>
-        <li dir="rtl">
-          <p dir="rtl">אנו משתמשים במידע שאינו אישי:&nbsp;</p>
-        </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            לצורך מחקר וניתוח סטטיסטי המיועד לשימושנו הפנימי, ובין היתר על מנת
-            שנוכל לקבלת החלטות אסטרטגיות מושכלות, תוך הבנה טובה יותר של קהלי
-            היעד שלנו;
+        <li>
+          <p>
+            We use <u>non-Personal Information</u>:
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">לצרכי אבטחת מידע ועל מנת לאבטח של שירותינו;</p>
-        </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            בכדי להבין כיצד משתמשים בשירותינו ולשם התאמה, פיתוח ושיפור השירותים
-            והמוצרים שלנו;&nbsp;
+        <li>
+          <p>
+            For research and statistical analysis intended for our internal use,
+            including to make informed strategic decisions and to better
+            understand our target audiences;
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            על מנת לשתף פעולה עם רשתות פרסום ומתווכי פרסום כדי להציג במכשירים
-            שלך מודעות פרסומיות אודות השירותים וכדי לעזור לנו ולשותפינו לקבל
-            החלטות טובות יותר, המבוססות על תחומי העניין שלך, לגבי המודעות
-            המוצגות לך; ו-&nbsp;
+        <li>
+          <p>For information security purposes and to secure our services;</p>
+        </li>
+        <li>
+          <p>
+            To understand how users utilize our services and to customize,
+            develop, and improve our services and products;
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            כדי להתאים את השירותים לצרכיך ועל מנת לשפר את חוויית המשתמש שלך
-            כשאתה משתמש בשירותים.
+        <li>
+          <p>
+            To collaborate with advertising networks and advertising brokers in
+            order to display advertisements on your devices about the services,
+            and to help us and our partners make better decisions based on your
+            interests regarding the advertisements shown to you; and
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">אנו משתמשים במידע אישי&nbsp;כדי:&nbsp;</p>
-        </li>
-        <li dir="rtl">
-          <p dir="rtl">לספק לך את הפלטפורמה והשירותים;</p>
-        </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            להתאים, לפתח ולשפר את השירותים באופן אישי לצרכיך;&nbsp;
+        <li>
+          <p>
+            To tailor the services to your needs and to enhance your user
+            experience when using the services.
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            לצרכי אבטחת מידע ועל מנת לאבטח את שירותינו, ובין היתר על מנת שנוכל
-            לאמת את זהותך בעת התחברות לחשבונך;
+        <li>
+          <p>
+            We use <u>Personal Information</u> to:
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            לשלוח לך הודעות שירות(כגון, באמצעות דואר אלקטרוני, הודעות SMS ו/או
-            הודעות-פוש);
+        <li>
+          <p>Provide you with the platform and services;</p>
+        </li>
+        <li>
+          <p>
+            Customize, develop, and improve the services specifically for your
+            needs;
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            כדי ליצור עמך קשר לצורך מתן תמיכה טכנית בקשר עם השירותים ולהשיב
-            לשאלות של המשתמשים;
+        <li>
+          <p>
+            For information security purposes and to secure our services,
+            including to verify your identity when you log into your account;
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            כדי שנוכל לשלוח לך דואר פרסומי, ניוזלטרים ועדכונים על ההתפתחויות
-            במוסד הרפואי ו/או ג&apos;יסטמד, הצעות חדשות, חדשות בנוגע לשירותים
-            וכיוצא בזאת באמצעות דואר, טלפון, דואר אלקטרוני, SMS, &nbsp;הודעות
-            פוש, הודעות WhatsApp או באופן מקוון (במקרים מסוימים ייתכן ונדרש לקבל
-            את הסכמתך הנפרדת והפרטנית לשליחת דיוור מסוג זה). ניתן לבטל את ההרשאה
-            לקבל הודעות פרסומיות באמצעות פניה לשירות הלקוחות או באמצעות הבחירה
-            באפשרות של הסרה;&nbsp;
+        <li>
+          <p>
+            Send you service messages (such as through email, SMS, and/or push
+            notifications);
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            כדי ליצור קמפיינים פרסומיים רלוונטיים המקדמים מוצרים ושירותים שלנו
-            ושל שותפינו העסקיים, שלדעתנו יעניינו אותך ויהיו בעלי ערך עבורך,
-            באמצעות שותפים כמו Google ו-Facebook, ואגב כך ייתכן ונעביר
-            לפלטפורמות פרסומיות אלו מידע אישי מוגבל במטרה לייצר קמפיינים
-            פרסומיים, איכותיים וממוקדים;
+        <li>
+          <p>
+            Contact you for technical support related to the services and to
+            respond to user inquiries;
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            לצורך מחקר וניתוח סטטיסטי, בין היתר בתחומי הכלכלה ההתנהגותית,
-            המיועדים לשימושינו ולשימושם של שותפינו (לדוגמא, אנו עשויים להעביר
-            מידע אנונימי וסטטיסטי המבוסס על שימושך בשירותים למכוני מחקר, ארגונים
-            ועמותות רלוונטיים);&nbsp;
+        <li>
+          <p>
+            To send you marketing emails, newsletters, and updates about
+            developments in the medical institution and/or GistMD, new offers,
+            service-related news, etc., through mail, telephone, email, SMS,
+            push notifications, WhatsApp messages, or online (in certain cases,
+            your separate and specific consent may be required to send such
+            mailings). You can opt out of receiving marketing messages by
+            contacting customer service or by selecting the opt-out option;
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            כדי לקבל מידע ביחס למיקום גיאוגרפי כללי (כלומר, מדינה) של המחשב או
-            המכשיר ממנו אתה מחובר לאינטרנט בעת השימוש בשירותים, וזאת על מנת
-            שנוכל לדעת את מיקומך הכללי וכן לצרכי פרסום ואבטחת מידע;
+        <li>
+          <p>
+            To create relevant advertising campaigns that promote our products
+            and services and those of our business partners, which we believe
+            will interest you and be of value to you, through partners like
+            Google and Facebook, and in doing so, we may transfer limited
+            Personal Information to these advertising platforms to generate
+            quality, targeted advertising campaigns;
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            אחסון וניהול המידע במאגרי המידע של המוסד הרפואי לצורך מתן
-            השירותים;&nbsp;
+        <li>
+          <p>
+            For research and statistical analysis, including in the fields of
+            behavioral economics, intended for our use and that of our partners
+            (for example, we may transfer anonymous and statistical information
+            based on your use of the services to research institutes,
+            organizations, and relevant associations);
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">לצרכינו האדמיניסטרטיביים; ו-</p>
+        <li>
+          <p>
+            To obtain information about the general geographic location (i.e.,
+            country) of the computer or device from which you are connected to
+            the Internet during the use of the services, in order to know your
+            general location for advertising and information security purposes;
+          </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            כדי להגן על זכויותינו ועל מנת למלא כל חובה חוקית החלה עלינו.
+        <li>
+          <p>
+            Storing and managing information in GistMD's databases for the
+            provision of services;
+          </p>
+        </li>
+        <li>
+          <p>For our administrative needs</p>
+        </li>
+        <li>
+          <p>
+            To protect our rights and to fulfill any legal obligation applicable
+            to us.
           </p>
         </li>
       </ul>
       <ol start="3">
-        <li dir="rtl">
-          <p dir="rtl">זכויותיך לעיין, לשנות ולתקן את המידע האישי שלך</p>
+        <li>
+          <p>
+            Your rights to access, modify, and correct your Personal Information
+          </p>
         </li>
       </ol>
       <ul>
-        <li dir="rtl">
-          <p dir="rtl">
-            אם מסיבה כלשהי, אתה מעוניין לשנות, לעדכן או למחוק את המידע האישי
-            שהעברת לנו, תוכל לשלוח לנו הודעת דואר אלקטרוני עם פירוט בקשתך
-            לכתובת:<a href="mailto:support@gistmd.com">support@gistmd.com</a>{" "}
-            ואנו נעשה מאמצים סבירים על מנת לשנות, לעדכן או למחוק את המידע האישי
-            כאמור, בהתאם לדיני הפרטיות החלים.
+        <li>
+          <p>
+            If for any reason, you wish to modify, update, or delete the
+            Personal Information you have provided to us, you can send us an
+            email detailing your request to:
+            <a href="mailto:support@gistmd.com">support@gistmd.com</a> and we
+            will make reasonable efforts to modify, update, or delete the
+            Personal Information as requested, in accordance with applicable
+            privacy laws.
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            שים לב: בכל פנייה לבקשה לעיין במידע, נבקש כי יצורפו הפרטים הבאים:
-            שם, טלפון, כתובת, כתובת דואר אלקטרוני והמידע בו הנך מעוניין לעיין או
-            אשר אותו הנך מעוניין לתקן או למחוק. ככל שברצונך לאפשר לאדם אחר לעיין
-            במידע עבורך, נבקש לצרף גם ייפוי כוח מפורש לעניין זה.&nbsp;
+        <li>
+          <p>
+            Please note: In every request to access information, we will ask
+            that the following details be included: name, telephone, address,
+            email address, and the information you wish to access or which you
+            wish to correct or delete. If you wish to enable someone else to
+            access the information on your behalf, we also require that a formal
+            power of attorney be attached for this purpose.
           </p>
         </li>
       </ul>
       <ol start="4">
-        <li dir="rtl">
-          <p dir="rtl">שיתוף מידע עם אחרים</p>
+        <li>
+          <p>Sharing information with others</p>
         </li>
       </ol>
       <ul>
-        <li dir="rtl">
-          <p dir="rtl">
-            ככלל, המוסד הרפואי לא חולק את המידע האישי שלך עם צדדים שלישיים. עם
-            זאת, אנו עשויים לעשות כן על מנת:&nbsp;&nbsp;
+        <li>
+          <p>
+            Generally, we do not share your personal information with third
+            parties. However, we may do so in order to:
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            לאסוף, להחזיק ו/או לנהל את המידע האישי שלך באמצעות ספקים וצדדים
-            שלישיים של מוצרים או שירותים מסוימים (כגון שירותי אירוח ענן)
-            המאושרים על ידינו (לרבות, לפי העניין, לשותפים שלהם), וזאת אך ורק לשם
-            אספקת השירותים המבוקשים על ידינו, ולא לכל מטרה אחרת. צדדים שלישיים
-            מסוג זה עשויים להיות ממוקמים במדינות בהן החוקים להגנה על מידע אישי
-            מספקים הגנה פחותה על מידע אישי מזו שבישראל, אולם אנו נשתמש רק בחברות
-            שיכולות לספק אמצעי הגנה נאותים בכדי להבטיח כי המידע האישי שלך מאוחסן
-            ומטופל בצורה מאובטחת;
+        <li>
+          <p>
+            Collect, hold, and/or manage your personal information through
+            certain third-party providers of products or services (such as cloud
+            hosting services) that are authorized by us (including, as relevant,
+            their partners), solely for the purpose of providing the services we
+            request, and not for any other purpose. Such third parties may be
+            located in countries where the laws protecting personal information
+            may offer less protection than those in Israel, but we only use
+            companies that can provide adequate protection measures to ensure
+            that your personal information is stored and handled securely;
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            לשלוח למפרסמים ורשתות פרסום נתונים הדרושים לשם יצירת פרסום ממוקד
-            ורלוונטי עבורך; &nbsp;
+        <li>
+          <p>
+            Send to advertisers and advertising networks the data needed to
+            create targeted and relevant advertising for you, after your
+            approval;
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            לעמוד בדרישות כל דין, לצרכי הליך משפטי, צווים, לרבות צווי גילוי או
-            בקשת רשות ממשלתית;&nbsp;
+        <li>
+          <p>
+            Comply with any law, for the purposes of legal proceedings, orders,
+            including discovery orders or requests from governmental
+            authorities;
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            לאכוף מדיניות פרטיות זו או את תנאי השימוש שלנו, לרבות במסגרת חקירה
-            של הפרות אפשריות של מדיניות הפרטיות או תנאי השימוש;&nbsp;
+        <li>
+          <p>
+            Enforce this Privacy Policy or the related Terms of Use, including
+            as part of an investigation of potential violations thereof;
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            לגלות, למנוע או לטפל באופן אחר בתרמית, הונאה או בסוגיות אבטחה ובטחון
-            וכן בבעיות טכניות;&nbsp;
+        <li>
+          <p>
+            Detect, prevent, or otherwise address fraud, security or technical
+            issues;
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">להשיב לתביעות, דרישות או טענות;</p>
+        <li>
+          <p>Respond to claims, demands, or allegations;</p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            להגן על הזכויות, הקניין, או על הביטחון האישי של המוסד הרפואי, של
-            לקוחותיה או של הציבור הרחב;&nbsp;
+        <li>
+          <p>Protect our rights, property, or personal safety;</p>
+        </li>
+        <li>
+          <p>
+            Enable a case of change of control in GistMD including by way of
+            merger, acquisition, or purchase of all or a substantial portion of
+            our assets, as long as the acquirer agrees to adhere to the same
+            privacy terms as stated in this declaration; and/or
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            לאפשר מקרה של שינוי שליטה במוסד הרפואי, לרבות בדרך של מיזוג, רכישה,
-            או רכישה של כלל או עיקר נכסיה, כל עוד הרוכש מתחייב לשמור על אותם
-            תנאי פרטיות שבהצהרה זו; ו/או&nbsp;
-          </p>
-        </li>
-        <li dir="rtl">
-          <p dir="rtl">על פי אישור מפורש ממך לפני הגילוי.</p>
+        <li>
+          <p>Based on your explicit consent prior to disclosure.</p>
         </li>
       </ul>
-      <p dir="rtl">
-        למען הסר ספק, המוסד הרפואי רשאי לאסוף, לגלות ולהעביר מידע אנונימי ולא
-        מזהה (להלן, &quot;מידע לא אישי&quot;) לצדדים שלישיים על פי שיקול דעתו
-        הבלעדי.
-      </p>
       <ol start="5">
-        <li dir="rtl">
-          <p dir="rtl">ספקי שירות חיצוניים&nbsp;</p>
+        <li>
+          <p>external service providers</p>
         </li>
       </ol>
       <ul>
-        <li dir="rtl">
-          <p dir="rtl">
-            המוסד הרפואי נעזר בשירותים של ספקי שירות חיצוניים. ייתכן ומידע אישי
-            שלך יועבר לרשות ספקי השירות החיצוניים, אך זאת לצורך אספקת השירותים
-            למוסד הרפואי בלבד. כמו כן, ספקי השירות החיצוניים נדרשים לעמוד
-            בהוראות החוק הרלוונטיות החלות ביחס לעיבוד מידע אישי.&nbsp;
+        <li>
+          <p>
+            GistMD utilizes the services of external service providers. Your
+            personal information may be transferred to these external service
+            providers, but only for the purpose of providing services to the
+            medical institution. Additionally, external service providers are
+            required to comply with relevant legal regulations applicable to the
+            processing of personal information.
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            ספקי השירות החיצוניים עלולים להיות ממוקמים באזורי שיפוט שונים מאזור
-            השיפוט שלך, וייתכן שהחוק החל באזור השיפוט של ספקי השירות החיצוניים
-            מספק הגנה פחותה על מידע אישי מזו שבאזור השיפוט שלך, אולם אנו נשתמש
-            רק בספקי שירות שיכולים לספק אמצעי הגנה נאותים בכדי להבטיח כי המידע
-            האישי שלך מאוחסן ומטופל בצורה מאובטחת.&nbsp;
+        <li>
+          <p>
+            external service providers may be located in jurisdictions different
+            from yours, and it is possible that the laws applicable in the
+            jurisdictions of the external service providers offer less
+            protection for personal information than those in your jurisdiction.
+            However, we only use service providers that can provide adequate
+            protection measures to ensure that your personal information is
+            stored and handled securely.
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            ספקי השירות החיצוניים של המוסד הרפואי כוללים, בין היתר, את השירותים
-            הבאים:&nbsp;
+        <li>
+          <p>
+            GistMD's external service providers include, among others, the
+            following services:
           </p>
           <ul>
-            <li dir="rtl">
-              <p dir="rtl">ג&apos;יסטמד לשם תפעול הפלטפורמה;</p>
+            <li>
+              <p>Google Cloud services;</p>
             </li>
           </ul>
         </li>
       </ul>
       <ol start="6">
-        <li dir="rtl">
-          <p dir="rtl">אתרי אינטרנט של צדדים שלישיים</p>
+        <li>
+          <p>Third-party websites</p>
         </li>
       </ol>
       <ul>
-        <li dir="rtl">
-          <p dir="rtl">
-            קישורים מסוימים בשירותים שלנו יאפשרו לך לעזוב את הפלטפורמה ולהיכנס
-            לאתרים או שירותים שאינם קשורים למוסד הרפואי. בין היתר, ייתכן שאתרים
-            אלו של צדדים שלישיים ישלחו קבצי עוגיות (ראה הגדרה להלן) לדפדפן שלך,
-            וכך ישיגו מידע אישי אודותיך.&nbsp;
+        <li>
+          <p>
+            Certain links in our services may allow you to leave the platform
+            and enter websites or services not associated with GistMD. Among
+            other things, these third-party sites may send cookies (see
+            definition below) to your browser, thereby obtaining personal
+            information about you.
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            המוסד הרפואי אינו נושא באחריות בגין אתרים מקושרים ו/או ביחס למדיניות
-            הפרטיות של השירותים שלהם. כניסתך, שימושך והסתמכותך על אתרים, שירותים
-            ו/או תכנים של צדדים שלישיים וכן כל התקשרות בינך לבין צדדים שלישיים
-            אלה הנה באחריותך והנך הנושא הבלעדי בהוצאות הקשורות בכך. הגישה לאתרים
-            ושירותים אלה ניתנת אך ורק לנוחיותך. הנך מסכים ומאשר כי המוסד הרפואי
-            לא יהא אחראי, במישרין או בעקיפין, לכל נזק או הפסד שנגרמו (או שנטען
-            כי נגרמו), בקשר או כתוצאה משימושך בכל שירות, תוכן, מוצר או מידע אחר
-            הזמין באמצעות אתרים או שירותים אלה (לרבות ביחס לשימוש ולגילוי של
-            מידע אישי שלך על ידי צדדים שלישיים אלו).&nbsp;
+        <li>
+          <p>
+            GistMD is not responsible for linked websites and/or their privacy
+            policies. Your entry, use, and reliance on third-party websites,
+            services, and/or content, as well as any interactions between you
+            and such third parties, are solely at your own risk and you are
+            solely responsible for any associated expenses. Access to these
+            sites and services is provided only for your convenience. You agree
+            and confirm that GistMD will not be directly or indirectly
+            responsible for any damage or loss caused (or alleged to have been
+            caused) in connection with or as a result of your use of any
+            service, content, product, or other information available through
+            these sites or services (including regarding the use and disclosure
+            of your personal information by these third parties).
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            רוב האתרים והשירותים כאמור מספקים מסמכים משפטיים, לרבות תנאי שימוש
-            ומדיניות פרטיות, המסדירים את השימוש בהם (מדובר במדיניות פרטיות שונה
-            ממדיניות פרטיות זו לגבי השימוש והגילוי של מידע אישי שלך על ידך
-            לאתרים של צדדים שלישיים אלו). תמיד רצוי לקרוא מסמכים כאלה בעיון לפני
-            השימוש באתרים אלה ובשירותיהם, בין היתר, על מנת לדעת איזה סוג של מידע
-            הם אוספים.
+        <li>
+          <p>
+            Most of these sites and services provide legal documents, including
+            terms of use and privacy policies, which regulate their use (this
+            refers to a privacy policy different from this privacy policy
+            regarding the use and disclosure of your personal information by you
+            to these third-party sites). It is always advisable to read such
+            documents carefully before using these sites and their services, in
+            part to understand what type of information they collect.
           </p>
         </li>
       </ul>
       <ol start="7">
-        <li dir="rtl">
-          <p dir="rtl">אבטחת מידע&nbsp;</p>
+        <li>
+          <p>Information Security</p>
         </li>
       </ol>
       <ul>
-        <li dir="rtl">
-          <p dir="rtl">
-            אנו משקיעים מאמצים רבים ביישום ובשמירה על אבטחת המידע האישי אודותיך
-            כמשתמש בשירותינו (בין בעצמנו ובין באמצעות קבלת שירותים מצדדים
-            שלישיים שהינם ספקי שירותים מוסמכים). אנו מיישמים נהלים ומדיניות
-            אבטחת מידע כמקובל בתעשייה, וזאת על מנת להבטיח את אבטחת המידע אודותיך
-            ועל מנת למנוע כל שימוש לא מורשה במידע זה. יחד עם זאת, איננו יכולים
-            להתחייב ולערוב לכך שגישה לא מורשית למידע האמור לעולם לא תקרה, ולא
-            נהיה אחראיים לכל גישה לא מורשית כאמור ולתוצאותיה.
+        <li>
+          <p>
+            We invest significant efforts in implementing and maintaining the
+            security of your personal information as a user of our services
+            (both on our own and through obtaining services from third-party
+            service providers who are certified). We implement industry-standard
+            information security procedures and policies to ensure the security
+            of your information and to prevent any unauthorized use of this
+            information. However, we cannot guarantee and ensure that
+            unauthorized access to this information will never occur, and we
+            will not be responsible for any such unauthorized access and its
+            consequences.
           </p>
         </li>
       </ul>
       <ol start="8">
-        <li dir="rtl">
-          <p dir="rtl">קטינים</p>
+        <li>
+          <p>Minors</p>
         </li>
       </ol>
       <ul>
-        <li dir="rtl">
-          <p dir="rtl">
-            על מנת להשתמש בפלטפורמה ו/או בשירותים שלנו עליך להיות מעל גיל שמונה
-            עשרה (18).&nbsp;
+        <li>
+          <p>
+            In order to use our platform and/or services, you must be over the
+            age of eighteen (18).
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            במקרה בהם יובא לידיעתנו כי קטין מתחת לגיל שמונה עשרה (18) משתמש
-            בפלטפורמה ו/או בשירותים, שלא באמצעות הוריו או אפוטרופוס&nbsp;המוסמך
-            לטפל בענייניו הרפואיים, אנו נחסום משתמש זה, ונעשה כל מאמץ על מנת
-            למחוק מיידית כל מידע אישי שנאסף לגביו. לפניות בעניין זה, אנא שלח
-            אימייל לכתובת:&nbsp;
-            <a href="mailto:support@gistmd.com">support@gistmd.com</a> . אנו
-            שומרים על זכותנו לבקש ממך הוכחת גיל בכל שלב, על מנת למנוע איסוף מידע
-            אישי אודות קטינים מתחת לגיל שמונה עשרה (18).&nbsp;
+        <li>
+          <p>
+            In cases where it comes to our attention that a minor under the age
+            of eighteen (18) is using the platform and/or services without the
+            supervision of their parents or a guardian authorized to handle
+            their medical affairs, we will block such a user and make every
+            effort to immediately delete any personal information collected
+            about them. For inquiries regarding this matter, please send an
+            email to:&nbsp;
+            <a href="mailto:support@gistmd.com">support@gistmd.com</a> . We
+            reserve the right to request proof of age at any stage in order to
+            prevent the collection of personal information about minors under
+            the age of eighteen (18)
           </p>
         </li>
       </ul>
       <ol start="9">
-        <li dir="rtl">
-          <p dir="rtl">עוגיות וטכנולוגיות מעקב</p>
+        <li>
+          <p>Cookies and Tracking Technologies</p>
         </li>
       </ol>
       <ul>
-        <li dir="rtl">
-          <p dir="rtl">
-            בעת השימוש בפלטפורמה ו/או בשירותים, אנו או צדדים שלישיים עשויים
-            להשתמש בטכנולוגיה אשר מקובלת בתעשייה ומוכרת כ&quot;עוגיות&quot;
-            (cookies) ו/או טכנולוגיות מעקב אחרות המאחסנות מידע מסוים על המחשב או
-            המכשיר שבאמצעותו אתה נכנס לפלטפורמה שלנו. טכנולוגיות אלו מאפשרות
-            לנו, בין היתר, להפעיל מאפיינים מסוימים של השירותים שלנו באופן
-            אוטומטי, לשפר את חוויית הגלישה והשימוש שלך, להציע לך פרסומות, לאסוף
-            סטטיסטיקות אודות השימוש שלך בפלטפורמה שלנו, לאסוף מידע טכני
-            והתנהגותי (אנונימי) ועוד. המוסד הרפואי ו/או ספקי השירות שלנו, עשויים
-            להשתמש גם בקבצי עוגיות זמניים (אשר יפוגו ברגע שתסגור את הדפדפן) או
-            עוגיות קבועות (אשר נשארות במערכת שלך עד למחיקתן). ניתן לנטרל את
-            טכנולוגיות מעקב אלו. למשל, מרבית דפדפני האינטרנט מאפשרים למשתמשים
-            למחוק עוגיות ממכשיר המשתמש, לחסום קבלה של עוגיות או לקבל התראות לפני
-            אחסונן של עוגיות.
+        <li>
+          <p>
+            When using our platform and/or services, we or third parties may use
+            an industry-accepted technology known as "cookies" and/or other
+            tracking technologies that store certain information on your
+            computer or device when you access our platform. These technologies
+            allow us, among other things, to automatically activate certain
+            features of our services, improve your browsing and usage
+            experience, offer you advertisements, collect statistics about your
+            use of our platform, collect technical and behavioral (anonymous)
+            information, and more. GistMD and/or our service providers may use
+            session cookies (which expire when you close your browser) or
+            persistent cookies (which remain on your system until you delete
+            them). These tracking technologies can be disabled. For example,
+            most web browsers allow users to delete cookies from their device,
+            block the receipt of cookies, or receive warnings before storing
+            cookies.
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            עם זאת, שים לב כי אם תמחק את טכנולוגיות המעקב או לא תאפשר את אחסונן
-            ו/או אם תשנה את מאפייני ה-Flash, החוויה המקוונת שלך בעת השימוש
-            בשירותים שלנו תהיה מוגבלת.
+        <li>
+          <p>
+            However, be aware that if you delete tracking technologies or do not
+            allow their storage and/or if you change the settings of Flash
+            features, your online experience while using our services will be
+            limited
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            על פי רוב, טכנולוגיות מעקב של צדדים שלישיים שומרות מידע לא אישי,
-            כגון דפי האינטרנט בהם ביקרת, משך החיפוש שלך וכיוצא בזאת. תוכל לרוב
-            למצוא הוראות במדיניות הפרטיות או בתנאי השימוש של צדדים שלישיים בכדי
-            לבצע פעולות בנוגע לאפשרויות המעקב שלהם.
+        <li>
+          <p>
+            Generally, third-party tracking technologies store non-personal
+            information, such as the web pages you visited, the duration of your
+            search, and the like. You can usually find instructions in the
+            privacy policy or terms of use of third parties on how to manage
+            their tracking options.
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            לקבלת הוראות מפורטות בנוגע לחסימת קבצי עוגיות, אנא עיין בסעיף
-            &apos;עזרה&apos; של הדפדפן בו אתה משתמש, או בקר בכתובת
+        <li>
+          <p>
+            For detailed instructions on blocking cookies, please see the 'Help'
+            section of the browser you are using, or visit
             <br />
             <a href="http://www.allaboutcookies.org/manage-cookies">
               http://www.allaboutcookies.org/manage-cookies
@@ -553,35 +604,35 @@ function PrivacyText() {
             .
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            בקישורים הבאים תוכל למצוא הנחיות בנוגע לחסימת קבצי עוגיות בדפדפני
-            אינטרנט נפוצים:
+        <li>
+          <p>
+            In the following links, you can find instructions for blocking
+            cookies in common web browsers:
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
+        <li>
+          <p>
             <a href="https://support.google.com/chrome/answer/95647?hl=en">
               Chrome
             </a>
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
+        <li>
+          <p>
             <a href="http://windows.microsoft.com/en-us/windows-vista/block-or-allow-cookies">
               Internet Explorer and Microsoft Edge
             </a>
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
+        <li>
+          <p>
             <a href="https://support.mozilla.org/en-US/kb/cookies-information-websites-store-on-your-computer">
               Mozilla Firefox
             </a>
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
+        <li>
+          <p>
             <a href="https://support.apple.com/kb/PH19214?locale=en_US">
               Safari
             </a>
@@ -589,106 +640,154 @@ function PrivacyText() {
         </li>
       </ul>
       <ol start="10">
-        <li dir="rtl">
-          <p dir="rtl">דיוור ישיר, דבר פרסומת ושליחת הודעות</p>
+        <li>
+          <p>Direct Mailing, Advertising, and Messaging</p>
         </li>
       </ol>
       <ul>
-        <li dir="rtl">
-          <p dir="rtl">
-            הנך מסכים לכך שנשתמש בפרטים שלך אשר נמסרו לנו מרצונך, כדי שניידע
-            אותך אודות שירותי המוסד הרפואי, מידע שיווקי ו/או פרסומי (לרבות מסרים
-            פרסומיים לפי חוק התקשורת (בזק ושידורים), התשמ&quot;ב&ndash;1982),
-            הטבות ואודות שירותים של צדדים שלישיים שהינם שותפים עסקיים של המוסד
-            הרפואי, אשר יועברו אלייך באמצעות דואר, טלפון, דואר אלקטרוני, SMS,
-            &nbsp;הודעות פוש, הודעות WhatsApp או בכל אופן מקוון אחר.&nbsp;
+        <li>
+          <p>
+            You agree that we may use the details you have provided to us
+            voluntarily to inform you about GistMD's services, marketing and/or
+            advertising information (including promotional messages under the
+            Communication Law (Telecommunications and Broadcasting), 1982),
+            benefits, and about services of third parties who are business
+            partners of GistMD, which will be sent to you via mail, telephone,
+            email, SMS, push notifications, WhatsApp messages, or any other
+            online means.
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            באפשרותך לחזור בך מהסכמתך באמצעות משלוח הודעה לכתובת הדואר
-            האלקטרוני&nbsp;
-            <a href="mailto:support@gistmd.com">support@gistmd.com</a> ,
-            ולחילופין למלא אחר ההוראות להסרה מרשימת הדיוור, אשר מופיעות בהודעות
-            הנשלחות אליך. הינך מאשר כי המוסד הרפואי הודיעה לך כי הנך יכול לסרב
-            לקבל דברי פרסומת כאמור.
+        <li>
+          <p>
+            You can withdraw your consent by sending a message to the email
+            address
+            <a href="mailto:support@gistmd.com">support@gistmd.com</a> , or
+            alternatively by following the unsubscribe instructions that appear
+            in the messages sent to you. You acknowledge that GistMD has
+            informed you that you may refuse to receive such advertisements.
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            אתה יכול לבטל את האפשרות לקבל הודעות פוש מאיתנו באמצעות שינוי הגדרות
-            הדפדפן שלך או באמצעות שינוי ההגדרות במערכת ההפעלה של המכשיר ממנו אתה
-            משתמש בשירותינו.&nbsp;
+        <li>
+          <p>
+            You can opt out of receiving push notifications from us by changing
+            your browser settings or through the operating system settings on
+            the device you use to access our services.
           </p>
         </li>
       </ul>
       <ol start="11">
-        <li dir="rtl">
-          <p dir="rtl">העברת מידע אישי אל מחוץ לישראל</p>
+        <li>
+          <p>Transfer of Personal Information </p>
         </li>
+        <p>
+          GistMD is committed to the secure handling of your personal
+          information, in accordance with the Health Insurance Portability and
+          Accountability Act (HIPAA) and other applicable US data protection
+          laws.{" "}
+        </p>
       </ol>
       <ul>
-        <li dir="rtl">
-          <p dir="rtl">
-            המוסד הרפואי רשאי להעביר מישראל מידע שנאסף אודותיך, לרבות מידע אישי,
-            לגופים קשורים או לספקי שירות צד שלישי (כמפורט במסמך זה) אשר עשויים
-            להיות מצויים במדינות אחרות בעולם. לתשומת לבך, המוסד הרפואי רשאית
-            להעביר מידע אישי גם למדינה ולסמכות שיפוט שמחילה חוקי הגנת מידע
-            המספקים הגנה פחותה מזו הקבועה בדין בישראל, והינך מסכים להעברת מידע
-            זה.&nbsp;
+        <li>
+          <p>
+            GistMD is committed to the secure handling of your personal
+            information, in accordance with the Health Insurance Portability and
+            Accountability Act (HIPAA) and other applicable US data protection
+            laws
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            ככלל, אנו עושים מאמצים כדי שהמידע האישי שלך יאוחסן רק בישראל, באיחוד
-            האירופי או בארה&quot;ב, אך בכל אופן, בכל העברת מידע אישי מחוץ
-            לישראל, אנו נוקטים באמצעי ההגנה הקבועים בדין הישראלי לעניין העברת
-            מידע מחוץ לגבולות המדינה, וזאת על מנת להבטיח כי המידע שלך נשמר
-            מאובטח בכל עת.
+        <li>
+          <p>
+            Transfers to Third Parties and Internationally: GistMD may transfer
+            personal information collected about you to affiliated entities or
+            to third-party service providers who assist us with providing our
+            services. These entities may be located in different jurisdictions
+            around the world, including in the United States.
+          </p>
+        </li>
+        <li>
+          <p>
+            Compliance with US Privacy Laws and HIPAA: When transferring
+            personal information, GistMD ensures that such transfers comply with
+            all relevant US privacy laws and the specific protections required
+            under HIPAA, which governs the use and disclosure of Protected
+            Health Information (PHI).
+          </p>
+        </li>
+        <li>
+          <p>
+            Adequacy of Protection: GistMD will only transfer personal
+            information to countries or jurisdictions that offer an adequate
+            level of data protection, as recognized by US law. In cases where
+            the country to which the data is transferred does not provide an
+            equivalent level of data protection, GistMD will use contracts, such
+            as Data Protection Agreements that include the Standard Contractual
+            Clauses (SCCs) approved by the US Department of Commerce, or rely on
+            other mechanisms approved by relevant US authorities, to ensure the
+            data is adequately protected.
+          </p>
+        </li>
+        <li>
+          <p>
+            Data Security Measures: Irrespective of location, GistMD applies
+            robust security measures consistent with US data protection laws and
+            HIPAA requirements to protect personal information against
+            unauthorized access, alteration, disclosure, or destruction. These
+            measures include, but are not limited to, encryption, physical
+            security, and strict access controls.
+          </p>
+        </li>
+        <li>
+          <p>
+            Your Consent and Rights: Your consent to the transfer of your
+            personal information as described in this clause will be explicitly
+            obtained. You retain the right to withdraw consent at any time and
+            request further information on the specific safeguards used for
+            transfers by contacting us at [insert contact method].
           </p>
         </li>
       </ul>
       <ol start="12">
-        <li dir="rtl">
-          <p dir="rtl">שינויים במדיניות הפרטיות</p>
+        <li>
+          <p>Changes to the Privacy Policy</p>
         </li>
       </ol>
       <ul>
-        <li dir="rtl">
-          <p dir="rtl">
-            אנו&nbsp;שומרים על הזכות לשנות מדיניות פרטיות זו בכל זמן, ומבקשים כי
-            תשוב ותבקר בדף זה לעיתים קרובות ככל הניתן. אנו נודיע לכלל המשתמשים
-            בפלטפורמה ו/או בשירותים על כל שינוי מהותי בתנאי מדיניות פרטיות זו
-            בדף הבית של אתר האינטרנט שלנו&nbsp;
-            <a href="https://he.gistmd.com/">https://he.gistmd.com/</a> ו/או
-            נשלח הודעת דואר אלקטרוני בנוגע לשינויים כאמור.&nbsp;
+        <li>
+          <p>
+            We reserve the right to modify this privacy policy at any time, and
+            request that you revisit this page as often as possible. We will
+            notify all users on the platform and/or services of any substantial
+            changes to the terms of this privacy policy on the homepage of our
+            website
+            <a href="https://he.gistmd.com/">https://he.gistmd.com/</a> and/or
+            will send an email regarding such changes.
           </p>
         </li>
-        <li dir="rtl">
-          <p dir="rtl">
-            שינויים מהותיים במדיניות הפרטיות ייכנסו לתוקף שבעה (7) ימים לאחר
-            שהודעה נמסרה באתר שלנו או נשלחה בדואר אלקטרוני ככל שהדבר רלוונטי,
-            לפי המוקדם. כל שאר השינויים במדיניות הפרטיות ייכנסו לתוקף בתאריך
-            העדכון האחרון של מדיניות פרטיות זו, והמשך השימוש בשירותינו לאחר
-            תאריך העדכון האחרון יהווה הסכמתך לכך שהשינויים יחייבו אותך. במידה
-            שמדיניות הפרטיות תתוקן בכדי להיענות לכל דרישה חוקית, התיקונים עשויים
-            להיכנס לתוקף באופן מיידי, או כפי שנדרש על פי הדין, וללא כל הודעה
-            מוקדמת.
+        <li>
+          <p>
+            Substantial changes to the privacy policy will take effect seven (7)
+            days after the notice is posted on our site or sent by email,
+            whichever is earlier. All other changes in the privacy policy will
+            take effect on the latest update date of this privacy policy, and
+            your continued use of our services after the latest update date will
+            constitute your agreement that the changes apply to you. If the
+            privacy policy is amended to comply with any legal requirement, the
+            amendments may take effect immediately, or as required by law,
+            without any prior notice.
           </p>
         </li>
       </ul>
       <ol start="13">
-        <li dir="rtl">
-          <p dir="rtl">שאלות ודיווח על פגיעה בפרטיותך:&nbsp;</p>
+        <li>
+          <p>Questions and Reporting Privacy Violations:</p>
         </li>
       </ol>
-      <p dir="rtl">
-        אם יש לך שאלות כלשהן, או הערות אחרות בנוגע למדיניות פרטיות זו, או אם אתה
-        סבור שפרטיותך נפגעה במהלך השימוש בשירותינו, אנא פנה אלינו באמצעות כתובת
-        הדוא&quot;ל:&nbsp;
-        <a href="mailto:support@gistmd.com">support@gistmd.com</a> או באמצעות
-        משלוח מכתב לכתובתנו:רחוב ויצמן 6, תל אביב. אנו נעשה את מירב המאמצים
-        לחזור אליך תוך זמן סביר.
+      <p>
+        If you have any questions, comments about this privacy policy, or if you
+        believe your privacy has been compromised during the use of our
+        services, please contact us at the email address:
+        <a href="mailto:support@gistmd.com">support@gistmd.com</a> We will make
+        every effort to respond to you within a reasonable time.
       </p>
     </Wrapper>
   );
@@ -699,5 +798,11 @@ export default PrivacyText;
 const Wrapper = styled.div`
   padding-inline: 2.4rem;
   text-align: start;
-  direction: rtl;
+`;
+const Paragraph = styled.p`
+  font-size: 1rem;
+  font-weight: 400;
+`;
+const BoldParagraph = styled(Paragraph)`
+  font-weight: 500;
 `;

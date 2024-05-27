@@ -12,6 +12,7 @@ const testingNumbers = [
   "0584236373",
   "0524084538",
   "0544659401",
+  "0512399319",
 ];
 
 module.exports.send = async ({ message, phoneNumber }) => {

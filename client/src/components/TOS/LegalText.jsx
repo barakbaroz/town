@@ -12,455 +12,582 @@ function LegalText() {
 
   return (
     <Wrapper id="LegalTextWrapper">
-      <Title>תנאי שימוש</Title>
+      <Title>GistMD Terms of Use</Title>
       <Paragraph>
-        המרכז הרפואי ת&quot;א (להלן, ביחד: &quot;המוסד הרפואי&quot; או
-        &quot;אנחנו&quot;) מברך אותך, המטופל, או מי מטעמך (לדוג&apos;: הורה או
-        אפוטרופוס) (להלן: &quot;המשתמש(ים)&quot; או &quot;אתה&quot;), לפלטפורמה
-        האינטרנטית שלנו המיועדת לסיוע בהכנה לפרוצדורות רפואיות ולטיפול משלים להן
-        (להלן: &quot;הפלטפורמה&quot;). מטרת הפלטפורמה היא, בין היתר, לספק תכני
-        הדרכה מותאמים אישית (כפי שיפורט בהמשך) לקראת הפרוצדורה הרפואית שעל
-        המשתמש לעבור במוסד הרפואי (להלן: &quot;ההליך הרפואי&quot;). הפלטפורמה
-        מסופקת ונתמכת על ידי חברת ג&apos;יסט מד בע&quot;מ
-        (&quot;ג&apos;יסטמד&quot; או &quot;החברה&quot;, כמפורט בסעיף &rlm;13
-        שלהלן).
+        Gist Med Ltd. and its affiliates (collectively, “GistMD”, “Company”,
+        “we”, “our” or ”us”) welcome you , the patient and/or a designated
+        representative (the “Patient(s)” or “User(s)” or “you”) to our digital
+        Platform aimed to educate and engage the Patients along their care
+        journey (the “Platform”). The Platform serves as an assisting tool and
+        offers personalized educational and engagement tools and related
+        services (collectively, our “Services”, as further detailed below). The
+        terms and conditions hereunder are the terms and conditions for the
+        usage of the Platform
       </Paragraph>
-      <SubTitle>הסכמה לתנאים</SubTitle>
+      <SubTitle>Acceptance of the Terms</SubTitle>
       <Paragraph>
-        בכניסתך, התחברותך או שימושך בפלטפורמה, הנך מאשר כי קראת והבנת את תנאי
-        השימוש הבאים, לרבות התנאים של מדיניות הפרטיות שלנו המופיעים:
+        By connecting to, and accessing the Platform on your device, you
+        acknowledge that you have read and understood the following terms of
+        use, including the terms of our Privacy Policy available at{" "}
         <Link to="../Privacy" onClick={handlePrivacyClick}>
-          כאן
+          Privacy Policy
         </Link>{" "}
-        (ביחד, &quot;התנאים&quot;), כי התנאים יחייבו אותך וכי תעמוד בכל החוקים
-        והתקנות החלים על השימוש שלך בפלטפורמה ואתה מכיר בכך שתנאים אלה מהווים
-        חוזה משפטי וניתן לאכיפה בינינו לבינך.&nbsp;אם אינך מסכים לאי אילו מתנאי
-        השימוש המפורטים להלן, הנך מחויב, באופן מיידי, להימנע מכניסה, מהתחברות או
-        משימוש בפלטפורמה, בכל אופן.&nbsp;התנאים כתובים בלשון זכר מטעמי נוחות
-        בלבד ומיועדים לכל המינים.
+        (collectively, the “Terms”) and you agree to be bound by them and to
+        comply with all applicable laws and regulations regarding your use of
+        our Platform and you acknowledge that these Terms constitute a binding
+        and enforceable legal contract between the Company and you
+        <BoldParagraph>
+          IF YOU DO NOT AGREE TO THESE TERMS, OR IF YOU DO NOT POSSESS THE LEGAL
+          CAPACITY TO ENTER INTO THESE TERMS, PLEASE DO NOT ENTER TO, CONNECT
+          TO, ACCESS OR USE OUR PLATFORM IN ANY MANNER.{" "}
+        </BoldParagraph>
+        The Platform and/or Services are available only to individuals who (a)
+        are at least eighteen (18) years old; and (b) possess the legal capacity
+        to enter into these Terms (on behalf of themselves and their
+        organization) and to form a binding agreement under any applicable law.
+        You hereby represent that you possess the legal authority to enter into
+        these Terms on your and your organization's behalf and to form a binding
+        agreement under any applicable law, to use the Platform and/or Services
+        in accordance with these Terms, and to fully perform your obligations
+        hereunder
       </Paragraph>
-      <SubTitle>הפלטפורמה</SubTitle>
+      <SubTitle>The Platform and Services</SubTitle>
       <Paragraph>
-        במידה והמטופל הרלוונטי עבורו נעשה שימוש בפלטפורמה אינו מסוגל ו/או כשיר
-        לקרוא ולקבל תנאים אלו, לרבות מטופלים בני פחות משמונה-עשרה (18): בכניסתך,
-        התחברותך, שימושך בפלטפורמה ו/או בשירותים (כהגדרתם להלן), הנך מאשר כי אתה
-        משמש כאפוטרופוס המוסמך על פי דין לקבל עליו את תנאים אלו בשם משתמש
-        הפלטפורמה, לרבות וללא מגבלה לעניין מסירת וקבלת מידע רפואי על אודות
-        המשתמש.&nbsp; הפלטפורמה זמינה ליחידים שהם (א) מעל גיל שמונה-עשרה (18);
-        ו-(ב) בעלי כשירות משפטית לקבל עליהם את התנאים ולכרות הסכם מחייב לפי כל
-        דין או שהאפוטרופוס המוסמך אישר וקיבל עבורם את התנאים. לפיכך, הנך מאשר כי
-        אתה בעל הסמכות הנדרשת לקבל עליך את התנאים, ולכרות הסכם מחייב תחת כל דין,
-        להשתמש בפלטפורמה לאור התנאים ולהוציא לפועל את חובותיך להלן.&nbsp;
-        הפלטפורמה מאפשרת מעורבות במסעו הטיפולי של המשתמש, במסגרת ההליך הרפואי
-        אותו עבר (או שהוא מתעתד לעבור) במוסד הרפואי, ולקבל תכני הדרכה מותאמים
-        אישית, כגון הנחיות לביצוע ההליך הרפואי (לדוג&apos;: זמני צום, שימוש
-        בתרופות לפני או אחרי ההליך הרפואי ועוד) סרטונים, מסמכים, הנחיות, עיון
-        מקדים בטופס הסכמה מדעת וכיו&quot;ב (להלן, ביחד: &quot;תכני
-        ההדרכה&quot;), ולשתף תכנים אלה עם אחרים, במטרה לסייע למשתמש ו/או אדם
-        מטעמו להיערך להליך הרפואי. למען הסר ספק, תכני ההדרכה (לרבות הסרטונים)
-        אינם מכילים מידע אישי של המטופל, אולם הם מותאמים אישית לטיפול הרפואי
-        הספציפי ומצבו הרפואי האישי של המשתמש, כפי שיפורט להלן.&nbsp; המשתמש יקבל
-        גישה לפלטפורמה באמצעות הודעת טקסט או דואר-אלקטרוני שתישלח מהמוסד הרפואי
-        או מי מטעמו, לפי פרטי הקשר שסופקו על ידי המשתמש או בני משפחתו, ושמכילה
-        קישורית (לינק) לפלטפורמה. שים לב שההודעה והקישורית כאמור הינן אישיות
-        ואינן ניתנות להעברה לאחר. בכניסתו לפלטפורמה, המשתמש עשוי להידרש לספק
-        מידע מסוים על אודותיו, לרבות על אודות מצבו הבריאותי, באמצעות שאלון רפואי
-        ייעודי (להלן: &quot;השאלון&quot;). באמצעות מידע שקיים בתיקים הרפואיים של
-        המוסד הרפואי ובהתאם למידע שהוזן בשאלון, הפלטפורמה תספק תכני הדרכה
-        מותאמים אישית למטופל. כמו-כן, ייתכן והפלטפורמה תאפשר העלאת מסמכים
-        רלוונטיים, כגון אישורים רפואיים, זימונים וכיו&quot;ב.&nbsp; הפלטפורמה
-        עשויה לכלול פונקציונאליות נוספת, לרבות תזכורות שישלחו למשתמש באמצעים
-        שונים (למשל הודעות פוש, SMS וכיו&quot;ב) ויצירת קשר עם הצוות הרפואי
-        הרלוונטי.
+        The Platform enables Patients to engage in their therapeutic journey
+        within the medical process they have undergone (or intend to undergo) at
+        a medical institution, or in the context of disease management, and to
+        receive personalized Educational content such as guidelines for
+        performing medical procedures (e.g., fasting times, pre- or
+        post-procedure medication use, etc.), videos, documents, guidelines,
+        pre-review of informed consent forms, and similar materials (hereinafter
+        collectively referred to as "Educational Content"), and to share these
+        contents with others, with the aim of assisting the Patient and/or a
+        designated representative to prepare for the medical procedure. For
+        clarification, the Educational Content, including videos, does not
+        contain personal identifiable information of the patient but is
+        customized to the specific medical treatment and the therapeutic data as
+        input by the medical and/or administrative staff of the medical
+        institution and personal medical data of the patient as provided by the
+        patient in response to a questionnaire, as detailed below. The patient
+        shall gain access to the Platform via a text message or a message in a
+        messaging application or an email sent by the medical institution or its
+        representative, according to the contact details provided by the patient
+        or their family, which contains a link (URL) to the Platform. Note that
+        the message and the link are personalized and are not transferable to
+        others. Upon entering the Platform, the patients may be required to
+        provide certain information about themselves, including their health
+        status, through a designated medical questionnaire ( the
+        "Questionnaire"). Based on the information entered in the Questionnaire,
+        the therapeutic information provided by the medical and/or
+        administrative staff of the medical institution, and the type of medical
+        test/procedure the patient is to undergo, the Platform will provide
+        personalized Educational Content for the patient. Additionally, the
+        Platform may enable the uploading of relevant documents, such as medical
+        certificates, summons, and the like. The Platform may include additional
+        functionalities, including reminders sent to the patient through various
+        means (e.g., push notifications, SMS, etc.) and communication with the
+        relevant medical team
       </Paragraph>
-      <BoldParagraph>לתשומת לבך:</BoldParagraph>
+      <BoldParagraph>Please note:</BoldParagraph>
       <ol>
         <li>
-          <BoldParagraph>
-            אתה עשוי להעלות מסמכים ו/או מידע אחר לפלטפורמה. יובהר כי הפלטפורמה
-            אינה מיועדת לשמירת מידע, רפואי או אחר, ואיננו מתחייבים כי מסמכים
-            שתעלה לפלטפורמה ו/או מידע שתזין לפלטפורמה במסגרת השאלון או בכלל,
-            יהיו זמינים לך, בין אם בזמן שימושך בפלטפורמה ובכלל. באחריותך לוודא
-            שאתה שומר עותק גיבוי של כל מידע ומסמך שיועלה על ידך למערכת. המוסד
-            הרפואי ו/או ג&apos;יסטמד לא תישאנה בכל אחריות בנוגע לאבדן או היעדר
-            גישה למידע ו/או מסמכים כאמור.&nbsp;
-          </BoldParagraph>
+          You may upload documents and/or other information to the Platform. It
+          is clarified that the Platform is not intended for the storage of
+          information, medical or otherwise, and we do not guarantee that
+          documents you upload to the Platform and/or information you input into
+          the Platform, whether through the questionnaire or otherwise, will be
+          available to you, whether during your use of the Platform or
+          thereafter. It is your responsibility to ensure that you maintain a
+          backup copy of any information and documents that you upload to the
+          system. The medical institution and/or GistMD will not be liable for
+          any loss of or lack of access to such information and/or documents
+        </li>
+        <li>
+          All information collected or provided by you through the Platform will
+          be used solely for the purpose of personalizing Educational Content
+          for you within the Platform itself. For the avoidance of doubt, this
+          information is not stored in the general records, is not transferred
+          to the medical institution, and is not recorded in your medical file.
+          Should there be any change in your medical condition, you are required
+          to update your treating physician and/or the relevant medical team as
+          soon as possible
         </li>
         <li>
           <BoldParagraph>
-            כל מידע אשר נאסף או נמסר על ידך במסגרת הפלטפורמה ישמש לצורך התאמה
-            אישית של תכני ההדרכה עבורך, וזאת בתוך הפלטפורמה בלבד. למען הסר ספק,
-            מידע זה אינו נשמר ברשומות כללית, אינו מועבר למוסד הרפואי ואינו נרשם
-            בתיקך הרפואי. בכל שינוי במצבך הרפואי, הנך נדרש לעדכן, ישירות, את
-            הרופא המטפל שלך ו/או את הצוות הרפואי הרלוונטי, וזאת בהקדם האפשרי.
-          </BoldParagraph>
-        </li>
-        <li>
-          <BoldParagraph>
-            זוהי אחריותך הבלעדית לוודא שכל המידע שהזנת בשאלון ו/או כל מידע אחר
-            אותו אתה נדרש לשם שימוש בפלטפורמה הוא מדויק ומלא, וכי הכללית ו/או
-            ג'יסטמד אינם אחראיים לכל נזק או טענה אשר עשויה לנבוע כתוצאה מהזנת
-            מידע חלקי, שגוי או שאינו מדויק בתכני ההדרכה, בשאלון ו/או בפלטפורמה
-            בכלל.{" "}
+            It is your sole responsibility to ensure that all information you
+            provide in the questionnaire and/or any other information required
+            for the use of the Platform is accurate and complete. Neither the
+            medical institution nor GistMD shall be liable for any damage or
+            claim that may arise from the entry of incomplete, incorrect, or
+            inaccurate information into the Educational Content, the
+            questionnaire, and/or the Platform at large
           </BoldParagraph>
         </li>
       </ol>
       <Paragraph>
-        אנו עשויים לדרוש, בכניסתך ושימושך בפלטפורמה, פרטי הזדהות מסוימים. עליך
-        לספק לנו מידע מלא, מדויק ונכון, והנך מסכים בזאת כי לא תציג שלא כהלכה את
-        זהותך או כל פרט אחר במסגרת זו. היה וסברנו כי נכנסת לפלטפורמה באמצעות
-        פרטי זיהוי של אדם אחר, או אם מסרת פרטים שגויים במסגרת כניסתך לפלטפורמה,
-        הרי שבכך אתה חושף את עצמך לאחריות פלילית ו/או אזרחית. הפלטפורמה כוללת,
-        בין היתר, מידע ליצירת קשר, וידאו, מלל, קבצים, לוגואים, אייקונים, תמונות,
-        מאגרי נתונים, קישורים, תוכן מיוחד אחר, נתונים טכניים, מסמכים, ידע,
-        מפרטים, עיצובים, נתונים, "המראה והתחושה" של הפלטפורמה, אלגוריתמים, קוד
-        מקור וקוד יעד, ממשקים, GUI, גרפיקה הקשורה לתכונות אינטראקטיביות, איורים,
-        רישומים, אנימציות ותכונות אחרות המתקבלות על ידי או דרך הפלטפורמה, לרבות
-        תכני ההדרכה והשאלון (ביחד, "התכנים"). כל השירותים המוצעים באמצעות
-        הפלטפורמה יכונו בתנאים אלה ביחד "השירותים".
+        Upon your entry and use of the Platform, we may require certain
+        identification details. You must provide us with complete, accurate, and
+        truthful information, and you hereby agree not to misrepresent your
+        identity or any other details in this context. If we determine that you
+        have accessed the Platform using someone else's identification details,
+        or if you have provided incorrect details upon entry to the Platform,
+        you are exposing yourself to criminal and/or civil liability. The
+        Platform includes, among other things, contact information, videos,
+        text, files, logos, icons, images, databases, links, other specialized
+        content, technical data, documents, knowledge, specifications, designs,
+        data, the "look and feel" of the Platform, algorithms, source code and
+        object code, interfaces, GUI, graphics related to interactive features,
+        illustrations, drawings, animations, and other features accessed by or
+        through the Platform, including the Educational Content and the
+        questionnaire (collectively referred to as the "Content"). All services
+        offered through the Platform shall be collectively referred to as the
+        "Services" under these terms
       </Paragraph>
       <Border>
         <BoldParagraph>
-          המשתמש מאשר כי ידוע לו שכל השירותים במסגרת הפלטפורמה עשויים להיגזר
-          מנסיבות ספציפיות הטעונות בדיקה פיסית ו/או מהמידע שהמשתמש סיפק במסגרת
-          השאלון ו/או לרופא המטפל ו/או מבירורים רפואיים הקשורים להליך הרפואי.
-          לפיכך, כללית ו/או ג'יסטמד אינם אחראיים לתכנים, לרבות תכני הדרכה,
-          שהושפעו או נוצרו על בסיס מידע שגוי ו/או כוזב ו/או שאינו מדויק ו/או
-          שאינו מלא, שהמשתמש סיפק למוסד הרפואי, לרבות אך לא רק במסגרת בדיקות
-          רפואיות ו/או הפלטפורמה ו/או השאלון ו/או בכל התקשרות אחרת עם כללית.
-          באחריותו הבלעדית של המשתמש לוודא שכל המידע שהוא מספק למוסד הרפואי,
-          לרבות וללא מגבלה באמצעות השאלון ו/או הפלטפורמה, הינו נכון ומדויק.
-          המשתמש מאשר כי ידוע לו שהפלטפורמה משמשת לעזר ונוחות בלבד וייתכן
-          שהפלטפורמה לא תכלול את כל המידע ו/או האבחנות ו/או העצות הרפואיות
-          הרלוונטיות. כמו כן, הפלטפורמה מיועדת לשימוש ביחס להליכים הרפואיים
-          הספציפיים המוגדרים בה - מובהר בזאת כי אין להסתמך על הפלטפורמה ו/או
-          השירותים ו/או התכנים ו/או תכני ההדרכה ביחס לפרוצדורה רפואית ו/או כל
-          עניין רפואי אחר שאינו נכלל במפורש ובצורה פרטנית בשירותים שהפלטפורמה
-          מספקת ושלא ביחס למטופל אשר עבורו הופקו התכנים במסגרת הפלטפורמה. מבלי
-          לגרוע מכלליות האמור, כל התכנים (לרבות תכני ההדרכה), הניתנים במסגרת
-          השירותים, יהיו רלוונטיים למועד מתן התכנים כאמור, והם אינם מהווים תחליף
-          לייעוץ רפואי כללי. באחריותו הבלעדית של המשתמש להתייעץ עם גורם רפואי
-          מוסמך ולפעול בהתאם להמלצת הרופא המטפל בכל עניין רפואי. בכל מקרה בו
-          המשתמש חש בהחמרת המצב הרפואי עליו לפנות מיידית לקבלת עזרה רפואית. אם
-          הנך האפוטרופוס של נושא ההליך הרפואי (המטופל), לרבות הורה למטופל שהוא
-          קטין בן פחות משמונה עשרה, הנך מאשר בזאת כי אתה: (א) האפוטרופוס המוסמך
-          לטפל בענייניו הרפואיים של המטופל בכל הקשור לשימוש בפלטפורמה זו; (ב)
-          אחראי לספק, במקרה הצורך, את המידע הרפואי הנכון והמדויק לגבי המטופל,
-          בהתאם לדרישותינו בתנאים אלה; ו-(ג) מקבל ומאשר בזאת את תנאי השימוש,
-          לרבות את מדיניות הפרטיות שלנו. הפלטפורמה עשויה לאפשר למשתמש לשתף תכני
-          הדרכה ומידע מתוך הפלטפורמה עם גורמים שלישיים, באמצעים שונים. כל שיתוף
-          כאמור של תכנים אלה הינו באחריותו הבלעדית של המשתמש, ואנחנו ו/או
-          ג'יסטמד לא נהיה אחראים לכל נזק או אובדן שייגרמו למשתמש או לכל אדם אחר
-          כתוצאה או בקשר עם כל שיתוף של תכנים אלה עם גורמים שלישיים. יובהר כי,
-          על אף שתכני ההדרכה הינם אנונימיים, שיתופם עם צדדים שלישיים עשוי לקשר
-          תכנים אלה עם פרטיו האישיים של המשתמש. בין הצדדים לתנאים אלו, כל
-          הזכויות בתכנים הזמינים בפלטפורמה, לרבות תכני ההדרכה, שמורות לכללית או
-          לג'יסטמד. השירותים, התכנים ו/או תכני ההדרכה הזמינים בה ניתנים "כמו
-          שהם" ("AS-IS").
+          THE PATIENT ACKNOWLEDGES THAT ALL SERVICES PROVIDED WITHIN THE
+          PLATFORM MAY BE DERIVED FROM SPECIFIC CIRCUMSTANCES THAT REQUIRE
+          PHYSICAL EXAMINATION AND/OR FROM INFORMATION PROVIDED BY THE PATIENT
+          THROUGH THE QUESTIONNAIRE, TO THE TREATING PHYSICIAN, OR FROM MEDICAL
+          INQUIRIES RELATED TO THE MEDICAL PROCEDURE. THEREFORE, THE MEDICAL
+          INSTITUTION AND/OR JUSTMED ARE NOT RESPONSIBLE FOR THE CONTENT,
+          INCLUDING EDUCATIONAL CONTENT, THAT IS INFLUENCED OR CREATED BASED ON
+          INCORRECT, FALSE, INCOMPLETE, OR INACCURATE INFORMATION PROVIDED BY
+          THE Patient TO THE MEDICAL INSTITUTION, INCLUDING BUT NOT LIMITED TO
+          THROUGH MEDICAL TESTS, THE PLATFORM, THE QUESTIONNAIRE, OR ANY OTHER
+          INTERACTION WITH THE MEDICAL INSTITUTION. IT IS THE PATIENT’S SOLE
+          RESPONSIBILITY TO ENSURE THAT ALL INFORMATION PROVIDED TO THE MEDICAL
+          INSTITUTION, INCLUDING THROUGH THE QUESTIONNAIRE AND/OR THE PLATFORM,
+          IS CORRECT AND ACCURATE. THE PATIENT CONFIRMS THAT THEY UNDERSTAND THE
+          PLATFORM IS INTENDED AS A TOOL FOR CONVENIENCE ONLY AND MAY NOT
+          INCLUDE ALL RELEVANT MEDICAL INFORMATION, DIAGNOSES, OR ADVICE. THE
+          PLATFORM IS INTENDED FOR USE RELATED TO SPECIFIC MEDICAL PROCEDURES
+          DEFINED THEREIN—IT IS EXPLICITLY CLARIFIED THAT THE PLATFORM AND/OR
+          SERVICES AND/OR CONTENT AND/OR EDUCATIONAL CONTENT SHOULD NOT BE
+          RELIED UPON FOR MEDICAL PROCEDURES OR ANY OTHER MEDICAL MATTERS NOT
+          EXPLICITLY AND SPECIFICALLY INCLUDED IN THE SERVICES PROVIDED FOR A
+          PATIENT FOR WHOM THE CONTENT IS PRODUCED. WITHOUT LIMITING THE
+          GENERALITY OF THE FOREGOING, ALL CONTENT (INCLUDING EDUCATIONAL
+          CONTENT) PROVIDED WITHIN THE SERVICES WILL BE RELEVANT AT THE TIME OF
+          PROVIDING SUCH CONTENT AND ARE NOT A SUBSTITUTE FOR GENERAL MEDICAL
+          ADVICE. IT IS THE PATIENT’S SOLE RESPONSIBILITY TO CONSULT WITH A
+          QUALIFIED MEDICAL PROFESSIONAL AND ACT ACCORDING TO THE TREATING
+          PHYSICIAN'S RECOMMENDATION FOR ANY MEDICAL MATTER. IN ANY CASE WHERE
+          THE Patient EXPERIENCES A WORSENING OF THEIR MEDICAL CONDITION, THEY
+          MUST IMMEDIATELY SEEK MEDICAL ASSISTANCE. IF YOU ARE THE GUARDIAN OF
+          THE PATIENT UNDERGOING THE MEDICAL PROCEDURE OR MANAGING THE DISEASE,
+          INCLUDING A PARENT OF A PATIENT UNDER THE AGE OF EIGHTEEN, YOU HEREBY
+          CONFIRM THAT YOU ARE: (A) THE AUTHORIZED GUARDIAN TO MANAGE THE
+          MEDICAL AFFAIRS OF THE PATIENT CONCERNING THE USE OF THIS PLATFORM;
+          (B) RESPONSIBLE FOR PROVIDING, AS NECESSARY, ACCURATE AND CORRECT
+          MEDICAL INFORMATION ABOUT THE PATIENT ACCORDING TO OUR REQUIREMENTS IN
+          THESE TERMS; AND (C) ACCEPTING AND AGREEING TO THESE TERMS OF USE,
+          INCLUDING THE COMPANY'S PRIVACY POLICY. THE PLATFORM MAY ALLOW THE
+          PATIENT TO SHARE EDUCATIONAL CONTENT AND INFORMATION FROM THE PLATFORM
+          WITH THIRD PARTIES THROUGH VARIOUS MEANS. ANY SUCH SHARING OF THIS
+          CONTENT IS THE SOLE RESPONSIBILITY OF THE PATIENT, AND WE AND/OR
+          JUSTMED WILL NOT BE RESPONSIBLE FOR ANY DAMAGE OR LOSS TO THE PATIENT
+          OR ANY OTHER PERSON AS A RESULT OF OR IN CONNECTION WITH ANY SHARING
+          OF THIS CONTENT WITH THIRD PARTIES. IT IS CLARIFIED THAT, ALTHOUGH THE
+          EDUCATIONAL CONTENT IS ANONYMOUS, SHARING IT WITH THIRD PARTIES MAY
+          LINK THIS CONTENT WITH THE PATIENT’S PERSONAL DETAILS. BETWEEN THE
+          PARTIES TO THESE TERMS, ALL RIGHTS IN THE CONTENT AVAILABLE ON THE
+          PLATFORM, INCLUDING EDUCATIONAL CONTENT, ARE RESERVED TO THE MEDICAL
+          INSTITUTION OR JUSTMED. THE SERVICES, CONTENT, AND/OR EDUCATIONAL
+          CONTENT AVAILABLE THEREON ARE PROVIDED "AS IS".
         </BoldParagraph>
       </Border>
-      <SubTitle>שימושים אסורים</SubTitle>
+      <SubTitle>Prohibited Uses</SubTitle>
       <Paragraph>
-        ישנן פעולות מסוימות שהינן אסורות בתכלית האיסור בעת השימוש בפלטפורמה. אנא
-        קרא הגבלות אלו בעיון. אי עמידה באחת מההוראות המפורטות להלן עשויה להביא
-        לידי סיום השימוש שלך בשירותים, ואף עשויה לחשוף אותך לחבות אזרחית ו/או
-        פלילית. אלא אם כן הדבר הותר במפורש על ידי תנאים אלה או בכתב על ידינו,
-        אינך רשאי (ואינך רשאי להתיר לכל צד שלישי): (א) להשתמש בפלטפורמה ו/או
-        בשירותים ו/או בתכנים ו/או בתכני ההדרכה לכל מטרה בלתי חוקית, בלתי מוסרית,
-        בלתי מורשית ו/או אסורה; (ב) להשתמש בפלטפורמה ו/או בשירותים ו/או בתכנים
-        ו/או בתכני ההדרכה למטרות מסחריות או שאינן פרטיות; (ג) להסיר או להפריד
-        מהתכנים ו/או מהפלטפורמה ו/או מתכני ההדרכה כל הגבלות וסימנים כלשהם
-        המציינים זכויות קנייניות של כללית, של ג'יסטמד ו/או של נותני רישיונותיהם,
-        לרבות כל ההודעות הקנייניות המופיעות בהם (כגון ©, ,™ או ®); (ד) להפר או
-        לפגוע בזכויות המשתמשים לפרטיות וזכויות אחרות, או לאסוף מידע אישי מזהה
-        אודות משתמשים ללא הסכמתם המפורשת, בין אם באופן ידני או באמצעות שימוש בכל
-        רובוט, עכביש, סורק, כל יישום חיפוש או אחזור, או שימוש באמצעי, בתהליך או
-        בשיטה ידניים או אוטומטיים אחרים על מנת להיכנס לפלטפורמה ולאחזר, לאסוף
-        ו/או לשאוב מידע; (ה) לפגוע או לשבש את פעולת הפלטפורמה, השרתים או הרשתות
-        המאחסנים את הפלטפורמה, או להפר כל חוק, תקנה, דרישה, נוהל או מדיניות של
-        שרתים או רשתות כאמור; (ו) להצהיר הצהרות שקריות או להציג מצג שווא בנוגע
-        לקשר שלך עם כל אדם או גוף, או לציין במפורש או במרומז כי אנחנו נותנים
-        חסות לך, לאתר שלך, לעסק שלך או לכל הצהרה שאתה מפרסם, או להציג מידע שקרי
-        או לא מדויק אודות הפלטפורמה ו/או השירותים; (ז) לבצע כל פעולה היוצרת או
-        העלולה ליצור עומס בלתי סביר או לא פרופורציונלי על תשתית הפלטפורמה שלנו,
-        כפי שייקבע על ידינו; (ח) לעקוף את כל האמצעים בהם אנו עשויים להשתמש על
-        מנת למנוע או להגביל את הגישה לשירותים; (ט) להעתיק, לשנות, להתאים,
-        להנגיש, לתרגם, להעביר, לבצע הנדסה חוזרת, להמיר קוד בינארי לקוד פתוח,
-        לעשות דה-קומפילציה או להפריד כל חלק מהתכנים בפלטפורמה, או להציג לציבור,
-        לשכפל, ליצור יצירות נגזרות, לבצע, להפיץ או לבצע שימוש דומה בתכנים; (י)
-        להעתיק, להפיץ, להציג, להציג לציבור, להפחית לצורת קריאה אנושית, להמיר קוד
-        בינארי לקוד פתוח, לעשות דה-קומפילציה, להתאים, להעניק רישיון משנה, לעשות
-        כל שימוש מסחרי, למכור, להשכיר, להעביר, להשאיל, לעבד, להרכיב, לבצע הנדסה
-        חוזרת, לשלב עם תוכנה אחרת, לתרגם, לשנות או ליצור יצירות נגזרות מכל חומר
-        הכפוף לזכויות קנייניות שלנו, כולל הקניין הרוחני של הכללית ו/או של
-        ג'יסטמד (כהגדרתו להלן), בכל דרך שהיא ובכל אמצעי שהוא; (יא) לעשות כל
-        שימוש בשירותים ו/או בתכנים ו/או בתכני ההדרכה בכל אתר או רשת מחשבים, לכל
-        מטרה, ללא הסכמתנו הכתובה מראש; (יב) ליצור סביבת דפדפן, לתחם (frame),
-        ליצור העתק (mirror) או לבצע inline linking לתכנים; (יג) למכור, להעניק
-        רישיון או לנצל למטרה מסחרית כלשהי כל שימוש או גישה לפלטפורמה ו/או לתכנים
-        ו/או לתכני ההדרכה; (יד) למסגר או לשקף כל חלק מהפלטפורמה ללא הסכמתנו
-        המפורשת הכתובה מראש; (טו) ליצור מאגר מידע על ידי הורדה ואחסון שיטתיים של
-        כל או חלק מהתכנים ו/או מתכני ההדרכה ו/או מהפלטפורמה; (טז) להעביר או
-        להנגיש בכל דרך אחרת, בקשר לפלטפורמה, כל וירוס, "תולעת", סוס טרויאני,
-        באג, רוגלה, נוזקה או כל קוד מחשב, קובץ או תוכנה אחרים שעשויים או מיועדים
-        להזיק לפעילות של כל חומרה, תוכנה, ציוד תקשורת, קוד או רכיב אחר אשר
-        עשויים להזיק, להפריע או לפלוש בפועל או באופן פוטנציאלי; ו/או (יז) להפר
-        אי אלו מהתנאים.
+        There are certain actions that are strictly prohibited while using the
+        Platform. Please read these restrictions carefully. Failure to comply
+        with any of the instructions detailed below may result in the
+        termination of your use of the Services and may expose you to civil
+        and/or criminal liability. Unless expressly permitted by these terms or
+        in writing by us, you are not allowed (and you may not permit any third
+        party) to: (a) Use the Platform and/or the services and/or the content
+        and/or the instructional content for any illegal, unethical,
+        unauthorized, or prohibited purpose; (b) Use the Platform and/or the
+        services and/or the content and/or the instructional content for
+        commercial purposes or non-private uses; (c) Remove or dissociate any
+        proprietary restrictions and signs from the content and/or the Platform
+        and/or the instructional content that indicate proprietary rights of
+        Newtown Gastroenterology , GistMD, and/or their licensors, including any
+        proprietary notices appearing therein (such as ©, ™, or ®); (d) Violate
+        or infringe on users' privacy rights or other rights, or collect
+        identifiable personal information about users without their explicit
+        consent, whether manually or by using any robot, spider, scanner, any
+        search or retrieval application, or any other manual or automated means
+        to access the Platform and retrieve, collect, and/or scrape information;
+        (e) Interfere with or disrupt the operation of the Platform, the servers
+        or networks hosting the Platform, or violate any laws, regulations,
+        requirements, procedures, or policies of said servers or networks; (f)
+        Make false statements or present a false front regarding your
+        relationship with any person or entity, or explicitly or implicitly
+        indicate that we endorse you, your site, your business, or any statement
+        you publish, or present false or inaccurate information about the
+        Platform and/or the services; (g) Perform any action that creates or is
+        likely to create an unreasonable or disproportionately large load on our
+        Platform's infrastructure, as determined by us; (h) Circumvent any
+        measures we may use to prevent or restrict access to the services; (i)
+        Copy, modify, adapt, make available, translate, transfer, perform
+        reverse engineering, transform binary code into open code, decompile, or
+        disassemble any part of the content on the Platform, or to publicly
+        display, reproduce, create derivative works, perform, distribute, or
+        make similar use of the content; (j) Copy, distribute, display, present
+        to the public, reduce to human-readable form, convert binary code into
+        open code, decompile, adapt, sublicense, make any commercial use, sell,
+        rent, transfer, lend, process, compile, perform reverse engineering,
+        integrate with other software, translate, modify, or create derivative
+        works from any material subject to our proprietary rights, including the
+        intellectual property of Newtown Gastroenterology and/or GistMD, in any
+        way and by any means; (k) Use the services and/or the content and/or the
+        instructional content on any site or computer network, for any purpose,
+        without our prior written consent; (l) Create a browser environment,
+        frame, mirror, or perform inline linking to the content; (m) Sell,
+        license, or exploit for any commercial purpose any use or access to the
+        Platform and/or the content and/or the instructional content; (n) Frame
+        or mirror any part of the Platform without our prior explicit written
+        consent; (o) Create a database by systematically downloading and storing
+        all or any part of the content and/or the instructional content and/or
+        from the Platform; (p) Transmit or otherwise make available in
+        connection with the Platform any virus, worm, Trojan horse, bug,
+        rootkit, bomb, or any other computer code, file, or program that may or
+        is intended to damage the operation of any hardware, software,
+        communication equipment, code, or other component which may harm,
+        interfere, or penetrate operationally or potentially; (q) Breach any of
+        the terms.
       </Paragraph>
-      <SubTitle>השימוש של הפלטפורמה במידע</SubTitle>
+      <SubTitle>Platform Data Usage</SubTitle>
       <Paragraph>
-        הפלטפורמה אוגרת מידע בשרתי SQL Cloud של Google בתנאים כפי שאושרו על ידי
-        ועדת הענן של הכללית. המידע המזהה נמחק מהשרת הייעודי לאחר חמישה (5) ימים
-        לכל היותר, ונותרים פרטי מטופל אנונימיים באופן אשר לא ניתן לזהות את
-        המטופל. גישה למידע המזוהה תינתן אך ורק לצוותים הרפואיים הייעודיים בכללית
-        אשר קיבלו הרשאה לכך וכן לאנשי צוות הפיתוח המורשים לכך בג'יסטמד, באישור
-        כללית. הפלטפורמה רשומה כמאגר מידע וחברת ג'יסטמד רשומה כמחזיק מאגר המידע.
+        The Platform stores information on Google's SQL Cloud servers under
+        conditions approved by Newtown Gastroenterology 's Cloud Committee.
+        Identifiable information is deleted from the dedicated server within a
+        maximum of five (5) days, leaving only anonymous patient details which
+        cannot be used to identify the patient. Access to identifiable
+        information is granted exclusively to authorized medical teams within
+        Newtown Gastroenterology and to authorized GistMD development team
+        members, with Newtown Gastroenterology 's approval. The Platform is
+        registered as a data repository, and GistMD is registered as the data
+        repository holder
       </Paragraph>
-      <SubTitle>זכויות קניין רוחני</SubTitle>
+      <SubTitle>Intellectual Property Rights</SubTitle>
       <Paragraph>
-        הפלטפורמה, התכנים, תכני ההדרכה והנכסים הקנייניים שלנו או של ג'יסטמד וכל
-        זכויות הקניין הרוחני הנוגעות בהם, לרבות אך לא רק, המצאות, פטנטים ובקשות
-        פטנט, סימני מסחר, שמות מסחר, סימני שירות, זכויות יוצרים, שמות מתחם
-        וסודות מסחרי, בין אם רשומים או ניתנים לרישום ובין אם לאו (ביחד, "הקניין
-        הרוחני"), הם בבעלותנו או בבעלות ג'יסטמד ו/או נמסרו לנו או לג'יסטמד
-        ברישיון ומוגנים על ידי חוקי פטנטים, זכויות יוצרים וקניין רוחני אחרים ועל
-        ידי אמנות והסכמים בינלאומיים. כל זכות שלא הוקנתה לך במפורש להלן תישמר
-        לנו ולנותני הרישיון שלנו. התנאים אינם מקנים לך זכות בקניין הרוחני שלנו
-        ו/או של ג'יסטמד, אלא אך ורק זכות שימוש מוגבלת הניתנת לביטול בהתאם
-        לתנאים. אין בתנאים אלה כדי להוות וויתור על הקניין הרוחני שלנו על פי כל
-        דין.
+        The Platform, the content, the instructional materials, and our or
+        GistMD's proprietary assets, including but not limited to, inventions,
+        patents and patent applications, trademarks, trade names, service marks,
+        copyrights, domain names, and trade secrets, whether registered or
+        registrable (collectively, "Intellectual Property"), are owned by us or
+        GistMD, or have been licensed to us or GistMD, and are protected by
+        patent laws, copyright laws, other intellectual property laws, and by
+        international treaties and agreements. Any rights not expressly granted
+        to you herein are reserved to us and our licensors. These terms do not
+        grant you any rights in our or GistMD's Intellectual Property, except
+        for a limited right of use which is revocable according to the terms.
+        Nothing in these terms shall constitute a waiver of our Intellectual
+        Property under any law.
       </Paragraph>
-      <SubTitle>סימני מסחר ושמות מסחריים</SubTitle>
+      <SubTitle>Trademarks and Trade Names</SubTitle>
       <Paragraph>
-        הלוגואים של כללית ושאר המזהים הקניינים המשמשים את כללית בקשר עם פלטפורמה
-        ו/או השירותים הניתנים במסגרתה (להלן – "סימני המסחר של החברה") הם כולם
-        סימני מסחר ו/או שמות מסחר של כללית, בין אם רשומים ובין אם לאו, ובין אם
-        ניתנים לרישום ובין אם לאו. כל שאר סימני המסחר, שמות המסחר, סימנים מזהים
-        אחרים וסמלים מסחריים אחרים (לרבות לוגו כזה או אחר) העשויים להופיע
-        בפלטפורמה שייכים לבעליהם (להלן – "סימני מסחר של צדדים שלישיים"). סימני
-        מסחר של צדדים שלישיים מובאים בפלטפורמה (אם בכלל) למטרות הצגה, תיאור
-        וזיהוי בלבד. לא ניתנת בזאת כל זכות, רישיון או קניין בסימני המסחר של
-        החברה או בסימני המסחר של צדדים שלישיים ולכן על המשתמש להימנע משימוש
-        כלשהו בסימנים אלו, אלא אם כן הותר אחרת בתנאי שימוש אלה.
+        The logos of Newtown Gastroenterology and other proprietary identifiers
+        used by Newtown Gastroenterology in connection with the Platform and/or
+        the services provided therein (hereinafter "the Company's Trademarks")
+        are all trademarks and/or trade names of Newtown Gastroenterology ,
+        whether registered or not, and whether registrable or not. All other
+        trademarks, trade names, other identifying marks, and commercial symbols
+        (including any logos) that may appear on the Platform belong to their
+        respective owners (hereinafter "Third-Party Trademarks"). Third-Party
+        Trademarks are included on the Platform (if at all) for purposes of
+        presentation, description, and identification only. No rights, licenses,
+        or ownership in the Company's Trademarks or in the Third-Party
+        Trademarks are granted herein. Therefore, users must refrain from any
+        use of these marks, unless otherwise permitted by these terms of use.
       </Paragraph>
-      <SubTitle>משוב</SubTitle>
+      <SubTitle>Feedback</SubTitle>
       <Paragraph>
-        ככל שתמסור לכללית ו/או לג'יסטמד משוב, פידבק, תגובות או הצעות בקשר
-        לפלטפורמה ("משוב"), ג'יסטמד תקבל רישיון בלעדי, ללא תמלוגים, משולם
-        במלואו, כלל עולמי, תמידי ובלתי הדיר לשלב את המשוב בכל אחד מהמוצרים,
-        הטכנולוגיות ו/או השירותים, הנוכחיים או העתידיים שלנו, ולהשתמש במשוב, ללא
-        קבלת אישורך, עבור כל מטרה והכל ללא תמורה נוספת עבורך. אתה מסכים כי משוב
-        כזה ייחשב כמידע שאינו סודי. יתרה מזאת, אתה מתחייב כי המשוב שלך אינו כפוף
-        לתנאי רישיון אשר יש בהם כדי לחייב אותנו לעמוד בחובות נוספים בקשר
-        למוצרים, טכנולוגיות ו/או שירותים המשלבים משוב כלשהו.
+        Should you provide Newtown Gastroenterology and/or GistMD with any
+        feedback, comments, reactions, or suggestions regarding the Platform
+        ("Feedback"), GistMD shall receive an exclusive, royalty-free, fully
+        paid-up, worldwide, perpetual, and irrevocable license to incorporate
+        the Feedback into any of its current or future products, technologies,
+        and/or services, and to use such Feedback for any purpose without your
+        approval, all without any further compensation to you. You agree that
+        such Feedback will be considered non-confidential information.
+        Furthermore, you warrant that your Feedback is not subject to any
+        license terms that would require us to fulfill any additional
+        obligations with regard to the products, technologies, and/or services
+        that incorporate any such Feedback
       </Paragraph>
-      <SubTitle>זמינות</SubTitle>
+      <SubTitle>Availability</SubTitle>
       <Paragraph>
-        זמינות ופעילות השירותים ו/או התכנים (לרבות תכני ההדרכה) הניתנים במסגרת
-        הפלטפורמה תלויים בגורמים רבים, לרבות תוכנה, חומרה, רשתות תקשורת, ספקי
-        שירותים או קבלנים של החברה או צדדים שלישיים אחרים (לרבות אלה המספקים
-        שירותי אחסון ענן, שירותי רישום לאתרים ועוד). איננו מתחייבים כי השירותים
-        יפעלו ו/או יהיו זמינים בכל עת ללא הפרעה, תקלה או שהיא תהיה חסינה מפני
-        גישה לא מורשת ו/או ללא שגיאות. המשתמש מסכים בזאת כי כללית ו/או ג'יסטמד
-        לא יהיו אחראים לאי היכולת של הפלטפורמה לפעול או להיות נגישה, מכל סיבה
-        שהיא; לרבות הפסקות בפעילות האינטרנט או רשתות, הפסקות בפעילות החומרה או
-        התכנה בשל בעיות טכניות או אחרות שאינן בשליטת החברה (למשל, סיכול, כח
-        עליון, רשלנות של צדדים שלישיים וכד') או עקב תקלה או טעות של כללית ו/או
-        ג'יסטמד או מי מטעמם.
+        The availability and operation of the services and/or content (including
+        instructional content) provided by the Platform are dependent on
+        numerous factors, including software, hardware, communication networks,
+        service providers or contractors of the company or other third parties
+        (including those providing cloud storage services, website registration
+        services, and more). We do not guarantee that the services will operate
+        and/or be available at all times without interruption, malfunction, or
+        that they will be immune from unauthorized access and/or error-free. The
+        user hereby agrees that Newtown Gastroenterology and/or GistMD shall not
+        be liable for any inability of the Platform to operate or be accessible,
+        for any reason whatsoever; including internet or network outages,
+        hardware or software disruptions due to technical or other issues not
+        under the company's control (for example, sabotage, force majeure,
+        negligence by third parties, etc.) or due to a fault or error by Newtown
+        Gastroenterology and/or GistMD or their representatives.
       </Paragraph>
-      <SubTitle>קטינים</SubTitle>
+      <SubTitle>Minors</SubTitle>
       <Paragraph>
-        מבלי לגרוע מהאמור בתנאים אלה, כדי להשתמש בפלטפורמה עליך להיות מעל גיל
-        שמונה עשרה (18). מטבע הדברים, יכולתנו לוודא כי המשתמש הינו מעל גיל שמונה
-        עשרה (18) היא מוגבלת ביותר, ובד"כ תסתמך על הצהרת המשתמש עצמו, אותה אנו
-        רשאים לדרוש בכל שלב. במקרה שיובא לידיעתנו כי אדם מתחת לגיל שמונה עשרה
-        (18) משתמש בפלטפורמה, ללא ליווי הורה או אפוטרופוס המוסמך לטפל בענייניו
-        הרפואיים של הקטין בכל הקשור לשימוש בפלטפורמה, אנו נחסום משתמש זה מלהיכנס
-        לפלטפורמה ונעשה כל מאמץ על מנת למחוק מיידית כל מידע אישי (כהגדרתו של
-        מונח זה במדיניות הפרטיות שלנו) בנוגע למשתמש כאמור. למען הסר ספק, ומבלי
-        לגרוע מהאמור לעיל, השימוש בשירותים על ידי משתמשים (מטופלים) קטינים היא
-        באחריות הוריהם או אפוטרופוס המוסמך לטפל בענייניהם הרפואיים של הקטינים.
+        Without prejudice to the terms herein, to use the Platform, you must be
+        over the age of eighteen (18). Naturally, our ability to verify that a
+        user is over the age of eighteen is very limited, and will generally
+        rely on the user's own declaration, which we are entitled to request at
+        any stage. If it comes to our knowledge that a person under the age of
+        eighteen (18) is using the Platform without the supervision of a parent
+        or guardian authorized to handle the minor's medical affairs in relation
+        to the use of the Platform, we will block such user from accessing the
+        Platform and will make every effort to immediately delete any personal
+        information (as defined in the company's privacy policy) concerning said
+        user. For clarification, and without detracting from the above, the use
+        of the services by minor users (patients) is the responsibility of their
+        parents or the guardian authorized to handle their medical affairs.
       </Paragraph>
-      <SubTitle>הסרת אחריות והתחייבויות</SubTitle>
+      <SubTitle>Disclaimer of Warranties and Liabilities</SubTitle>
       <Paragraph>
-        שימושך בפלטפורמה היא באחריותך הבלעדית. בכל מקרה של שאלה רפואית, החמרה
-        במצבך ו/או ספק באשר לתכני ההדרכה הכלולים בפלטפורמה, עליך לפנות באופן
-        מיידי לרופא המטפל שלך ו/או לצוות הרפואי הרלוונטי. שים לב כי בכל מקרה
-        הפלטפורמה אינה מיועדת לשימוש במצבי חירום. במידה המרבית המותרת על פי דין
-        ולמעט כאמור במפורש בתנאים אלה, הפלטפורמה, השירותים וכל התכנים בפלטפורמה,
-        לרבות תכני ההדרכה, ניתנים על-בסיס "כמו שהם" (“AS-IS”) והכללית ו/או
-        ג'יסטמד, לא נושאים בכל אחריות או התחייבות מכל סוג שהיא, באופן מפורש או
-        מכללא, לרבות אחריות לזכות בעלות או לאי הפרה או אחריות מכללא לשימוש,
-        לאיכות מסחרית או להתאמה למטרה מסוימת וכן בכל אחריות הנובעת ממהלך העסקים
-        הרגיל או פעולה מסחרית. ייתכן כי מוקנות לך זכויות צרכניות נוספות תחת הדין
-        אשר אינן ניתנות לשינוי באמצעות תנאי שימוש אלה. במידה המקסימלית על פי כל
-        דין, הכללית ו/או ג'יסטמד לא מתחייבים כי (א) השימוש וההפעלה של הפלטפורמה
-        ו/או התכנים ו/או תכני ההדרכה הינם או יהיו נקיים מכל וירוסים, פגמים,
-        תולעים, רכיבים מזיקים אחרים או הגבלות תוכנה אחרות, (ב) נתקן כל טעות או
-        ליקוי בשירותים, ו/או (ג) ניתן מצג כלשהו בקשר לשימוש, אי היכולת להשתמש או
-        לתפעל, או תוצאות השימוש בשירותים ו/או בתכנים הזמינים בפלטפורמה או
-        באמצעות הפלטפורמה (לרבות שהתוצאות של השימוש בשירותים יעמדו בדרישותיכם).
-        מבלי לגרוע מכלליות האמור, שיתוף תכנים ו/או תכני הדרכה עם גורמים שלישיים
-        הינם באחריותך הבלעדית, והכללית ו/או ג'יסטמד לא נהיה אחראים לכל נזק או
-        אובדן שייגרמו לך או לכל אדם אחר כתוצאה או בקשר עם כל שיתוף של תכנים אלה.
-        הכללית ו/או ג'יסטמד איננו אחראים לכל תוצאה שתיגרם לך או לאחרים הנובעת
-        מתקלות טכניות (לרבות אך לא רק בקשר לקישוריות האינטרנט, עומס קו או שרתים,
-        עיכובים והפרעות תקשורת) והנובעת מספקי אינטרנט וטלקומוניקציה. מבלי לגרוע
-        מכלליות האמור, ג'יסטמד אינה מתחייבת שהשירותים ו/או התכנים ו/או תכני
-        ההדרכה יהיו בטוחים לשימוש, מדויקים, מלאים, ללא הפרעות, ללא שגיאות ו/או
-        ללא טעויות. כמו כן, ג'יסטמד לא נושאת בכל אחריות בכל הנוגע לשימוש
-        בשירותים, לרבות אך ללא הגבלה, לגבי הזמינות, האמינות או האיכות של
-        השירותים ו/או התכנים ו/או תכני ההדרכה, וג'יסטמד אינה אחראית ולא תשא
-        באחריות לכל טעות או ליקוי ביחס לתכנים ו/או לתכני ההדרכה ו/או כל מידע
-        המוצג בפלטפורמה. היה וסמכויות שיפוט אחרות אינן מאפשרות החרגות או הגבלות
-        כאמור לעיל, ההחרגות וההגבלות הנזכרות לעיל חולו במידה המקסימלית האפשרית.
+        Using the Platform is solely at your discretion and responsibility. In
+        any case of a medical query, a deterioration in your condition, and/or
+        doubt regarding the Educational Content included on the Platform, you
+        must immediately contact your treating physician and/or the relevant
+        medical team. Please be aware that under no circumstances is the
+        Platform intended for use in emergency situations. To the fullest extent
+        permitted by law, and except as explicitly stated in these terms, the
+        Platform, the services, and all content on the Platform, including
+        Educational Content, are provided on an "AS-IS" basis. Newtown
+        Gastroenterology and/or GistMD bear no responsibility or liability of
+        any kind, whether express or implied, including any warranty of
+        ownership or non-infringement or any implied warranties of usability,
+        merchantability, or fitness for a particular purpose, as well as any
+        liability arising from the course of dealing or usage of trade. You may
+        have additional consumer rights under the law which cannot be waived by
+        these terms. To the maximum extent permitted by any applicable law,
+        Newtown Gastroenterology and/or GistMD do not guarantee that (a) the use
+        and operation of the Platform and/or the content and/or the Educational
+        Content will be free of viruses, defects, worms, other harmful
+        components, or software limitations, (b) any errors or defects in the
+        services will be corrected, and/or (c) any representation regarding the
+        use, inability to use, or results of the use of the services and/or the
+        content available on the Platform or through the Platform (including
+        that the results of using the services will meet your requirements).
+        Without limiting the foregoing, sharing content and/or Educational
+        Content with third parties is at your sole responsibility, and Newtown
+        Gastroenterology and/or GistMD will not be liable for any damage or loss
+        caused to you or any other person as a result of or in connection with
+        any such sharing. Newtown Gastroenterology and/or GistMD are not
+        responsible for any outcomes resulting from technical issues (including
+        but not limited to internet connectivity, line or server load, delays,
+        and communication disruptions) arising from internet and
+        telecommunications providers. Furthermore, GistMD does not commit that
+        the services and/or the content and/or the Educational Content will be
+        secure to use, accurate, complete, uninterrupted, error-free, and/or
+        without defects. Additionally, GistMD carries no liability regarding the
+        use of the services, including but not limited to the availability,
+        reliability, or quality of the services and/or the content and/or the
+        Educational Content, and GistMD is not liable and will not be
+        responsible for any errors or defects in relation to the content and/or
+        Educational Content and/or any information displayed on the Platform. If
+        other jurisdictions do not allow exclusions or limitations as stated
+        above, the mentioned exclusions and limitations apply to the maximum
+        extent possible.
       </Paragraph>
-      <SubTitle>הגבלת אחריות</SubTitle>
+      <SubTitle>Limitation of Liability</SubTitle>
       <Paragraph>
-        במידה המקסימאלית האפשרית על פי דין, גי'סטמד, לא תהא אחראית לכל נזקים
-        שייגרמו למשתמשים או לצד ג', מכל סוג שהוא, לרבות, נזקים ישירים, עקיפים,
-        מיוחדים, עונשיים, אגביים או תוצאתיים (לרבות, אך לא רק, נזק למוניטין,
-        לרווחים, למידע, או לעסקים ונזק בגין עוגמת נפש), כתוצאה או הנובעים מתנאי
-        שימוש אלה ו/או מהשירותים ו/או מהתכנים ו/או תכני ההדרכה, משימושך או חוסר
-        יכולתך להשתמש בשירותים, מהתוצאות וההשלכות של שימושך בשירותים והדיוק של
-        תוצאות אלה ואמינותן, או מכל תוכן או מהביצועים או אי הביצועים של ג'יסטמד
-        לפעול תחת תנאים אלה, וכל מעשה או מחדל אחרים של ג'יסטמד בכל סיבה אחרת
-        שהיא, בין אם ג'יסטמד הזהירה בדבר האפשרות כי עלול להיגרם נזק מסוג זה.
-        מבלי לגרוע מכלליות האמור לעיל ובמידה המרבית המותרת על פי דין, החבות
-        המצטברת של ג'יסטמד עבור כל הנזקים הנובעים מתנאים אלה, תוגבל לסכום של מאה
-        (100) שקלים חדשים.
+        To the maximum extent permitted by law, GistMD shall not be liable for
+        any damages suffered by users or third parties, of any kind, including
+        direct, indirect, special, punitive, incidental, or consequential
+        damages (including, but not limited to, damages for loss of goodwill,
+        profits, information, or other business and emotional distress),
+        resulting from or arising out of these terms of use and/or the services
+        and/or the content and/or the Educational Content, from your use or
+        inability to use the services, from the results and implications of your
+        use of the services and the accuracy and reliability of those results,
+        or from any content or from the performance or non-performance of GistMD
+        under these terms, and any other act or omission of GistMD for any other
+        reason, even if GistMD has been advised of the possibility of such
+        damages. Without limiting the generality of the foregoing and to the
+        greatest extent permitted by law, the cumulative liability of GistMD for
+        all damages arising from these terms shall be limited to a total of one
+        hundred (100) USD.
       </Paragraph>
-      <SubTitle>שיפוי</SubTitle>
+      <SubTitle>Indemnification</SubTitle>
       <Paragraph>
-        המשתמש מסכים להגן ולשפות את כללית ו/או ג'יסטמד מפני ונגד כל תביעה, נזק,
-        הפסד, התחייבות, אחריות, הוצאה וחוב (לרבות אך לא רק, שכר טרחת עורך דין)
-        אשר נובעים מ: (א) שימושו בשירותים ו/או בתכנים ו/או בתכני ההדרכה שלא
-        בהתאם לתנאי שימוש אלה; (ב) כל הפרה מצדו של תנאי שימוש אלה; (ג) הפרה מצדו
-        של כל זכות של צד שלישי, לרבות אך לא רק, זכויות קניין רוחני או הזכות
-        לפרטיות; ו-(ד) כל נזק מכל סוג שהוא, בין אם נזק ישיר, עקיף, מיוחד או
-        תוצאתי, שגרם לצד שלישי אשר קשור לשימושו בשירותים, בתכנים או בתכני
-        ההדרכה. מובהר בזאת כי חובת השיפוי האמורה תחול אף לאחר סיום התקשרותך עם
-        החברה. מבלי לגרוע מכלליות האמור לעיל, אנו ו/או ג'יסטמד שומרים את הזכות
-        הבלעדית לנהל את ההגנה והשליטה הבלעדית בכל עניין והליך הקשור בשיפוי,
-        באופן שאינו גורע מחובת המשתמש, והמחייב אותו לשתף פעולה מלאה איתנו ו/או
-        ג'יסטמד בניהול הליך כאמור. המשתמש מאשר כי לא יסכים לפשרה בכל עניין הכפוף
-        לשיפוי על ידו מבלי לקבל לכתחילה את הסכמתנו בכתב לכך.
+        The user agrees to defend, indemnify, and hold Newtown Gastroenterology
+        and/or GistMD harmless against any claims, damages, losses, liabilities,
+        responsibilities, expenses, and debts (including but not limited to
+        legal fees) arising from: (a) their use of the services and/or the
+        content and/or the Educational Content not in accordance with these
+        terms of use; (b) any breach by the user of these terms of use; (c) the
+        user's violation of any third party's rights, including but not limited
+        to intellectual property rights or the right to privacy; and (d) any
+        damage of any kind, whether direct, indirect, special, or consequential,
+        caused to a third party related to their use of the services, content,
+        or Educational Content. It is clarified that this obligation to
+        indemnify will apply even after the termination of your engagement with
+        the company. Without limiting the generality of the foregoing, we and/or
+        GistMD reserve the exclusive right to handle our defense and control any
+        matter otherwise subject to indemnification by the user, in a way that
+        does not preclude the user's duty to fully cooperate with us and/or
+        GistMD in managing such a process. The user confirms that they will not
+        agree to any settlement in any matter subject to indemnification by them
+        without first obtaining our written consent.
       </Paragraph>
-      <SubTitle>ג'יסטמד</SubTitle>
+      <SubTitle>GistMD</SubTitle>
       <Paragraph>
-        ג'יסטמד היא היוצרת והמתפעלת של הפלטפורמה (בהיבטים הטכנולוגיים
-        הרלוונטיים), וזאת בכפוף להסכמותיה עם כללית. יובהר כי ג'יסטמד אינה מוחזקת
-        על ידי כללית ו/או אינה חברת בת ו/או אינה שלוחתה של כללית בישראל או
-        בעולם, והיא אינה אחראית להליך הרפואי ו/או לכל מוצר או שירות של כללית
-        ו/או לטיבם ו/או לאיכותם ו/או לזמינותם. כל תכני ההדרכה ו/או השאלות בשאלון
-        הינם מאושרים ומסופקים על ידי כללית. מבלי לגרוע מכלליות האמור לעיל,
-        ג'יסטמד אינה אחראית לכל אובדן ו/או נזק הקשורים: (א) לתכני ההדרכה ו/או
-        השאלון הכלולים בפלטפורמה, וכן לכל תוכן רפואי אחר שכללית ו/או כל גורם
-        שלישי המתקשר עם כללית מספק למשתמשים, בין אם דרך הפלטפורמה ובכלל,
-        ולהסתמכות המשתמש עליהן; (ב) להליך הרפואי ו/או למוצרים או שירותים של
-        כללית ו/או כל צד שלישי; או (ג) לאמינות, שלמות או חוקיות כל מידע רפואי
-        ו/או אישי שהוזן לפלטפורמה על ידי כללית או מי מטעמו או על ידי המשתמש.
-        למעט כפי שמצוין במפורש כאן, ג'יסטמד לא תישא באחריות לכל נזק או הפסד
-        שייגרמו לך ו/או לצד שלישי ו/או לכל אדם אחר כתוצאה או בקשר ליחסים שלך עם
-        כללית ועם השימוש שלך בשירותים ו/או בתכנים ו/או בתכני ההדרכה. מובהר בזאת
-        כי אין לראות בג'יסטמד צד לכל התקשרות ו/או הסכם שייכרת בין כללית לבינך
-        ו/או לצד שלישי אחר, הנך מוותר בזאת על כל טענה כלפי ג'יסטמד ביחס לתכני
-        ההדרכה ו/או השאלון ו/או ההליך הרפואי ו/או בקשר לכל עניין ביחסים שבינך
-        לבין כללית ו/או כל גורם שלישי, ומשחרר בזאת את ג'יסטמד וכל מי מטעמה מכל
-        תביעה בעניין זה. כל הזכויות בתכנים שמורות לחברת ג'יסטמד אלא אם נאמר
-        במפורש אחרת.
+        GistMD is the creator and operator of the Platform in the relevant
+        technological aspects, subject to its agreements with Newtown
+        Gastroenterology . It is clarified that GistMD is not held by Newtown
+        Gastroenterology , is not a subsidiary, nor is it an affiliate of
+        Newtown Gastroenterology in Israel or globally, and is not responsible
+        for the medical process and/or any product or service of Newtown
+        Gastroenterology or their quality or availability. All Educational
+        Content and/or questionnaire items are approved and provided by Newtown
+        Gastroenterology . Without limiting the generality of the foregoing,
+        GistMD is not responsible for any loss or damage related to: (a) the
+        Educational Content and/or the questionnaire included in the Platform,
+        as well as any other medical content that Newtown Gastroenterology
+        and/or any third party interacting with Newtown Gastroenterology provide
+        to users, whether through the Platform or otherwise, and the user's
+        reliance on them; (b) the medical process and/or products or services of
+        Newtown Gastroenterology and/or any third party; or (c) the reliability,
+        completeness, or legality of any medical and/or personal information
+        entered into the Platform by Newtown Gastroenterology , someone on its
+        behalf, or by the user. Except as expressly stated here, GistMD shall
+        not be liable for any damage or loss incurred by you and/or a third
+        party and/or any other person as a result of or in connection with your
+        relations with Newtown Gastroenterology and your use of the services
+        and/or the content and/or the Educational Content. It is hereby
+        clarified that GistMD should not be considered a party to any contract
+        or agreement you enter into with Newtown Gastroenterology and/or any
+        other third party; you hereby waive any claim against GistMD relating to
+        the Educational Content and/or the questionnaire and/or the medical
+        process and/or disease management and/or any matter in your relations
+        with Newtown Gastroenterology and/or any third party, and hereby release
+        GistMD and anyone on its behalf from any claim in this matter. All
+        rights in the content are reserved to GistMD unless otherwise explicitly
+        stated
       </Paragraph>
-      <SubTitle>שינויים בפלטפורמה והפסקת פעילות הפלטפורמה</SubTitle>
+      <SubTitle>
+        Changes to the Platform and Discontinuation of the Platform's Operation
+      </SubTitle>
       <Paragraph>
-        אנו שומרים לעצמנו את הזכות לבצע בפלטפורמה ובשירותיה ו/או בתכניה ו/או
-        בתכני ההדרכה תיקונים, הרחבות, שיפורים, התאמות, הפסקת פעילות כללית, חסימה
-        זמנית, הגבלות זמניות או קבועות וכל שינוי אחר, ללא הודעה מוקדמת ובכל עת,
-        וזאת על פי שיקול דעתנו הבלעדי (כולל, בין היתר, מבלי לגרוע, בשל פעולות
-        שנעשות על-ידך בזדון בקשר עם הפלטפורמה), בנוסף לכל סעד אחר העשוי לעמוד
-        לרשות החברה על פי כל דין. הנך מסכים כי כללית ו/או ג'יסטמד לא יהיו אחראים
-        כלפיך או כלפי כל צד שלישי בגין השינויים ו/או הפסקות הפעילות ו/או כל תקלה
-        או שגיאה שעשויים להתרחש בקשר עם ביצוע שינויים כאלה, לרבות אבדן מידע ו/או
-        כל נזק נטען אחר הכרוך בהם. הוראות תנאים אלה שעל פי טבען ותוכנן חייבות
-        לשרוד את סיום תנאים אלה על מנת להשיג את המטרות הבסיסיות של תנאים אלה,
-        ישרדו את סיום תנאים אלה.
+        We reserve the right to make corrections, expansions, improvements,
+        adjustments, cease overall operation, temporarily block, apply temporary
+        or permanent restrictions, and any other changes to the Platform, its
+        services, content, and educational materials at any time without prior
+        notice, at our sole discretion (including, among others, due to any
+        deliberate actions you take in connection with the Platform), in
+        addition to any other remedy available to the company under any law. You
+        agree that Newtown Gastroenterology and/or GistMD shall not be liable to
+        you or any third party for any changes, interruptions of service, or any
+        faults or errors that may occur in connection with such changes,
+        including data loss or any other claimed damages related to them.
+        Provisions of these terms that by their nature and content are intended
+        to survive the termination of these terms in order to achieve the
+        fundamental purposes of these terms, shall survive the termination of
+        these terms.
       </Paragraph>
-      <SubTitle>קישורים לאתרים של צדדים שלישיים</SubTitle>
+      <SubTitle>Links to Third-Party Sites</SubTitle>
       <Paragraph>
-        קישורים מסוימים המופיעים בפלטפורמה, מאפשרים למשתמשים לעזוב את הפלטפורמה
-        ולהיכנס לאתרים או לשירותים שאינם של הכללית ו/או של ג'יסטמד. אתרים
-        ושירותים מקושרים אלה אינם בשליטתנו ו/או של ג'יסטמד וקישור להם מובא
-        לנוחיותך בלבד; אין בהכללת קישורים אלה משום אישור לחומר המופיע בהם או
-        המלצה לרכישת המוצרים ו/או קבלת השירותים המוצעים בהם, והם אינם מעידים על
-        קשר כלשהו שלנו ו/או של ג'יסטמד עם מפעילי האתרים האמורים. הכללית ו/או
-        ג'יסטמד אינם אחראים לזמינותם, אינם מאשרים ואינם אחראים לגביהם, לרבות אך
-        לא רק, לכל פרסומות, הטבות, מוצרים או מידע אחר המופיע בהם או הזמין
-        באמצעותם או לכל קישור המצוי בהם. כמו כן, אנחנו ו/או נציגינו ו/או ג'יסטמד
-        אינם אחראים למדיניות הפרטיות ו/או מדיניות האבטחה ו/או כל מדיניות אחרת של
-        האתרים או השירותים של צדדים שלישיים אלה. כניסת המשתמש, שימושו והסתמכותו
-        על קישורים אלה והאינטראקציות שלו עם הצדדים השלישיים האמורים הינם
-        באחריותו של המשתמש ועל חשבונו בלבד. יש לנו הזכות למחוק כל קישור שכזה
-        ובכל עת. כמו כן, המשתמש מסכים ומאשר כי הכללית ו/או ג'יסטמד לא נהיה
-        אחראיים לכל נזק אשר נגרם, או לכאורה נגרם, בקשר עם או כתוצאה משימושו או
-        הסתמכותו על תכנים, שירותים, מוצרים או פרסומות הזמינים באתרים, או שירותים
-        של צדדים שלישיים אלה. רוב האתרים והשירותים המקושרים מספקים מסמכים
-        משפטיים, לרבות תנאי שימוש ומדיניות פרטיות, החלים על השימוש בהם. אנו
-        ממליצים לכל משתמש לקרוא מסמכים אלו בעיון לפני השימוש באתרים ושירותים
-        אלו, בין היתר, על מנת להיות מודע לסוג המידע הנאסף לגביו.
+        Certain links on the Platform may allow users to leave the Platform and
+        access websites or services that are not associated with Newtown
+        Gastroenterology and/or GistMD. These linked sites and services are not
+        under our control or that of GistMD, and a link to them is provided for
+        your convenience only; inclusion of these links does not imply our
+        endorsement of the material presented on them or a recommendation to
+        purchase the products or services offered on these sites, nor do they
+        signify any affiliation of ours or GistMD's with the operators of said
+        sites. Newtown Gastroenterology and/or GistMD are not responsible for
+        their availability, do not endorse them, and are not liable for any
+        content, including but not limited to, advertisements, benefits,
+        products, or other information appearing on or available through these
+        sites or for any link contained in these sites. Additionally, we and/or
+        our representatives and/or GistMD are not responsible for the privacy
+        policy, security policy, or any other policy of these third-party sites
+        and services. The user’s entry, use, and reliance on these links and
+        their interactions with these third parties are solely at the user's own
+        risk and responsibility. We reserve the right to remove any such link at
+        any time. Furthermore, the user agrees and acknowledges that Newtown
+        Gastroenterology and/or GistMD will not be liable for any damage caused,
+        or purportedly caused, in connection with or as a result of the user's
+        use of or reliance on content, services, products, or advertisements
+        available on or through these third-party sites and services. Most of
+        these linked sites and services provide legal documents, including terms
+        of use and privacy policies, applicable to their use. We recommend that
+        every user read these documents carefully before using these sites and
+        services, among other reasons, to be informed about the type of
+        information collected about them.
       </Paragraph>
-      <SubTitle>תיקונים לתנאים</SubTitle>
+      <SubTitle>Amendments to Terms</SubTitle>
       <Paragraph>
-        מובהר בזאת כי אנו רשאים, לפי שיקול דעתנו הבלעדי, לשנות תנאים אלה מעת
-        לעת, לרבות מדיניות הפרטיות וכל מדיניות אחרת המשולבת בהם. באחריות המשתמש
-        לעיין, לעתים קרובות, בהסכם תנאי השימוש ומדיניות הפרטיות. בכל מקרה של
-        שינוי מהותי, אנו נעשה מאמצים סבירים לפרסם הודעה ברורה בפלטפורמה ו/או
-        נשלח אליך דואר אלקטרוני (במידה שסיפקת לנו כתובת דואר אלקטרוני ושהסכמת
-        לקבל דיוור מטעמנו) בנוגע לשינוי כאמור. שינויים מהותיים כאלה ייכנסו לתוקף
-        שבעה (7) ימים לאחר שהודעה כזו נמסרה בפלטפורמה שלנו או נשלחה באמצעות דואר
-        אלקטרוני, המוקדם מביניהם. אחרת, כל שאר השינויים בתנאים אלה ייכנסו לתוקף
-        מהתאריך הנקוב בראש תנאים אלה ("עודכן לאחרונה") והמשך השימוש שלך
-        בפלטפורמה לאחר מכן יהווה הסכמה לשינויים אלה. במקרה שיש לתקן את התנאים
-        כדי לעמוד בדרישות חוק כלשהן, התיקונים עשויים להיכנס לתוקף באופן מידי, או
-        כנדרש בחוק וללא כל הודעה מוקדמת.
+        It is hereby clarified that we are entitled, at our sole discretion, to
+        modify these terms from time to time, including the privacy policy and
+        any other policies incorporated therein. It is the user's responsibility
+        to regularly review the Terms of Use Agreement and the Privacy Policy.
+        In the event of a significant change, we will make reasonable efforts to
+        post a clear notice on the Platform and/or send you an email (provided
+        you have supplied us with an email address and have agreed to receive
+        mailings from us) regarding the change. Such significant changes will
+        come into effect seven (7) days after such notice is posted on our
+        Platform or sent via email, whichever comes first. Otherwise, all other
+        changes to these terms will take effect from the date specified at the
+        top of these terms ("Last Updated"), and your continued use of the
+        Platform thereafter constitutes agreement to these changes. In cases
+        where the terms need to be amended to comply with any legal
+        requirements, such amendments may take immediate effect or as required
+        by law and without any prior notice.
       </Paragraph>
-      <SubTitle>כללי</SubTitle>
+      <SubTitle>General</SubTitle>
       <Paragraph>
-        (א) כל תביעה בקשר לשירותים יהיו כפופים לחוקי מדינת ישראל, ויתפרשו על-פי
-        חוקים אלה, מבלי ליתן תוקף לכללי ברירת הדין הבינלאומי הקבועים בהם, (ב) כל
-        מחלוקת אשר תנבע או תהיה קשורה לשימוש שלך בשירותים תובא לדיון בבתי המשפט
-        המוסמכים במדינת ישראל, ואתה מסכים בזאת לסמכות השיפוט הייחודית והמקומית
-        של בתי משפט אלה. הנך מסכים לוותר על כל ההגנות בדבר היעדר סמכות שיפוט
-        פרסונלית ופורום לא נאות, ומסכים כי כתבי בית דין יומצאו באופן המותר על פי
-        הדין החל ו/או על פי החלטת בית משפט. על אף האמור לעיל, אנו רשאים לבקש מתן
-        צווי מניעה בכל בית משפט מוסמך, (ג) תנאים אלה אינם יוצרים ולא יתפרשו
-        כאילו הם יוצרים כל מערכת יחסים, יחסי שותפות, מיזם משותף, יחסי
-        עובד-מעביד, יחסי שליחות או יחסי נותן-מקבל זיכיון בין הצדדים, לרבות
-        ג'יסטמד, (ד) שום ויתור של מי מהצדדים, לרבות ג'יסטמד, על כל הפרה או מחדל
-        על פי תנאים אלה זה לא ייחשב כוויתור על כל הפרה או מחדל, בין אם קודמים או
-        מאוחרים יותר, (ה) כל כותרת של סעיף או כל כותרת אחרת בתנאים אלה מובאת
-        לצורכי נוחות בלבד, ואינה מגדירה או מבארת כל סעיף או הוראה הכלולים בתנאים
-        אלה, (ו) הנך מאשר ומסכים כי כל עילת תביעה שעשויה לעמוד לך, הנובעת
-        מהשירותים או הנוגעים להם, תעמוד לך במשך שנה אחת (1) מיום קרות האירוע.
-        לאחר תקופה זו, מוסכם בזאת בין הצדדים כי עילת תביעה זו תתיישן. (ז) היה
-        וייקבע על ידי גוף מוסמך כי הוראה כלשהי מתנאי שימוש אלה אינה חוקית, בטלה
-        או שמכל סיבה שהיא אין אפשרות לאוכפה, אזי יראו הוראה זו כהוראה שניתן
-        להגבילה או להפרידה מתנאים אלה, וההוראה האמורה (במידה המרבית האפשרית על
-        פי דין) לא תשפיע על התוקף והאפשרות לאכוף הוראה כלשהי מבין ההוראות
-        הנותרות של תנאים אלה, (ח) אינך רשאי להמחות או להעביר את תנאים אלה (כולל
-        כל הזכויות וההתחייבויות תחתיהם) ללא הסכמתנו מראש ובכתב, וכל ניסיון לעשות
-        כן תוך הפרה של האמור לעיל יבוטל. אנחנו ו/או ג'יסטמד, רשאים להמחות או
-        להעביר את תנאים אלה ללא הגבלה וללא הודעה על כך, (ט) כל תיקון לתנאים אלה
-        לא יהיה בעל תוקף משפטי מחייב אלא אם כן נעשה בכתב ונחתם על ידינו ועל ידי
-        ג'יסטמד, ו- (י) הצדדים מסכימים כי כל התכתבות הקשורה בתנאים אלה תהיה בכתב
-        (בדואר אלקטרוני או בדואר רגיל) ובשפה העברית או האנגלית.
+        (a) All claims related to the services will be governed by the laws of
+        the State of Israel, interpreted in accordance with these laws, without
+        giving effect to any principles of conflicts of law. (b) Any dispute
+        arising from or related to your use of the services will be subject to
+        the exclusive jurisdiction and venue of the competent courts in the
+        State of Israel. You hereby agree to the exclusive jurisdiction and
+        venue of these courts and waive any jurisdictional, venue, or
+        inconvenient forum objections to such courts. (c) These terms do not
+        create, and shall not be interpreted to create, any partnership, joint
+        venture, employer-employee, agency, or franchisor-franchisee
+        relationship between the parties, including GistMD. (d) No waiver by any
+        party, including GistMD, of any breach or default hereunder will be
+        deemed to be a waiver of any preceding or subsequent breach or default.
+        (e) Any section headings within these terms are for convenience only and
+        shall not govern the meaning or interpretation of any provision of these
+        terms. (f) You agree and acknowledge that any cause of action arising
+        out of or related to the services must commence within one (1) year
+        after the cause of action accrues. Otherwise, such cause of action is
+        permanently barred. (g) If any provision of these terms is found by a
+        competent authority to be invalid, void, or unenforceable, such
+        provision shall be deemed severable from these terms and shall not
+        affect the validity and enforceability of any remaining provisions. (h)
+        You may not assign or transfer these terms (including all rights and
+        obligations under them) without our prior written consent, and any
+        attempt to do so in violation of the foregoing shall be null and void.
+        We and/or GistMD may assign or transfer these terms without restriction
+        and without notice. (i) Any amendment to these terms shall not be
+        binding unless in writing and signed by us and by GistMD. (j) The
+        parties agree that all correspondence related to these terms shall be in
+        writing (either electronic mail or regular mail) and in English
       </Paragraph>
-      <SubTitle>שאלות</SubTitle>
+      <SubTitle>
+        For information, questions or notification of errors, please contact:{" "}
+      </SubTitle>
       <Paragraph>
-        במידה ויש לך שאלות נוספות או הערות בנוגע לתנאים, הינך מוזמן לפנות אלינו
-        באמצעות דואר אלקטרוני בכתובת{" "}
+        If you have any questions (or comments) concerning the Terms or if you
+        need any support regarding our Services, you are most welcome to send us
+        an email and we will make an effort to reply within a reasonable{" "}
         <a href="mailto:support@gistmd.com" onClick={supportClick}>
           info@gistmd.com
         </a>{" "}
-        ואנו נעשה את מירב המאמצים לחזור אליך תוך זמן סביר.
       </Paragraph>
     </Wrapper>
   );
@@ -469,7 +596,6 @@ function LegalText() {
 export default LegalText;
 
 const Wrapper = styled.div`
-  direction: rtl;
   padding-inline: 2.4rem;
 `;
 const Title = styled.h1`
