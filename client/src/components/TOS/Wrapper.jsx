@@ -10,7 +10,7 @@ const Wrapper = ({ children, onBack }) => {
         {children}
         <ButtonContainer>
           <Button to={-1} onClick={onBack}>
-            חזור
+            Back
           </Button>
         </ButtonContainer>
       </Inner>
