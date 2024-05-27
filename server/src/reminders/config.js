@@ -9,7 +9,16 @@
 //the name of the reminder, the table the column and the timer that we want the reminder to be depend on,
 //and which reminder should we trigger next after userAction or after cronJob handle (if we need to trigger at all).
 
-const sendTime = [
+const sendTimeThreeDays = [
+  "17:00",
+  "17:00",
+  "17:00",
+  "17:00",
+  "17:00",
+  "17:00",
+  "17:00",
+];
+const sendTimeTwoDays = [
   "13:00",
   "13:00",
   "13:00",
@@ -20,37 +29,11 @@ const sendTime = [
 ];
 
 const remindersInfo = {
-  caseCreation: {
-    id: "caseCreation",
-    textKey: "caseCreation",
-    sendAt: "immediate",
-    onSend: [],
-    onAction: {},
-    dependencies: [],
-  },
-  firstVideoReminder: {
-    id: "firstVideoReminder",
-    textKey: "firstVideoReminder",
-    sendAt: "1 days after creation",
-    sendTime: sendTime,
-    onSend: [],
-    onAction: { "watched-video": [] },
-    dependencies: ["creation"],
-  },
-  secondVideoReminder: {
-    id: "secondVideoReminder",
-    textKey: "secondVideoReminder",
-    sendAt: "2 days after creation",
-    sendTime: sendTime,
-    onSend: [],
-    onAction: { "watched-video": [] },
-    dependencies: ["creation"],
-  },
   firstNutritionReminder: {
     id: "firstNutritionReminder",
     textKey: "firstNutritionReminder",
-    sendAt: "4 days before procedure",
-    sendTime: sendTime,
+    sendAt: "3 days before procedure",
+    sendTime: sendTimeThreeDays,
     onSend: [],
     onAction: {},
     dependencies: ["procedure"],
@@ -59,7 +42,7 @@ const remindersInfo = {
     id: "secondNutritionReminder",
     textKey: "secondNutritionReminder",
     sendAt: "2 days before procedure",
-    sendTime: sendTime,
+    sendTime: sendTimeTwoDays,
     onSend: [],
     onAction: {},
     dependencies: ["procedure"],
@@ -67,22 +50,11 @@ const remindersInfo = {
 };
 
 const independentAction = {
-  "three-to-four-days-pre-procedure": ["secondNutritionReminder"],
-  "five-days-pre-procedure": [
+  "three-days-pre-procedure": [
     "firstNutritionReminder",
     "secondNutritionReminder",
   ],
-  "six-days-pre-procedure": [
-    "firstVideoReminder",
-    "firstNutritionReminder",
-    "secondNutritionReminder",
-  ],
-  "seven-plus-days-pre-procedure": [
-    "firstVideoReminder",
-    "secondVideoReminder",
-    "firstNutritionReminder",
-    "secondNutritionReminder",
-  ],
+  "noReminders": [],
 };
 
 module.exports = { remindersInfo, independentAction };

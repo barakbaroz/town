@@ -5,7 +5,6 @@ const Sms = require("./sms");
 const EmailTemplates = require("./EmailTemplates");
 const Email = require("./email");
 
-const twoDays = 1000 * 60 * 60 * 24 * 2;
 function getTimeByUser(timeName, user) {
   switch (timeName) {
     case "today":
@@ -50,8 +49,6 @@ module.exports.sendSMS = async (reminder, input) => {
   const { type, User } = reminder;
   const phoneNumber = input || User.phoneNumber;
   if (!phoneNumber) return;
-  if (!createdInAcceptedHours(User.Case.createdAt)) return;
-  if (!twoDaysOrLess(User.Case.createdAt, User.Case.procedureDate)) return;
   const { textKey } = remindersInfo[type];
   const data = { type: textKey, ...User.Case.dataValues, ...User.dataValues };
   const rawMessage = findTemplate(SmsTemplates, data);
@@ -116,21 +113,6 @@ const findTemplate = (template, data) => {
   return template;
 };
 
-//checks if the creationDate is BEFORE 17.00(GMT-4)
-const createdInAcceptedHours = (creationDate) => {
-  const hours = creationDate.getUTCHours() - 4; // Convert GMT to GMT-4
-  return hours < 17;
-};
-
-//checks if the procedureDate is at least 3 days after the creationDate (by resetting the hours of each date)
-const twoDaysOrLess = (creationDate, procedureDate) => {
-  return (
-    new Date(procedureDate).setHours(0, 0, 0, 0) -
-      creationDate.setHours(0, 0, 0, 0) >
-    twoDays
-  );
-};
-
 module.exports.stringFormat = (string, obj) => {
   return Object.entries(obj).reduce(
     (prev, [key, value]) => prev.replace(`{${key}}`, value),
@@ -139,13 +121,20 @@ module.exports.stringFormat = (string, obj) => {
 };
 
 const { BASIC_URL } = process.env;
-const dateOptions = { year: "numeric", month: "numeric", day: "numeric" };
+const dateOptions = {
+  month: "numeric",
+  day: "numeric",
+  hour: "numeric",
+  minute: "numeric",
+  hour12: true,
+};
 const formatMessage = (message, user) => {
   const link = `${BASIC_URL}/api/user/entry/${user.id}`;
-  const procedureDate = new Date(user.Case.procedureDate).toLocaleString(
-    "en-US",
-    dateOptions
-  );
-  const obj = { link, procedureDate };
+  const { procedureDate, procedureTime } = user.Case;
+  const date = new Date(`${procedureDate} ${procedureTime}`);
+  const DateFormat = date.toLocaleString("en-US", dateOptions);
+  const [datePart, timePart] = DateFormat.split(", ");
+  const newFormatDate = `${datePart} at ${timePart}`;
+  const obj = { link, newFormatDate };
   return this.stringFormat(message, obj);
 };
