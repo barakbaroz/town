@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 export const StepTexts = {
   watchedVideo: "Video watched",
-  avatarSelection: "Questionnaire Answered",
+  answeredQuestionnaire: "Questionnaire Answered",
   openLink: "Text message opened",
 };
 
