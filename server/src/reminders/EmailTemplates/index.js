@@ -8,21 +8,9 @@ const templates = {
     subject: "GistMd - Password Reset",
     html: getFile("/resetPassword.html"),
   },
-  caseCreation: {
-    subject: "Personalized videos for proper bowel preparation",
-    html: getFile("/en/caseCreation.html"),
-  },
-  firstVideoReminder: {
-    subject: "We remind you to watch the video to prepare better!",
-    html: getFile("/en/firstVideoReminder.html"),
-  },
-  secondVideoReminder: {
-    subject: "Final reminder to watch the bowel preparation instructions video",
-    html: getFile("/en/secondVideoReminder.html"),
-  },
   firstNutritionReminder: {
     subject: "Diet and medication adjustments",
-    html: getFile("/en/firstVideoReminder.html"),
+    html: getFile("/en/firstNutritionReminder.html"),
   },
   secondNutritionReminder: {
     subject: "Taking your laxative solution and change to liquid diet ",
