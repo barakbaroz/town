@@ -17,6 +17,7 @@ const SatisfactionQuestions = ({ videoStarted }) => {
   const [state, setState] = useState("none");
   const { Case } = useUser();
   if (Case.CasesProgress.satisfactionAnswer) return <></>;
+  if (!videoStarted) return <></>;
 
   // Specific checking if the second questions pop all answered.
   const onSecondaryAnswer = (questionKey) => () => {
@@ -42,7 +43,7 @@ const SatisfactionQuestions = ({ videoStarted }) => {
   // Second stage when the first question is answered and the other 2 questions need to pop.
   if (state === "firstAnswered")
     return (
-      <>
+      <div>
         <ThanksTitle id="ThanksTitle">
           <Translator>Satisfaction-Response</Translator>
         </ThanksTitle>
@@ -66,7 +67,7 @@ const SatisfactionQuestions = ({ videoStarted }) => {
             onAnswer={onSecondaryAnswer("recommend-others")}
           />
         </ExtraQuestionsContainer>
-      </>
+      </div>
     );
 
   // First stage when all the answers have been answered so we put the thank you for the feedback resposne.
@@ -98,6 +99,7 @@ const ThanksTitle = styled.h3`
   font-weight: 500;
   animation: ${fadeIn} 3s;
   padding-inline: var(--screen-texts-padding);
+  margin-block-start: 0px;
   margin-block-end: 1rem;
 `;
 

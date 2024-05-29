@@ -63,7 +63,7 @@ module.exports.search = async ({ creatorId, search }) => {
       { model: Comments },
       {
         model: CasesProgress,
-        attributes: ["openLink", "avatarSelection", "watchedVideo"],
+        attributes: ["openLink", "answeredQuestionnaire", "watchedVideo"],
         ...casesProgressFilter[search.patientStatus],
       },
       Avatar,

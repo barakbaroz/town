@@ -102,7 +102,7 @@ const VideoInteraction = styled.div`
   gap: 27px;
   justify-content: end;
   margin-block-start: 14px;
-  margin-block-end: 54px;
+  margin-block-end: 40px;
   margin-inline: var(--screen-margin);
 `;
 

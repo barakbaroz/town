@@ -23,13 +23,13 @@ const Container = styled.div`
 `;
 
 const HospitalLogo = styled.img`
-  height: 39px;
+  height: 42px;
   @media (min-width: 1024px) {
     height: 60px;
   }
 `;
 const GistLogo = styled.img`
-  height: 26px;
+  height: 32px;
   @media (min-width: 1024px) {
     height: 50px;
   }
