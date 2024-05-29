@@ -23,9 +23,10 @@ const DateAndTime = {
 export default function InstructionsSteps() {
   const { Case } = useUser();
   const { language } = useLanguage();
+  const rowCount = data[Case.concentrate].length * 2;
 
   return (
-    <Container>
+    <Container rowCount={rowCount}>
       {data[Case.concentrate].map(({ getDate, content, options }, index) => (
         <Fragment key={content}>
           <Bullet />
@@ -130,7 +131,7 @@ const Container = styled.div`
   margin-block-end: 5px;
   display: grid;
   grid-template-columns: 15px auto;
-  grid-template-rows: repeat(8, min-content);
+  grid-template-rows: ${({ rowCount }) => `repeat(${rowCount}, min-content)`};
   place-items: center;
   column-gap: 8px;
 `;
