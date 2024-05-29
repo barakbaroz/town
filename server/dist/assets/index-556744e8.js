@@ -664,7 +664,7 @@ to {
   ${({show:i})=>i&&Ae`
       animation: ${completed} 2s ease-in-out forwards;
     `}
-`,StepTexts={watchedVideo:"Video watched",avatarSelection:"Questionnaire Answered",openLink:"Text message opened"},dateOptions={year:"2-digit",month:"2-digit",day:"2-digit"};function StepProgress({item:i}){return jsxRuntimeExports.jsx(StyledStepProgress,{id:"StyledStepProgress",children:Object.entries(i.CasesProgress).map(([a,s])=>{const o=!!s,et=o?"#84a4fc":"#dddddd";return jsxRuntimeExports.jsxs(reactExports.Fragment,{children:[jsxRuntimeExports.jsxs(SingleStepContainer,{id:"SingleStepContainer",children:[jsxRuntimeExports.jsx(OuterCircle,{color:et,children:jsxRuntimeExports.jsx(InnerCircle,{show:o})}),jsxRuntimeExports.jsx(Line$2,{color:et})]}),jsxRuntimeExports.jsxs(TextContainer,{id:"TextContainer",children:[jsxRuntimeExports.jsx(Name,{color:et,children:StepTexts[a]}),jsxRuntimeExports.jsx(Time,{show:o,children:new Date(s).toLocaleDateString("en-US",dateOptions)})]})]},a)})})}StepProgress.propTypes={item:PropTypes.object};const Line$2=styled.div`
+`,StepTexts={watchedVideo:"Video watched",answeredQuestionnaire:"Questionnaire Answered",openLink:"Text message opened"},dateOptions={year:"2-digit",month:"2-digit",day:"2-digit"};function StepProgress({item:i}){return jsxRuntimeExports.jsx(StyledStepProgress,{id:"StyledStepProgress",children:Object.entries(i.CasesProgress).map(([a,s])=>{const o=!!s,et=o?"#84a4fc":"#dddddd";return jsxRuntimeExports.jsxs(reactExports.Fragment,{children:[jsxRuntimeExports.jsxs(SingleStepContainer,{id:"SingleStepContainer",children:[jsxRuntimeExports.jsx(OuterCircle,{color:et,children:jsxRuntimeExports.jsx(InnerCircle,{show:o})}),jsxRuntimeExports.jsx(Line$2,{color:et})]}),jsxRuntimeExports.jsxs(TextContainer,{id:"TextContainer",children:[jsxRuntimeExports.jsx(Name,{color:et,children:StepTexts[a]}),jsxRuntimeExports.jsx(Time,{show:o,children:new Date(s).toLocaleDateString("en-US",dateOptions)})]})]},a)})})}StepProgress.propTypes={item:PropTypes.object};const Line$2=styled.div`
   background-color: ${({color:i})=>i};
   height: calc(100% - 1.5rem - 4px);
   width: 3px;
@@ -1684,12 +1684,12 @@ to {
   padding-block: var(--header-block-padding);
   padding-inline: var(--header-inline-padding);
 `,HospitalLogo=styled.img`
-  height: 39px;
+  height: 42px;
   @media (min-width: 1024px) {
     height: 60px;
   }
 `,GistLogo=styled.img`
-  height: 26px;
+  height: 32px;
   @media (min-width: 1024px) {
     height: 50px;
   }
@@ -1814,12 +1814,10 @@ to {
   }
 `;function Player({onPlayerPlaying:i,videoRef:a}){const{Case:s,Questionnaires:o}=useUser(),{language:et}=useLanguage(),{video:tt}=useVideo({language:et,Case:s,Questionnaires:o}),rt=reactExports.useCallback((it,nt)=>{axios$1.post("/api/user/userVideoAction",{type:"watched-video",data:{percentage:it,location:nt}})},[]);return jsxRuntimeExports.jsx(VideoContainer,{children:jsxRuntimeExports.jsx(Player$1,{src:tt.src,autoFullScreen:!1,audioStartDelay:3,onLocationUpdate:rt,onPlayerPlaying:i,thumbnail,passedRef:a})})}Player.propTypes={onPlayerPlaying:PropTypes.func,videoRef:PropTypes.oneOfType([PropTypes.shape({current:PropTypes.instanceOf(Element)}),PropTypes.func])};const VideoContainer=styled.div`
   margin-inline: 15px;
-`;function SingleQuestion({questionKey:i,onAnswer:a,show:s}){const[o,et]=reactExports.useState(""),tt=rt=>()=>{postAnalytics({type:`satisfaction-question-${i}`,data:rt}),et(rt),a&&a()};return jsxRuntimeExports.jsxs(FeedBackWrapper,{id:"FeedBackWrapper",show:s,children:[jsxRuntimeExports.jsx(FeedbackTitle,{id:"FeedbackTitle",children:jsxRuntimeExports.jsxs(Translator,{children:["Satisfaction-question-",i]})}),jsxRuntimeExports.jsxs(Answers,{id:"Answers",children:[jsxRuntimeExports.jsx(Answer$1,{id:"AnswerYes",onClick:tt("Yes"),checked:o==="Yes",children:jsxRuntimeExports.jsx(Translator,{children:"Yes"})}),jsxRuntimeExports.jsx(Answer$1,{id:"AnswerNo",onClick:tt("No"),checked:o==="No",children:jsxRuntimeExports.jsx(Translator,{children:"No"})})]})]})}SingleQuestion.propTypes={questionKey:PropTypes.string.isRequired,onAnswer:PropTypes.func,show:PropTypes.bool};const FeedBackWrapper=styled.div`
+`;function SingleQuestion({questionKey:i,onAnswer:a}){const[s,o]=reactExports.useState(""),et=tt=>()=>{postAnalytics({type:`satisfaction-question-${i}`,data:tt}),o(tt),a&&a()};return jsxRuntimeExports.jsxs(FeedBackWrapper,{id:"FeedBackWrapper",children:[jsxRuntimeExports.jsx(FeedbackTitle,{id:"FeedbackTitle",children:jsxRuntimeExports.jsxs(Translator,{children:["Satisfaction-question-",i]})}),jsxRuntimeExports.jsxs(Answers,{id:"Answers",children:[jsxRuntimeExports.jsx(Answer$1,{id:"AnswerYes",onClick:et("Yes"),checked:s==="Yes",children:jsxRuntimeExports.jsx(Translator,{children:"Yes"})}),jsxRuntimeExports.jsx(Answer$1,{id:"AnswerNo",onClick:et("No"),checked:s==="No",children:jsxRuntimeExports.jsx(Translator,{children:"No"})})]})]})}SingleQuestion.propTypes={questionKey:PropTypes.string.isRequired,onAnswer:PropTypes.func,show:PropTypes.bool};const FeedBackWrapper=styled.div`
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  opacity: ${({show:i})=>i?1:0};
-  height: ${({show:i})=>i?1:0};
   transition: opacity 200ms linear;
   padding-inline: var(--screen-texts-padding);
   overflow: hidden;
@@ -1843,7 +1841,7 @@ to {
       color: #fff;
       background-color: #84a4fc;
     `}
-`,SatisfactionQuestions=({videoStarted:i})=>{const a=reactExports.useRef({allay:!1,"helped-understand":!1,"recommend-others":!1}),[s,o]=reactExports.useState("none"),{Case:et}=useUser();if(et.CasesProgress.satisfactionAnswer)return jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment,{});const tt=rt=>()=>{a.current[rt]=!0,Object.values(a.current).every(Boolean)&&o("allAnswered")};if(s==="none")return jsxRuntimeExports.jsx(SingleQuestion,{questionKey:"video-helpful",onAnswer:()=>o("firstAnswered"),show:i});if(s==="firstAnswered")return jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment,{children:[jsxRuntimeExports.jsx(ThanksTitle,{id:"ThanksTitle",children:jsxRuntimeExports.jsx(Translator,{children:"Satisfaction-Response"})}),jsxRuntimeExports.jsxs(ExtraQuestionsContainer,{children:[jsxRuntimeExports.jsx(SingleQuestion,{questionKey:"allay",show:!0,onAnswer:tt("allay")}),jsxRuntimeExports.jsx(SingleQuestion,{questionKey:"helped-understand",show:!0,onAnswer:tt("helped-understand")}),jsxRuntimeExports.jsx(SingleQuestion,{questionKey:"recommend-others",show:!0,onAnswer:tt("recommend-others")})]})]});if(s==="allAnswered")return jsxRuntimeExports.jsx(ThanksTitle,{id:"ThanksTitle",children:jsxRuntimeExports.jsx(Translator,{children:"Satisfaction-question-all-answered"})})};SatisfactionQuestions.propTypes={videoStarted:PropTypes.bool};const fadeIn=We`
+`,SatisfactionQuestions=({videoStarted:i})=>{const a=reactExports.useRef({allay:!1,"helped-understand":!1,"recommend-others":!1}),[s,o]=reactExports.useState("none"),{Case:et}=useUser();if(et.CasesProgress.satisfactionAnswer)return jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment,{});if(!i)return jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment,{});const tt=rt=>()=>{a.current[rt]=!0,Object.values(a.current).every(Boolean)&&o("allAnswered")};if(s==="none")return jsxRuntimeExports.jsx(SingleQuestion,{questionKey:"video-helpful",onAnswer:()=>o("firstAnswered"),show:i});if(s==="firstAnswered")return jsxRuntimeExports.jsxs("div",{children:[jsxRuntimeExports.jsx(ThanksTitle,{id:"ThanksTitle",children:jsxRuntimeExports.jsx(Translator,{children:"Satisfaction-Response"})}),jsxRuntimeExports.jsxs(ExtraQuestionsContainer,{children:[jsxRuntimeExports.jsx(SingleQuestion,{questionKey:"allay",show:!0,onAnswer:tt("allay")}),jsxRuntimeExports.jsx(SingleQuestion,{questionKey:"helped-understand",show:!0,onAnswer:tt("helped-understand")}),jsxRuntimeExports.jsx(SingleQuestion,{questionKey:"recommend-others",show:!0,onAnswer:tt("recommend-others")})]})]});if(s==="allAnswered")return jsxRuntimeExports.jsx(ThanksTitle,{id:"ThanksTitle",children:jsxRuntimeExports.jsx(Translator,{children:"Satisfaction-question-all-answered"})})};SatisfactionQuestions.propTypes={videoStarted:PropTypes.bool};const fadeIn=We`
 from { opacity: 0;}
 to { opacity: 1;}
   `,ThanksTitle=styled.h3`
@@ -1851,6 +1849,7 @@ to { opacity: 1;}
   font-weight: 500;
   animation: ${fadeIn} 3s;
   padding-inline: var(--screen-texts-padding);
+  margin-block-start: 0px;
   margin-block-end: 1rem;
 `,ExtraQuestionsContainer=styled.div`
   display: flex;
@@ -1879,7 +1878,7 @@ to { opacity: 1;}
 `,Title$1=styled.h3`
   margin: 0;
   font-size: 1.375rem;
-`,nutrition="/assets/nutrition-19337e5c.svg",DateOnly={weekday:"long",year:"numeric",month:"numeric",day:"numeric"},DateAndTime={weekday:"long",year:"numeric",month:"numeric",day:"numeric",hour:"numeric",minute:"numeric"};function InstructionsSteps(){const{Case:i}=useUser(),{language:a}=useLanguage();return jsxRuntimeExports.jsx(Container$4,{children:data[i.concentrate].map(({getDate:s,content:o,options:et},tt)=>jsxRuntimeExports.jsxs(reactExports.Fragment,{children:[jsxRuntimeExports.jsx(Bullet,{}),jsxRuntimeExports.jsx(StepDetails,{children:s(i).toLocaleString(`${a}-US`,et).replaceAll(","," |")}),jsxRuntimeExports.jsx(DottedLine,{last:tt===data[i.concentrate].length-1}),jsxRuntimeExports.jsx(DescriptionText,{children:jsxRuntimeExports.jsxs(Translator,{children:["Instructions-Steps-",o]})})]},o))})}const instructions={fiberDiet:{content:"fiber-diet",options:DateOnly,getDate:i=>{const a=new Date(i.procedureDateAndTime);return a.setDate(a.getDate()-2),a}},fluidsOnly:{content:"fluids-only",options:DateAndTime,getDate:i=>{const a=new Date(i.procedureDateAndTime);return a.setDate(a.getDate()-1),a}},firstDosage:{content:"first-dosage",options:DateAndTime,getDate:i=>{const a=new Date(i.procedureDateAndTime);return a.setDate(a.getDate()-1),a.setHours(18,0),a}},secondDosage:{content:"second-dosage",options:DateAndTime,getDate:i=>{const a=new Date(i.procedureDateAndTime);return a.setDate(a.getDate()-1),a.setHours(20,0),a}},oneDosage:{content:"one-dosage",options:DateAndTime,getDate:i=>{const a=new Date(i.procedureDateAndTime);return a.setDate(a.getDate()-1),a.setHours(18,0),a}},fastInstructions:{content:"fast-instructions",options:DateAndTime,getDate:i=>{const a=new Date(i.procedureDateAndTime);return a.setHours(0,0),a}}},data={golytely:[instructions.fiberDiet,instructions.fluidsOnly,instructions.oneDosage,instructions.fastInstructions],suprep:[instructions.fiberDiet,instructions.fluidsOnly,instructions.firstDosage,instructions.secondDosage,instructions.fastInstructions]},DottedLine=styled.div`
+`,nutrition="/assets/nutrition-19337e5c.svg",DateOnly={weekday:"long",year:"numeric",month:"numeric",day:"numeric"},DateAndTime={weekday:"long",year:"numeric",month:"numeric",day:"numeric",hour:"numeric",minute:"numeric"};function InstructionsSteps(){const{Case:i}=useUser(),{language:a}=useLanguage(),s=data[i.concentrate].length*2;return jsxRuntimeExports.jsx(Container$4,{rowCount:s,children:data[i.concentrate].map(({getDate:o,content:et,options:tt},rt)=>jsxRuntimeExports.jsxs(reactExports.Fragment,{children:[jsxRuntimeExports.jsx(Bullet,{}),jsxRuntimeExports.jsx(StepDetails,{children:o(i).toLocaleString(`${a}-US`,tt).replaceAll(","," |")}),jsxRuntimeExports.jsx(DottedLine,{last:rt===data[i.concentrate].length-1}),jsxRuntimeExports.jsx(DescriptionText,{children:jsxRuntimeExports.jsxs(Translator,{children:["Instructions-Steps-",et]})})]},et))})}const instructions={fiberDiet:{content:"fiber-diet",options:DateOnly,getDate:i=>{const a=new Date(i.procedureDateAndTime);return a.setDate(a.getDate()-2),a}},fluidsOnly:{content:"fluids-only",options:DateAndTime,getDate:i=>{const a=new Date(i.procedureDateAndTime);return a.setDate(a.getDate()-1),a}},firstDosage:{content:"first-dosage",options:DateAndTime,getDate:i=>{const a=new Date(i.procedureDateAndTime);return a.setDate(a.getDate()-1),a.setHours(18,0),a}},secondDosage:{content:"second-dosage",options:DateAndTime,getDate:i=>{const a=new Date(i.procedureDateAndTime);return a.setDate(a.getDate()-1),a.setHours(20,0),a}},oneDosage:{content:"one-dosage",options:DateAndTime,getDate:i=>{const a=new Date(i.procedureDateAndTime);return a.setDate(a.getDate()-1),a.setHours(18,0),a}},fastInstructions:{content:"fast-instructions",options:DateAndTime,getDate:i=>{const a=new Date(i.procedureDateAndTime);return a.setHours(0,0),a}}},data={golytely:[instructions.fiberDiet,instructions.fluidsOnly,instructions.oneDosage,instructions.fastInstructions],suprep:[instructions.fiberDiet,instructions.fluidsOnly,instructions.firstDosage,instructions.secondDosage,instructions.fastInstructions]},DottedLine=styled.div`
   height: 100%;
   border-right: 1px dotted #7a9dfd;
   visibility: ${({last:i})=>i?"hidden":"visible"};
@@ -1887,7 +1886,7 @@ to { opacity: 1;}
   margin-block-end: 5px;
   display: grid;
   grid-template-columns: 15px auto;
-  grid-template-rows: repeat(8, min-content);
+  grid-template-rows: ${({rowCount:i})=>`repeat(${i}, min-content)`};
   place-items: center;
   column-gap: 8px;
 `,Bullet=styled.div`
@@ -1984,7 +1983,7 @@ to { opacity: 1;}
   gap: 27px;
   justify-content: end;
   margin-block-start: 14px;
-  margin-block-end: 54px;
+  margin-block-end: 40px;
   margin-inline: var(--screen-margin);
 `,ScrollButton=styled.a`
   display: flex;
