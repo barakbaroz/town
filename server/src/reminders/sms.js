@@ -24,6 +24,6 @@ module.exports.send = async ({ message, phoneNumber }) => {
     Contacts: [{ To: phoneNumber }],
   };
   const res = await axios.post(SMS_URL, smsObj);
-  if (res.status != 200 || res.data.StatusCode !== 0)
-    throw `Sms API response with ${res.data.StatusCode}`;
+  if (res.status != 200 || res.statusText !== "OK")
+    throw `Sms API response with ${res.statusText}`;
 };
