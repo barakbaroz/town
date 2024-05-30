@@ -89,7 +89,7 @@ export default function Gister() {
 const validatorFullFeilds = {
   yearOfBirth: ({ yearOfBirth }) => yearOfBirth?.length !== 4,
   concentrate: ({ concentrate }) => !concentrate,
-  date: ({ date }) => !date || date < today().toDate(),
+  date: ({ date }) => !date || date.toDate() < today().toDate(),
   time: ({ time }) => !time,
   contacts: ({ phoneNumber, email }) => {
     if (!phoneNumber && !email) return true;
