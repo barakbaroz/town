@@ -9,6 +9,7 @@ const {
 } = require("../models");
 const { Op } = require("sequelize");
 const reminders = require("../reminders/service");
+const { TESTING_NUMBERS } = process.env;
 
 const casesProgressFilter = {
   openLink: {
@@ -105,15 +106,25 @@ module.exports.create = async ({
   email,
 }) => {
   console.info(`create case by staff member: ${creatorId}`);
+  const { year, month, day } = date;
+  const formatDate = new Date(year, month - 1, day);
   const newCase = await Cases.create({
     creatorId,
     yearOfBirth,
     concentrate,
-    procedureDate: date,
+    procedureDate: formatDate,
     procedureTime: time,
   });
+
   const CaseId = newCase.dataValues.id;
-  const user = await Users.create({ CaseId, phoneNumber, email });
+  const newFormatPhone = JSON.parse(TESTING_NUMBERS).includes(phoneNumber)
+    ? phoneNumber
+    : `+1${phoneNumber}`;
+  const user = await Users.create({
+    CaseId,
+    phoneNumber: newFormatPhone,
+    email,
+  });
   const actionKey = getRemindersFlow(date);
   await reminders.action({ UserId: user.id, actionKey });
   return CaseId;
