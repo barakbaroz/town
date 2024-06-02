@@ -125,7 +125,7 @@ module.exports.create = async ({
     phoneNumber: newFormatPhone,
     email,
   });
-  const actionKey = getRemindersFlow(date);
+  const actionKey = getRemindersFlow(formatDate);
   await reminders.action({ UserId: user.id, actionKey });
   return CaseId;
 };
