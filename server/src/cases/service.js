@@ -30,7 +30,11 @@ const casesProgressFilter = {
     },
   },
 };
-const dateFilter = ({ date }) => (date ? { procedureDate: date } : {});
+const dateFilter = ({ date }) => {
+  if (!date) return {};
+  const { year, month, day } = date;
+  return { procedureDate: new Date(year, month - 1, day) };
+};
 
 const yearOfBirthFilter = ({ yearOfBirth }) =>
   yearOfBirth ? { yearOfBirth: { [Op.substring]: yearOfBirth } } : {};
@@ -48,6 +52,7 @@ function getPhoneNumber(number) {
 
 function getRemindersFlow(date) {
   const procedureDate = new Date(date).setHours(0, 0, 0, 0);
+  console.log(procedureDate);
   const createAfter5PM = new Date().getHours() > 17;
   const today = createAfter5PM
     ? new Date(new Date().getTime() + dayTime)
