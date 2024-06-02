@@ -93,10 +93,15 @@ function calculateDate(string, user, sendTimeInweek) {
   const signformt = { after: +amount, before: -amount };
   const [set, get] = getUnitsFormat(units);
   const result = new Date(new Date(time)[set](time[get]() + signformt[sign]));
+  const year = result.getUTCFullYear();
+  const month = result.getUTCMonth();
+  const day = result.getUTCDate();
   if (!(sendTimeInweek || at)) return result;
   const hour = sendTime || sendTimeInweek[result.getDay()];
   const hourSplited = hour.split(":");
-  return new Date(result.setHours(...hourSplited, ...Array(4).fill("0")));
+  return new Date(
+    new Date(year, month, day).setHours(...hourSplited, ...Array(4).fill("0"))
+  );
 }
 
 module.exports.performAction = async (reminder, actionType) => {
