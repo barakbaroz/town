@@ -40,6 +40,12 @@ const myCasesFilter = ({ myCases }, creatorId) =>
 
 const dayTime = 1000 * 60 * 60 * 24;
 
+function getPhoneNumber(number) {
+  if (!number) return;
+  if (JSON.parse(TESTING_NUMBERS).includes(number)) return number;
+  return `+1${number}`;
+}
+
 function getRemindersFlow(date) {
   const procedureDate = new Date(date).setHours(0, 0, 0, 0);
   const createAfter5PM = new Date().getHours() > 17;
@@ -117,9 +123,7 @@ module.exports.create = async ({
   });
 
   const CaseId = newCase.dataValues.id;
-  const newFormatPhone = JSON.parse(TESTING_NUMBERS).includes(phoneNumber)
-    ? phoneNumber
-    : `+1${phoneNumber}`;
+  const newFormatPhone = getPhoneNumber(phoneNumber);
   const user = await Users.create({
     CaseId,
     phoneNumber: newFormatPhone,
