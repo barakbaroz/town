@@ -9,11 +9,11 @@ const templates = {
     html: getFile("/resetPassword.html"),
   },
   firstNutritionReminder: {
-    subject: "Diet and medication adjustments",
+    subject: "Personalized videos for proper bowel preparation",
     html: getFile("/en/firstNutritionReminder.html"),
   },
   secondNutritionReminder: {
-    subject: "Taking your laxative solution and change to liquid diet ",
+    subject: "Diet and medication adjustments",
     html: getFile("/en/secondNutritionReminder.html"),
   },
 };
