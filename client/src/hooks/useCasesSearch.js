@@ -22,7 +22,7 @@ export default function useCasesSearch(search, refetchCasesCount) {
     axios({
       method: "POST",
       url: "/api/cases/search",
-      data: { search: { ...search, date: search.date?.toDate() } },
+      data: { search: { ...search, date: search.date } },
       cancelToken: new axios.CancelToken((c) => (cancel = c)),
     })
       .then((res) => {
