@@ -5,5 +5,6 @@ StaffMembers.create({
   email: "gist@gistmd.com",
   password: "123456",
   name: "User Name",
-  phoneNumber: "0528033947",
+  title: "Colonoscopy Coordinator",
+  phoneNumber: "05********",
 }).then(() => console.log("New user added"));
