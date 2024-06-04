@@ -1,5 +1,6 @@
 {
   "key": "type",
+  "caseCreation": "Hi! You have an examination scheduled for {newFormatDate} at our clinic. It’s important that you understand how crucial correct preparation is for the procedure’s success. Incorrect bowel preparation may force you to redo the examination. Click on the link below to watch a personalized video that will help you prepare for the procedure.\n{link}",
   "firstNutritionReminder": "Hi! Ahead of your examination on {newFormatDate}, we wanted to remind you that starting from tomorrow, you should change your diet and eat only low-fiber food. We created a personalized video that will help you understand how to prepare better and arrive ready for the examination. Watch it here:\n{link}",
   "secondNutritionReminder": "Hi! Ahead of your examination on {newFormatDate}, we wanted to remind you that starting tomorrow, you must switch to a liquid-only diet and begin taking laxatives for bowel cleansing according to your physician's instructions.\nRemember, proper preparation is crucial for the examination's success. Inadequate preparation may necessitate a repeat examination. Watch the instructions: \n{link}"
 }

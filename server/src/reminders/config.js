@@ -29,6 +29,14 @@ const sendTimeTwoDays = [
 ];
 
 const remindersInfo = {
+  caseCreation: {
+    id: "caseCreation",
+    textKey: "caseCreation",
+    sendAt: "immediate",
+    onSend: [],
+    onAction: {},
+    dependencies: [],
+  },
   firstNutritionReminder: {
     id: "firstNutritionReminder",
     textKey: "firstNutritionReminder",
