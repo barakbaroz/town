@@ -8,14 +8,22 @@ const {
   sendSMS,
   sendEmail,
 } = require("./utils");
+const { TESTING_NUMBERS } = process.env;
+
+function getPhoneNumber(number) {
+  if (!number) return;
+  if (JSON.parse(TESTING_NUMBERS).includes(number)) return number;
+  return `+1${number}`;
+}
 
 module.exports.sendImmediate = async ({ CaseId, type, phoneNumber, email }) => {
+  const number = getPhoneNumber(phoneNumber);
   const user = await Users.findOne({
     include: Cases,
     where: { CaseId },
   });
   const data = { type, User: user };
-  const SmsPromise = sendSMS(data, phoneNumber);
+  const SmsPromise = sendSMS(data, number);
   const EmailPromise = sendEmail(data, email);
   await Promise.all([SmsPromise, EmailPromise]);
 };

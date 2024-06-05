@@ -22,9 +22,8 @@ export default function PhoneInput({ item }) {
   const handleClick = () => {
     if (!open) return setOpen(true);
     if (number.length != 10) return setError(true);
-    const usaFormatPhone = `+1${number}`;
     axios.post("/api/reminders/sendImmediate", {
-      phoneNumber: usaFormatPhone,
+      phoneNumber: number,
       CaseId: item.id,
       type: "caseCreation",
     });
