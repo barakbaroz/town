@@ -6,5 +6,5 @@ StaffMembers.create({
   password: "123456",
   name: "User Name",
   title: "Colonoscopy Coordinator",
-  phoneNumber: "05********",
+  phoneNumber: "+1**********",
 }).then(() => console.log("New user added"));
