@@ -24,6 +24,8 @@ const DateOptions = {
 export default function CaseItem({ item, deleteCase }) {
   const [expand, setExpand] = useState(false);
   const [showDeletePopUp, setShowDeletePopUp] = useState(false);
+  const [year, month, day] = item.procedureDate.split("-");
+  const date = new Date(year, month - 1, day);
 
   const handleExpand = () => setExpand((prev) => !prev);
 
@@ -61,11 +63,7 @@ export default function CaseItem({ item, deleteCase }) {
               "en-US",
               TimeOptions
             )}{" "}
-            |{" "}
-            {new Date(item.procedureDate).toLocaleDateString(
-              "en-US",
-              DateOptions
-            )}
+            | {date.toLocaleDateString("en-US", DateOptions)}
           </SubHeadin>
         </Unit>
         <EndPart>
