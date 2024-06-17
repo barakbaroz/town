@@ -7,9 +7,10 @@ export default function useVideo({ language, Case, Questionnaires }) {
   useEffect(() => {
     const { ethnicity, age, gender } = Case.Avatar;
     const { procedureTime, procedureDate, concentrate } = Case;
+    const [year, month, day] = procedureDate.split("-");
     const [hours] = procedureTime.split(":");
     const dayTime = hours >= 15 ? "evening" : "morning";
-    const weekday = new Date(procedureDate).toLocaleString("en-US", {
+    const weekday = new Date(year, month - 1, day).toLocaleString("en-US", {
       weekday: "long",
     });
     axios
